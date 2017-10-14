@@ -1,12 +1,50 @@
 %!TEX root = ../Principal.tex
-\chapter{Resultados de comandos}\label{cap_exemplos}
-
-\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
-normatização a respeito desse tipo de resumo, que é mais comum em romances 
-e livros técnicos.}\index{sinopse de capítulo}
+\chapter{Introdução}\label{introducao}
 
 % ---
-\section{\uppercase{Codificação dos arquivos: UTF8}}
+\section{\uppercase{Objetivos}}
+
+Foram definidos objetivos geral e específicos para orientar o pro- cesso de pesquisa desse trabalho.
+
+\subsection{Objetivo Geral}
+
+IDEIAS:
+Aplicar o contexto temporal em um algoritmo de recomendação para ambientes educacionais
+Criar um algoritmo de recomendação que considere o decaimento do interesse dos alunos nos materiais em função do
+tempo categórico
+Criar um algoritmo de recomendação que considere o decaimento do interesse dos alunos nos materiais em função da
+sequência de acessos realizados
+Criar um sistema de recomendação sensível ao tempo para garantir uma recomendação apropriada a situação atual dos alunos
+
+
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+\item Definir como usar o aspecto temporal em sistemas de recomendação para ambiente educacionais
+\item Implementar o algoritmo de recomendação proposto do ambiente AdaptWeb
+\item Considerar diretrizes para a apresentação de recomendação para desenvolver a interface do sistema de recomendação
+no ambiente AdaptWeb
+\item Avaliar a qualidade de uso do sistema de recomendação proposto pela perspectiva do usuário
+\end{itemize}
+
+\section{\uppercase{Escopo}}
+
+Esse trabalho não irá considerar outras dimensões do contexto além do tempo na recomendação, e dentro do uso do contexto
+temporal apenas a categoria de Decay será aplicada nesse trabalho. Além disso, a única abordagem de recomendação
+utilizada será a Baseada em Conteúdo, apesar de as categorias de Sistemas de Recomendação Sensíveis ao Tempo poderem ser
+aplicadas em quaisquer abordagens de recomendação. Tanto o algoritmo de recomendação quanto a apresentação dessas
+recomendações são propostas para se adequar aos objetivos e a estrutura do ambiente AdaptWeb®. Nesse trabalho as
+palavras-chave que descrevem os materiais de estudo são cadastradas pelo professor, e dessa forma a qualidade da
+abordagem Baseada em Conteúdo considerada por este trabalho tem como limitação a categorização correta dos itens no
+sistema.
+
+\section{\uppercase{Metodologica}}
+
+\section{\uppercase{Estrutura}}
+
+
+
 % ---
 
 % ---
@@ -68,7 +106,7 @@ o expoente, sem espaço entre elas e com fonte menor
 criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
 colocada após cada número do expoente que indica a nota de rodapé no corpo do
 texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
-dividi-los no corpo do texto.}. 
+dividi-los no corpo do texto.}.
 
 
 % ---
@@ -260,8 +298,8 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 \begin{alineas}
 
   \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
-  seção, devem ser subdivididos em alíneas; 
-  
+  seção, devem ser subdivididos em alíneas;
+
   \item o texto que antecede as alíneas termina em dois pontos;
   \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
   seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
@@ -277,7 +315,7 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 
   \item a segunda e as seguintes linhas do texto da alínea começa sob a
   primeira letra do texto da própria alínea;
-  
+
   \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
   seguir:
 
@@ -293,24 +331,24 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
      \item a segunda e as seguintes linhas do texto da subalínea começam sob a
      primeira letra do texto da própria subalínea.
   \end{alineas}
-  
+
   \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
   \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
   \texttt{alineas}, como nos exemplos à seguir:
-  
+
   \begin{incisos}
     \item \textit{Um novo inciso em itálico};
   \end{incisos}
-  
+
   \item Alínea em \textbf{negrito}:
-  
+
   \begin{subalineas}
     \item \textit{Uma subalínea em itálico};
-    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
+    \item \underline{\textit{Uma subalínea em itálico e sublinhado}};
   \end{subalineas}
-  
+
   \item Última alínea com \emph{ênfase}.
-  
+
 \end{alineas}
 
 % ---
@@ -331,7 +369,7 @@ também seja indentado, como é o caso deste documento. Para isso, apenas inclua
 pacote \textsf{indentfirst} no preâmbulo do documento:
 
 \begin{verbatim}
-   \usepackage{indentfirst}  
+   \usepackage{indentfirst}
    % Indenta o primeiro parágrafo de cada seção.
 \end{verbatim}
 
@@ -339,7 +377,7 @@ pacote \textsf{indentfirst} no preâmbulo do documento:
 pode ser controlado por meio do comando:
 
 \begin{verbatim}
-  \setlength{\parskip}{0.2cm} 
+  \setlength{\parskip}{0.2cm}
   % tente também \onelineskip
 \end{verbatim}
 
@@ -347,9 +385,9 @@ pode ser controlado por meio do comando:
 definido por:
 
 \begin{verbatim}
-  \OnehalfSpacing       % espaçamento um e meio (padrão); 
+  \OnehalfSpacing       % espaçamento um e meio (padrão);
   \DoubleSpacing        % espaçamento duplo
-  \SingleSpacing        % espaçamento simples	
+  \SingleSpacing        % espaçamento simples
 \end{verbatim}
 
 Para isso, também estão disponíveis os ambientes:
@@ -360,7 +398,7 @@ Para isso, também estão disponíveis os ambientes:
   \begin{OnehalfSpace} ... \end{OnehalfSpace}
   \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
   \begin{DoubleSpace} ... \end{DoubleSpace}
-  \begin{DoubleSpace*} ... \end{DoubleSpace*} 
+  \begin{DoubleSpace*} ... \end{DoubleSpace*}
 \end{verbatim}
 
 Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
@@ -376,14 +414,14 @@ de modo que cada arquivo incluído fique em uma página diferente, utilize o
 comando:
 
 \begin{verbatim}
-   \include{documento-a-ser-incluido} 
+   \include{documento-a-ser-incluido}
    % sem a extensão .tex
 \end{verbatim}
 
 Para incluir documentos sem quebra de páginas, utilize:
 
 \begin{verbatim}
-   \input{documento-a-ser-incluido} 
+   \input{documento-a-ser-incluido}
    % sem a extensão .tex
 \end{verbatim}
 
@@ -404,8 +442,8 @@ comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 \begin{verbatim}
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
-   makeindex ARQUIVO_PRINCIPAL.idx 
-   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist 
+   makeindex ARQUIVO_PRINCIPAL.idx
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist
    -o ARQUIVO_PRINCIPAL.nls
    pdflatex ARQUIVO_PRINCIPAL.tex
    pdflatex ARQUIVO_PRINCIPAL.tex
@@ -428,15 +466,15 @@ seções, subseções e subsubseções.
 O código usado para produzir o texto desta seção é:
 
 \begin{verbatim}
-Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, 
-apresentamos um exemplo de remissão interna, que também 
+Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo},
+apresentamos um exemplo de remissão interna, que também
 pode ser feita quando indicamos o \autoref{cap_exemplos},
 que tem o nome \emph{\nameref{cap_exemplos}}. O número
 do capítulo indicado é \ref{cap_exemplos}, que se inicia à
-\autopageref{cap_exemplos}\footnote{O número da página de 
+\autopageref{cap_exemplos}\footnote{O número da página de
 uma remissão pode ser obtida também assim:
 \pageref{cap_exemplos}.}.
-Veja a \autoref{sec-divisoes} para outros exemplos de 
+Veja a \autoref{sec-divisoes} para outros exemplos de
 remissões internas entre
 seções, subseções e subsubseções.
 \end{verbatim}
@@ -474,11 +512,11 @@ Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
 
 \paragraph{Isto é um parágrafo rotulado}\label{sec-exemplo-paragrafo}
 
-Este é um parágrafo na \autoref{sec-exemplo-paragrafo}. 
+Este é um parágrafo na \autoref{sec-exemplo-paragrafo}.
 
 \paragraph{Isto é outro parágrafo rotulado}\label{sec-exemplo-paragrafo-outro}
 
-Este é outro parágrafo na \autoref{sec-exemplo-paragrafo-outro}. 
+Este é outro parágrafo na \autoref{sec-exemplo-paragrafo-outro}.
 
 
 
@@ -488,7 +526,7 @@ alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
 primeira palavra da primeira linha}
 % ---
 
-Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
  e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
 
  % ---
@@ -567,7 +605,7 @@ como parâmetro um idioma a ser usado na citação.
 % ---
 
 Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
-referência completa das macros e ambientes disponíveis. 
+referência completa das macros e ambientes disponíveis.
 
 Além disso, o manual possui informações adicionais sobre as normas ABNT
 observadas pelo \abnTeX e considerações sobre eventuais requisitos específicos

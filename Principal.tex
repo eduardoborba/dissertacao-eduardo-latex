@@ -1,6 +1,6 @@
 % Arquivo Principal para Dissertações do PPGCA - Udesc Joinville
 
-% abnTeX2: Modelo de Trabalho Academico em conformidade com 
+% abnTeX2: Modelo de Trabalho Academico em conformidade com
 % ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
 % Apresentacao
 
@@ -12,8 +12,8 @@
 \documentclass[
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			
-	a4paper,			% tamanho do papel. 
+	oneside,
+	a4paper,			% tamanho do papel.
 	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
@@ -30,22 +30,22 @@
 % Dados da Capa
 % ---
 
-\titulo{TÍTULO DO TRABALHO}
-\autor{NOME DO AUTOR}
+\titulo{SISTEMA DE RECOMENDAÇÃO SENSÍVEL AO TEMPO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM}
+\autor{EDUARDO JOSÉ DE BORBA}
 \local{Joinville}
 \instituicao{Universidade do Estado de Santa Catarina - UDESC}
 \campus{Centro de Ciências Tecnológicas - CCT}
 \curso{Mestrado em Computação Aplicada}
-\data{2016}
-\fulldata{xx de xxxx de 2017}
+\data{2017}
+\fulldata{11 de Dezembro de 2017}
 
 % ---
 % Folha de Rosto
 % ---
-\inforosto{Dissertação submetida ao Programa de Pós-Graduação em Computação Aplicada do Centro de Ciências Tecnológicas da Universidade do Estado de Santa Catarina, para a obtenção do grau de Mestre em Computação Aplicada.}
-\orientador{Nome do Orientador}
-\orientadorRotulo{Dr. }
-\coorientador{Nome do Co-Orientador}
+\inforosto{Qualificação submetida ao Programa de Pós-Graduação em Computação Aplicada do Centro de Ciências Tecnológicas da Universidade do Estado de Santa Catarina, para a obtenção do grau de Mestre em Computação Aplicada.}
+\orientador{Isabela Gasparini}
+\orientadorRotulo{Dra. }
+\coorientador{Daniel Lichtnow}
 \coorientadorRotulo{Dr. }
 
 % ----
@@ -62,11 +62,9 @@
 % ---
 \begin{siglas}
   \SingleSpacing
-  \item[OV]       Organização Virtual
-  \item[CC]       \textit{Cloud Computing}
-  \item[OC]       Oportunidade de Colaboração
-  \item[AHP]      \textit{Analytic Hierarchy Process}
-  \item[DEA]      \textit{Data Envelopment Analysis}
+  \item[AdaptWeb]  Ambiente de Ensino-Aprendizagem Adaptativo na Web
+  \item[SR]        Sistema de Recomendação
+  \item[XML]       Extensible Markup Language
 \end{siglas}
 
 \begin{simbolos}
@@ -95,11 +93,15 @@
 
 \include{Partes/cap1}
 \include{Partes/cap2}
+\include{Partes/cap3}
+\include{Partes/cap4}
+\include{Partes/cap5}
+\include{Partes/cap6}
 
 % ---
 % Finaliza o bookmark do PDF
 % ---
-\bookmarksetup{startatroot}% 
+\bookmarksetup{startatroot}%
 % ---
 
 % ----------------------------------------------------------
