@@ -5,16 +5,21 @@
 Sistemas de Recomendação (SRs) se tornaram uma importante área de pesquisa a partir dos anos 90, quando começaram a
 surgir os primeiros trabalhos na área de filtragem colaborativa \cite{adomavicius2005toward}. Os SRs são ferramentas
 computacionais que provém sugestões de itens personalizadas aos usuários \cite{ricci2011introduction}. Isso significa
-que o usuário recebe um como recomendaçnos um conjunto diferente de itens de acordo com as suas preferências e necessidades.
+que o usuário recebe como recomendação um conjunto diferente de itens de acordo com as suas preferências e necessidades.
 Nos últimos anos, o interesse na aplicação de SRs têm crescido fortemente \cite{adomavicius2005toward, beel2016towards}.
-Exemplos dessas aplicações são: recomendação de Livros, CDs, DVDs, etc., em sites de e-commerce como Amazon e EBAY;
-recomendações de filmes em sites como MovieLens e Netflix; recomendação de músicas em sites de streaming como Last.fm ou
+Exemplos dessas aplicações são: recomendação de Livros, CDs, DVDs, etc., em sites de \textit{e-commerce} como Amazon e EBAY;
+recomendações de filmes em sites como MovieLens e Netflix; recomendação de músicas em sites de \textit{streaming} como Last.fm ou
 Spotify; recomendação de amigos ou de postagens em redes sociais como Facebook ou Twitter.
 
 SRs podem ser presentados formalmente como:
 
-Onde F é a função que busca prever o interesse do usuário pelos itens existentes, U representa o conjunto dos usuários,
-I representa o conjunto dos itens e R representa a lista ordenada dos itens pelo interesse previsto para o usuário ativo
+\begin{equation}
+  F: U \times I \rightarrow R
+  \label{eq:context-aware}
+\end{equation}
+
+Onde $F$ é a função que busca prever o interesse do usuário pelos itens existentes, $U$ representa o conjunto dos usuários,
+$I$ representa o conjunto dos itens e $R$ representa a lista ordenada dos itens pelo interesse previsto para o usuário ativo
 (o usuário que irá receber a recomendação). O objetivo do SR então é conseguir prever de maneira mais correta, com as
 informações disponíveis, os itens que serão de maior interesse do usuário.
 
@@ -42,7 +47,7 @@ descrevendo os gostos e preferências do usuário. A descrição de um item freq
 palavras-chave definidas automaticamente por meio de algoritmos usados na área de Recuperação da Informação
 \cite{adomavicius2005toward}. Já a descrição das preferências do usuário pode ser capturada de duas formas: implícita,
 através do seu comportamento no ambiente e de itens que acessou; ou explícita, onde o usuário informa suas preferências
-ao sistema, por exemplo, respondendo a questionários (ADOMAVICIUS e TUZHILIN, 2005). Dessa forma, os SRs de itens
+ao sistema, por exemplo, respondendo a questionários \cite{adomavicius2005toward}. Dessa forma, os SRs de itens
 textuais (e.g., documentos) são os que mais utilizam a abordagem Baseada em Conteúdo, devido à facilidade da aplicação
 das técnicas de Recuperação da Informação nesse tipo de item.
 
@@ -124,7 +129,6 @@ ausência de correlação e $+1$ indica forte correlação. O cálculo é então
   w_{a,u} = \frac{\sum_{i=1}^{m}(r_{a,i} - \overline{r_a})*(r_{u,i} - \overline{r_u}))}{\sqrt{\sum_{i=1}^{m}(r_{a,i} - \overline{r_a})^2} \sqrt{\sum_{i=1}^{m}(r_{u,i} - \overline{r_u})^2}}
   \label{eq:pearson}
 \end{equation}
-
 
 Na fórmula, $w_{a,u}$ representa a correlação entre o usuário $u$ e um determinado usuário $a$, onde: $r_{a,i}$ é a avaliação
 do usuário $a$ para o item $i$; $\overline{r_a}$ é a média de todas as avaliações do usuário $a$; $r_{u,i}$ é a avaliação do usuário
@@ -216,7 +220,7 @@ por esta.
 resultado será considerado na execução da outra abordagem.
 \end{itemize}
 
-\section{Sistemas de Recomendação Sensíveis ao Contexto}
+\section{Sistemas de Recomendação Sensíveis ao Contexto}\label{section:sr-sensivel-contexto}
 
 SRs tradicionais consideram apenas as relações entre os usuários e os itens para recomendar, mas não consideram o
 contexto em que os usuários estão. De acordo com \citeonline{dey2001understanding}, o contexto é qualquer informação
@@ -230,8 +234,8 @@ SRs Sensíveis ao Contexto podem ser formalmente definidos como:
   \label{eq:context-aware}
 \end{equation}
 
-Onde F é a função que prediz o interesse em um item ainda não utilizado pelo usuário, U representa o conjunto do
-usuários, I representa o o conjunto dos itens, C representa o contexto da interação e R representa o conjunto de itens
+Onde $F$ é a função que prediz o interesse em um item ainda não utilizado pelo usuário, $U$ representa o conjunto do
+usuários, $I$ representa o o conjunto dos itens, $C$ representa o contexto da interação e $R$ representa o conjunto de itens
 ordenado pelo interesse previsto do usuário para os itens disponíveis.
 
 Vários autores definem conjuntos de dimensões que podem representar o contexto
@@ -246,7 +250,7 @@ ou aleatória, etc.;
 \item Localização, e.g., posição absoluta, se o usuário está em casa, no trabalho ou na universidade, etc.;
 \item Condiçõs do ambiente, e.g., barulho, luminosidade, etc.;
 \item Infraestrutura, e.g., velocidade da internet, tipo de dispositivo utilizado, etc.;
-\item Tempo, e.g., timestamp de ocorrência de uma interação, dia da semana no qual o usuário pede uma recomendação, etc.
+\item Tempo, e.g., \textit{timestamp} de ocorrência de uma interação, dia da semana no qual o usuário pede uma recomendação, etc.
 \end{itemize}
 
 \citeonline{adomavicius2011context} definem três paradigmas de uso das dimensões do contexto no processo de recomendação:
@@ -263,7 +267,7 @@ algoritmo diferente dos tradicionais.
 \citeonline{verbert2012context} dizem que, em ambientes educacionais, as abordagens tradicionais de SRs não são
 suficientes para recomendar de forma apropriada para os estudantes, porque esse domínio oferece algumas características
 específicas que não são cobertas por essas abordagens. Por exemplo, é muito mais perigoso recomendar um item ruim para
-um estudante, que pode desmotiva-lo nos seus estudos, do que recomendar um produto ruim em um site de e-commerce.
+um estudante, que pode desmotiva-lo nos seus estudos, do que recomendar um produto ruim em um site de \textit{e-commerce}.
 De acordo com \citeonline{verbert2012context} esse domínio requer um nível maior de personalização.
 
 Aplicar algumas dimensões do contexto é uma alternativa para melhorar a personalização em ambientes educacionais,
@@ -275,10 +279,10 @@ recomendar. Esse tipo de SR pode também aplicar outras dimensões do contexto e
 
 \section{Sistemas de Recomendação Sensível ao Tempo}
 
-Dentre as dimensões do contexto citadas na seção 2.2, o tempo tem uma vantagem de ser fácil de capturar, considerando
-que praticamente todos os dispositivos tem um relógio que pode capturar o tempo no qual alguma interação ocorreu.
-Além disso, trabalhos na área demonstraram que o contexto temporal tem potencial para melhorar a qualidade das
-recomendações \cite{campos2014time}. Esse tipo de SR é chamado de SR Sensível ao Tempo.
+Dentre as dimensões do contexto citadas na seção \ref{section:sr-sensivel-contexto}, o tempo tem uma vantagem de ser
+fácil de capturar, considerando que praticamente todos os dispositivos tem um relógio que pode capturar o tempo no qual
+alguma interação ocorreu. Além disso, trabalhos na área demonstraram que o contexto temporal tem potencial para melhorar
+a qualidade das recomendações \cite{campos2014time}. Esse tipo de SR é chamado de SR Sensível ao Tempo.
 
 SRs Sensíveis ao Tempo são formalmente representados como:
 
@@ -348,16 +352,16 @@ de acertar nos interesses do usuário.
 
 \subsection{Decay}\label{section:decay}
 
-Na categoria Decay, o tempo é utilizado como um fator de decaimento na importância das interações do usuário, i.e.,
+Na categoria \textit{Decay}, o tempo é utilizado como um fator de decaimento na importância das interações do usuário, i.e.,
 interações (itens consumidos, avaliações, etc.) mais antigas tem um peso menor para o algoritmo de recomendação do que
 as interações mais atuais. Os algoritmos dessa categoria consideram que o interesse do usuário varia com o tempo e é
 importante considerar que os interesses mais atuais do usuário representam melhor o seu perfil do que interesses mais
-antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com Decay, é
+antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com \textit{Decay}, é
 apenas dado um peso menor para essas interações.
 
 \subsection{Time Rating}
 
-Na categoria Time Rating, o tempo é considerado pelo SR para inferir as preferências do usuário. Nessa categoria o SR
+Na categoria \textit{Time Rating}, o tempo é considerado pelo SR para inferir as preferências do usuário. Nessa categoria o SR
 utiliza uma estratégia implícita para capturar o interesse do usuário que considera o tempo que o usuário passou em
 determinado item. A categoria toma como princípio que itens no qual o usuário passou pouco tempo não são do seu
 interesse, enquanto itens em que ele passou mais tempo indicam os seus interesses. Essa forma de capturar é interessante
@@ -366,9 +370,9 @@ para todos os itens acessados por ele.
 
 \subsection{Novelty}
 
-Na categoria Novelty, o SR considera que itens mais novos serão mais relavantes para os usuários do que itens mais
-antigos. Nessa catoria, existem pelo menos duas estratégias que podem ser utilizadas: (1) o SR possui um threshold
-definido (por exemplo, duas semanas) e itens que sejam mais velhos que isso serão retirados da lista de recomendação;
+Na categoria \textit{Novelty}, o SR considera que itens mais novos serão mais relavantes para os usuários do que itens mais
+antigos. Nessa catoria, existem pelo menos duas estratégias que podem ser utilizadas: (1) o SR possui uma idade limite
+definida (por exemplo, duas semanas) e itens que sejam mais velhos que isso serão retirados da lista de recomendação;
 (2) o SR não ignora itens antigos, porém os itens novos possuem um peso maior e, se dois itens similares estiver para
 ser recomendados, o mais novo é o escolhido mesmo que o mais antigo esteja mais de acordo com o perfil do usuário.
 Essa categoria é mais comum em domínios onde novos itens tendem a ser mais relevantes que itens antigos, e.g., redes
@@ -376,7 +380,7 @@ sociais, notícias, etc.
 
 \subsection{Sequence}
 
-Na categoria Sequence, o SR observa itens que são geralmente consumidos juntos em uma determinada ordem e utiliza essa
+Na categoria \textit{Sequence}, o SR observa itens que são geralmente consumidos juntos em uma determinada ordem e utiliza essa
 informação para recomendar. Dessa forma, quando o SR encontra um padrão nos acessos de um usuário que já é conhecido,
 é possível utilizar os próximos itens da sequência como recomendações para o usuário. Essa categoria que os usuários
 tendem a seguir algum padrão de acesso (trajetória) enquanto interagem com o sistema.
@@ -386,23 +390,23 @@ tendem a seguir algum padrão de acesso (trajetória) enquanto interagem com o s
 A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
 
 \begin{itemize}
-\item Experimentos offline: avaliação do método de recomendação através de uma base de dados, simulando as ações dos
+\item Experimentos \textit{offline}: avaliação do método de recomendação através de uma base de dados, simulando as ações dos
 usuários sem necessitar da participação dos mesmos;
 \item Estudos com os usuários: em que um pequeno grupo de usuários realiza tarefas específicas relacionadas ao SR e
 podem ser utilizados em conjunto com medidas qualitativas para mensurar a satisfação dos usuários, por exemplo através
 de questionários;
 \item Uso real do sistema: na qual o SR é avaliado em situações reais de uso e os dados para avaliação quantitativa são
-capturados de forma automática, por exemplo ferramentas de Web Analytics.
+capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics}.
 \end{itemize}
 
 \citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando Estudos com os usuários, com o objetivo
-de realizar uma avaliação centrada no usuário. O framework foi proposto com base em outras ferramentas para avaliação
-centrada no usuário não exclusivas de SR: Technology Acceptance Model (TAM) e Software Usability Measurement Inventory
+de realizar uma avaliação centrada no usuário. O \textit{framework} foi proposto com base em outras ferramentas para avaliação
+centrada no usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM) e \textit{Software Usability Measurement Inventory}
 (SUMI). O TAM consiste em três construtos: Facilidade de Uso Percebida, Utilidade Percebida e Intenções do Usuário em
 utilizar o sistema. Enquanto o SUMI consiste de cinco construtos (Eficiência, Influência, Ajuda, Controle, Capacidade
 de Aprendizado) e um questionário de 50 questões.
 
-O framework proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelos
+O \textit{framework} proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelos
 Usuários, (2) Crenças/Opiniões do Usuário, (3) Atitudes/Propósitos do Usuário, (4) Intenções Comportamentais.
 Para cada um dos construtos, vários aspectos são avaliados, como pode ser visto na Figura \ref{fig:resque-framework}.
 Os autores definem ainda um conjunto de 60 questões para aplicar nessa avaliação como pode ser visto no Anexo
@@ -436,7 +440,7 @@ experimentos com participação de usuários (i.e., Estudos com usuários) para 
 diretrizes levadas em conta por esse trabalho são \cite{pu2012evaluating}:
 
 \begin{itemize}
-\item Diretriz 14: Considere aprimorar a acurácia percebida pelo usuário com um layout mais atrativo, rótulos mais
+\item Diretriz 14: Considere aprimorar a acurácia percebida pelo usuário com um \textit{layout} mais atrativo, rótulos mais
 efetivos, e explicando como o sistema gerou as recomendações. Fazendo isso pode aumentar a percepção do usuário sobre a
 eficiência do sistema, sua satisfação com o sistema em geral, sua prontidão para aceitar os itens recomendados e a sua
 confiança no sistema.

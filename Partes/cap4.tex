@@ -3,7 +3,7 @@
 \section{Algoritmo Proposto}
 
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo tradicional com o uso do
-contexto temporal através da categoria Decay (ver seção \ref{section:decay}).
+contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}).
 
 Um ponto negativo da Filtragem Colaborativa é a necessidade de uma comunidade de usuários ativa, que nem sempre é
 possível em um ambiente educacional onde as turmas muitas vezes são menores (entre 10 e 100 alunos). A Abordagem Baseada
@@ -17,21 +17,21 @@ Mapeamento Sistemático realizado \cite{de2017time}, e demonstraram bons resulta
 aplicar o contexto temporal no algoritmo de recomendação na área educacional (na qual foram encontrados apenas quatro
 trabalhos) e avaliar os resultados.
 
-A escolha do Decay se justifica como forma de resolver uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
+A escolha do \textit{Decay} se justifica como forma de resolver uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
 Superespecialização. Na abordagem Baseada em Conteúdo as recomendações seriam geradas levando em conta todos os itens
-acessados pelo usuário igualitariamente. Enquanto ao aplicar o Decay, os itens acessados mais recentemente possuem um
+acessados pelo usuário igualitariamente. Enquanto ao aplicar o \textit{Decay}, os itens acessados mais recentemente possuem um
 grau de importância maior para o algoritmo do que itens acessados anteriormente. Dessa forma, mesmo que o usuário
 acessou muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
 recomendação consegue rapidamente se adaptar e gerar recomendações sobre esse novo conteúdo.
 
-Um cenário que justifica o uso do Decay seria: o aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
+Um cenário que justifica o uso do \textit{Decay} seria: o aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
 que possui quatro tópicos, sendo eles Pilhas, Filas, Listas e Árvores. Nessa disciplina, para cada um dos conteúdos é
 aplicada uma prova para avaliar os conhecimentos dos alunos. Até o momento da primeira prova sobre o conteúdo de Pilhas,
 Pedro acessou apenas materiais relacionados a Pilhas. O algoritmo de recomendação utilizando a abordagem Baseada em
 Conteúdo recomenda para Pedro apenas materiais relacionados a Pilhas. Após a primeira prova, Pedro começa a acessar
 materiais relacionados a Filas, o segundo tópico da disciplina. Em uma abordagem Baseada em Conteúdo tradicional as
 recomendações continuariam sendo sobre o conteúdo de Pilhas por um bom tempo, pois o perfil de Pedro seria em grande
-parte composto por materiais acessados sobre esse assunto. Porém, com o uso do Decay, no momento em que Pedro começar a
+parte composto por materiais acessados sobre esse assunto. Porém, com o uso do \textit{Decay}, no momento em que Pedro começar a
 acessar materiais sobre Filas o algoritmo de recomendação dará um peso maior para esses materiais (sem ignorar os itens
 acessados anteriormente) e em pouco tempo Pedro já estará recebendo recomendações sobre o novo tópico estudado. Da mesma
 forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conceito, o SR também perceberá isso e
@@ -52,7 +52,7 @@ $I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o ite
 se o item $i$ nunca foi acessado pelo usuário u e $0$ se o item já foi acessado.
 
 A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada utilizando a fórmula do cosseno (ver seção
-\ref{section:baseada-em-conteudo}). A função de recência $R$, responsável pelo Decay, pode ser definida como:
+\ref{section:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, pode ser definida como:
 
 \begin{equation}
   R(I_{u,i}) = \max_{\{j \in I_{u,i}\}}{\frac{x_j}{\left| I_u \right|}}
@@ -60,14 +60,14 @@ A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada ut
 \end{equation}
 
 Onde: $x_j$ é a posição do item j na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
-timestamp do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
+\textit{timestamp} do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
 que mais de um item acessado pelo usuário pode ser similar ao item $i$, por isso a fórmula retorna a maior recência de
 todos os itens presentes no perfil do usuário que são similares a $i$. A seguir temos um exemplo do uso da fórmula da
 recência de um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
 fórmula acima.
 
-Suponha que um usuário $u$ acessou três itens diferentes nos seguintes timestamps (em epoch): Item A acessado $1503670382$;
-Item B acessado em $1500027182$; Item C acessado em $1508051582$. Ao ordenar esses itens pelo timestamp, em ordem
+Suponha que um usuário $u$ acessou três itens diferentes nos seguintes \textit{timestamps} (em \textit{epoch}): Item A acessado $1503670382$;
+Item B acessado em $1500027182$; Item C acessado em $1508051582$. Ao ordenar esses itens pelo \textit{timestamp}, em ordem
 crescente, temos: (1) Item B, (2) Item A, (3) Item C. Ao calcular a recência para cada um dos itens, temos:
 
 \begin{equation}
@@ -88,7 +88,7 @@ crescente, temos: (1) Item B, (2) Item A, (3) Item C. Ao calcular a recência pa
 O algoritmo proposto nesse trabalho considera o decaimento no peso dos itens do perfil do usuário em função da posição
 do item na sequência de materiais acessados, como mostrado anteriormente, e não na quantidade de tempo passada em
 segundos como feito na maioria dos trabalhos relacionados mostrados no capítulo 3. Isso é uma vantagem, pois no domínio
-educacional o passar do tempo não é tão relevante quanto em outros domínios, como na recomendação de Web Services por
+educacional o passar do tempo não é tão relevante quanto em outros domínios, como na recomendação de \textit{Web Services} por
 exemplo. Na área educacional faz mais sentido analisar quantos itens o usuário acessou depois de acessar aquela material
 do que o tempo em segundos passado desde a interação. Dessa forma, nesse algoritmo não faz diferença se o usuário
 acessou todos os itens do seu perfil em um único dia, se ele acessou metade do materiais na primeira semana do curso e
