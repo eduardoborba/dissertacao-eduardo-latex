@@ -1,11 +1,381 @@
-\chapter{Lorem ipsum dolor sit amet}
+\chapter{Trabalhos relacionados}
 
-\lipsum[1]
+Todos os trabalhos descritos neste capítulo foram selecionados dentre os artigos analisados no mapeamento sistemático
+da literatura \cite{de2017time} sendo considerados aqueles  estão enquadrados dentro da categoria de Decay no que
+se refere ao uso do tempo no algoritmo de recomendação, independente do domínio de aplicação. No total oito trabalhos
+foram selecionados, sendo apenas um da área educacional.
 
-% ---
-\section{\uppercase{Aliquam vestibulum fringilla lorem}}
-% ---
+\section{Fan et al. 2015}
 
-\lipsum[1]
+O trabalho de \citeonline{fan2015modeling} realiza a recomendação de web services, considerando a avaliação do serviço
+através da medição do Quality of Service (QoS). QoS considera características do serviço como tempo de resposta,
+disponibilidade, taxa de serviço, etc. Os autores consideram que a capacidade prever a qualidade de um serviço diminui
+conforme o tempo que passou da última invocação desse serviço, devido a possíveis encerramento do serviço, falhas na
+rede, etc. Por isso, a recomendação de serviços dos autores combina técnicas de similaridade com uma função de
+decaimento que considera que a QoS diminui com o passar do tempo. O modelo de decaimento proposto considera que as
+invocações mais recentes de dois usuários a um serviço devem ter um impacto maior no cálculo da similaridade entre os
+usuários. O fator de decaimento é calculado utilizando a seguinte fórmula:
 
-\lipsum[2-3]
+\begin{equation}
+  \Delta t = \frac{(\Delta t_i + \Delta t_j)}{2}
+  \label{eq:fan-fator-decaimento}
+\end{equation}
+
+
+Onde $\Delta t_i$ é o intervalo de tempo entre a invocação do serviço pelo usuário $u_i$ ao serviço e o tempo atual e
+$\Delta t_j$ é o intervalo de tempo entre a invocação do mesmo serviço pelo usuário $u_j$ e o tempo atual. Assim, a
+similaridade do serviço????  diminui quanto maior for o $\Delta t$. A função de decaimento de um item k é definida como:
+
+\begin{equation}
+  f(t_{i,k}, t_{j,k}) = e^{-\alpha \left|t_{atual} - \Delta t \right|}
+  \label{eq:fan-funcao-decaimento}
+\end{equation}
+
+Onde $\alpha$ é uma constante de decaimento????? . Uma avaliação do serviço é considerada como a combinação do QoS com
+a função de decaimento:
+
+\begin{equation}
+  r_{u_i, s_k, t} = r_{u_i, s_k} f(t_{i,k}, t_{j,k})
+  \label{eq:fan-avaliacao}
+\end{equation}
+
+Os autores utilizam a avaliação combinada com a função de decaimento para calcular a similaridade do itens utilizando
+um algoritmo chamado PCC????. Que pode ser definido como:
+
+\begin{equation}
+  sim(u_1, u_j, t) = \frac{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})(r_{u_j, s_k, t} - \overline{r_{u_j}})}}{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})}^2 \sum_{s_k \in w_{u_i, u_j}}{(r_{u_j, s_k, t} - \overline{r_{u_j}})}^2}
+  \label{eq:fan-avaliacao}
+\end{equation}
+
+
+Onde $w_{u_i, u_j}$ é um conjunto dos itens em comum invocados pelos usuários $u_i$ e $u_j$. Utilizando essa fórmula de
+similaridade é possível calcular a similaridade entre os usuários e encontrar os que são mais similares.
+
+A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
+eles estão, mais similares eles são considerados.
+
+Foi realizado um experimento com o dataset WS-Dream comparando o algoritmo proposto com outros 6 algoritmos. As
+métricas utilizadas para a comparação foram MAE e RMSE significado.... Primeiramente foi realizado um experimento
+verificando a influência do threshold q???? nos algoritmos. Esse threshold é considerado para decidir quais são os
+itens considerados significantes. O segundo experimento avaliou a influência da proporção da base de treino e de teste
+no experimento. E por último, para os algoritmos que utilizavam a filtragem colaborativa (o proposto e mais 3) foi
+avaliado a influência da quantidade de k-vizinhos considerada na eficiência do algoritmo. Os resultados mostraram que
+o algoritmo proposto foi melhor que outros 6 algoritmos analisados.
+
+\section{Luo et al. 2010}
+
+O trabalho de \citeonline{luo2010context} propõe um modelo de recomendação sensível ao contexto para ambientes de
+aprendizagem pervasivos. Esse modelo combina uma abordagem híbrida (baseada em conteúdo com filtragem colaborativa)
+com uma personalização pelo contexto. Três tipos de contexto são definidos:
+
+\begin{enumerate}
+\item Contexto do aluno, que possui as seguintes dimensões: tipo de dispositivo, ambiente (localização), perfil
+(informações pessoais como nome e afiliação), preferências (recursos pelo qual o aluno tem interesse), processo de
+aprendizagem (histórico de materiais acessados), pedido de acesso (a recursos educacionais massivos).
+\item Contexto do serviço, que possui as seguintes dimensões: ambiente (localização), perfil (nome, parâmetros,
+retornos), QoS (parâmetros de qualidade do serviço, como carga de trabalho, reputação, disponibilidade, segurança, etc.).
+\item Contexto do recurso, que segue o China ELearning Technology Standard que define as dimensões de um recurso
+educacional. Esse padrão define as dimensões como sendo: perfil (informações sobre o recurso como Título, Assunto,
+Palavras-chave), criador (nome, organização), audiência (tipo de educação, nível de ensino).
+\end{enumerate}
+
+O modelo de recomendação proposto pode ser dividido em dois passos: Logic-Based Resource Relevant Degree e
+Situation-Based Recourse Relevant Degree.
+
+Na etapa do Logic-based Resource Relevant Degree é feita uma análise o histórico de recursos acessados pelo aluno e as
+suas preferências. Esse passo combina a abordagem baseada em conteúdo, filtragem colaborativa e os padrões sequenciais
+de acesso.
+
+A abordagem baseada em conteúdo considera as múltiplas dimensões dos recursos como assunto, assunto secundário, nível
+de ensino, etc. Nessa abordagem, é inserido um conceito de Preference Energy (PE) para refletir a variação do interesse
+do usuário com o passar do tempo. O PE indica que o interesse de um usuário a um item acessado diminui com o passar do
+tempo. Os autores definem a diminuição da PE como sendo:
+
+\begin{equation}
+  PE_{attenuation}(x) = e^{- \lambda (x-1)}, com \ x \geqslant 1
+  \label{eq:luo-preference-energy}
+\end{equation}
+
+Onde $x$ é a ordem do recurso na lista de acessos do usuário e $\lambda$ é o parâmetro de decaimento. Esse valor do PE,
+combinado com as avalições feitas pelos usuários para os itens são utilizadas para gerar uma Individual Preference Tree
+que auxilia o cálculo da similaridade dos recursos candidatos a serem recomendados.
+
+A Individual Preference Tree utilizada pela abordagem baseada em conteúdo também é considerada pelo algoritmo de
+filtragem colaborativa definida pelos autores para encontrar os k-vizinhos mais similares. Dessa forma, não só usuários
+que acessaram os mesmos itens podem ser considerados vizinhos (como na filtragem colaborativa tradicional), mas também
+usuários que acessaram itens similares entre si (mesmo assunto, palavras-chave, etc.) e os avaliaram de forma similar.
+
+O último método de recomendação utilizado pela etapa chamada Logic-based Resource Relevant Degree utiliza os padrões
+sequencias de acesso dos usuários aos recursos. O algoritmo utilizado para a mineração dos padrões sequencias é o
+PrefixSpan, que procura sequências (ou subsequências) que apareceram em pelo menos  acessos. Baseado na árvore de
+padrões sequenciais resultantes do algoritmo de mineração, é calculado quais os itens mais prováveis de serem acessados
+de acordo a sequência atual do usuário. A proposta dos autores define que o algoritmo de mineração de sequências deve
+ser executado de forma off-line, para garantir a resposta em um tempo hábil.
+
+A etapa de Logic-based Resource Relevant Degree combina o conjunto de recursos recomendados dos três algoritmos
+descritos, removendo da lista os recursos já acessados pelo usuário.
+
+Na etapa de Situation-based Resource Relevant Degree é considerado que mesmo um recurso que combine com as preferências
+do usuário pode não ser adequados para a recomendação se o contexto do usuário (dispositivo, ambiente) não for adequado
+para utilizar o recurso. Para isso, no contexto dos recursos é descrito quais os dispositivos no qual a utilização do
+recurso é adequada e no contexto do usuário é descrito qual o dispositivo do usuário. Também é considerado o grau de
+satisfação no tempo para acessar um determinado recurso. Isso pode ser calculado pelo tamanho do recurso e a velocidade
+de internet do usuário. Combinando essas duas características é possível ter uma recomendação mais adequada a situação
+atual do aluno.
+
+O algoritmo de recomendação proposto pelos autores então calcula uma lista de recursos candidatos a recomendação
+utilizando os algoritmos de Logic-Based Resource Relevant Degree e remove dessa lista os recursos que não satisfaçam o
+dispositivo do usuário e a satisfação mínima com o tempo de resposta esperado.
+
+Esse algoritmo foi avaliado através de uma simulação utilizando o dataset do Movielens, onde foram adicionados dados de
+contexto as interações existentes na base. As métricas utilizadas para avaliar o algoritmo foram Precisão, Utilidade e
+Validade?????. Em comparação a algoritmos tradicionais de recomendação, o algoritmo proposto teve melhores resultados no
+experimento realizado.
+
+\section{Shroff, Dey e Ghosh 2014}
+
+O trabalho de \citeonline{shroff2014enterprise} propõe um modelo para recomendação sensível ao contexto para o ambiente
+corporativo. Nesse tipo de ambiente o usuário sobre uma sobrecarga cognitiva, com informações vindo através de redes
+sociais, e-mails, noticias, repositórios, etc. O modelo de recomendação busca encontrar poucos itens que tenham uma alta
+relevância imediata na tarefa atual do usuário, como por exemplo trocar e-mails com um fornecedor que está com atraso
+na entrega ou resolver um problema técnico que um programador esteja encontrando.
+
+As informações para o perfil do usuário são retiradas das mensagens mandadas por este e pelos documentos acessados.
+Enquanto os conteúdos são extraídos do twitter, bases de gerenciamento de conhecimento, outros documentos, etc. A
+recomendação dos conteúdos leva em conta uma abordagem baseada em conteúdo, combinando com o contexto do usuário.
+
+A abordagem baseada em conteúdo proposta pelos autores utiliza a técnica do TF-IDF em janelas de tempo para identificar
+termos de destaque nas ações do usuário, ou seja, termos que aparecem com uma certa frequência em uma janela de tempo
+e que não aparece em outras. Isso porque itens que aparecem todo o tempo para determinado usuário devem ser algo do
+domínio dele e é considerado pelos autores que não vale a pena ser recomendado.???????
+
+Já a abordagem sensível ao contexto considera a ação atual do usuário, os conceitos presentes nessa ação (por exemplo,
+termos presentes no e-mail que usuário escreveu) e a função do usuário (e.g., executivo, vendedor, programador, etc).
+Para essa etapa é utiliza uma ontologia das necessidades do usuário que é human-specified, que possui regras do tipo:
+ao criar uma proposta mostrar propostas anteriores de sucesso, quando uma entrega estiver atrasada procurar notícias
+de eventos que podem ter afetado a entrega. Com base nessa ontologia e nas informações do contexto do usuário o
+algoritmo utiliza uma rede bayesiana para o cálculo da probabilidade de cada item ser recomendado.
+
+O algoritmo de recomendação primeiro seleciona os itens utilizando a abordagem baseada em conteúdo para filtrar apenas
+os conceitos que podem ser relevantes ao usuário. Depois, os conceitos são ordenados pela probabilidade de serem
+relevantes calculada pela rede bayesiana mencionada anteriormente.
+
+Não é realizada uma avaliação do algoritmo de recomendação proposto pelos autores. Eles descrevem cenários e como o
+algoritmo iria se portar no cenário com o intuito de demonstrar a utilidade do método.
+
+\section{Benčič e Bieliková 2012}
+
+O sistema de recomendação proposto em \citeonline{bencic2012action} busca recomendar ações aos usuários no momento que
+for propício, de acordo com o contexto do usuário, e não apenas quando uma ação do interesse do usuário é encontrada.
+Uma ação se refere a qualquer coisa que seja utilizada pelo usuário final de uma aplicação.
+
+O método proposto para a recomendação representa o contexto do usuário através de símbolos, onde cada símbolo de
+composto de duas partes – onde uma representa a dimensão e a outra representa a situação particular. Por exemplo,
+$Clima:Limpo$. Para cada símbolo do contexto do usuário é atribuído um valor no intervalo $(0, 1)$ que indica a convicção
+de que o usuário está naquele contexto.
+
+A convicção de que o usuário está em determinado contexto é observada de tempos em tempos. Esse intervalo depende da
+velocidade de conexão do dispositivo do usuário, nível da bateria, etc. A convicção do usuário estar em determinado
+contexto diminui com o passar o tempo (supondo que uma nova observação demore a acontecer). Por isso, os autores
+utilizam uma função de decaimento para essa convicção conforme a seguir:
+
+\begin{equation}
+  CF_t = \frac{CF_b}{(1+r)^t}
+  \label{eq:bencic-conviccao}
+\end{equation}
+
+Onde $CF_t$ é a convicção calculada em função do tempo $t$, $CF_b$ é a convicção base, $r$ é o fator de decaimento e $t$
+é o tempo em horas passado desde a última observação.
+
+As ações são modeladas através de um conjunto de regras. As regras são definidas automaticamente através do feedback do
+usuário e são representadas pelos antecedentes (em que situação a regra se aplica) e a consequência (a ação associada
+aquela situação). As regras também possuem um decaimento na convicção com o passar o tempo. Porém, nesse caso o
+decaimento não constante como para o contexto do usuário. Para as regras o fator de decaimento é calculado de forma
+que não aconteça de a maioria das regras chegarem a uma convicção zero se demorar muito para uma nova observação.
+
+Combinando as convicções nas regras criadas com as convicções no contexto do usuário, são encontradas as ações com
+maior probabilidade de ser do adequada. O modelo de recomendação considera não apenas a última observação, mas sim uma
+combinação das últimas observações e suas respectivas convicções (com o fator de decaimento aplicado).
+
+A avaliação do sistema foi feita realizando simulações de possíveis interações de um usuário imaginário em um ambiente
+de recomendação de notícias durante o período de um mês. Nessa simulação foi capturada a convicção de que uma
+recomendação de notícias deveria ser realizada para três tipos de usuários: um que lê notícias todos os dias pela
+manhã, um que lê notícias apenas nas segundas pela manhã e sextas a noite e outro que começa lendo as notícias apenas
+nas segundas pela manhã e muda o seu comportamento com o passar do tempo para a leitura as sextas a noite. Os resultados
+mostraram que o método conseguiu compreender o comportamento dos três tipos de usuário com uma precisão e um recall de
+quase 100\%.
+
+\section{Hawalah e Fasli 2014}
+
+O trabalho de \citeonline{hawalah2014utilizing} propõe um método de recomendação utilizando o contexto do usuário
+representado através de ontologias. O algoritmo proposto pode se adequar a diversos domínios, de forma que o contexto
+seja incorporado aos interesses do usuário independente do que são os itens que serão recomendados. Além disso, o método
+considera não só o contexto atual do usuário, mas também os contextos capturados anteriormente. Os autores separam o
+método em três fases: Extração da informação, Aprender o perfil do usuário e Personalização.
+
+A etapa de Extração da informação é realizada por um agente de captura dos dados que é genérico o suficiente para ser
+adaptado de acordo com o domínio. Em determinados domínios pode ser utilizado uma coleta perguntando explicitamente os
+interesses e o contexto ao usuário, enquanto em outros domínios é mais adequado capturar de forma implícita pela
+navegação do usuário.
+
+A informação bruta capturada (seja de forma explícita ou implícita) é processada pelo agente extrator, responsável por
+extrair informação de mais alto nível. Esse agente está associado a dois tipos de bases de conhecimento: ontologias e
+taxonomias. O agente realiza um mapeamento os itens que o usuário demonstrou interesse em conceitos da ontologia de
+referência, enquanto também extrai dimensões do contexto de mais alto nível utilizando-se das taxonomias de contexto.
+
+A segunda etapa, responsável por compreender o perfil do usuário, utiliza a abordagem de Pré-filtragem Contextual para
+definir qual a parte do perfil do usuário é relevante. É utilizada um método similar aos micro-perfis, onde as
+informações do perfil do usuário (itens acessados, notas dadas) que aconteceram em contextos similares ao atual são
+consideradas mais relevantes para a recomendação. Para isso, é calculado a importância dos conceitos em cada contexto
+possível, de acordo com as informações do perfil do usuário. Nesse cálculo, é considerada a frequência com que o
+conceito aparece naquele determinado contexto, bem como a frequência com que esse conceito aparece em outros contextos
+e a frequência com que outros conceitos aparecem nesse contexto. Detalhes são descritos em \cite{hawalah2014utilizing}.
+
+Ainda no cálculo da importância do conceito em determinado contexto, é considerado que os interesses do usuário podem
+mudar com o tempo. Para isso, é incluído na fórmula o fator de Recência (do inglês Recency), de forma que os interesses
+demonstrados pelo usuário mais recentemente são considerados mais importantes. A fórmula a seguir é a responsável pelo
+cálculo da recência:
+
+\begin{equation}
+  Recency(c_j, ce_l) = \frac{1}{(1+\log(d_t - d_l) \times \alpha)}
+  \label{eq:hawalah-recencia}
+\end{equation}
+
+Onde $d_t$ é a data de inicialização do cálculo, $d_l$ é a data da última ocorrência do conceito $c_j$ no contexto
+$ce_l$ e $\alpha$ é o fator de decaimento.
+
+Dessa forma, como resultado dessa etapa temos os interesses do usuário em cada contexto e o peso de cada um. Essas
+informações são utilizadas para construir ontologias de perfil contextual personalizada (CPOP, do inglês, contextual
+personalized ontology profile), sendo uma CPOP para cada contexto.
+
+Na terceira etapa de personalização, a ontologia gerada na etapa anterior é utilizada para inferir outros conceitos que
+o usuário pode ter interesse, além dos já presentes do seu perfil. Isso é realizado utilizando a técnica de Spreading
+Activation, descrita em \citeonline{hawalah2014utilizing}. Utilizando essa técnica, é gerada uma lista de recomendações
+para cada CPOP, que são combinadas para gerar a lista final de recomendações para o usuário.
+
+A avaliação do trabalho de \citeonline{hawalah2014utilizing} foi um Estudo com Usuários, visando uma avaliação centrada
+no usuário como descrito por \citeonline{kelly2009methods}. O objetivo da avaliação era verificar se a recomendação
+contextual proposta no trabalho fornece uma recomendação mais eficiente do que os métodos tradicionais. 24 usuários
+participaram da avaliação, onde eles utilizaram um sistema por 30 dias, numa estratégia Between-subjects, i.e., cada
+grupo testa apenas uma versão do sistema. No total, 4 versões do sistema foram testadas: o algoritmo proposto (CAPS), o
+algoritmo proposto sem o uso do contexto (CAPS-C), um método de recomendação personalizado chamado aqui Simple-P e um
+método de recomendação não personalizado chamado de Non-P.
+
+O resultado da avaliação analisou a nota dada pelos usuários para os itens em uma escala de likert de 1 a 4. Sendo itens
+com grau 1 e 2 considerados uma recomendação ruim e os itens com grau 3 e 4 considerados uma boa recomendação. Com isso
+foi possível calcular a Precision at N (P@N). O algoritmo proposto possível o melhor resultado de P@N entre os
+algoritmos testados.
+
+\section{Qiao e Zhang 2012}
+
+O trabalho de \citeonline{qiao2015personalized} propõe um algoritmo de recomendação que considera as informações
+contextuais disponíveis em dispositivos móveis, como tempo, localização, tipo do dispositivo, etc. O algoritmo de
+recomendação é genérico, ou seja, sem um domínio de aplicação definido.
+
+O objetivo dos autores é combinar a filtragem colaborativa com o contexto do usuário, considerando a variação temporal
+nos interesses do usuário. Para tal, são encontrados os k usuários com os interesses similares ao usuário atual,
+considerando o contexto do usuário, através de técnicas de clusterização. Após encontrados os k vizinhos, utiliza-se
+uma fórmula para a predição das notas para itens ainda não acessados pelo usuário com a incorporação de uma função
+temporal. A fórmula é a seguinte:
+
+\begin{equation}
+  p_{u,i} = \overline{r_u} + \frac{\sum_{v \in U}{sim(u, v)(r_{u,i} - \overline{r_v})f(t_{ni})}}{\sum_{v \in U}{sim(u, v)f(t_{ni})}}
+  \label{eq:qiao-predicao}
+\end{equation}
+
+Sendo $p_{u,i}$ a nota prevista do usuário $u$ para o item $i$, $\overline{r_u}$ a média das notas dadas pelos usuário
+$u$, $sim(u, v)$ a similaridade entre o usuário $u$ e o seu vizinho $v$, $r_{u,i}$ o grau de interesse do usuário $u$
+pelo item $i$, $t$ é o tempo no qual o usuário $u$ quer utilizar o item $i$. ?????? Não entendi A função $f$ é a função
+exponencial de decaimento que representa a diminuição do interesse do usuário por um determinado item. A função de
+decaimento é definida como:
+
+\begin{equation}
+  f(t_{ni}) = e^{-t_{ni}}
+  \label{eq:qiao-funcao-decaimento}
+\end{equation}
+
+Os itens com as notas previstas mais altas são recomendados ao usuário.
+
+A avaliação desse algoritmo foi realizada utilizando a base do MovieLens – 100 K, através da métrica MAE (Erro Absoluto
+Médio). Quando comparado a filtragem colaborativa tradicional o algoritmo proposto alcançou melhores resultados, ou
+seja, teve uma taxa de erro menor.
+
+\section{Kushwaha et al. 2016}
+
+O trabalho de \citeonline{kushwaha2016inclusion} propõe uma versão modifica da técnica de Joint Matrix Factorization
+para uso em um sistema de recomendação de músicas incorporado ao Last.fm. A proposta busca reduzir a esparsidade dos
+dados e melhorar a qualidade das recomendações. Para isso, é incorporado informações como descrição dos itens, perfil
+do usuário e o seu contexto na matriz das notas dadas pelos Usuários para os Itens comumente utilizada na filtragem
+colaborativa. Como a matriz dessa forma possui uma maior dimensionalidade e complexidade, a técnica de fatoração de
+matrizes é essencial para reduzir a dimensão desta e permitir a extração de informações latentes importantes para a
+recomendação.
+
+Além disso, o algoritmo proposto por \citeonline{kushwaha2016inclusion} considera a variação temporal da informação.
+Os autores consideram o decaimento da importância das tags colocadas pelo usuário nos itens com o passar do tempo. A
+fórmula utilizada pelos autores para representar o decaimento foi baseada em \citeonline{iofciu2009time}, que pode ser
+vista a seguir:
+
+\begin{equation}
+  postScore_i = \lambda^{\Delta Time_i}
+  \label{eq:kushwaha-funcao-decaimento}
+\end{equation}
+
+Onde $postScore_i$ é a importância temporal da tag $i$, $\lambda$ é o fator de decaimento, que deve ser menor do que 1
+e foi utilizado por Kushwaha et al. (2016) como 0.9 e $\Delta Time_i$ é o tempo passado desde a interação. Além disso,
+é considerada a especificidade da tag para a nota final da tag. A fórmula da especificidade é definida como:
+
+\begin{equation}
+  tagSpecificity_i = \log(50+tagCont_i)
+  \label{eq:kushwaha-especificidade}
+\end{equation}
+
+Onde $tagSpecificity_i$ é o fator de especificidade da tag e $tagCount_i$ representa quanta vezes a tag foi adicionada
+ao item $i$. A nota final da tag é:
+
+\begin{equation}
+  tagScore_i = \frac{\sum_1^n{postScore}}{tagSpecifity_i}
+  \label{eq:kushwaha-nota-final}
+\end{equation}
+
+A fórmula acima combina a importância temporal da tag com a sua especificidade. A nota final da tag é incorporada na matriz latente resultado da fatoração de matrizes para servir como fator de decaimento para a importância das tags, representando a variação nos interesses do usuário.
+O algoritmo proposto pelos autores foi avaliado utilizando uma base de dados do próprio Last.fm, combinado com a base de dados do DBpedia para a captura de informações sobre os artistas, compositores e músicas. A avaliação considerou a métrica RMSE (root mean square error) para as previsões para as notas que o usuário daria para um determinado item comparada com a nota real. Quando comparado com outros dois algoritmos recentes de recomendação que incorporam informação social para recomendação, o algoritmo proposto por \citeonline{kushwaha2016inclusion} se saiu melhor em 3 das 6 condições de experimento realizadas.
+
+\section{Wei, Khoury e Fong 2013}
+
+\citeonline{wei2013web} descrevem uma proposta de recomendação que utiliza a filtragem colaborativa e que aplica um
+decaimento temporal na importância das interações dos usuários. No trabalho, é proposto um serviço para a recomendação
+de propagandas em redes sociais, que leva em consideração a confiança entre usuários, a reputação dos usuários e as
+relações entre usuários. Os autores afirmam que usuários com uma recomendação gerada com base em usuários conhecidos
+pelo usuário atual serão mais bem aceitas, assim como usuários no qual ele confia e nos usuários com alta reputação
+(especialistas).
+
+O algoritmo de recomendação considera que a importância da relação entre os usuários diminui gradativamente com o tempo.
+Então, um comentário realizado hoje deve ter um peso maior que um comentário realizado ha um mês atrás quando for
+avaliada a relação entre dois usuários. O decaimento é incluído diretamente na formula utilizada para realizar a
+comparação de similaridade entre dois itens, como pode ser visto a seguir:
+
+\begin{equation}
+  s_{i,j}(t) = \frac{\sum_{u \in U_i^t \cap U_j^t}{(f_{ui}^\alpha(t) \cdot r_{ui})(f_{uj}^\alpha(t) \cdot r_{uj})}}{\sqrt{\sum_{u \in U_i^t}{(f_{ui}^\alpha(t) \cdot r_{ui})}^2 \sum_{u \in U_j^t}{(f_{uj}^\alpha(t) \cdot r_{uj})}^2}}
+  \label{eq:wei-similaridade}
+\end{equation}
+
+Onde a função $f$ é definida pelos autores como relevância temporal do item e pode ser vista como:
+
+\begin{equation}
+  f_{uj}^\alpha(t) = e^{- \alpha (t - t_{ui})}
+  \label{eq:wei-relevancia-temporal}
+\end{equation}
+
+Onde fator $\alpha$ é responsável por controlar a taxa de decaimento, $t$ representa o tempo atual e $t_{ui}$ representa
+o tempo no qual o usuário $u$ utilizou o item $i$.
+
+Além do decaimento na relevância das relações entre os usuários, os autores também incluem a confiança entre os
+usuários e a reputação de especialistas da área na formula de similaridade visando melhorar a qualidade das
+recomendações.
+
+O algoritmo proposto foi avaliado utilizando três bases de dados: MovieLens, Facebook e Delicious. O algoritmo foi
+comparado a outros dois algoritmos: Filtragem Colaborativa usando correlação de Pearson e usando correlação de Pearson
+com efeito temporal. As métricas utilizadas foram Mean Absolute Error e Root Mean Square Deviation. Os resultados
+mostraram que o algoritmo proposto melhorou significativamente a qualidade das recomendações.
+
+\section{Considerações sobre o capítulo}
