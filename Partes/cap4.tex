@@ -188,4 +188,36 @@ recomendações de forma a garantir que as recomendações chegem aos alunos.
 
 \section{Apresentação das Recomendações}
 
+Como mostrado anteriormente, o SR existente no AdaptWeb\textsuperscript{\textregistered} não é facilmente acessável pelos
+alunos. A primeira decisão do presente trabalho foi mover as recomendações para a área principal do ambiente do aluno.
+Dessa forma, se o SR possuir itens para recomendar para o usuário esses itens aparecem logo abaixo do conteúdo que ele estiver
+visualizando no momento, independente se o aluno esteja na tela de Conceito, Exercícios, Exemplos ou Materiais Complementares.
+Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar os itens recomendados.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/recomendacoes_v2.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
+As principais informações dos links recomendados continuam sendo as mesmas que a versão anterior do SR: Link, Nome do Link,
+Descrição e a possibilidade de avaliar o item com notas de 1 a 5. \citeonline{pu2012evaluating} afirmam que enquanto
+recomendar um item apenas é pouco, recomendar mais do que cinco itens aumenta a dificuldade de escolhar do usuário. Por isso,
+a quantidade máxima de itens recomendadas para o usuário em cada recomendação é de cinco itens.
+
+Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, foi adicionado um
+botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
+funcionamento do algoritmo de recomendação o usuário tem a possibilidade aprimorar o seu perfil para personalizar as
+recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está a explicação da recomendação mostrada para o aluno.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-proposta-explicacao}Explicação da recomendação}
+  \begin{center}
+      \includegraphics[scale=0.6]{./Figuras/explicacoes_v2.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
 \section{Considerações sobre o capítulo}
