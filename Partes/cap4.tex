@@ -103,33 +103,88 @@ aplicam o mesmo fator para todos os usuários.
 
 \section{Análise do Ambiente AdaptWeb\textsuperscript{\textregistered}}
 
-O algoritmo proposto será incorporado ao ambiente AdaptWeb®. O AdaptWeb® (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características e preferências do aluno (Gasparini et al., 2009). A próxima seção apresenta a Estrutura Geral do AdaptWeb®.
+O algoritmo proposto será incorporado ao ambiente AdaptWeb\textsuperscript{\textregistered}. O
+AdaptWeb\textsuperscript{\textregistered} (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
+que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
+e preferências do aluno \cite{gasparini2009adaptweb}. A próxima seção apresenta a Estrutura Geral do
+AdaptWeb\textsuperscript{\textregistered}.
 
 \subsection{Estrutura do AdaptWeb\textsuperscript{\textregistered}}
 
-A estrutura do AdaptWeb® é composta por quatro módulos: (1) o módulo de autoria; (2) o módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do usuário e (4) o módulo de interface adaptativa (GASPARINI, 2003), conforme pode ser visto na Figura 2.
-O módulo de autoria (1) consiste na organização do conteúdo instrucional a ser disponibilizado para o aluno, sendo que este conteúdo pode ter arquivos classificados como conceito, exemplos, exercícios e materiais complementares (GASPARINI, 2003). Ao criar um conteúdo no sistema, o autor pode definir para quais cursos e disciplinas deseja que o conteúdo ou arquivo esteja disponível. Isto significa que um aluno de um Curso X e de outro Curso Y, matriculados em uma mesma disciplina, podem ter conteúdos distintos, conforme definido pelo professor. Por exemplo, a disciplina de Cálculo I pode ser oferecida para os cursos de Ciência da Computação e Engenharia Elétrica e sua abrangência e profundidade pode ser distinta para cada curso.
-Figura 2 - Estrutura do AdaptWeb®
+A estrutura do AdaptWeb\textsuperscript{\textregistered} é composta por quatro módulos: (1) o módulo de autoria; (2) o
+módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
+usuário e (4) o módulo de interface adaptativa \cite{gasparini2003interface}, conforme pode ser visto na Figura
+\ref{fig:adaptweb-arquitetura}.
 
-Fonte: Gasparini (2003)
+O módulo de autoria (1) consiste na organização do conteúdo instrucional a ser disponibilizado para o aluno, sendo que
+este conteúdo pode ter arquivos classificados como conceito, exemplos, exercícios e materiais complementares
+\cite{gasparini2003interface}. Ao criar um conteúdo no sistema, o autor pode definir para quais cursos e disciplinas
+deseja que o conteúdo ou arquivo esteja disponível. Isto significa que um aluno de um Curso X e de outro Curso Y,
+matriculados em uma mesma disciplina, podem ter conteúdos distintos, conforme definido pelo professor. Por exemplo, a
+disciplina de Cálculo I pode ser oferecida para os cursos de Ciência da Computação e Engenharia Elétrica e sua
+abrangência e profundidade pode ser distinta para cada curso.
 
-O módulo de armazenamento em XML (2) é responsável por organizar os conteúdos e arquivos disponibilizados pelo autor em um arquivo XML (GASPARINI, 2003). É utilizada a representação através de XML devido à sua alta flexibilidade, oferecendo a estruturação dos documentos de forma independente da apresentação.
-O módulo de adaptação do conteúdo baseado no modelo do aluno (3) é responsável por adaptar o conteúdo da disciplina para cada curso. Por fim, o módulo de interface adaptativa (4) é responsável pela adaptação da navegação e da apresentação da interface do ambiente de acordo com o curso, preferências do modo de navegação (modo tutorial ou livre) e o conhecimento do usuário (GASPARINI, 2003).
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-arquitetura}Estrutura do AdaptWeb\textsuperscript{\textregistered}}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/adaptweb-arquitetura.png}
+  \end{center}
+  \legend{Fonte: \citeonline{gasparini2003interface}}
+\end{figure}
+
+O módulo de armazenamento em XML (2) é responsável por organizar os conteúdos e arquivos disponibilizados pelo autor em
+um arquivo XML \cite{gasparini2003interface}. É utilizada a representação através de XML devido à sua alta
+flexibilidade, oferecendo a estruturação dos documentos de forma independente da apresentação.
+
+O módulo de adaptação do conteúdo baseado no modelo do aluno (3) é responsável por adaptar o conteúdo da disciplina
+para cada curso. Por fim, o módulo de interface adaptativa (4) é responsável pela adaptação da navegação e da
+apresentação da interface do ambiente de acordo com o curso, preferências do modo de navegação (modo tutorial ou livre)
+e o conhecimento do usuário \cite{gasparini2003interface}.
 
 \subsection{Sistema de Recomendação Presente no Ambiente}
 
-O ambiente AdaptWeb® possui um SR que foi desenvolvido em Borba (2015). Em Borba (2015) foi decidido que os OAs que o SR recomendaria são uma nova categoria de materiais da disciplina, não existente originalmente no AdaptWeb®, chamada “Links de Apoio”, na qual o professor pode adicionar apenas links externos ao ambiente.
-Para realizar a recomendação no AdaptWeb®, o SR considera o último material complementar que o aluno acessou, como também a lista de todos os materiais complementares acessados. Isto é feito porque se supõe que, no contexto de um AVA, devem se considerar os interesses de curto e longo prazo do usuário (XIANG et al, 2010).
-Na Figura 3 pode ser observada a apresentação das recomendações para o aluno através de uma notificação (destacada na Figura) proposta em Borba (2015).
-Figura 3 - Interface do SR: Notificação de Link Recomendado
+O ambiente AdaptWeb\textsuperscript{\textregistered} possui um SR que foi desenvolvido em \citeonline{de2015sistema}. Em \citeonline{de2015sistema}
+foi decidido que os OAs que o SR recomendaria são uma nova categoria de materiais da disciplina, não existente
+originalmente no AdaptWeb\textsuperscript{\textregistered}, chamada "Links de Apoio", na qual o professor pode adicionar apenas links externos ao ambiente.
 
-Fonte: Borba (2015).
-Ao clicar na notificação (indicada pela seta), é aberta uma janela pop-up com os links recomendados para aquele aluno. Neste momento aparece o Título do Material e a Descrição, informados pelo professor. Além disso, é possível que o aluno avalie o material, com uma nota de 1 a 5, e reporte links quebrados. A Figura 4 mostra a interface contendo as recomendações realizadas em certo momento da interação do usuário.
-Figura 4 - Interface da Recomendação para o Aluno
+Para realizar a recomendação no AdaptWeb\textsuperscript{\textregistered}, o SR considera o último material complementar
+que o aluno acessou, como também a lista de todos os materiais complementares acessados. Isto é feito porque se supõe
+que, no contexto de um AVA, devem se considerar os interesses de curto e longo prazo do usuário \cite{xiang2010temporal}.
 
-Fonte: Borba (2015).
-Em Borba et al. (2017b) foi feito um estudo com os dados de log gerados pela ferramenta de Learning Analytics presente no ambiente. Nesse estudo foi possível observar que, dentro de um minicurso de algoritmos realizado, as recomendações não foram percebidas pelos usuários. Dos 99 alunos ativos no minicurso, apenas 18 acessaram pelo menos uma vez a área de recomendações. Além disso, dos 27.116 registros de páginas acessadas no ambiente, apenas 30 estão relacionados ao SR (BORBA et al., 2017b).
-Por isso, nesse trabalho será considerado não só o algoritmo de recomendação, mas também uma forma mais eficiente de apresentar essas recomendações. Isso porque não adianta o algoritmo de recomendação ser eficiente sendo que os alunos nem sabem da existência dessa ferramenta. Na seção a seguir será apresentada a proposta de apresentação das recomendações de forma a garantir que as recomendações chegem aos alunos.
+Na Figura \ref{fig:adaptweb-notificacao-recomendacao} pode ser observada a apresentação das recomendações para o aluno
+através de uma notificação (destacada na Figura) proposta em \citeonline{de2015sistema}.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-notificacao-recomendacao}Interface do SR: Notificação de Link Recomendado}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/adaptweb-notificacao-recomendacao.png}
+  \end{center}
+  \legend{Fonte: \citeonline{de2015sistema}}
+\end{figure}
+
+Ao clicar na notificação (indicada pela seta), é aberta uma janela pop-up com os links recomendados para aquele aluno.
+Neste momento aparece o Título do Material e a Descrição, informados pelo professor. Além disso, é possível que o aluno
+avalie o material, com uma nota de 1 a 5, e reporte links quebrados. A Figura 4 mostra a interface contendo as
+recomendações realizadas em certo momento da interação do usuário.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-itens-recomendacao}Interface da Recomendação para o Aluno}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/adaptweb-itens-recomendacao.png}
+  \end{center}
+  \legend{Fonte: \citeonline{de2015sistema}}
+\end{figure}
+
+Em \citeonline{de2017sistema} foi feito um estudo com os dados de log gerados pela ferramenta de Learning Analytics
+presente no ambiente. Nesse estudo foi possível observar que, dentro de um minicurso de algoritmos realizado, as
+recomendações não foram percebidas pelos usuários. Dos 99 alunos ativos no minicurso, apenas 18 acessaram pelo menos
+uma vez a área de recomendações. Além disso, dos 27.116 registros de páginas acessadas no ambiente, apenas 30 estão
+relacionados ao SR \cite{de2017sistema}.
+
+Por isso, nesse trabalho será considerado não só o algoritmo de recomendação, mas também uma forma mais eficiente de
+apresentar essas recomendações. Isso porque não adianta o algoritmo de recomendação ser eficiente sendo que os alunos
+nem sabem da existência dessa ferramenta. Na seção a seguir será apresentada a proposta de apresentação das
+recomendações de forma a garantir que as recomendações chegem aos alunos.
 
 \section{Apresentação das Recomendações}
 
