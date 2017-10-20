@@ -14,39 +14,40 @@ conforme o tempo que passou da última invocação desse serviço, devido a poss
 rede, etc. Por isso, a recomendação de serviços dos autores combina técnicas de similaridade com uma função de
 decaimento que considera que a QoS diminui com o passar do tempo. O modelo de decaimento proposto considera que as
 invocações mais recentes de dois usuários a um serviço devem ter um impacto maior no cálculo da similaridade entre os
-usuários. O fator de decaimento é calculado utilizando a seguinte fórmula:
+usuários. A função de decaimento de um item $k$ é definida na Equação \ref{eq:fan-funcao-decaimento}.
 
 \begin{equation}
-  \Delta t = \frac{(\Delta t_i + \Delta t_j)}{2}
-  \label{eq:fan-fator-decaimento}
+  \label{eq:fan-funcao-decaimento}
+  f(t_{i,k}, t_{j,k}) = e^{-\alpha \left|t_{atual} - \Delta t \right|}
 \end{equation}
 
+Onde: $\alpha$ é o fator de decaimento; e $\Delta t$ é a variação de tempo combinando o acesso do usuários $u_i$ e $u_j$
+e é calculada com a fórmula apresentada na Equação \ref{eq:fan-fator-decaimento}.
+
+\begin{equation}
+  \label{eq:fan-fator-decaimento}
+  \Delta t = \frac{(\Delta t_i + \Delta t_j)}{2}
+\end{equation}
 
 Onde $\Delta t_i$ é o intervalo de tempo entre a invocação do serviço pelo usuário $u_i$ ao serviço e o tempo atual e
 $\Delta t_j$ é o intervalo de tempo entre a invocação do mesmo serviço pelo usuário $u_j$ e o tempo atual. Assim, a
-similaridade do serviço????  diminui quanto maior for o $\Delta t$. A função de decaimento de um item k é definida como:
+similaridade dos usuários  diminui quanto maior for o $\Delta t$.
+
+A nota do serviço $k$ é considerada como a combinação do QoS com a função de decaimento e é calculada através da Equação \ref{eq:fan-avaliacao}.
 
 \begin{equation}
-  f(t_{i,k}, t_{j,k}) = e^{-\alpha \left|t_{atual} - \Delta t \right|}
-  \label{eq:fan-funcao-decaimento}
-\end{equation}
-
-Onde $\alpha$ é uma constante de decaimento????? . Uma avaliação do serviço é considerada como a combinação do QoS com
-a função de decaimento:
-
-\begin{equation}
-  r_{u_i, s_k, t} = r_{u_i, s_k} f(t_{i,k}, t_{j,k})
   \label{eq:fan-avaliacao}
+  r_{u_i, s_k, t} = r_{u_i, s_k} \cdot f(t_{i,k}, t_{j,k})
 \end{equation}
 
-Os autores utilizam a avaliação combinada com a função de decaimento para calcular a similaridade do itens utilizando
-um algoritmo chamado PCC????. Que pode ser definido como:
+Os autores utilizam a nota resultado da função apresentada anteriormente para calcular a similaridade dos itens utilizando
+o coeficiente de Pearson. A Equação \ref{eq:fan-similaridade} apresenta o coeficiente de Pearson utilizado pelos autores
+que considera a função de decaimento.
 
 \begin{equation}
+  \label{eq:fan-similaridade}
   sim(u_1, u_j, t) = \frac{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})(r_{u_j, s_k, t} - \overline{r_{u_j}})}}{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})}^2 \sum_{s_k \in w_{u_i, u_j}}{(r_{u_j, s_k, t} - \overline{r_{u_j}})}^2}
-  \label{eq:fan-avaliacao}
 \end{equation}
-
 
 Onde $w_{u_i, u_j}$ é um conjunto dos itens em comum invocados pelos usuários $u_i$ e $u_j$. Utilizando essa fórmula de
 similaridade é possível calcular a similaridade entre os usuários e encontrar os que são mais similares.
@@ -54,14 +55,14 @@ similaridade é possível calcular a similaridade entre os usuários e encontrar
 A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
 eles estão, mais similares eles são considerados.
 
-Foi realizado um experimento com o dataset WS-Dream comparando o algoritmo proposto com outros 6 algoritmos. As
-métricas utilizadas para a comparação foram MAE e RMSE significado.... Primeiramente foi realizado um experimento
-verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são considerados para decidir quais são os
-itens considerados significantes, ou seja, depois de calculada nota prevista para os itens, decidir qual o limite mínimo
+Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos. A avaliação
+foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para a comparação foram \textit{Mean Absolute Error} (MAE) e \textit{Root Mean Squared Error} (RMSE).
+Primeiramente foi realizado um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
+considerados para decidir quais são os itens considerados significantes, ou seja, depois de calculada nota prevista para os itens, decidir qual o limite mínimo
 para que um item seja recomendado. O segundo experimento avaliou a influência da proporção da base de treino e de teste
-no experimento. E por último, para os algoritmos que utilizavam a filtragem colaborativa (o proposto e mais 3) foi
-avaliado a influência da quantidade de k-vizinhos considerada na eficiência do algoritmo. Os resultados mostraram que
-o algoritmo proposto foi melhor que os outros 6 algoritmos analisados.
+no experimento. E por último, para os algoritmos que utilizavam a filtragem colaborativa (o proposto e mais três) foi
+avaliado a influência da quantidade de k-vizinhos considerada na eficiência do algoritmo. Os resultados desses experimentos
+mostraram que o algoritmo proposto foi melhor que os outros 6 algoritmos analisados.
 
 \section{Luo et al. 2010}
 
@@ -90,11 +91,11 @@ de acesso.
 A abordagem baseada em conteúdo considera as múltiplas dimensões dos recursos como assunto, assunto secundário, nível
 de ensino, etc. Nessa abordagem, é inserido um conceito de \textit{Preference Energy} (PE) para refletir a variação do interesse
 do usuário com o passar do tempo. O PE indica que o interesse de um usuário a um item acessado diminui com o passar do
-tempo. Os autores definem a diminuição da PE como sendo:
+tempo. Os autores definem a diminuição da PE pela fórmula apresentada na Equação \ref{eq:luo-preference-energy}.
 
 \begin{equation}
-  PE_{attenuation}(x) = e^{- \lambda (x-1)}, com \ x \geqslant 1
   \label{eq:luo-preference-energy}
+  PE_{attenuation}(x) = e^{- \lambda (x-1)}, com \ x \geqslant 1
 \end{equation}
 
 Onde $x$ é a ordem do recurso na lista de acessos do usuário e $\lambda$ é o parâmetro de decaimento. Esse valor do PE,
@@ -111,7 +112,7 @@ sequencias de acesso dos usuários aos recursos. O algoritmo utilizado para a mi
 PrefixSpan, que procura sequências (ou subsequências) que apareceram em pelo menos $\mu$ acessos. Baseado na árvore de
 padrões sequenciais resultantes do algoritmo de mineração, é calculado quais os itens mais prováveis de serem acessados
 de acordo a sequência atual do usuário. A proposta dos autores define que o algoritmo de mineração de sequências deve
-ser executado de forma \textit{off-line}, para garantir a resposta em um tempo hábil.
+ser executado de forma \textit{offline}, para garantir a resposta em um tempo hábil.
 
 A etapa de \textit{Logic-based Resource Relevant Degree} combina o conjunto de recursos recomendados dos três algoritmos
 descritos, removendo da lista os recursos já acessados pelo usuário.
@@ -130,39 +131,9 @@ dispositivo do usuário e a satisfação mínima com o tempo de resposta esperad
 
 Esse algoritmo foi avaliado através de uma simulação utilizando o base de dados do Movielens, onde foram adicionados dados de
 contexto as interações existentes na base. As métricas utilizadas para avaliar o algoritmo foram Precisão, Utilidade e
-Validade?????. Em comparação a algoritmos tradicionais de recomendação, o algoritmo proposto teve melhores resultados no
+Validade (razão entre a quantidade de itens apropriados para o tipo de conexão do usuário e o total de itens existentes).
+Em comparação a algoritmos tradicionais de recomendação, o algoritmo proposto teve melhores resultados no
 experimento realizado.
-
-\section{Shroff, Dey e Ghosh 2014}
-
-O trabalho de \citeonline{shroff2014enterprise} propõe um modelo para recomendação sensível ao contexto para o ambiente
-corporativo. Nesse tipo de ambiente o usuário sobre uma sobrecarga cognitiva, com informações vindo através de redes
-sociais, e-mails, noticias, repositórios, etc. O modelo de recomendação busca encontrar poucos itens que tenham uma alta
-relevância imediata na tarefa atual do usuário, como por exemplo trocar e-mails com um fornecedor que está com atraso
-na entrega ou resolver um problema técnico que um programador esteja encontrando.
-
-As informações para o perfil do usuário são retiradas das mensagens mandadas por este e pelos documentos acessados.
-Enquanto os conteúdos são extraídos do twitter, bases de gerenciamento de conhecimento, outros documentos, etc. A
-recomendação dos conteúdos leva em conta uma abordagem baseada em conteúdo, combinando com o contexto do usuário.
-
-A abordagem baseada em conteúdo proposta pelos autores utiliza a técnica do tf-idf em janelas de tempo para identificar
-termos de destaque nas ações do usuário, ou seja, termos que aparecem com uma certa frequência em uma janela de tempo
-e que não aparece em outras. Isso porque itens que aparecem todo o tempo para determinado usuário devem ser algo do
-domínio dele e é considerado pelos autores que não vale a pena ser recomendado.???????
-
-Já a abordagem sensível ao contexto considera a ação atual do usuário, os conceitos presentes nessa ação (por exemplo,
-termos presentes no e-mail que usuário escreveu) e a função do usuário (e.g., executivo, vendedor, programador, etc).
-Para essa etapa é utiliza uma ontologia das necessidades do usuário que é criada manualmente, que possui regras do tipo:
-ao criar uma proposta mostrar propostas anteriores de sucesso, quando uma entrega estiver atrasada procurar notícias
-de eventos que podem ter afetado a entrega. Com base nessa ontologia e nas informações do contexto do usuário o
-algoritmo utiliza uma rede bayesiana para o cálculo da probabilidade de cada item ser recomendado.
-
-O algoritmo de recomendação primeiro seleciona os itens utilizando a abordagem baseada em conteúdo para filtrar apenas
-os conceitos que podem ser relevantes ao usuário. Depois, os conceitos são ordenados pela probabilidade de serem
-relevantes calculada pela rede bayesiana mencionada anteriormente.
-
-Não é realizada uma avaliação do algoritmo de recomendação proposto pelos autores. Eles descrevem cenários e como o
-algoritmo iria se portar no cenário com o intuito de demonstrar a utilidade do método.
 
 \section{Benčič e Bieliková 2012}
 
@@ -178,11 +149,11 @@ de que o usuário está naquele contexto.
 A convicção de que o usuário está em determinado contexto é observada de tempos em tempos. Esse intervalo depende da
 velocidade de conexão do dispositivo do usuário, nível da bateria, etc. A convicção do usuário estar em determinado
 contexto diminui com o passar o tempo (supondo que uma nova observação demore a acontecer). Por isso, os autores
-utilizam uma função de decaimento para essa convicção conforme a seguir:
+utilizam uma função de decaimento para essa convicção conforme a Equação \ref{eq:bencic-conviccao}.
 
 \begin{equation}
-  CF_t = \frac{CF_b}{(1+r)^t}
   \label{eq:bencic-conviccao}
+  CF_t = \frac{CF_b}{(1+r)^t}
 \end{equation}
 
 Onde $CF_t$ é a convicção calculada em função do tempo $t$, $CF_b$ é a convicção base, $r$ é o fator de decaimento e $t$
@@ -234,12 +205,12 @@ e a frequência com que outros conceitos aparecem nesse contexto. Detalhes são 
 
 Ainda no cálculo da importância do conceito em determinado contexto, é considerado que os interesses do usuário podem
 mudar com o tempo. Para isso, é incluído na fórmula o fator de Recência (do inglês \textit{Recency}), de forma que os interesses
-demonstrados pelo usuário mais recentemente são considerados mais importantes. A fórmula a seguir é a responsável pelo
-cálculo da recência:
+demonstrados pelo usuário mais recentemente são considerados mais importantes. A fórmula apresentada na Equação
+\ref{eq:hawalah-recencia} apresenta o cálculo da recência.
 
 \begin{equation}
-  Recency(c_j, ce_l) = \frac{1}{(1+\log(d_t - d_l) \times \alpha)}
   \label{eq:hawalah-recencia}
+  Recency(c_j, ce_l) = \frac{1}{(1+\log(d_t - d_l) \times \alpha)}
 \end{equation}
 
 Onde $d_t$ é a data de inicialização do cálculo, $d_l$ é a data da última ocorrência do conceito $c_j$ no contexto
@@ -277,22 +248,22 @@ O objetivo dos autores é combinar a Filtragem Colaborativa com o contexto do us
 nos interesses do usuário. Para tal, são encontrados os k usuários com os interesses similares ao usuário atual,
 considerando o contexto do usuário, através de técnicas de clusterização. Após encontrados os k vizinhos, utiliza-se
 uma fórmula para a predição das notas para itens ainda não acessados pelo usuário com a incorporação de uma função
-temporal. A fórmula é a seguinte:
+temporal, como apresentado na Equação \ref{eq:qiao-predicao}.
 
 \begin{equation}
-  p_{u,i} = \overline{r_u} + \frac{\sum_{v \in U}{sim(u, v)(r_{u,i} - \overline{r_v})f(t_{ni})}}{\sum_{v \in U}{sim(u, v)f(t_{ni})}}
   \label{eq:qiao-predicao}
+  p_{u,i} = \overline{r_u} + \frac{\sum_{v \in U}{sim(u, v)(r_{u,i} - \overline{r_v})f(t_{ni})}}{\sum_{v \in U}{sim(u, v)f(t_{ni})}}
 \end{equation}
 
 Sendo $p_{u,i}$ a nota prevista do usuário $u$ para o item $i$, $\overline{r_u}$ a média das notas dadas pelos usuário
 $u$, $sim(u, v)$ a similaridade entre o usuário $u$ e o seu vizinho $v$, $r_{u,i}$ o grau de interesse do usuário $u$
-pelo item $i$, $t$ é o tempo no qual o usuário $u$ quer utilizar o item $i$. ?????? Não entendi A função $f$ é a função
+pelo item $i$, $t$ é o tempo passado desde que o usuário $u$ utilizou o item $i$. A função $f$ é a função
 exponencial de decaimento que representa a diminuição do interesse do usuário por um determinado item. A função de
-decaimento é definida como:
+decaimento é definida na Equação \ref{eq:qiao-funcao-decaimento}.
 
 \begin{equation}
-  f(t_{ni}) = e^{-t_{ni}}
   \label{eq:qiao-funcao-decaimento}
+  f(t_{ni}) = e^{-t_{ni}}
 \end{equation}
 
 Os itens com as notas previstas mais altas são recomendados ao usuário.
@@ -314,28 +285,29 @@ recomendação.
 Além disso, o algoritmo proposto por \citeonline{kushwaha2016inclusion} considera a variação temporal da informação.
 Os autores consideram o decaimento da importância das \textit{tags} colocadas pelo usuário nos itens com o passar do tempo. A
 fórmula utilizada pelos autores para representar o decaimento foi baseada em \citeonline{iofciu2009time}, que pode ser
-vista a seguir:
+vista na Equação \ref{eq:kushwaha-funcao-decaimento}.
 
 \begin{equation}
-  postScore_i = \lambda^{\Delta Time_i}
   \label{eq:kushwaha-funcao-decaimento}
+  postScore_i = \lambda^{\Delta Time_i}
 \end{equation}
 
 Onde $postScore_i$ é a importância temporal da \textit{tag} $i$, $\lambda$ é o fator de decaimento, que deve ser menor do que 1
 e foi utilizado por \citeonline{kushwaha2016inclusion} como 0.9 e $\Delta Time_i$ é o tempo passado desde a interação. Além disso,
-é considerada a especificidade da \textit{tag} para a nota final da \textit{tag}. A fórmula da especificidade é definida como:
+é considerada a especificidade da \textit{tag} para a nota final da \textit{tag}. A fórmula da especificidade é definida
+na Equação \ref{eq:kushwaha-especificidade}
 
 \begin{equation}
-  tagSpecificity_i = \log(50+tagCont_i)
   \label{eq:kushwaha-especificidade}
+  tagSpecificity_i = \log(50+tagCont_i)
 \end{equation}
 
 Onde $tagSpecificity_i$ é o fator de especificidade da \textit{tag} e $tagCount_i$ representa quanta vezes a \textit{tag} foi adicionada
-ao item $i$. A nota final da \textit{tag} é:
+ao item $i$. A nota final da \textit{tag} é calculada conforma a Equação \ref{eq:kushwaha-nota-final}.
 
 \begin{equation}
-  tagScore_i = \frac{\sum_1^n{postScore}}{tagSpecifity_i}
   \label{eq:kushwaha-nota-final}
+  tagScore_i = \frac{\sum_1^n{postScore}}{tagSpecifity_i}
 \end{equation}
 
 A fórmula acima combina a importância temporal da \textit{tag} com a sua especificidade. A nota final da \textit{tag}
@@ -361,18 +333,18 @@ pelo usuário atual serão mais bem aceitas, assim como usuários no qual ele co
 O algoritmo de recomendação considera que a importância da relação entre os usuários diminui gradativamente com o tempo.
 Então, um comentário realizado hoje deve ter um peso maior que um comentário realizado ha um mês atrás quando for
 avaliada a relação entre dois usuários. O decaimento é incluído diretamente na formula utilizada para realizar a
-comparação de similaridade entre dois itens, como pode ser visto a seguir:
+comparação de similaridade entre dois itens, como pode ser visto a seguir na Equação \ref{eq:wei-similaridade}.
 
 \begin{equation}
-  s_{i,j}(t) = \frac{\sum_{u \in U_i^t \cap U_j^t}{(f_{ui}^\alpha(t) \cdot r_{ui})(f_{uj}^\alpha(t) \cdot r_{uj})}}{\sqrt{\sum_{u \in U_i^t}{(f_{ui}^\alpha(t) \cdot r_{ui})}^2 \sum_{u \in U_j^t}{(f_{uj}^\alpha(t) \cdot r_{uj})}^2}}
   \label{eq:wei-similaridade}
+  s_{i,j}(t) = \frac{\sum_{u \in U_i^t \cap U_j^t}{(f_{ui}^\alpha(t) \cdot r_{ui})(f_{uj}^\alpha(t) \cdot r_{uj})}}{\sqrt{\sum_{u \in U_i^t}{(f_{ui}^\alpha(t) \cdot r_{ui})}^2 \sum_{u \in U_j^t}{(f_{uj}^\alpha(t) \cdot r_{uj})}^2}}
 \end{equation}
 
-Onde a função $f$ é definida pelos autores como relevância temporal do item e pode ser vista como:
+Onde a função $f$ é definida pelos autores como relevância temporal do item e pode ser vista na Equação \ref{eq:wei-relevancia-temporal}
 
 \begin{equation}
-  f_{uj}^\alpha(t) = e^{- \alpha (t - t_{ui})}
   \label{eq:wei-relevancia-temporal}
+  f_{uj}^\alpha(t) = e^{- \alpha (t - t_{ui})}
 \end{equation}
 
 Onde fator $\alpha$ é responsável por controlar a taxa de decaimento, $t$ representa o tempo atual e $t_{ui}$ representa
