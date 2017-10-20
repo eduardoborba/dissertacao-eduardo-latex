@@ -1,9 +1,60 @@
-\chapter{SR Sensível ao Tempo no AdaptWeb\textsuperscript{\textregistered}}
+\chapter{SR Sensível ao Tempo}
 
 \section{Algoritmo Proposto}
 
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo tradicional com o uso do
 contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}).
+
+O cálculo da relevância de um determinado item $i$ para um usuário $u$ no algoritmo proposto está formalizada na Equação
+\ref{eq:relevancia-proposta}.
+
+\begin{equation}
+  F(u,i) = S(u,i) \cdot R(I_{u,i}) + A(i)
+  \label{eq:relevancia-proposta}
+\end{equation}
+
+Onde: $F$ é a função que calcula a relevância de um item $i$ para um usuário $u$; $S$ é a função de similaridade entre
+o perfil do usuário $u$ (representado através de conjunto de palavras-chave dos itens acessados) e o item $i$
+(representado pelo conjunto de palavras-chave que o caracterizam); $R$ é o maior valor de recência dos itens do conjunto
+$I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o item $i$); $A$ é uma função que retorna $1$
+se o item $i$ nunca foi acessado pelo usuário u e $0$ se o item já foi acessado.
+
+A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada utilizando a fórmula do cosseno (ver Seção
+\ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, estéa definida na Equação
+\ref{eq:recencia-proposta}.
+
+\begin{equation}
+  R(I_{u,i}) = \max_{\{j \in I_{u,i}\}}{\frac{x_j}{\left| I_u \right|}}
+  \label{eq:recencia-proposta}
+\end{equation}
+
+Onde: $x_j$ é a posição do item j na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
+\textit{timestamp} do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
+que mais de um item acessado pelo usuário pode ser similar ao item $i$, por isso a fórmula retorna a maior recência de
+todos os itens presentes no perfil do usuário que são similares a $i$. A seguir temos um exemplo do uso da fórmula da
+recência de um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
+fórmula acima.
+
+Suponha que um usuário $u$ acessou três itens diferentes nos seguintes \textit{timestamps} (em \textit{epoch}): Item A acessado $1503670382$;
+Item B acessado em $1500027182$; Item C acessado em $1508051582$. Ao ordenar esses itens pelo \textit{timestamp}, em ordem
+crescente, temos: (1) Item B, (2) Item A, (3) Item C. Ao calcular a recência para cada um dos itens, temos:
+
+\begin{equation}
+  R(A) = \frac{2}{3} = 0.\overline{6}
+  \label{eq:recencia-item-a}
+\end{equation}
+
+\begin{equation}
+  R(B) = \frac{1}{3} = 0.\overline{3}
+  \label{eq:recencia-item-b}
+\end{equation}
+
+\begin{equation}
+  R(C) = \frac{3}{3} = 1.0
+  \label{eq:recencia-item-c}
+\end{equation}
+
+\section{Discussão Sobre o Algoritmo Proposto}
 
 Um ponto negativo da Filtragem Colaborativa é a necessidade de uma comunidade de usuários ativa, que nem sempre é
 possível em um ambiente educacional onde as turmas muitas vezes são menores (entre 10 e 100 alunos). A Abordagem Baseada
@@ -37,71 +88,26 @@ acessados anteriormente) e em pouco tempo Pedro já estará recebendo recomenda�
 forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conceito, o SR também perceberá isso e
 recomendará itens relacionados ao primeiro conteúdo novamente.
 
-O cálculo da relevância de um determinado item no algoritmo de Decaimento proposto pode ser representado formalmente
-como:
-
-\begin{equation}
-  F(u,i) = S(u,i) \cdot R(I_{u,i}) + A(i)
-  \label{eq:relevancia-proposta}
-\end{equation}
-
-Onde: $F$ é a função que calcula a relevância de um item $i$ para um usuário $u$; $S$ é a função de similaridade entre
-o perfil do usuário $u$ (representado através de conjunto de palavras-chave dos itens acessados) e o item $i$
-(representado pelo conjunto de palavras-chave que o caracterizam); $R$ é o maior valor de recência dos itens do conjunto
-$I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o item $i$); $A$ é uma função que retorna $1$
-se o item $i$ nunca foi acessado pelo usuário u e $0$ se o item já foi acessado.
-
-A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada utilizando a fórmula do cosseno (ver seção
-\ref{section:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, pode ser definida como:
-
-\begin{equation}
-  R(I_{u,i}) = \max_{\{j \in I_{u,i}\}}{\frac{x_j}{\left| I_u \right|}}
-  \label{eq:recencia-proposta}
-\end{equation}
-
-Onde: $x_j$ é a posição do item j na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
-\textit{timestamp} do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
-que mais de um item acessado pelo usuário pode ser similar ao item $i$, por isso a fórmula retorna a maior recência de
-todos os itens presentes no perfil do usuário que são similares a $i$. A seguir temos um exemplo do uso da fórmula da
-recência de um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
-fórmula acima.
-
-Suponha que um usuário $u$ acessou três itens diferentes nos seguintes \textit{timestamps} (em \textit{epoch}): Item A acessado $1503670382$;
-Item B acessado em $1500027182$; Item C acessado em $1508051582$. Ao ordenar esses itens pelo \textit{timestamp}, em ordem
-crescente, temos: (1) Item B, (2) Item A, (3) Item C. Ao calcular a recência para cada um dos itens, temos:
-
-\begin{equation}
-  R(A) = \frac{2}{3} = 0.\overline{6}
-  \label{eq:recencia-item-a}
-\end{equation}
-
-\begin{equation}
-  R(B) = \frac{1}{3} = 0.\overline{3}
-  \label{eq:recencia-item-b}
-\end{equation}
-
-\begin{equation}
-  R(C) = \frac{3}{3} = 1.0
-  \label{eq:recencia-item-c}
-\end{equation}
-
 O algoritmo proposto nesse trabalho considera o decaimento no peso dos itens do perfil do usuário em função da posição
 do item na sequência de materiais acessados, como mostrado anteriormente, e não na quantidade de tempo passada em
-segundos como feito na maioria dos trabalhos relacionados mostrados no capítulo 3. Isso é uma vantagem, pois no domínio
+segundos como feito na maioria dos trabalhos relacionados mostrados no Capítulo \ref{chapter:trabalhos-relacionados}. Isso é uma vantagem, pois no domínio
 educacional o passar do tempo não é tão relevante quanto em outros domínios, como na recomendação de \textit{Web Services} por
-exemplo. Na área educacional faz mais sentido analisar quantos itens o usuário acessou depois de acessar aquela material
-do que o tempo em segundos passado desde a interação. Dessa forma, nesse algoritmo não faz diferença se o usuário
-acessou todos os itens do seu perfil em um único dia, se ele acessou metade do materiais na primeira semana do curso e
-a outra metade na última semana ou se ele acessou alguns materiais todos os dias durante o curso.
+exemplo.
+
+Os alunos em um ambiente educacional podem ter ritmos de estudo diferentes e, por isso, é assumido nesse trabalho que faz
+mais sentido analisar quantos itens foram acessados desde do acesso de determinado material do que o tempo passado desde
+a interação. Dessa forma, nesse algoritmo não faz diferença se o usuário acessou todos os itens do seu perfil em um
+único dia, se ele acessou metade do materiais na primeira semana do curso e a outra metade na última semana ou se ele
+acessou alguns materiais todos os dias durante o curso.
 
 Além disso, no algoritmo proposto nesse trabalho não é necessário definir um fator de decaimento como nos trabalhos
-relacionados apresentados no capítulo 3. Ao considerar um parâmetro como fator de decaimento seria necessário considerar
+relacionados apresentados no Capítulo \ref{chapter:trabalhos-relacionados}. Ao considerar um parâmetro como fator de decaimento seria necessário considerar
 que cada aluno tem um estilo de aprendizagem diferente e o decaimento para um aluno poderia ser diferente do decaimento
-para outros alunos. E não foi encontrado trabalhos que mostrem um modelo para calcular o fator de decaimento de forma
+para outros alunos. E não foram encontrados trabalhos que mostrem um modelo para calcular o fator de decaimento de forma
 personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de forma empírica e
 aplicam o mesmo fator para todos os usuários.
 
-\section{Análise do Ambiente AdaptWeb\textsuperscript{\textregistered}}
+\section{Descrição do Ambiente AdaptWeb\textsuperscript{\textregistered}}
 
 O algoritmo proposto será incorporado ao ambiente AdaptWeb\textsuperscript{\textregistered}. O
 AdaptWeb\textsuperscript{\textregistered} (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
