@@ -1,5 +1,10 @@
 \chapter{Fundamentação Teórica}
 
+Nesse capítulo são apresentados os principais conceitos relacionados a proposta desse trabalho. Primeiramente são apresentados
+os Sistemas de Recomendação e as suas abordagens tradicionais, seguidos pelos Sistemas de Recomendação Sensíveis ao Contexto
+e os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentadas as formas de avaliação de Sistema de Recomendação
+e as formas de apresentação de Recomendações.
+
 \section{Sistemas de Recomendação}
 
 Sistemas de Recomendação (SRs) se tornaram uma importante área de pesquisa a partir dos anos 90, quando começaram a
@@ -11,11 +16,11 @@ Exemplos dessas aplicações são: recomendação de Livros, CDs, DVDs, etc., em
 recomendações de filmes em sites como MovieLens e Netflix; recomendação de músicas em sites de \textit{streaming} como Last.fm ou
 Spotify; recomendação de amigos ou de postagens em redes sociais como Facebook ou Twitter.
 
-SRs podem ser presentados formalmente como:
+SRs estão representados formalmente na Equação \ref{eq:sr-tradicional}.
 
 \begin{equation}
   F: U \times I \rightarrow R
-  \label{eq:context-aware}
+  \label{eq:sr-tradicional}
 \end{equation}
 
 Onde $F$ é a função que busca prever o interesse do usuário pelos itens existentes, $U$ representa o conjunto dos usuários,
@@ -55,7 +60,7 @@ Dentro da área de Recuperação da Informação uma forma de medir a similarida
 da similaridade por Cosseno foi definido por Salton nos anos 60 \cite{salton1964document}. Nessa técnica, cada documento
 é representado por um vetor de termos . Os vetores são dispostos em um espaço vetorial de  dimensões, onde  é o número
 de termos, e documentos próximos nesse espaço são considerados semelhantes. Para verificar essa proximidade utiliza-se a
-seguinte fórmula \cite{christopher2008introduction}:
+Equação \ref{eq:cosseno} \cite{christopher2008introduction}.
 
 \begin{equation}
   sim(d_1, d_2) = \frac{\sum_{i=1}^{t}{w_{1,i} \times w_{2,i}}}{\sqrt{\sum_{i=1}^{t}{w_{1,i}}^2 \sum_{i=1}^{t}{w_{2,i}}^2}}
@@ -65,14 +70,14 @@ seguinte fórmula \cite{christopher2008introduction}:
 
 Onde: $sim(d_1, d_2)$ é o resultado da distância dos vetores, variando de $[0,1]$; $w_{1,i}$ é o termo presente na
 posição $i$ do item $1$; $w_{2,i}$ é o termo presente na posição $i$ do item $2$. Por exemplo, se tivermos três vetores: $c = \{1,1\}$
-representado o usuário, $v_1 = \{0, 1\}$ e $v_2 = \{1, 1\}$ representando itens. Ao calcular a similaridade entre esses itens,
+representando o usuário, $v_1 = \{0, 1\}$ e $v_2 = \{1, 1\}$ representando itens. Ao calcular a similaridade entre esses itens,
 temos $sim(c, v_1) \approx 0.71$ e $sim(c, v_2) = 1$, identificando que o item representado por $v_2$ é mais similar às
 preferências do usuário $c$.
 
 Outra técnica de Recuperação da Informação é o tf-idf (term-frequency inverse document frequency). Essa técnica
 é utilizada para identificar termos importantes em um documento (MANNING et al., 2009) e pode ser utilizada
-para a descoberta das palavras-chave que descrevem um item. É utilizada a seguinte fórmula para o cálculo dos
-pesos de cada termo do documento \cite{christopher2008introduction}:
+para a descoberta das palavras-chave que descrevem um item. É utilizada a fórmula da Equação \ref{eq:tf-idf} para o cálculo dos
+pesos de cada termo do documento \cite{christopher2008introduction}.
 
 \begin{equation}
   tf\hbox{-}idf_{t,d} = tf_{t,d} \times idf_{t,d}
@@ -82,14 +87,14 @@ pesos de cada termo do documento \cite{christopher2008introduction}:
 Onde: $tf\hbox{-}idf_{t,d}$ representa o peso do termo $t$ no documento $d$; $tf_{t,d}$ é o número de vezes que o termo
 $t$ aparece no documento $d$; e $idf_{t,d}$ representa o Inverse Document Frequency do termo $t$, sendo o responsável por
 identificar termos que aparecem em muitos documentos diferentes (MANNING et al., 2009). Os termos que aparecem em muitos
-documentos tendem a perder sua importância. O $idf_{t,d}$ é calculado através da seguinte fórmula \cite{christopher2008introduction}:
+documentos tendem a perder sua importância. O $idf_{t,d}$ é calculado através da Equação \ref{eq:idf} \cite{christopher2008introduction}.
 
 \begin{equation}
   idf_{t,d} = \log(\frac{N}{d_f})
   \label{eq:idf}
 \end{equation}
 
-Onde:  é o número total de documentos em uma coleção; e  é o número de documentos onde aparece o termo .
+Onde: $N$ é o número total de documentos em uma coleção; e $d_f$ é o número de documentos onde aparece o termo $t$.
 
 A principal vantagem da abordagem Baseada em Conteúdo é não necessitar da opinião de outros usuários para a recomendação
 \cite{ricci2011introduction}. As principais desvantagens são: o Cold-Start, em que o sistema não terá informações
@@ -122,8 +127,8 @@ itens, utiliza-se um cálculo matemático para medir a similaridade entre o perf
 
 O Coeficiente de Pearson é um coeficiente bastante utilizado em modelos econômicos e mede a força do relacionamento
 de duas variáveis \cite{torres2004personalizaccao}. Esse coeficiente varia no intervalo $[-1, 1]$, sendo $-1$ indica
-ausência de correlação e $+1$ indica forte correlação. O cálculo é então feito de acordo com a seguinte fórmula
-\cite{torres2004personalizaccao}:
+ausência de correlação e $+1$ indica forte correlação. O cálculo é então feito de acordo com a Equação \ref{eq:pearson}
+\cite{torres2004personalizaccao}.
 
 \begin{equation}
   w_{a,u} = \frac{\sum_{i=1}^{m}(r_{a,i} - \overline{r_a})*(r_{u,i} - \overline{r_u}))}{\sqrt{\sum_{i=1}^{m}(r_{a,i} - \overline{r_a})^2} \sqrt{\sum_{i=1}^{m}(r_{u,i} - \overline{r_u})^2}}
@@ -227,7 +232,7 @@ contexto em que os usuários estão. De acordo com \citeonline{dey2001understand
 que pode ser usada para caracterizar a situação de uma entidade. Sendo as principais entidades em SRs o usuário que
 irá receber uma recomendação e os itens que serão recomendados.
 
-SRs Sensíveis ao Contexto podem ser formalmente definidos como:
+SRs Sensíveis ao Contexto estão formalmente definidos na Equação \ref{eq:context-aware}.
 
 \begin{equation}
   F: U \times I \times C \rightarrow R
@@ -277,14 +282,14 @@ do aluno, as condições do ambiente e a acessibilidade dos recursos \cite{verbe
 Na próxima seção é apresentado um tipo específico de SRs Sensíveis ao Contexto que utilizam a dimensão temporal para
 recomendar. Esse tipo de SR pode também aplicar outras dimensões do contexto em conjunto.
 
-\section{Sistemas de Recomendação Sensível ao Tempo}
+\section{Sistemas de Recomendação Sensível ao Tempo}\label{section:sr-sensivel-tempo}
 
 Dentre as dimensões do contexto citadas na seção \ref{section:sr-sensivel-contexto}, o tempo tem uma vantagem de ser
 fácil de capturar, considerando que praticamente todos os dispositivos tem um relógio que pode capturar o tempo no qual
 alguma interação ocorreu. Além disso, trabalhos na área demonstraram que o contexto temporal tem potencial para melhorar
 a qualidade das recomendações \cite{campos2014time}. Esse tipo de SR é chamado de SR Sensível ao Tempo.
 
-SRs Sensíveis ao Tempo são formalmente representados como:
+SRs Sensíveis ao Tempo estão formalmente definidos na Equação \ref{eq:time-aware}.
 
 \begin{equation}
   F: U \times I \times T \rightarrow R
@@ -399,12 +404,11 @@ de questionários;
 capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics}.
 \end{itemize}
 
-EXPLICAR AS PRINCIPAIS MÉTRICAS????
-
 \citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando Estudos com os usuários, com o objetivo
-de realizar uma avaliação centrada no usuário. O \textit{framework} foi proposto com base em outras ferramentas para avaliação
-centrada no usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM) e \textit{Software Usability Measurement Inventory}
-(SUMI). O TAM consiste em três construtos: Facilidade de Uso Percebida, Utilidade Percebida e Intenções do Usuário em
+de realizar uma avaliação centrada no usuário. Esse \textit{framework} se chama \textit{Recommender Systems' Quality of
+User Experiente}  (ResQue) e foi proposto com base em outras ferramentas para avaliação centrada no usuário não exclusivas
+de SR: \textit{Technology Acceptance Model} (TAM) e \textit{Software Usability Measurement Inventory} (SUMI). O TAM
+consiste em três construtos: Facilidade de Uso Percebida, Utilidade Percebida e Intenções do Usuário em
 utilizar o sistema. Enquanto o SUMI consiste de cinco construtos (Eficiência, Influência, Ajuda, Controle, Capacidade
 de Aprendizado) e um questionário de 50 questões.
 
@@ -425,7 +429,7 @@ conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 ques
   \legend{Fonte: \citeonline{pu2011user}}
 \end{figure}
 
-\section{Apresentação das Recomendações}
+\section{Apresentação das Recomendações}\label{section:fundamentacao-apresentacao-recomendacao}
 
 No trabalho de \citeonline{pu2012evaluating} os autores argumentam que apenas a eficiência do algoritmo não garante
 que o usuário estará satisfeito com o sistema, será leal e continuará utilizando-o ou que os itens serão "convertidos"
@@ -448,7 +452,7 @@ eficiência do sistema, sua satisfação com o sistema em geral, sua prontidão 
 confiança no sistema.
 \item Diretriz 18: Considere fornecer como recomendação itens compatíveis ao contexto do usuário. Essa característica
 pode estar altamente relacionada com a percepção de utilidade do sistema e da satisfação do usuário.
-\item Diretriz 19: Considere explicar o porquê do sistema recomendou determinados itens. Esses aspectos podem estar
+\item Diretriz 19: Considere explicar porque o sistema recomendou determinados itens. Esses aspectos podem estar
 altamente relacionados com a satisfação do usuário, a percepção de controle, as intenções do usuário inspiradas pela
 confiança do usuário, como a intenção de retornar ao sistema.
 \item Diretriz 20: Considere fornecer informação suficiente relacionadas aos itens recomendados, controlar a qualidade
@@ -456,3 +460,23 @@ das informações e da estrutura de navegação.
 \end{itemize}
 
 \section{Considerações sobre o capítulo}
+
+Nesse capítulo foram apresentados os principais conceitos relacionados a Sistemas de Recomendação (SRs) Sensíveis ao Tempo.
+Foram apresentadas desde as abordagens tradicionais, passando pelos SR Sensíveis Contexto e os seus paradigmas até as
+categorias de SRs Sensíveis ao Tempo definidas em \citeonline{de2017time}.
+
+Dentre as categorias de SRs Sensíveis ao Tempo apresentadas na Seção \ref{section:sr-sensivel-tempo}, a utilizada por esse
+trabalho é o \textit{Decay}. Nessa categoria é considerado que o interesse do usuário por um item acessado diminui com o passar
+do tempo. Para isso, itens acessados recentemente tem um peso maior no algoritmo de recomendação e os itens vão perdendo
+o peso gradativamente.
+
+Além disso, foi apresentada as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
+trabalho é utilizada uma avaliação centrada no usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
+apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
+questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, será necessário
+selecionar quais das questões serão utilizadas, pois como citado por \citeonline{pu2011user} nem todas as questões se
+aplicam a todos os SRs, e traduzir essas questões para tornar possível a aplicação.
+
+Na Seção \ref{section:fundamentacao-apresentacao-recomendacao} são apresentados algumas diretrizes definidas por \citeonline{pu2012evaluating}
+para a apresentação das recomendações. Essas diretrizes foram definidas através de experimentos com participação do usuário
+e são consideradas para a definição da interface da proposta desse trabalho.
