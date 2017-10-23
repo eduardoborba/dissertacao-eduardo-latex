@@ -55,8 +55,10 @@ similaridade é possível calcular a similaridade entre os usuários e encontrar
 A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
 eles estão, mais similares eles são considerados.
 
-Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos. A avaliação
-foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para a comparação foram \textit{Mean Absolute Error} (MAE) e \textit{Root Mean Squared Error} (RMSE).
+Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos: RBA,
+UPCC, IPCC, CASR, CASR-UP e ITRP-WS. A avaliação foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para a comparação foram
+\textit{Mean Absolute Error} (MAE) e \textit{Root Mean Squared Error} (RMSE).
+
 Primeiramente foi realizado um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
 considerados para decidir quais são os itens considerados significantes, ou seja, depois de calculada nota prevista para os itens, decidir qual o limite mínimo
 para que um item seja recomendado. O segundo experimento avaliou a influência da proporção da base de treino e de teste
@@ -129,10 +131,12 @@ O algoritmo de recomendação proposto pelos autores então calcula uma lista de
 utilizando os algoritmos de \textit{Logic-Based Resource Relevant Degree} e remove dessa lista os recursos que não satisfaçam o
 dispositivo do usuário e a satisfação mínima com o tempo de resposta esperado.
 
-Esse algoritmo foi avaliado através de uma simulação utilizando o base de dados do Movielens, onde foram adicionados dados de
+Esse algoritmo foi avaliado através de uma avaliação \textit{offline} utilizando o base de dados do Movielens, onde foram adicionados dados de
 contexto as interações existentes na base. As métricas utilizadas para avaliar o algoritmo foram Precisão, Utilidade e
 Validade (razão entre a quantidade de itens apropriados para o tipo de conexão do usuário e o total de itens existentes).
-Em comparação a algoritmos tradicionais de recomendação, o algoritmo proposto teve melhores resultados no
+A avaliação foi feita em relação aos seguintes  algoritmos tradicionais de recomendação: Algoritmo Baseado em Conteúdo
+utilizando o modelo de espaço vetorial, Filtragem Colaborativa combinando a abordagem User-User com a Item-Item, Abordagem
+Híbrida. Em comparação aos algoritmos tradicionais o algoritmo proposto teve melhores resultados no
 experimento realizado.
 
 \section{Benčič e Bieliková 2012}
@@ -230,7 +234,7 @@ no usuário como descrito por \citeonline{kelly2009methods}. O objetivo da avali
 contextual proposta no trabalho fornece uma recomendação mais eficiente do que os métodos tradicionais. 24 usuários
 participaram da avaliação, onde eles utilizaram um sistema por 30 dias, numa estratégia \textit{Between-subjects}, i.e., cada
 grupo testa apenas uma versão do sistema. No total, 4 versões do sistema foram testadas: o algoritmo proposto (CAPS), o
-algoritmo proposto sem o uso do contexto (CAPS-C), um método de recomendação personalizado chamado aqui Simple-P e um
+algoritmo proposto sem o uso do contexto (CAPS-C), um método de recomendação personalizado chamado pelos autores de Simple-P e um
 método de recomendação não personalizado chamado de Non-P.
 
 O resultado da avaliação analisou a nota dada pelos usuários para os itens em uma escala de likert de 1 a 4. Sendo itens
@@ -303,7 +307,7 @@ na Equação \ref{eq:kushwaha-especificidade}
 \end{equation}
 
 Onde $tagSpecificity_i$ é o fator de especificidade da \textit{tag} e $tagCount_i$ representa quanta vezes a \textit{tag} foi adicionada
-ao item $i$. A nota final da \textit{tag} é calculada conforma a Equação \ref{eq:kushwaha-nota-final}.
+ao item $i$. A nota final da \textit{tag} é calculada conforme a Equação \ref{eq:kushwaha-nota-final}.
 
 \begin{equation}
   \label{eq:kushwaha-nota-final}
@@ -317,8 +321,8 @@ das \textit{tags}, representando a variação nos interesses do usuário.
 O algoritmo proposto pelos autores foi avaliado utilizando uma base de dados do próprio Last.fm, combinado com a base de
 dados do DBpedia para a captura de informações sobre os artistas, compositores e músicas. A avaliação considerou a
 métrica RMSE (\textit{Root Mean Square Error}) para as previsões para as notas que o usuário daria para um determinado
-item comparada com a nota real. Quando comparado com outros dois algoritmos recentes de recomendação que incorporam
-informação social para recomendação, o algoritmo proposto por \citeonline{kushwaha2016inclusion} se saiu melhor em 3
+item comparada com a nota real. Quando comparado com outros dois algoritmos de recomendação que incorporam
+informação social para recomendação (chamados BPMFSR e Sorec), o algoritmo proposto por \citeonline{kushwaha2016inclusion} se saiu melhor em 3
 das 6 condições de experimento realizadas.
 
 \section{Wei, Khoury e Fong 2013}
@@ -360,3 +364,32 @@ com efeito temporal. As métricas utilizadas foram \textit{Mean Absolute Error} 
 Os resultados mostraram que o algoritmo proposto melhorou significativamente a qualidade das recomendações.
 
 \section{Considerações sobre o capítulo}
+
+\begin{table}[htb]
+\footnotesize
+\caption[Comparação dos trabalhos relacionados]{Comparação dos trabalhos relacionados}
+\label{tab:comparacao-trabalhos-relacionados}
+\centering
+\begin{tabular}{p{2cm}|p{2cm}|p{1.9cm}|p{1.6cm}|p{1.5cm}|p{1.7cm}|p{2.2cm}}
+  \hline
+  \textbf{Trabalho} & \textbf{Domínio} & \textbf{Abordagem} & \textbf{Constante de decaimento} & \textbf{Tempo absoluto} & \textbf{Avaliação} & \textbf{Algoritmos comparados} \\
+  \hline
+  \citeonline{fan2015modeling} & \textit{Web Services} & Filtragem Colaborativa & Sim & Sim & Offline, com a base WS-Dream & RBA, UPCC, IPCC, CASR, CASR-UP e ITRP-WS \\
+  \hline
+  \citeonline{luo2010context} & Ambiente educacional & Híbrida & Sim & Não & Offline, com a base do Movielens & Abordagens tradicionais: Baseada em Conteúdo, Filtragem Colaborativa e Híbrida \\
+  \hline
+  \citeonline{bencic2012action} & Genérico & Baseada em Conhecimento & Sim & Sim & Simulações & Nenhum \\
+  \hline
+  \citeonline{hawalah2014utilizing} & Genérico & Baseada em Conhecimento & Sim & Sim & Estudos com usuários, com 24 usuários durante 30 dias & CAPS-C, Simple-P e Non-P \\
+  \hline
+  \citeonline{qiao2015personalized} & Genérico & Filtragem Colaborativa & Não & Sim & Offline, com a base do Movielens & Filtragem Colaborativa tradicional \\
+  \hline
+  \citeonline{kushwaha2016inclusion} & Músicas & Híbrida & Sim & Sim & Offline, com a base da Last.fm & BPMFSR e Sorec \\
+  \hline
+  \citeonline{wei2013web} & Propagandas & Filtragem Colaborativa & Sim & Sim & Offline, com as bases do Movielens, Facebook e Delicious & Filtragem Colaborativa usando correlação de Pearson com e sem efeito temporal \\
+  \hline
+  Proposta & Ambiente educacional & Baseada em Conteúdo & Não & Não & Estudos com usuários, com pelo menos 60 usuários durante 45 dias & Abordagem Baseada em Conteúdo tradicional \\
+  \hline
+\end{tabular}
+\legend{Fonte: O autor.}
+\end{table}
