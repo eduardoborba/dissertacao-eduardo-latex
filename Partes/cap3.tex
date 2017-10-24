@@ -55,14 +55,17 @@ similaridade é possível calcular a similaridade entre os usuários e encontrar
 A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
 eles estão, mais similares eles são considerados.
 
-Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos: RBA,
-UPCC, IPCC, CASR, CASR-UP e ITRP-WS. A avaliação foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para a comparação foram
+Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos: Recomendação
+considerando todos os usuários (RBA), Filtragem Colaborativa User-User utilizando a Correlação de Pearson (UPCC),
+Filtragem Colaborativa Item-Item utilizando a Correlação de Pearson (IPCC), \textit{Context-Aware Service Recommender}
+(CASR), Método que considera a preferência do usuário de acordo com a sua localização (CASR-UP) e UPCC que considera o decaimento (ITRP-WS). Esses algoritmos
+A avaliação foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para a comparação foram
 \textit{Mean Absolute Error} (MAE) e \textit{Root Mean Squared Error} (RMSE).
 
 Primeiramente foi realizado um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
 considerados para decidir quais são os itens considerados significantes, ou seja, depois de calculada nota prevista para os itens, decidir qual o limite mínimo
 para que um item seja recomendado. O segundo experimento avaliou a influência da proporção da base de treino e de teste
-no experimento. E por último, para os algoritmos que utilizavam a filtragem colaborativa (o proposto e mais três) foi
+no experimento. E por último, para os algoritmos que utilizavam a Filtragem Colaborativa foi
 avaliado a influência da quantidade de k-vizinhos considerada na eficiência do algoritmo. Os resultados desses experimentos
 mostraram que o algoritmo proposto foi melhor que os outros 6 algoritmos analisados.
 
@@ -234,7 +237,7 @@ no usuário como descrito por \citeonline{kelly2009methods}. O objetivo da avali
 contextual proposta no trabalho fornece uma recomendação mais eficiente do que os métodos tradicionais. 24 usuários
 participaram da avaliação, onde eles utilizaram um sistema por 30 dias, numa estratégia \textit{Between-subjects}, i.e., cada
 grupo testa apenas uma versão do sistema. No total, 4 versões do sistema foram testadas: o algoritmo proposto (CAPS), o
-algoritmo proposto sem o uso do contexto (CAPS-C), um método de recomendação personalizado chamado pelos autores de Simple-P e um
+algoritmo proposto sem o uso do contexto (CAPS-C), um método de recomendação personalizado tradicional chamado pelos autores de Simple-P e um
 método de recomendação não personalizado chamado de Non-P.
 
 O resultado da avaliação analisou a nota dada pelos usuários para os itens em uma escala de likert de 1 a 4. Sendo itens
@@ -365,7 +368,13 @@ Os resultados mostraram que o algoritmo proposto melhorou significativamente a q
 
 \section{Considerações sobre o capítulo}
 
-\begin{table}[htb]
+Nesse capítulo foram apresentados sete trabalhos relacionados que utilizam Sistemas de Recomendação (SRs) com o uso do
+\textit{Decay}, ou seja, que consideram o decaimento da importância de uma determinada interação do usuário com o passar
+do tempo. Os trabalhos apresentados foram extraídos do mapeamento realizado sobre SRs Sensíveis ao Tempo \cite{de2017time}.
+A tabela \ref{tab:comparacao-trabalhos-relacionados} apresenta um resumo dos trabalhos apresentados e uma comparação com
+a proposta desse trabalho.
+
+\begin{table}[hp]
 \footnotesize
 \caption[Comparação dos trabalhos relacionados]{Comparação dos trabalhos relacionados}
 \label{tab:comparacao-trabalhos-relacionados}
@@ -393,3 +402,34 @@ Os resultados mostraram que o algoritmo proposto melhorou significativamente a q
 \end{tabular}
 \legend{Fonte: O autor.}
 \end{table}
+
+Podemos observar que, dos trabalhos relacionados apenas um é da área educacional enquanto os outros são aplicados em outros
+domínios de aplicação. Além disso, nenhum dos trabalhos apresentados utiliza a abordagem Baseada em Conteúdo como a proposta
+desse trabalho. A abordagem mais comumente utilizada nos trabalhos relacionados é a Filtragem Colaborativa, aparecendo
+em três trabalhos sozinhas e em mais dois outros trabalhos combinados com outras abordagens (Abordagem Híbrida).
+
+Dos trabalhos relacionados, apenas um não considera uma Constante de decaimento. Essa Constante de decaimento geralmente
+é um valor entre $0$ e $1$ que define a velocidade com que o peso das interações do usuário diminui. Esse valor é definido
+pelos autores de forma empírica, não tendo um método para a definição dessa constante. O trabalho de \citeonline{qiao2015personalized},
+que não utiliza uma Constante de decaimento utiliza um função exponencial para o decaimento do interesse do usuário. Na
+proposta desse trabalho é utilizada um função de decaimento linear, sem a necessidade de definir uma Constante de decaimento.
+
+Também é possível observar que apenas um trabalho não utiliza o Tempo absoluto na função de decaimento. Isso significa que
+a maioria dos trabalhos relacionados considera o tempo passado (e.g., em segundos, minutos, horas, etc.) desde a interação
+para calcular a importância desta. O trabalho de \citeonline{luo2010context} considera a sequência de itens acessados, dando
+uma maior importância para os itens mais recentes de acordo com a posição do item na lista ordenada pelo tempo de acesso.
+A proposta desse trabalho utiliza uma estratégia similar a de \citeonline{luo2010context}.
+
+Sobre a avaliação, podemos observar que a maioria utiliza uma avaliação \textit{Offline}. \citeonline{bencic2012action} realiza
+uma simulação para demonstrar o algoritmo de recomendação, que segundo a definição de \citeonline{shani2011evaluating} não
+se encaixaria como uma avaliação de SR. O trabalho de \citeonline{luo2010context}, que é da área educacional assim como a
+proposta desse trabalho, utiliza uma avaliação \textit{offline} com a base do Movielens, uma base de dados que contém a
+nota dada por usuários para um conjunto de filmes. Essa avaliação, apesar de ser realizada de forma correta e apresentar
+bons resultados, não garante que o SR desenvolvido por \citeonline{luo2010context} teria um bom resultado em um ambiente
+real de uso. Por isso, a proposta desse trabalho irá realizar uma avaliação com participação de usuários em um ambiente
+educacional dentro de um minicurso com 45 dias de duração.
+
+Na avaliação citada anteriormente, o objetivo será comparar o algoritmo proposto neste trabalho com a abordagem Baseada
+em Conteúdo tradicional. Podemos observar pelos trabalhos relacionados que comparar a proposta com os algoritmos mais
+tradicionais da área é algo comumente realizado \cite{fan2015modeling, luo2010context, hawalah2014utilizing, qiao2015personalized, wei2013web}.
+
