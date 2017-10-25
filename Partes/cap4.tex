@@ -1,4 +1,9 @@
-\chapter{SR Sensível ao Tempo}
+\chapter{SR Sensível ao Tempo}\label{cap:proposta}
+
+Neste capítulo é apresentado o SR Sensível ao Tempo para ambientes educacionais proposto nesse trabalho. Além disso, é apresentado
+o ambiente no qual esse SR será incorporado e o SR já existente nesse ambiente. Por último, é proposta também uma nova interface
+para a apresentação das recomendações no ambiente, visto que com a interface atual as recomendações não são percebidas pelos
+usuários.
 
 \section{Algoritmo Proposto}
 
@@ -228,4 +233,34 @@ recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} est�
 \end{figure}
 
 \section{Considerações sobre o capítulo}
+
+Nesse capítulo é apresentada a proposta desse trabalho. O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
+conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é dado um peso menor na recomendação para os
+itens acessados a mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
+proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
+se os links recomendados já foram ou não acessados.
+
+O perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário. No contexto do
+AdaptWeb\textsuperscript{\textregistered}, os itens que são considerados para o perfil do usuário são todos os conceitos,
+exemplos, exercícios, materiais complementares e links de apoio acessados por ele. Já os itens a serem recomendados são
+apenas os links de apoio, isso porque se for recomendado itens das outras categorias estaria sendo quebrada a estrutura
+do AdaptWeb\textsuperscript{\textregistered} e da disciplina definida pelo professor.
+
+O cálculo da similaridade é feito então utilizando a técnica do Cosseno entre o perfil do usuário e todos os links de apoio
+da disciplina. O cálculo da recência é realizado apenas para os itens acessados pelo usuário que tem alguma similaridade com
+determinado link de poio. Nesse cálculo é considerada a posição do item na lista de acessos do usuário ordenada pelo tempo
+em que foi acessado o item e a quantidade de itens acessados por esse usuário. Dessa forma, um link de apoio que é similar
+a um item acessado pelo usuário recentemente terá uma recência maior e consequentemente um grau de relevância maior para
+aquele usuário. Enquanto um link de apoio que é similar a itens acessado a mais tempo pelo usuário terão uma recência maior
+e consequentemente um grau de relevância manor.
+
+O último fator considerado pela proposta desse trabalho é se o link de apoio já foi acessado ou não. Se já foi acessado
+ele terá um grau relevância menor, pois consideramos que itens já acessados tendem a ser menos relevantes para o usuário.
+Apesar disso, esses links já acessados ainda podem ser recomendados desde que sejam similares ao perfil do usuário e similares
+a itens acessados recentemente por este.
+
+Uma outra parte dessa proposta está relacionada a apresentação das recomendações. Utilizando como base as diretrizes propostas
+por \citeonline{pu2012evaluating} foi proposta uma nova interface para o SR já existente no AdaptWeb\textsuperscript{\textregistered},
+com o objetivo de que os usuários tenham mais acesso as recomendações e entendam melhor o porque aqueles itens foram
+recomendados.
 
