@@ -404,16 +404,16 @@ a proposta desse trabalho.
 \legend{Fonte: O autor.}
 \end{table}
 
-Podemos observar que, dos trabalhos relacionados apenas um é da área educacional enquanto os outros são aplicados em outros
+Pode-se observar que dos trabalhos relacionados apenas um é da área educacional enquanto os outros são aplicados em outros
 domínios de aplicação. Além disso, nenhum dos trabalhos apresentados utiliza a abordagem Baseada em Conteúdo como a proposta
 desse trabalho. A abordagem mais comumente utilizada nos trabalhos relacionados é a Filtragem Colaborativa, aparecendo
 em três trabalhos sozinhas e em mais dois outros trabalhos combinados com outras abordagens (Abordagem Híbrida).
 
 Dos trabalhos relacionados, apenas um não considera uma Constante de decaimento. Essa Constante de decaimento geralmente
 é um valor entre $0$ e $1$ que define a velocidade com que o peso das interações do usuário diminui. Esse valor é definido
-pelos autores de forma empírica, não tendo um método para a definição dessa constante. O trabalho de \citeonline{qiao2015personalized},
-que não utiliza uma Constante de decaimento utiliza um função exponencial para o decaimento do interesse do usuário. Na
-proposta desse trabalho é utilizada um função de decaimento linear, sem a necessidade de definir uma Constante de decaimento.
+pelos autores de forma empírica, não tendo um método para a definição dessa constante. No trabalho de \citeonline{qiao2015personalized},
+que não utiliza uma Constante de decaimento, é utilizada um função exponencial para o decaimento do interesse do usuário. Na
+proposta do presente trabalho também não é utiliza uma Constante de decaimento e é utilizada um função de decaimento linear.
 
 Também é possível observar que apenas um trabalho não utiliza o Tempo absoluto na função de decaimento. Isso significa que
 a maioria dos trabalhos relacionados considera o tempo passado (e.g., em segundos, minutos, horas, etc.) desde a interação
@@ -421,14 +421,14 @@ para calcular a importância desta. O trabalho de \citeonline{luo2010context} co
 uma maior importância para os itens mais recentes de acordo com a posição do item na lista ordenada pelo tempo de acesso.
 A proposta desse trabalho utiliza uma estratégia similar a de \citeonline{luo2010context}.
 
-Sobre a avaliação, podemos observar que a maioria utiliza uma avaliação \textit{Offline}. \citeonline{bencic2012action} realiza
+Sobre a avaliação, pode-se observar que a maioria utiliza uma avaliação \textit{Offline}. \citeonline{bencic2012action} realiza
 uma simulação para demonstrar o algoritmo de recomendação, que segundo a definição de \citeonline{shani2011evaluating} não
 se encaixaria como uma avaliação de SR. O trabalho de \citeonline{luo2010context}, que é da área educacional assim como a
 proposta desse trabalho, utiliza uma avaliação \textit{offline} com a base do Movielens, uma base de dados que contém a
 nota dada por usuários para um conjunto de filmes. Essa avaliação, apesar de ser realizada de forma correta e apresentar
 bons resultados, não garante que o SR desenvolvido por \citeonline{luo2010context} teria um bom resultado em um ambiente
 real de uso. Por isso, a proposta desse trabalho irá realizar uma avaliação com participação de usuários em um ambiente
-educacional dentro de um minicurso com 45 dias de duração.
+educacional durante uma situação real de uso.
 
 Na avaliação citada anteriormente, o objetivo será comparar o algoritmo proposto neste trabalho com a abordagem Baseada
 em Conteúdo tradicional. Podemos observar pelos trabalhos relacionados que comparar a proposta com os algoritmos mais

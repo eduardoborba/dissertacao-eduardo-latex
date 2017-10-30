@@ -65,7 +65,7 @@ crescente, temos: (1) Item B, (2) Item A, (3) Item C. As equações \ref{eq:rece
 Um ponto negativo da Filtragem Colaborativa é a necessidade de uma comunidade de usuários ativa, que nem sempre é
 possível em um ambiente educacional onde as turmas muitas vezes são menores (entre 10 e 100 alunos). A Abordagem Baseada
 em Conteúdo é considerada para o SR porque essa abordagem permite a recomendação em um sistema que não possui uma
-comunidade ativa e supre as necessidades desse domínio.
+comunidade ativa e pode suprir as necessidades desse domínio.
 
 Os SRs Sensíveis ao Tempo tem uma vantagem em relação à outros SRs Sensíveis ao Contexto por a informação temporal ser
 mais simples de capturar e manipular que outras informações contextuais, e.g., localização. Além disso, esses tipos de
@@ -81,18 +81,18 @@ grau de importância maior para o algoritmo do que itens acessados anteriormente
 acessou muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
 recomendação consegue rapidamente se adaptar e gerar recomendações sobre esse novo conteúdo.
 
-Um cenário que justifica o uso do \textit{Decay} seria: o aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
+Um cenário de uso do \textit{Decay} é apresentado a seguir: \textit{o aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
 que possui quatro tópicos, sendo eles Pilhas, Filas, Listas e Árvores. Nessa disciplina, para cada um dos conteúdos é
 aplicada uma prova para avaliar os conhecimentos dos alunos. Até o momento da primeira prova sobre o conteúdo de Pilhas,
 Pedro acessou apenas materiais relacionados a Pilhas. O algoritmo de recomendação utilizando a abordagem Baseada em
 Conteúdo recomenda para Pedro apenas materiais relacionados a Pilhas. Após a primeira prova, Pedro começa a acessar
 materiais relacionados a Filas, o segundo tópico da disciplina. Em uma abordagem Baseada em Conteúdo tradicional as
 recomendações continuariam sendo sobre o conteúdo de Pilhas por um bom tempo, pois o perfil de Pedro seria em grande
-parte composto por materiais acessados sobre esse assunto. Porém, com o uso do \textit{Decay}, no momento em que Pedro começar a
+parte composto por materiais acessados sobre esse assunto. Porém, com o uso do \textbf{Decay}, no momento em que Pedro começar a
 acessar materiais sobre Filas o algoritmo de recomendação dará um peso maior para esses materiais (sem ignorar os itens
 acessados anteriormente) e em pouco tempo Pedro já estará recebendo recomendações sobre o novo tópico estudado. Da mesma
 forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conceito, o SR também perceberá isso e
-recomendará itens relacionados ao primeiro conteúdo novamente.
+recomendará itens relacionados ao primeiro conteúdo novamente.}
 
 O algoritmo proposto nesse trabalho considera o decaimento no peso dos itens do perfil do usuário em função da posição
 do item na sequência de materiais acessados, como mostrado anteriormente, e não na quantidade de tempo passada em

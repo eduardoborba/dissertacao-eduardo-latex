@@ -2,7 +2,7 @@
 
 Nesse capítulo são apresentados os principais conceitos relacionados a proposta desse trabalho. Primeiramente são apresentados
 os Sistemas de Recomendação e as suas abordagens tradicionais, seguidos pelos Sistemas de Recomendação Sensíveis ao Contexto
-e os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentadas as formas de avaliação de Sistema de Recomendação
+e mais especificamente os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentadas as formas de avaliação de Sistema de Recomendação
 e as formas de apresentação de Recomendações.
 
 \section{Sistemas de Recomendação}
@@ -46,8 +46,8 @@ similares aos que se interessou no passado. Consiste em avaliar a semelhança en
 Utilizando a nomenclatura utilizada por \citeonline{adomavicius2005toward}, os métodos dessa abordagem tentam prever o
 grau de utilidade de um item para um usuário com base na utilidade que o usuário determinou para os itens similares ao item.
 
-A abordagem Baseada em Conteúdo tem suas raízes na Recuperação da Informação \cite{adomavicius2005toward}. Para a
-abordagem Baseada em Conteúdo, teremos um conjunto de atributos descrevendo um item e um conjunto de atributos
+A abordagem Baseada em Conteúdo tem suas raízes na Recuperação da Informação \cite{adomavicius2005toward}. Na
+abordagem Baseada em Conteúdo, tem-se um conjunto de atributos descrevendo um item e um conjunto de atributos
 descrevendo os gostos e preferências do usuário. A descrição de um item frequentemente é realizada através de
 palavras-chave definidas automaticamente por meio de algoritmos usados na área de Recuperação da Informação
 \cite{adomavicius2005toward}. Já a descrição das preferências do usuário pode ser capturada de duas formas: implícita,
@@ -229,7 +229,7 @@ resultado será considerado na execução da outra abordagem.
 
 SRs tradicionais consideram apenas as relações entre os usuários e os itens para recomendar, mas não consideram o
 contexto em que os usuários estão. De acordo com \citeonline{dey2001understanding}, o contexto é qualquer informação
-que pode ser usada para caracterizar a situação de uma entidade. Sendo as principais entidades em SRs o usuário que
+que pode ser usada para caracterizar a situação de uma entidade. As principais entidades em SRs são o usuário que
 irá receber uma recomendação e os itens que serão recomendados.
 
 SRs Sensíveis ao Contexto estão formalmente definidos na Equação \ref{eq:context-aware}.
@@ -245,7 +245,7 @@ ordenado pelo interesse previsto do usuário para os itens disponíveis.
 
 Vários autores definem conjuntos de dimensões que podem representar o contexto
 \cite{schilit1994context, chen2000survey, zimmermann2007operational} e que diferem pouco entre si. Nesse trabalho,
-nós seguimos a definição de \citeonline{schmidt1999there}, que é uma das mais completas encontradas:
+adotou-se a definição de \citeonline{schmidt1999there}, que é uma das mais completas encontradas:
 
 \begin{itemize}
 \item Informações sobre o usuário, e.g., hábitos do usuário, estado emocional, etc.;
@@ -272,7 +272,7 @@ algoritmo diferente dos tradicionais.
 \citeonline{verbert2012context} dizem que, em ambientes educacionais, as abordagens tradicionais de SRs não são
 suficientes para recomendar de forma apropriada para os estudantes, porque esse domínio oferece algumas características
 específicas que não são cobertas por essas abordagens. Por exemplo, é muito mais perigoso recomendar um item ruim para
-um estudante, que pode desmotiva-lo nos seus estudos, do que recomendar um produto ruim em um site de \textit{e-commerce}.
+um estudante, que pode desmotivá-lo nos seus estudos, do que recomendar um produto ruim em um site de \textit{e-commerce}.
 De acordo com \citeonline{verbert2012context} esse domínio requer um nível maior de personalização.
 
 Aplicar algumas dimensões do contexto é uma alternativa para melhorar a personalização em ambientes educacionais,
@@ -280,7 +280,8 @@ recomendando materiais adequados para a situação atual do usuário. Por exempl
 do aluno, as condições do ambiente e a acessibilidade dos recursos \cite{verbert2012context}.
 
 Na próxima seção é apresentado um tipo específico de SRs Sensíveis ao Contexto que utilizam a dimensão temporal para
-recomendar. Esse tipo de SR pode também aplicar outras dimensões do contexto em conjunto.
+recomendar, chamados de SRs Sensíveis ao Tempo. Esse tipo de SR pode também aplicar outras dimensões do contexto em
+conjunto a questão temporal.
 
 \section{Sistemas de Recomendação Sensível ao Tempo}\label{section:sr-sensivel-tempo}
 
@@ -311,11 +312,11 @@ disso, o tempo pode ser representado por diferentes unidades de tempo, e.g., seg
 etc., e as unidades tempo são hierárquicas, e.g., um dia tem 24 horas, uma hora tem 60 minutos e 1 minuto tem 60
 segundos.
 
-Um mapeamento sistemático foi conduzido sobre os SR Sensíveis ao Tempo \cite{de2017time} utilizando a metolodolia de
-\citeonline{petersen2008systematic}. Nesse mapeamento sistemático não foi restringido apenas trabalhos na área
+Um mapeamento sistemático foi conduzido sobre os SR Sensíveis ao Tempo \cite{de2017time} utilizando a metodologia de
+\citeonline{petersen2008systematic}. Esse mapeamento sistemático não foi restringido apenas trabalhos na área
 educacional. A principal questão de pesquisa desse mapeamento foi: Como o contexto temporal é utilizado em SRs
 Sensíveis ao Contexto? Para responder a essa questão de pesquisa principal, três questões de pesquisa secundárias
-foram definas, são elas: (1) Como os algoritmos de recomendação utilizam o tempo? (2) Qual é a diferença entre o uso
+foram definidas, são elas: (1) Como os algoritmos de recomendação utilizam o tempo? (2) Qual é a diferença entre o uso
 do tempo em diferentes domínios de aplicação? (3) Que outras dimensões são utilizadas juntamente com o contexto
 temporal?
 
@@ -327,7 +328,7 @@ formas de utilizar o tempo nos algoritmos de recomendação que são descritas n
 
 \subsection{Restriction}
 
-Na categoria Restriction, o tempo é utilizado para restringir que itens serão utilizados. Isso significa que o SR
+Na categoria \textit{Restriction}, o tempo é utilizado para restringir que itens serão utilizados. Isso significa que o SR
 compara variáveis de tempo relacionadas aos itens e ao usuário para restringir quais itens irão aparecer na lista de
 recomendações. Existe pelo menos duas formas de restrição para se utilizar: (1) o SR compara o tempo disponível pelo
 usuário com o tempo necessário para consumir um determinado item, e.g., a duração dos filmes que serão recomendados e
@@ -337,7 +338,7 @@ locais que estejam servindo no momento.
 
 \subsection{Micro-profile}
 
-Na categoria Micro-Profile, o usuário possui perfis distintos para cada período de tempo. Nessa categoria, o tempo
+Na categoria \textit{Micro-Profile}, o usuário possui perfis distintos para cada período de tempo. Nessa categoria, o tempo
 deve ser utilizado de forma categórica, onde as categorias que serão utilizadas dependem da aplicação onde for aplicada.
 É possível, por exemplo, que o usuário possua um perfil para dias da semana e outro perfil para finais de semana, ou
 então um perfil para a manhã, outro para a tarde e outro para a noite. O objetivo é que as recomendações serão
@@ -347,7 +348,7 @@ costuma acessar em um domingo a noite.
 
 \subsection{Bias}
 
-Na categoria Bias, o tempo é utilizado para agregar informação na matriz Usuários x Itens normalmente utllizada pela
+Na categoria \textit{Bias}, o tempo é utilizado para agregar informação na matriz Usuários x Itens normalmente utllizada pela
 Filtragem Colaborativa. Essa matriz é comumente utilizada com apenas duas dimensões que são os Usuários e o Itens e os
 valores dessa matriz são as notas dadas pelos usuários para os itens. Ao incorporar o tempo nessa matriz, é possível
 realizar uma comparação mais precisa entre os usuários do sistema e assim prever o interesse do usuário ativo para os
@@ -470,7 +471,7 @@ trabalho é o \textit{Decay}. Nessa categoria é considerado que o interesse do 
 do tempo. Para isso, itens acessados recentemente tem um peso maior no algoritmo de recomendação e os itens vão perdendo
 o peso gradativamente.
 
-Além disso, foi apresentada as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
+Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
 trabalho é utilizada uma avaliação centrada no usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
 apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
 questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, será necessário
