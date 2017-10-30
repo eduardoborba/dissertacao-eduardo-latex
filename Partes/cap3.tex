@@ -255,7 +255,8 @@ O objetivo dos autores é combinar a Filtragem Colaborativa com o contexto do us
 nos interesses do usuário. Para tal, são encontrados os k usuários com os interesses similares ao usuário atual,
 considerando o contexto do usuário, através de técnicas de clusterização. Após encontrados os k vizinhos, utiliza-se
 uma fórmula para a predição das notas para itens ainda não acessados pelo usuário com a incorporação de uma função
-temporal, como apresentado na Equação \ref{eq:qiao-predicao}.
+temporal, como apresentado na Equação \ref{eq:qiao-predicao}. Os itens com as notas previstas mais altas são
+recomendados ao usuário.
 
 \begin{equation}
   \label{eq:qiao-predicao}
@@ -273,8 +274,6 @@ decaimento é definida na Equação \ref{eq:qiao-funcao-decaimento}.
   f(t_{ni}) = e^{-t_{ni}}
 \end{equation}
 
-Os itens com as notas previstas mais altas são recomendados ao usuário.
-
 A avaliação desse algoritmo foi realizada utilizando a base do MovieLens – 100 K, através da métrica MAE (Erro Absoluto
 Médio). Quando comparado a Filtragem Colaborativa tradicional o algoritmo proposto alcançou melhores resultados, ou
 seja, teve uma taxa de erro menor.
@@ -289,10 +288,12 @@ Colaborativa. Como a matriz dessa forma possui uma maior dimensionalidade e comp
 matrizes é essencial para reduzir a dimensão desta e permitir a extração de informações latentes importantes para a
 recomendação.
 
-Além disso, o algoritmo proposto por \citeonline{kushwaha2016inclusion} considera a variação temporal da informação.
-Os autores consideram o decaimento da importância das \textit{tags} colocadas pelo usuário nos itens com o passar do tempo. A
-fórmula utilizada pelos autores para representar o decaimento foi baseada em \citeonline{iofciu2009time}, que pode ser
-vista na Equação \ref{eq:kushwaha-funcao-decaimento}.
+Além disso, no algoritmo proposto por \citeonline{kushwaha2016inclusion} é considerado uma estratégia de \textit{tag-based
+user similarity matrix}, i.e., uma variação da Filtragem Colaborativa que utiliza as tags colocadas pelos usuários nos Artistas
+e Músicas como forma de comparar os usuários e encontrar os mais similares. Nessa estratétia é considerada a variação
+temporal da informação. Os autores consideram o decaimento da importância das \textit{tags} colocadas pelo usuário nos
+itens com o passar do tempo. A fórmula utilizada pelos autores para representar o decaimento foi baseada em
+\citeonline{iofciu2009time}, que pode ser vista na Equação \ref{eq:kushwaha-funcao-decaimento}.
 
 \begin{equation}
   \label{eq:kushwaha-funcao-decaimento}
@@ -339,7 +340,7 @@ pelo usuário atual serão mais bem aceitas, assim como usuários no qual ele co
 
 O algoritmo de recomendação considera que a importância da relação entre os usuários diminui gradativamente com o tempo.
 Então, um comentário realizado hoje deve ter um peso maior que um comentário realizado ha um mês atrás quando for
-avaliada a relação entre dois usuários. O decaimento é incluído diretamente na formula utilizada para realizar a
+avaliada a relação entre dois usuários. O decaimento é incluído diretamente na fórmula utilizada para realizar a
 comparação de similaridade entre dois itens, como pode ser visto a seguir na Equação \ref{eq:wei-similaridade}.
 
 \begin{equation}
@@ -358,7 +359,7 @@ Onde fator $\alpha$ é responsável por controlar a taxa de decaimento, $t$ repr
 o tempo no qual o usuário $u$ utilizou o item $i$.
 
 Além do decaimento na relevância das relações entre os usuários, os autores também incluem a confiança entre os
-usuários e a reputação de especialistas da área na formula de similaridade visando melhorar a qualidade das
+usuários e a reputação de especialistas da área na fórmula de similaridade visando melhorar a qualidade das
 recomendações.
 
 O algoritmo proposto foi avaliado utilizando três bases de dados: MovieLens, Facebook e Delicious. O algoritmo foi
