@@ -1,12 +1,49 @@
 \chapter{Introdução}\label{introducao}
 
+Um Ambiente Virtual de Aprendizagem (AVA) é um ambiente computacional com a finalidade de integrar diversas mídias
+(e.g., vídeos, apresentações, textos) e dar suporte à educação online \cite{drachsler2015panorama}. Esses ambientes, além de simularem uma sala
+de aula permitindo o relacionamento professor-aluno e aluno-aluno, disponibilizam conteúdos e materiais para os usuários
+poderem acessar.
+
+Quando a quantidade de materiais disponíveis nos AVAs é muito grande, existem alguns problemas que podem acontecer. São eles:
+
+\begin{itemize}
+\item o aluno pode sofrer uma sobrecarga cognitiva, aumentando a necessidade de esforço necessário para compreender o ambiente
+e encontrar os itens de seu interesse, atrapalhando o processo de aprendizagem
+\item o aluno não encontrar um material que seja de seu interesse, devido a enorme quantidade de materiais disponíveis
+\item parte do material disponibilizado, que poderia auxiliar os alunos no processo de aprendizagem, pode não ser
+utilizado e sequer acessado
+\end{itemize}
+
+Com o objetivo de reduzir esses problemas, pesquisadores tem aplicado técnicas de personalização para selecionar os melhores itens para cada estudante,
+considerando o seu conhecimento, objetivos, preferências e necessidades \cite{brusilovsky1998methods}. Os Sistemas de Recomendação são um alternativa
+para reduzir esses problemas, sugerindo itens para o usuários utilizando informações sobre seus interesses e sobre os itens disponíveis \cite{adomavicius2005toward}.
+
+Porém, pesquisadores da área argumentam que no domínio educacional os SRs tradicionais (aqueles que consideram apenas
+informações sobre os usuários e os itens para recomendar) não são suficientes \cite{verbert2012context, drachsler2015panorama}.
+\citeonline{verbert2012context} afirmam que nessa área é necessário um nível maior de personalização, como utilizar informações
+do contexto do usuário na recomendação.
+
+Apesar de existir uma grande quantidade de trabalho utilizam o contexto em SRs no domínio educacional, como pode ser visto
+em \citeonline{verbert2012context} e \citeonline{drachsler2015panorama}, pouco foi encontrado da aplicação do contexto
+temporal nesse domínio \cite{de2017time}. O contexto temporal é relevante pois leva em consideração a variação dos
+interesses do usuário com o passar do tempo. Além disso, os SR Sensíveis ao Tempo demonstraram bons resultados em outros
+domínios de aplicação \cite{campos2014time}.
+
+\section{Problema}
+
+Como dito anteriormente, foram encontrados poucos trabalhos sobre o uso do contexto temporal em SRs para AVAs. Além disso,
+nos trabalhos encontrados as propostas não foram avaliadas em ambientes reais de uso. Assim, a pergunta a ser respondida por este trabalho
+é: "\textbf{Como considerar a variação dos interesses do aluno com o passar do tempo em um AVA para recomendar itens para ele?}".
+
 \section{Objetivos}
 
-Foram definidos objetivos geral e específicos para orientar o processo de pesquisa desse trabalho.
+Foram definidos objetivos geral e específicos para orientar o processo de pesquisa desse trabalho para responder a questão
+de pesquisa definida acima.
 
 \subsection{Objetivo Geral}
 
-Considerando sistemas de recomendação voltados para ambientes de aprendizagem, criar modelos de usuário que levem em
+Considerando sistemas de recomendação voltados para AVAs, criar modelos de usuário que levem em
 conta a mudança dos interesses destes usuários ao longo do tempo.
 
 \subsection{Objetivos Específicos}
@@ -17,7 +54,7 @@ conta a mudança dos interesses destes usuários ao longo do tempo.
 \item Implementar o algoritmo de recomendação proposto no ambiente AdaptWeb\textsuperscript{\textregistered}
 \item Considerar diretrizes de apresentação de recomendação ao desenvolver a interface do sistema de recomendação
 no ambiente AdaptWeb\textsuperscript{\textregistered}
-\item Avaliar a qualidade de uso do sistema de recomendação proposto pela perspectiva do usuário
+\item Avaliar a percepção do usuário sobre o algoritmo proposto em um ambiente real de uso
 \end{itemize}
 
 \section{Escopo}
@@ -25,13 +62,21 @@ no ambiente AdaptWeb\textsuperscript{\textregistered}
 Esse trabalho não irá considerar outras dimensões do contexto além do tempo na recomendação, e dentro do uso do contexto
 temporal apenas a categoria de \textit{Decay} será aplicada nesse trabalho. Além disso, a única abordagem de recomendação
 utilizada será a Baseada em Conteúdo, apesar de as categorias de Sistemas de Recomendação Sensíveis ao Tempo poderem ser
-aplicadas em quaisquer abordagens de recomendação. A avaliação do Sistema de Recomendação proposto será feita apenas em ambientes educacionais, mesmo sendo
-possível aplicá-lo em outros domínios de aplicação. Não será avaliado, nesse trabalho, o impacto da proposta na aprendizagem
-dos alunos.
+aplicadas em quaisquer abordagens de recomendação. A avaliação do Sistema de Recomendação proposto será feita apenas em
+ambientes educacionais, mesmo sendo possível aplicá-lo em outros domínios de aplicação. Não será avaliado, nesse trabalho,
+o impacto da proposta na aprendizagem dos alunos.
 
 \section{Metodologia}
 
+
+
 \section{Estrutura}
 
+Este trabalho está estrutudo da seguinte forma: o Capítulo \ref{chapter:fundamentacao-teorica} conceitua os Sistemas de
+Recomendação (SR), as suas abordagens, formas de avaliação e a apresentação das recomendações; o Capítulo \ref{chapter:trabalhos-relacionados}
+descreve os trabalhos relacionados que utilizam a categoria \textit{Decay} nas recomendações e compara com a proposta desse
+trabalho; o Capítulo \ref{chapter:proposta} apresenta em detalhe a proposta desse trabalho; o Capítulo \ref{chapter:experimento}
+apresenta o experimento utilizado para avaliação dessa proposta. Por último, o Capítulo \ref{chapter:conclusoes} apresenta
+as considerações parciais deste trabalho, recapitulando o que foi feito até o momento.
 
 

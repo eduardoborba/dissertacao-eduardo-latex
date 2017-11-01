@@ -1,4 +1,4 @@
-\chapter{SR Sensível ao Tempo}\label{cap:proposta}
+\chapter{SR Sensível ao Tempo}\label{chapter:proposta}
 
 Neste capítulo é apresentado o SR Sensível ao Tempo para ambientes educacionais proposto nesse trabalho. Além disso, é apresentado
 o ambiente no qual esse SR será incorporado e o SR já existente nesse ambiente. Por último, é proposta também uma nova interface
@@ -63,7 +63,7 @@ crescente, temos: (1) Item B, (2) Item A, (3) Item C. As equações \ref{eq:rece
 \section{Discussão Sobre o Algoritmo Proposto}
 
 Um ponto negativo da Filtragem Colaborativa é a necessidade de uma comunidade de usuários ativa, que nem sempre é
-possível em um ambiente educacional onde as turmas muitas vezes são menores (entre 10 e 100 alunos). A Abordagem Baseada
+possível em um AVA onde as turmas muitas vezes são menores (entre 10 e 100 alunos). A Abordagem Baseada
 em Conteúdo é considerada para o SR porque essa abordagem permite a recomendação em um sistema que não possui uma
 comunidade ativa e pode suprir as necessidades desse domínio.
 
@@ -100,7 +100,7 @@ segundos como feito na maioria dos trabalhos relacionados mostrados no Capítulo
 educacional o passar do tempo não é tão relevante quanto em outros domínios, como na recomendação de \textit{Web Services} por
 exemplo.
 
-Os alunos em um ambiente educacional podem ter ritmos de estudo diferentes e, por isso, é assumido nesse trabalho que faz
+Os alunos em um AVA podem ter ritmos de estudo diferentes e, por isso, é assumido nesse trabalho que faz
 mais sentido analisar quantos itens foram acessados desde do acesso de determinado material do que o tempo passado desde
 a interação. Dessa forma, nesse algoritmo não faz diferença se o usuário acessou todos os itens do seu perfil em um
 único dia, se ele acessou metade do materiais na primeira semana do curso e a outra metade na última semana ou se ele
@@ -117,7 +117,7 @@ aplicam o mesmo fator para todos os usuários.
 
 O algoritmo proposto será incorporado ao ambiente AdaptWeb\textsuperscript{\textregistered}. O
 AdaptWeb\textsuperscript{\textregistered} (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
-que consiste em um ambiente educacional capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
+que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
 e preferências do aluno \cite{gasparini2009adaptweb}. A próxima seção apresenta a Estrutura Geral do
 AdaptWeb\textsuperscript{\textregistered}.
 
@@ -157,11 +157,9 @@ e o conhecimento do usuário \cite{gasparini2003interface}.
 
 O ambiente AdaptWeb\textsuperscript{\textregistered} possui um SR que foi desenvolvido em \citeonline{de2015sistema}. Em \citeonline{de2015sistema}
 foi decidido que os itens que o SR recomendaria são uma nova categoria de materiais da disciplina, não existente
-originalmente no AdaptWeb\textsuperscript{\textregistered}, chamada "Links de Apoio", na qual o professor pode adicionar apenas links externos ao ambiente.
-
-Para realizar a recomendação no AdaptWeb\textsuperscript{\textregistered}, o SR considera o último material complementar
-que o aluno acessou, como também a lista de todos os materiais complementares acessados. Isto é feito porque se supõe
-que, no contexto de um ambiente educacional, devem se considerar os interesses de curto e longo prazo do usuário \cite{xiang2010temporal}.
+originalmente no AdaptWeb\textsuperscript{\textregistered}, chamada "Links de Apoio", na qual o professor pode adicionar
+apenas links externos ao ambiente. O perfil do usuário no SR existente é composto pelas palavras-chave que descrevem os
+materiais complementares acessados pelo usuário.
 
 Na Figura \ref{fig:adaptweb-notificacao-recomendacao} pode ser observada a apresentação das recomendações para o aluno
 através de uma notificação (destacada na Figura) proposta em \citeonline{de2015sistema}.
@@ -193,10 +191,10 @@ recomendações não foram percebidas pelos usuários. Dos 99 alunos ativos no m
 uma vez a área de recomendações. Além disso, dos 27.116 registros de páginas acessadas no ambiente, apenas 30 estão
 relacionados ao SR \cite{de2017sistema}.
 
-Por isso, nesse trabalho será considerado não só o algoritmo de recomendação, mas também uma forma mais eficiente de
-apresentar essas recomendações. Isso porque não adianta o algoritmo de recomendação ser eficiente sendo que os alunos
-nem sabem da existência dessa ferramenta. Na seção a seguir será apresentada a proposta de apresentação das
-recomendações de forma a garantir que as recomendações chegem aos alunos.
+Por isso, para o desenvolvimento da proposta desse trabalho é necessário considerar também uma forma mais eficiente de
+apresentar essas recomendações. Isso porque não é possível medir o desempenho do algoritmo de recomendação se os alunos
+com a forma como a recomendação é apresentada atualmente, na qual os alunos não tem facilidade em encontrar e entender as
+recomendações. Na seção a seguir é apresentada as melhorias sugeridas para a apresentação das recomendações no ambiente.
 
 \section{Apresentação das Recomendações}
 
@@ -204,7 +202,7 @@ Como mostrado anteriormente, o SR existente no AdaptWeb\textsuperscript{\textreg
 alunos. A primeira decisão do presente trabalho foi mover as recomendações para a área principal do ambiente do aluno.
 Dessa forma, se o SR possuir itens para recomendar para o usuário esses itens aparecem logo abaixo do conteúdo que ele estiver
 visualizando no momento, independente se o aluno esteja na tela de Conceito, Exercícios, Exemplos ou Materiais Complementares.
-Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar os itens recomendados.
+Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar um protótipo dessa mudança.
 
 \begin{figure}[htb]
   \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
@@ -219,10 +217,11 @@ Descrição e a possibilidade de avaliar o item com notas de 1 a 5. \citeonline{
 recomendar um item apenas é pouco, recomendar mais do que cinco itens aumenta a dificuldade de escolhar do usuário. Por isso,
 a quantidade máxima de itens recomendadas para o usuário em cada recomendação é de cinco itens.
 
-Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, foi adicionado um
+Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, será adicionado um
 botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
 funcionamento do algoritmo de recomendação o usuário tem a possibilidade aprimorar o seu perfil para personalizar as
-recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está a explicação da recomendação mostrada para o aluno.
+recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está um protótipo da explicação da recomendação
+mostrada para o aluno.
 
 \begin{figure}[htb]
   \caption{\label{fig:adaptweb-proposta-explicacao}Explicação da recomendação}

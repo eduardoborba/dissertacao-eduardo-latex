@@ -1,23 +1,37 @@
-\chapter{Planejamento do Experimento}
+\chapter{Planejamento do Experimento}\label{chapter:experimento}
 
-Neste capítulo é apresentado o experimento que será realizado para a avaliação da proposta apresentada no Capítulo \ref{cap:proposta}.
-O experimento que será realizado para avaliar a proposta deste trabalho irá utilizar uma avaliação centrada no usuário,
-que segundo a definição de \citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O experimento realizado
-no ambiente AdaptWeb\textsuperscript{\textregistered}, o ambiente no qual foi incorporado o Sistema de Recomendação (SR)
-proposto, em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
-Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC). Isso porque em todos os cursos do CCT
-a disciplina de algoritmos está presente.
-
-Nesse minicurso costumam se matricular em média 100 alunos por semestre. Sendo que desses, pelo menos 60 alunos chegam até
-o final do curso e realizam a prova final. O curso terá a duração de aproximadamente 45 dias e irá ocorrer no primeiro semestre
-de 2018, entre os meses de Abril e Maio.
+Neste capítulo é apresentado o experimento que será realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
+Para avaliar a proposta deste trabalho irá utilizar uma avaliação centrada no usuário, que segundo a definição de
+\citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. A próxima seção explica em mais detalhes o experimento.
 
 \section{Definição do experimento}
 
+O experimento visa avaliar a experiência dos alunos ao interagir com o SR proposto neste trabalho, se comparado a um SR
+utilizando a abordagem Baseada em Conteúdo tradicional. Este experimento foi
+baseado nas seguintes hipóteses:
+
+\begin{itemize}
+\item \textbf{H\textsubscript{0}:} Não há diferenças na experiência do usuário ao interagir com o SR utilizando a abordagem
+Baseada em Conteúdo tradicional e a proposta desse trabalho.
+\item \textbf{H\textsubscript{1}:} Há diferenças na experiência do usuário ao interagir com o SR utilizando a abordagem
+Baseada em Conteúdo tradicional e a proposta desse trabalho.
+\end{itemize}
+
 Para a execução do experimento, o SR proposto será comparado a abordagem Baseada em Conteúdo tradicional utilizando uma
-estratégia \textit{Between Subjects}, i.e., os usuários serão divididos em dois grupos e cada grupo irá testar apenas
+estratégia \textit{Between Subjects}, i.e., os alunos serão divididos em dois grupos e cada grupo irá testar apenas
 um dos sistemas. Porém, para garantir que a única variável será qual o SR utilizado, ambos os grupos irão utilizar a mesma
 interface proposta para as recomendações.
+
+O experimento será realizado no ambiente AdaptWeb\textsuperscript{\textregistered}, o ambiente no qual foi incorporado o
+Sistema de Recomendação (SR) proposto, em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
+Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC). Isso porque em todos os cursos do CCT
+a disciplina de algoritmos está presente. O processo de design instrucional desse minicurso foi realizado pelo aluno
+Lúcio Vasconcelos dos Santos, bolsista do Programa de Pós-Graduação em Ensino de Ciências, Matemática e Tecnologias
+oferecido pela UDESC, em conjunto com os professores que lecionam a disciplina.
+
+Nesse minicurso costumam se matricular em média 100 alunos por semestre. Sendo que desses, espera-se que pele menos 60 alunos chegam até
+o final do curso e realizam a prova final. Estima-se que o minicurso terá a duração de aproximadamente 45 dias e irá ocorrer no primeiro semestre
+de 2018, entre os meses de Abril e Maio.
 
 Os usuários ao se matricularem no minicurso serão aleatóriamente divididos nos dois grupos de usuários, de forma que ambos
 os grupos tenham uma quantidade de usuários similar. Além disso, os alunos irão receber um Termo de Consentimento Livre
@@ -30,10 +44,6 @@ Anexo \ref{ane:questoes-framework}), que deverão ser traduzidas para o portugu�
 Os resultados dos questionários serão  analisados através de métodos estatísticos para definir se existe diferença
 significativa entre a Experiência do Usuário nos dois SRs (o proposto e o Baseado em Conteúdo tradicional) e, se existir,
 qual deles teve o melhor desempenho.
-
-\section{Minicurso de Algoritmos}
-
-\section{Desenvolvimento dos instrumentos}
 
 \section{Teste piloto}
 
@@ -53,3 +63,19 @@ identificar problemas na experiência do usuário para serem corrigidos antes da
 entrevista será exclusivamente para aprimorar os instrumentos (i.e., TCLE e o questionário desenvolvido).
 
 \section{Considerações sobre o capítulo}
+
+Neste capítulo foi definido o experimento para a avaliação da proposta desse trabalho. O experimento visa avaliar a experiência
+do usuário com o Sistema de Recomendação (SR) proposto no Capítulo \ref{chapter:proposta} em comparação a um SR utilizando
+a abordagem Baseada em Conteúdo tradicional.
+
+O experimento acontecerá no ambiente AdaptWeb\textsuperscript{\textregistered} através de um minicurso de algoritmos
+desenvolvido no ambiente nos meses de Abril e Maio de 2018. Ao final do minicurso os alunos receberão um questionário
+para responder sobre a sua experiência ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}.
+
+Antes da realização do experimento em si, será realizado um Teste Piloto com alunos que já realizaram a disciplina de algoritmos
+com o objetivo de avaliar os instrumentos (TCLE e Questionário), além de encontrar possíveis problemas preliminares na
+ferramenta de recomendação.
+
+Ao final do experimento, espera-se encontrar a uma conclusão de se existe uma diferença na experiência do usuário ao
+utilizar um SR Sensível ao Tempo, que se adapta as variações de interesse do aluno, em relação a uma abordagem tradicional
+de recomendação.
