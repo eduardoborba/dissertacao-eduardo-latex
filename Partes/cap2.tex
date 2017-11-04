@@ -14,7 +14,7 @@ que o usuário recebe como recomendação um conjunto diferente de itens de acor
 Nos últimos anos, o interesse na aplicação de SRs têm crescido fortemente \cite{adomavicius2005toward, beel2016towards}.
 Exemplos dessas aplicações são: recomendação de Livros, CDs, DVDs, etc., em sites de \textit{e-commerce} como Amazon e EBAY;
 recomendações de filmes em sites como MovieLens e Netflix; recomendação de músicas em sites de \textit{streaming} como Last.fm ou
-Spotify; recomendação de amigos ou de postagens em redes sociais como Facebook ou Twitter.
+Spotify; recomendação de amigos ou de postagens em redes sociais como Facebook ou Twitter; entre outras.
 
 SRs estão representados formalmente na Equação \ref{eq:sr-tradicional}.
 
@@ -43,14 +43,14 @@ cada uma dessas abordagens.
 
 Segundo \citeonline{ricci2011introduction}, essa é uma abordagem na qual o usuário recebe recomendações de itens
 similares aos que se interessou no passado. Consiste em avaliar a semelhança entre um item e os interesses do usuário.
-Utilizando a nomenclatura utilizada por \citeonline{adomavicius2005toward}, os métodos dessa abordagem tentam prever o
-grau de utilidade de um item para um usuário com base na utilidade que o usuário determinou para os itens similares ao item.
+Os métodos dessa abordagem tentam prever o grau de utilidade de um item para um usuário com base na utilidade que o
+usuário determinou para os itens similares ao item \cite{adomavicius2005toward}.
 
 A abordagem Baseada em Conteúdo tem suas raízes na Recuperação da Informação \cite{adomavicius2005toward}. Na
 abordagem Baseada em Conteúdo, tem-se um conjunto de atributos descrevendo um item e um conjunto de atributos
 descrevendo os gostos e preferências do usuário. A descrição de um item frequentemente é realizada através de
 palavras-chave definidas automaticamente por meio de algoritmos usados na área de Recuperação da Informação
-\cite{adomavicius2005toward}. Já a descrição das preferências do usuário pode ser capturada de duas formas: implícita,
+\cite{adomavicius2005toward}. Já a descrição das preferências do usuário, como dito anteriormente, pode ser capturada de duas formas: implícita,
 através do seu comportamento no ambiente e de itens que acessou; ou explícita, onde o usuário informa suas preferências
 ao sistema, por exemplo, respondendo a questionários \cite{adomavicius2005toward}. Dessa forma, os SRs de itens
 textuais (e.g., documentos) são os que mais utilizam a abordagem Baseada em Conteúdo, devido à facilidade da aplicação
@@ -58,9 +58,9 @@ das técnicas de Recuperação da Informação nesse tipo de item.
 
 Dentro da área de Recuperação da Informação uma forma de medir a similaridade de itens em um SR é o Cosseno. O cálculo
 da similaridade por Cosseno foi definido por Salton nos anos 60 \cite{salton1964document}. Nessa técnica, cada documento
-é representado por um vetor de termos . Os vetores são dispostos em um espaço vetorial de  dimensões, onde  é o número
-de termos, e documentos próximos nesse espaço são considerados semelhantes. Para verificar essa proximidade utiliza-se a
-Equação \ref{eq:cosseno} \cite{christopher2008introduction}.
+é representado por um vetor de termos $\vec{d_J} = (w_{1,j}, w_{2,j}, ..., w_{t,j})$. Os vetores são dispostos em um
+espaço vetorial de $t$ dimensões, onde $t$ é o número de termos, e documentos próximos nesse espaço são considerados
+semelhantes. Para verificar essa proximidade utiliza-se a Equação \ref{eq:cosseno} \cite{christopher2008introduction}.
 
 \begin{equation}
   sim(d_1, d_2) = \frac{\sum_{i=1}^{t}{w_{1,i} \times w_{2,i}}}{\sqrt{\sum_{i=1}^{t}{w_{1,i}}^2 \sum_{i=1}^{t}{w_{2,i}}^2}}
@@ -69,13 +69,14 @@ Equação \ref{eq:cosseno} \cite{christopher2008introduction}.
 
 
 Onde: $sim(d_1, d_2)$ é o resultado da distância dos vetores, variando de $[0,1]$; $w_{1,i}$ é o termo presente na
-posição $i$ do item $1$; $w_{2,i}$ é o termo presente na posição $i$ do item $2$. Por exemplo, se tivermos três vetores: $c = \{1,1\}$
-representando o usuário, $v_1 = \{0, 1\}$ e $v_2 = \{1, 1\}$ representando itens. Ao calcular a similaridade entre esses itens,
-temos $sim(c, v_1) \approx 0.71$ e $sim(c, v_2) = 1$, identificando que o item representado por $v_2$ é mais similar às
-preferências do usuário $c$.
+posição $i$ do item $1$; $w_{2,i}$ é o termo presente na posição $i$ do item $2$. Por exemplo, se tivermos três vetores: $u = \{1,1\}$
+representando o usuário, $i_1 = \{0, 1\}$ e $i_2 = \{1, 1\}$ representando itens. Os vetores com $1$ na primeira posição
+indicam que o item ou usuário que estão representando possuem o primeiro termo, enquanto o $0$ indica que não possuem. O mesmo
+funciona para a segunda posição em diante. Ao calcular a similaridade entre esses itens, temos $sim(u, i_1) \approx 0.71$
+e $sim(u, i_2) = 1$, identificando que o item representado por $i_2$ é mais similar às preferências do usuário $u$.
 
-Outra técnica de Recuperação da Informação é o tf-idf (term-frequency inverse document frequency). Essa técnica
-é utilizada para identificar termos importantes em um documento (MANNING et al., 2009) e pode ser utilizada
+Outra técnica de Recuperação da Informação é o tf-idf (\textit{term-frequency inverse document frequency}). Essa técnica
+é utilizada para identificar termos importantes em um documento \cite{christopher2008introduction} e pode ser utilizada
 para a descoberta das palavras-chave que descrevem um item. É utilizada a fórmula da Equação \ref{eq:tf-idf} para o cálculo dos
 pesos de cada termo do documento \cite{christopher2008introduction}.
 
@@ -86,7 +87,7 @@ pesos de cada termo do documento \cite{christopher2008introduction}.
 
 Onde: $tf\hbox{-}idf_{t,d}$ representa o peso do termo $t$ no documento $d$; $tf_{t,d}$ é o número de vezes que o termo
 $t$ aparece no documento $d$; e $idf_{t,d}$ representa o Inverse Document Frequency do termo $t$, sendo o responsável por
-identificar termos que aparecem em muitos documentos diferentes (MANNING et al., 2009). Os termos que aparecem em muitos
+identificar termos que aparecem em muitos documentos diferentes \cite{christopher2008introduction}. Os termos que aparecem em muitos
 documentos tendem a perder sua importância. O $idf_{t,d}$ é calculado através da Equação \ref{eq:idf} \cite{christopher2008introduction}.
 
 \begin{equation}
@@ -97,7 +98,7 @@ documentos tendem a perder sua importância. O $idf_{t,d}$ é calculado através
 Onde: $N$ é o número total de documentos em uma coleção; e $d_f$ é o número de documentos onde aparece o termo $t$.
 
 A principal vantagem da abordagem Baseada em Conteúdo é não necessitar da opinião de outros usuários para a recomendação
-\cite{ricci2011introduction}. As principais desvantagens são: o Cold-Start, em que o sistema não terá informações
+\cite{ricci2011introduction}. As principais desvantagens são: a Partida Fria, em que o sistema não terá informações
 suficientes sobre os usuários novos para realizar uma boa recomendação; e a Superespecialização, na qual o
 usuário recebe sempre itens semelhantes aos que já viu \cite{lops2011content}.
 
@@ -108,10 +109,10 @@ interessaram no passado, ou seja, é a automatização do processo de "boca-a-bo
 técnica de Filtragem Colaborativa tenta prever a utilidade  do item para o usuário, com base na utilidade do mesmo
 produto para um conjunto de usuários  possuidores de características semelhantes às suas \cite{jannach2010recommender}.
 
-Existem duas variações básicas da Filtragem Colaborativa: User-User, onde a similaridade entre os usuários é analisada;
+Existem duas variações básicas da Filtragem Colaborativa: Usuário-Usuário, onde a similaridade entre os usuários é analisada;
 Item-Item, onde a similaridade entre itens a serem recomendados é analisada \cite{jannach2010recommender}.
 
-Para \citeonline{torres2004personalizaccao}, que considera a variação User-User, a Filtragem Colaborativa ocorre,
+Para \citeonline{torres2004personalizaccao}, que considera a variação Usuário-Usuário, a Filtragem Colaborativa ocorre,
 resumidamente, da seguinte forma:
 
 \begin{enumerate}
@@ -140,10 +141,10 @@ do usuário $a$ para o item $i$; $\overline{r_a}$ é a média de todas as avalia
 $u$ para o item $i$; $\overline{r_u}$ é a média de todas as avaliações do usuário $u$. A similaridade é calculada apenas com
 itens que os dois usuários avaliaram.
 
-Com o aumento da quantidade de usuários e de itens, se torna um desafio para a filtragem colaborativa User-User
+Com o aumento da quantidade de usuários e de itens, se torna um desafio para a Filtragem Colaborativa Usuário-Usuário
 realizar uma recomendação, principalmente pela dificuldade de identificar a vizinhança com tantos usuários
 \cite{jannach2010recommender}. A estratégia Item-Item é uma solução para ser utilizada nesse contexto, permitindo a
-computação das similaridades a acontecer off-line (JANNACH et al., 2011). A ideia principal da estratégia Item-Item
+computação das similaridades a acontecer \textit{off-line} (JANNACH et al., 2011). A ideia principal da estratégia Item-Item
 é prever a nota que o usuário daria para um item com base nas notas que ele deu para itens semelhantes àquele. Para
 essa estratégia, o cálculo da similaridade pelo Cosseno, semelhante ao já citado, é uma métrica padrão e a que
 apresenta os melhores resultados \cite{jannach2010recommender}. Esse cálculo da similaridade, ao invés de comparar
@@ -155,9 +156,9 @@ Por isso essa abordagem tende a realizar recomendações que serão bem aceitas 
 Como essa abordagem não considera a descrição dos itens e sim as notas desses, uma vantagem dessa abordagem é que as
 recomendações realizadas podem ser bastante interessantes e inesperadas ao usuário \cite{ricci2011introduction}.
 
-Por outro lado, a abordagem colaborativa também possui a desvantagem de Cold-Start. Existem dois tipos de Cold-Start
-nessa abordagem \cite{adomavicius2005toward}: o User Cold-Start e o Item Cold-Start. O User Cold-Start é a dificuldade
-que o sistema encontra para recomendar um item para um usuário que não avaliou nenhum item ainda. O Item Cold-Start
+Por outro lado, a abordagem colaborativa também possui a desvantagem da Partida Fria. Existem dois tipos de Partida Fria
+nessa abordagem \cite{adomavicius2005toward}: a Partida Fria do Usuário e do Item. A Partida Fria do Usuário é a dificuldade
+que o sistema encontra para recomendar um item para um usuário que não avaliou nenhum item ainda. A Partida Fria do Item
 ocorre para um novo item no sistema, que não será recomendado enquanto não for avaliado por algum usuário.
 
 Além disso, outras desvantagens são \cite{adomavicius2005toward}:
@@ -168,13 +169,14 @@ notas dos usuários e mais difícil será realizar as comparações. Pode ser di
 mesmos gostos, pois cada usuário poderá avaliar conjuntos muito diferentes de itens;
 \item Necessidade de uma comunidade de usuários ativa: para essa abordagem é necessário ter uma grande quantidade de
 usuários ativas no sistema ao mesmo. No caso de um sistema com poucos usuários pode acontecer também a esparsidade
-pois os usuários acessaram e avaliaram itens diferentes e  não possível calcular a similaridade entre eles;
+pois os usuários acessam e avaliam itens diferentes e não é possível calcular a similaridade entre eles;
 \item Ovelha Negra: para usuários que possuem gostos distintos demais, se torna um desafio realizar recomendações
-interessantes para ele. O principal motivo é que não conseguiremos definir outros usuários semelhantes a ele para comparar;
+interessantes para ele. O principal motivo é que o sistema não consegue definir outros usuários semelhantes a ele para
+gerar recomendações;
 \item Escalabilidade: com o aumento do número de usuários, o custo computacional se torna alto;
-\item Confiabilidade: esse problema se refere à confiabilidade das avaliações realizadas pelos usuários, se forem
+\item Confiabilidade: essa abordagem é dependente da confiabilidade das avaliações realizadas pelos usuários, se estas forem
 realizadas de forma incorreta irão diminuir a eficiência da abordagem. Outra coisa a ser considerada é a reputação dos
-usuários: usuários com maior reputação poderiam ter suas avaliações mais consideradas (maior peso) que as outras de
+usuários: usuários com maior reputação podem ter suas avaliações mais consideradas (maior peso) que as avaliações de
 outros usuários.
 \end{itemize}
 
@@ -182,7 +184,8 @@ outros usuários.
 
 A abordagem Baseada em Conhecimento recomenda itens aos usuários com base no conhecimento que o sistema possui sobre
 como características de um item se encaixam nas necessidades de um usuário e o quão útil esse item será
-\cite{ricci2011introduction}. O sistema recebe como entrada a descrição das necessidades e interesses do usuário e o
+\cite{ricci2011introduction}. Geralmente são utilizadas formas de representar esse conhecimento que sejam de fácil interpretação
+por computadores, como Ontologias por exemplo\cite{burke2002hybrid}. O sistema então recebe como entrada a descrição das necessidades e interesses do usuário e o
 papel do sistema é realizar uma combinação entre essas necessidades e os itens.
 
 Os SRs Baseado em Caso (Case-Based) são um exemplo de SR da abordagem Baseada em Conhecimento. Nesse sistema uma
@@ -199,30 +202,29 @@ em restrições possui regras específicas para tratar cada uma das necessidades
 A abordagem Baseada em Conhecimento costuma funcionar melhor que outras (e.g., Filtragem Colaborativa ou Baseada em
 Conteúdo) no início do desenvolvimento, porém se ela não for equipada com a capacidade de aprender mais sobre o usuário,
 ela será rapidamente ultrapassada por métodos mais simples que exploram a interação do usuário com o sistema
-\cite{ricci2011introduction}.
+\cite{ricci2011introduction}. Essa abordagem é empregada em conjunto com as outras abordagens com o objetivo de aprimorar
+a qualidade das recomendações \cite{burke2002hybrid}.
 
 \subsection{Híbrida}
 
 Essa abordagem utiliza uma combinação das diversas abordagens para recomendar itens ao usuário. O objetivo é reunir as
-vantagens das abordagens e tentar eliminar suas desvantagens \cite{burke2002hybrid}. As principais abordagens que são
-combinadas são a Baseada em Conteúdo e Filtragem Colaborativa, por serem as mais tradicionais e mais utilizadas
-\cite{adomavicius2005toward, ricci2011introduction, bobadilla2013recommender}. Alguns exemplos de algoritmos que utilizam a abordagem híbrida foram dados por
-\citeonline{burke2002hybrid}:
+vantagens das abordagens e tentar eliminar suas desvantagens \cite{burke2002hybrid}. Alguns exemplos de algoritmos que
+utilizam a abordagem híbrida foram dados por \citeonline{burke2002hybrid}:
 
 \begin{itemize}
-\item Weighted: a recomendação é o resultado da execução das duas abordagens de recomendação. Essas abordagens podem
+\item \textit{Weighted}: a recomendação é o resultado da execução das abordagens de recomendação em conjunto. Essas abordagens podem
 ser executadas linearmente, uma após a outra, para definir os melhores itens a serem recomendados, ou cada abordagem
 pode ter pesos diferentes, tornando o resultado de um mais importante que o resultado do outro.
-\item Switching: ocorre uma alternância entre as duas abordagens, em certos momentos uma delas é utilizada e em outros
-momentos a outra é utilizada. O sistema deverá possuir alguns critérios para definir qual abordagem irá utilizar.
-\item Mixed: as duas abordagens mencionadas são utilizadas e os resultados aparecem em um mesmo ranking. Esse tipo de
+\item \textit{Switching}: ocorre uma alternância entre as abordagens, em certos momentos uma delas é utilizada e em outros
+momentos outra é utilizada. O sistema deverá possuir alguns critérios para definir qual abordagem irá utilizar.
+\item \textit{Mixed}: as mencionadas são utilizadas separadamente e os resultados aparecem em um mesmo ranking. Esse tipo de
 abordagem é utilizado quando se deseja realizar um grande número de recomendações diferentes simultaneamente.
-\item Feature combination: considera as informações da colaboração como uma característica e utiliza a abordagem
+\item \textit{Feature combination}: considera as informações da colaboração como uma característica e utiliza a abordagem
 Baseada em Conteúdo para realizar a recomendação.
-\item Cascade: uma abordagem é utilizada primeiro para gerar um ranking e a outra abordagem refina o resultado dado
+\item \textit{Cascade}: uma abordagem é utilizada primeiro para gerar um ranking e outra abordagem refina o resultado dado
 por esta.
-\item Feature augmentation: uma abordagem é utiliza para produzir um ranking ou uma classificação para cada item e o
-resultado será considerado na execução da outra abordagem.
+\item \textit{Feature augmentation}: uma abordagem é utiliza para produzir um ranking ou uma classificação para cada item e o
+resultado será considerado na execução de outra abordagem.
 \end{itemize}
 
 \section{Sistemas de Recomendação Sensíveis ao Contexto}\label{section:sr-sensivel-contexto}
@@ -245,7 +247,8 @@ ordenado pelo interesse previsto do usuário para os itens disponíveis.
 
 Vários autores definem conjuntos de dimensões que podem representar o contexto
 \cite{schilit1994context, chen2000survey, zimmermann2007operational} e que diferem pouco entre si. Nesse trabalho,
-adotou-se a definição de \citeonline{schmidt1999there}, que é uma das mais completas encontradas:
+adotou-se a definição de \citeonline{schmidt1999there}, que é uma das mais completas encontradas. Os autores definem essas
+sete dimensões para representar o contexto \cite{schmidt1999there}:
 
 \begin{itemize}
 \item Informações sobre o usuário, e.g., hábitos do usuário, estado emocional, etc.;
@@ -258,7 +261,8 @@ ou aleatória, etc.;
 \item Tempo, e.g., \textit{timestamp} de ocorrência de uma interação, dia da semana no qual o usuário pede uma recomendação, etc.
 \end{itemize}
 
-\citeonline{adomavicius2011context} definem três paradigmas de uso das dimensões do contexto no processo de recomendação:
+Sobre a aplicação do contexto em SRs, \citeonline{adomavicius2011context} definem três paradigmas de uso das dimensões
+do contexto no processo de recomendação:
 
 \begin{itemize}
 \item Pré-Filtragem Contextual, na qual o contexto filtra os dados que representam o usuário e esses dados servem
@@ -297,16 +301,17 @@ SRs Sensíveis ao Tempo estão formalmente definidos na Equação \ref{eq:time-a
   \label{eq:time-aware}
 \end{equation}
 
-Onde F é a função que prediz o interesse do usuário por item ainda não utilizado, U representa o conjunto de usuários,
-I representa o conjunto de itens, T representa o contexto temporal e R representa o conjunto de itens ordenado pelo interesse previsto do usuário para os itens disponíveis.
+Onde $F$ é a função que prediz o interesse do usuário por item ainda não utilizado, $U$ representa o conjunto de usuários,
+$I$ representa o conjunto de itens, $T$ representa o contexto temporal e $R$ representa o conjunto de itens ordenado pelo
+interesse previsto do usuário para os itens disponíveis.
 
-De acordo com o dicionario \citeonline{michaelis2011disponivel}, o tempo é um  "Período de momentos, de horas, de dias,
+De acordo com o dicionário \citeonline{michaelis2011disponivel}, o tempo é um  "Período de momentos, de horas, de dias,
 de semanas, de meses, de anos etc. no qual os eventos se sucedem, dando-se a noção de presente, passado e futuro".
 Com essa informação é possível para um sistema computacional estabelecer uma ordem para os eventos que ocorrem.
 
 O Tempo pode ser representado de uma variável contínua ou categórica. A representação contínua utiliza o exato momento
 em que os itens foram consumidos/avaliados \cite{campos2014time}, por exemplo: "8 de outubro de 2017, 16:15:03".
-Enquanto na representação categórica as variáveis são calculadas relação a períodos de interesse \cite{campos2014time},
+Enquanto na representação categórica as variáveis são calculadas em relação a períodos de interesse \cite{campos2014time},
 e.g., Dias da semana: {Domingo, Segunda, Terça, ...} ou Estações do ano: {Primavera, Verão, Outono, Inverno}. Além
 disso, o tempo pode ser representado por diferentes unidades de tempo, e.g., segundos, minutos, horas, meses, anos,
 etc., e as unidades tempo são hierárquicas, e.g., um dia tem 24 horas, uma hora tem 60 minutos e 1 minuto tem 60
@@ -406,7 +411,7 @@ capturados de forma automática, por exemplo ferramentas de \textit{Web Analytic
 \end{itemize}
 
 \citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
-de realizar uma avaliação do SR através da Experiência do Usuário. Esse \textit{framework} se chama \textit{Recommender
+de realizar uma avaliação do SR através da perspectiva do usuário. Esse \textit{framework} se chama \textit{Recommender
 Systems' Quality of User Experiente}  (ResQue) e foi proposto com base em outras ferramentas para avaliação centrada no
 usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM), que define três construtos FFacilidade de Uso
 Percebida), Utilidade Percebida e Intenções do Usuário em utilizar o sistema e \textit{Software Usability Measurement
@@ -423,7 +428,7 @@ conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 ques
 \ref{ane:questoes-framework}).
 
 \begin{figure}[htb]
-  \caption{\label{fig:resque-framework}Construtos do framework de avaliação de SRs centrado no usuário}
+  \caption{\label{fig:resque-framework}Construtos do framework de avaliação de SRs pela perspectiva do usuário}
   \begin{center}
       \includegraphics[scale=0.6]{./Figuras/resque-framework.png}
   \end{center}
@@ -438,7 +443,7 @@ que o usuário estará satisfeito com o sistema, será leal e continuará utiliz
 o item recomendado). Os autores afirmam que percepção do usuário sobre a qualidade da recomendação é afetada tanto pela
 qualidade das recomendações, que é responsabilidade do algoritmo de recomendação, quanto pela eficiência na apresentação
 das recomendações, explicando a razão daquelas recomendações e inspirando a confiança do usuário nas suas decisões.
-Para isso, os autores defendem uma avalição do SR centrada no usuário, de forma a avaliar não somente o algoritmo de
+Para isso, os autores defendem uma avaliação do SR pela perspectiva usuário, de forma a avaliar não somente o algoritmo de
 recomendação mas o SR como um todo \cite{pu2012evaluating}.
 
 Além disso, \citeonline{pu2012evaluating} definem um conjunto de vinte diretrizes para o design de um SR bem aceito
@@ -472,7 +477,7 @@ do tempo. Para isso, itens acessados recentemente tem um peso maior no algoritmo
 o peso gradativamente.
 
 Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
-trabalho é utilizada uma avaliação centrada no usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
+trabalho é utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
 apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
 questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, será necessário
 selecionar quais das questões serão utilizadas, pois como citado por \citeonline{pu2011user} nem todas as questões se

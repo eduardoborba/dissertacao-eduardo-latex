@@ -8,11 +8,11 @@ poderem acessar.
 Quando a quantidade de materiais disponíveis nos AVAs é muito grande, existem alguns problemas que podem acontecer. São eles:
 
 \begin{itemize}
-\item o aluno pode sofrer uma sobrecarga cognitiva, aumentando a necessidade de esforço necessário para compreender o ambiente
-e encontrar os itens de seu interesse, atrapalhando o processo de aprendizagem
-\item o aluno não encontrar um material que seja de seu interesse, devido a enorme quantidade de materiais disponíveis
-\item parte do material disponibilizado, que poderia auxiliar os alunos no processo de aprendizagem, pode não ser
-utilizado e sequer acessado
+\item O aluno sofrer uma sobrecarga cognitiva, aumentando o esforço necessário para compreender o ambiente
+e encontrar os itens de seu interesse, atrapalhando o processo de aprendizagem;
+\item O aluno não encontrar um material que seja de seu interesse, devido a enorme quantidade de materiais disponíveis;
+\item Parte do material disponibilizado, que poderia auxiliar os alunos no processo de aprendizagem, nunca ser
+utilizado.
 \end{itemize}
 
 Com o objetivo de reduzir esses problemas, pesquisadores tem aplicado técnicas de personalização para selecionar os melhores itens para cada estudante,
@@ -24,7 +24,7 @@ informações sobre os usuários e os itens para recomendar) não são suficient
 \citeonline{verbert2012context} afirmam que nessa área é necessário um nível maior de personalização, como utilizar informações
 do contexto do usuário na recomendação.
 
-Apesar de existir uma grande quantidade de trabalho utilizam o contexto em SRs no domínio educacional, como pode ser visto
+Apesar de existir uma grande quantidade de trabalhos utilizando o contexto em SRs no domínio educacional, como pode ser visto
 em \citeonline{verbert2012context} e \citeonline{drachsler2015panorama}, pouco foi encontrado da aplicação do contexto
 temporal nesse domínio \cite{de2017time}. O contexto temporal é relevante pois leva em consideração a variação dos
 interesses do usuário com o passar do tempo. Além disso, os SR Sensíveis ao Tempo demonstraram bons resultados em outros
@@ -33,12 +33,13 @@ domínios de aplicação \cite{campos2014time}.
 \section{Problema}
 
 Como dito anteriormente, foram encontrados poucos trabalhos sobre o uso do contexto temporal em SRs para AVAs. Além disso,
-nos trabalhos encontrados as propostas não foram avaliadas em ambientes reais de uso. Assim, a pergunta a ser respondida por este trabalho
+nos trabalhos encontrados as propostas não foram avaliadas em ambientes reais de uso, não sendo possível avaliar o
+impacto dos SRs Sensíveis ao Tempo nesse domínio. Assim, a pergunta a ser respondida por este trabalho
 é: "\textbf{Como considerar a variação dos interesses do aluno com o passar do tempo em um AVA para recomendar itens para ele?}".
 
 \section{Objetivos}
 
-Foram definidos objetivos geral e específicos para orientar o processo de pesquisa desse trabalho para responder a questão
+Foram definidos objetivos geral e específicos para orientar o processo de pesquisa desse trabalho buscando responder a questão
 de pesquisa definida acima.
 
 \subsection{Objetivo Geral}
@@ -49,12 +50,12 @@ conta a mudança dos interesses destes usuários ao longo do tempo.
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-\item Definir algumas formas de levar em conta aspectos temporais em um algoritmo de recomendação
-\item Definir como usar o aspecto temporal em sistemas de recomendação para ambiente educacionais
-\item Implementar o algoritmo de recomendação proposto no ambiente AdaptWeb\textsuperscript{\textregistered}
+\item Definir algumas formas de levar em conta aspectos temporais em um algoritmo de recomendação;
+\item Definir como usar o aspecto temporal em sistemas de recomendação para ambiente educacionais;
+\item Implementar o algoritmo de recomendação proposto no ambiente AdaptWeb\textsuperscript{\textregistered};
 \item Considerar diretrizes de apresentação de recomendação ao desenvolver a interface do sistema de recomendação
-no ambiente AdaptWeb\textsuperscript{\textregistered}
-\item Avaliar a percepção do usuário sobre o algoritmo proposto em um ambiente real de uso
+no ambiente AdaptWeb\textsuperscript{\textregistered};
+\item Avaliar a percepção do usuário sobre o algoritmo proposto em um ambiente real de uso.
 \end{itemize}
 
 \section{Escopo}
@@ -68,12 +69,17 @@ o impacto da proposta na aprendizagem dos alunos.
 
 \section{Metodologia}
 
-
+A pesquisa desse trabalho é de natureza Aplicada, pois busca gerar conhecimentos através da implementação e experimentação
+de SRs em um ambiente real de uso. A abordagem do problema deste trabalho é quantitativa, através de questionários utilizando
+escala de Likert para quantificar a opinião dos alunos. Os objetivos dessa pesquisa tem caráter Explicativo, visando
+identificar fatores que influenciam a percepção dos alunos sobre a qualidade das recomendações. O procedimento utilizado
+para o desenvolvimento dessa pesquisa é Experimental, onde o objeto de estudo é a percepção dos alunos sobre a qualidade
+das recomendações e a variável é o algoritmo de recomendação utilizado.
 
 \section{Estrutura}
 
 Este trabalho está estrutudo da seguinte forma: o Capítulo \ref{chapter:fundamentacao-teorica} conceitua os Sistemas de
-Recomendação (SR), as suas abordagens, formas de avaliação e a apresentação das recomendações; o Capítulo \ref{chapter:trabalhos-relacionados}
+Recomendação (SR), as suas abordagens, as formas de avaliação e a apresentação das recomendações; o Capítulo \ref{chapter:trabalhos-relacionados}
 descreve os trabalhos relacionados que utilizam a categoria \textit{Decay} nas recomendações e compara com a proposta desse
 trabalho; o Capítulo \ref{chapter:proposta} apresenta em detalhe a proposta desse trabalho; o Capítulo \ref{chapter:experimento}
 apresenta o experimento utilizado para avaliação dessa proposta. Por último, o Capítulo \ref{chapter:conclusoes} apresenta
