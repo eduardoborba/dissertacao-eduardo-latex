@@ -2,11 +2,107 @@
 
 Neste capítulo é apresentado o experimento que será realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
 Para avaliar a proposta deste trabalho irá utilizar uma avaliação pela perspectiva do usuário, que segundo a definição de
-\citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. A próxima seção explica em mais detalhes o experimento.
+\citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O algoritmo proposto será incorporado ao ambiente
+AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um minicurso de algoritmos. As próximas seções explicam
+em mais detalhes o ambiente AdaptWeb\textsuperscript, as mudanças propostas para o ambiente e o experimento planejado.
+
+\section{Descrição do Ambiente AdaptWeb\textsuperscript{\textregistered}}
+
+O AdaptWeb\textsuperscript{\textregistered} (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
+que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
+e preferências do aluno \cite{gasparini2009adaptweb}. A próxima seção apresenta a Estrutura Geral do
+AdaptWeb\textsuperscript{\textregistered}.
+
+\subsection{Estrutura do AdaptWeb\textsuperscript{\textregistered}}
+
+A estrutura do AdaptWeb\textsuperscript{\textregistered} é composta por quatro módulos: (1) o módulo de autoria; (2) o
+módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
+usuário e (4) o módulo de interface adaptativa \cite{gasparini2003interface}, conforme pode ser visto na Figura
+\ref{fig:adaptweb-arquitetura}.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-arquitetura}Estrutura do AdaptWeb\textsuperscript{\textregistered}}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/adaptweb-arquitetura.png}
+  \end{center}
+  \legend{Fonte: \citeonline{gasparini2003interface}}
+\end{figure}
+
+O módulo de autoria (1) consiste na organização do conteúdo instrucional a ser disponibilizado para o aluno, sendo que
+este conteúdo pode ter arquivos classificados como conceito, exemplos, exercícios e materiais complementares
+\cite{gasparini2003interface}. Ao criar um conteúdo no sistema, o autor pode definir para quais cursos e disciplinas
+deseja que o conteúdo ou arquivo esteja disponível. Isto significa que um aluno de um Curso X e de outro Curso Y,
+matriculados em uma mesma disciplina, podem ter conteúdos distintos, conforme definido pelo professor. Por exemplo, a
+disciplina de Cálculo I pode ser oferecida para os cursos de Ciência da Computação e Engenharia Elétrica e sua
+abrangência e profundidade pode ser distinta para cada curso.
+
+Em \citeonline{de2015sistema}, foi proposto uma nova categoria para os conteúdos chamada Links de Apoio. Esses Links de Apoio
+são links externos ao ambiente AdaptWeb\textsuperscript{\textregistered} que são cadastrados pelo professor como um
+material alternativo de estudo e não estão diretamente atrelados á nenhum conceito em específico. O objetivo foi criar
+uma nova categoria de materiais que poderia ser recomendada para o usuário a qualquer momento de sua interação.
+
+O módulo de armazenamento em XML (2) é responsável por organizar os conteúdos e arquivos disponibilizados pelo autor em
+um arquivo XML \cite{gasparini2003interface}. É utilizada a representação através de XML devido à sua alta
+flexibilidade, oferecendo a estruturação dos documentos de forma independente da apresentação.
+
+O módulo de adaptação do conteúdo baseado no modelo do aluno (3) é responsável por adaptar o conteúdo da disciplina
+para cada curso. Por fim, o módulo de interface adaptativa (4) é responsável pela adaptação da navegação e da
+apresentação da interface do ambiente de acordo com o curso, preferências do modo de navegação (modo tutorial ou livre)
+e o conhecimento do usuário \cite{gasparini2003interface}.
+
+\subsection{Sistema de Recomendação no AdaptWeb\textsuperscript{\textregistered}}
+
+Na subseção anterior foi visto como a estrutura do ambiente AdaptWeb\textsuperscript{\textregistered} possui quatro categorias
+de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
+material auxiliar que pode ser recomendado a qualquer momento para o usuário.
+
+Neste trabalho todas as cinco categorias de materiais serão consideradas para a composição do perfil do usuário. Todos os
+materiais acessados em cada uma das categorias é caracterizado pelo professor da disciplina através de palavras-chave, e
+essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material.
+
+Já para os itens recomendados, apenas os Links de Apoio serão considerados. O Sistema de Recomendação (SR) irá buscar, com
+base nos itens acessados pelo aluno os Links de Apoio mais adequados para a recomendação e irá apresentar através de uma
+lista de itens. A forma de apresentação das Recomendações é discutida em mais detalhe na próxima subseção.
+
+\subsection{Apresentação das Recomendações}
+
+Para avaliar o algoritmo proposto no ambiente AdaptWeb\textsuperscript{\textregistered}, é necessário a preocupação com a
+forma como as recomendações são apresentadas para o usuário. Uma decisão tomada neste trabalho foi de apresentar as
+recomendações na tela principal do ambiente do aluno. Dessa forma, quando o SR possuir itens para recomendar para o usuário
+esses itens aparecem em uma lista logo abaixo do conteúdo que ele estiver visualizando no momento, independente se o aluno esteja na
+tela de Conceito, Exercícios, Exemplos ou Materiais Complementares. Na Figura \ref{fig:adaptweb-proposta-recomendacao}
+pode-se observar um protótipo da apresentação das recomendações.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/recomendacoes_v2.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
+As principais informações dos Links de Apoio recomendados apresentados para o aluno são: Link, Nome do Link, Descrição e a possibilidade de avaliar o item
+com notas de 1 a 5. \citeonline{pu2012evaluating} afirmam que enquanto recomendar um item apenas é pouco, recomendar
+mais do que cinco itens aumenta a dificuldade de escolhar do usuário. Por isso, a quantidade máxima de itens recomendadas
+para o usuário em cada recomendação é de cinco itens.
+
+Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, será adicionado um
+botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
+funcionamento do algoritmo de recomendação o usuário tem a possibilidade aprimorar o seu perfil para personalizar as
+recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está um protótipo da explicação da recomendação
+mostrada para o aluno.
+
+\begin{figure}[htb]
+  \caption{\label{fig:adaptweb-proposta-explicacao}Explicação da recomendação}
+  \begin{center}
+      \includegraphics[scale=0.6]{./Figuras/explicacoes_v2.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
 
 \section{Definição do experimento}
 
-O experimento visa avaliar a experiência dos alunos ao interagir com o SR proposto neste trabalho, se comparado a um SR
+O experimento proposto neste trabalho visa avaliar a experiência dos alunos ao interagir com o SR proposto, se comparado a um SR
 utilizando a abordagem Baseada em Conteúdo tradicional. Este experimento foi
 baseado nas seguintes hipóteses:
 
@@ -22,8 +118,8 @@ estratégia \textit{Between Subjects}, i.e., os alunos serão divididos em dois 
 um dos sistemas. Porém, para garantir que a única variável será qual o SR utilizado, ambos os grupos irão utilizar a mesma
 interface proposta para as recomendações.
 
-O experimento será realizado no ambiente AdaptWeb\textsuperscript{\textregistered}, o ambiente no qual foi incorporado o
-Sistema de Recomendação (SR) proposto, em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
+O experimento será realizado no ambiente AdaptWeb\textsuperscript{\textregistered}, o ambiente no qual será incorporado o
+SR proposto, em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
 Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC). Isso porque em todos os cursos do CCT
 a disciplina de algoritmos está presente. O processo de design instrucional desse minicurso foi realizado pelo aluno
 Lúcio Vasconcelos dos Santos, bolsista do Programa de Pós-Graduação em Ensino de Ciências, Matemática e Tecnologias
@@ -64,13 +160,28 @@ entrevista será exclusivamente para aprimorar os instrumentos (i.e., TCLE e o q
 
 \section{Considerações sobre o capítulo}
 
-Neste capítulo foi definido o experimento para a avaliação da proposta desse trabalho. O experimento visa avaliar a experiência
-do usuário com o Sistema de Recomendação (SR) proposto no Capítulo \ref{chapter:proposta} em comparação a um SR utilizando
-a abordagem Baseada em Conteúdo tradicional.
+Neste capítulo descrito o ambiente no qual o Sistema de Recomendação (SR) proposto será incorporado (AdaptWeb\textsuperscript{\textregistered}) e foi definido o
+experimento para a avaliação da proposta desse trabalho. Foi visto que no ambiente AdaptWeb\textsuperscript{\textregistered}
+cada conteúdo é composto por quatro categorias de materiais: Conceito, Exercícios, Exemplos e Materiais Complementares.
+Além disso, existe uma outra categoria chamada Links de Apoio que tem o objetivo de possuir links externos ao ambiente e que
+não estejam diretamente relacionadas a apenas um conceito, para que possam ser recomendados a qualquer momento da interessante.
 
-O experimento acontecerá no ambiente AdaptWeb\textsuperscript{\textregistered} através de um minicurso de algoritmos
-desenvolvido no ambiente nos meses de Abril e Maio de 2018. Ao final do minicurso os alunos receberão um questionário
-para responder sobre a sua experiência ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}.
+Nos SRs desenvolvidos nos AdaptWeb\textsuperscript{\textregistered}, tanto para a proposta deste trabalho como para a abordagem
+Baseada em Conteúdo, o perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
+cinco categorias. Já os itens a serem recomendados são apenas os Links de Apoio. Isso porque essa é a única das categorias
+que não está diretamente relacionada a um conceito em específico, podendo ser recomendados durante todo o processo de
+aprendizagem do aluno e estando provavelmente relacionadas a mais de um dos conceitos da disciplina.
+
+Um ponto levado em consideração nesse trabalho está relacionada a apresentação das recomendações. Utilizando como base as diretrizes propostas
+por \citeonline{pu2012evaluating} foi proposta uma interface para a apresentação das recomendações no AdaptWeb\textsuperscript{\textregistered},
+com o objetivo de que os usuários tenham acesso direto as recomendações na tela principal do ambiente do aluno e entendam
+melhor o porque aqueles itens foram recomendados.
+
+O experimento proposto visa avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
+comparação a um SR utilizando a abordagem Baseada em Conteúdo tradicional. O experimento acontecerá no ambiente
+AdaptWeb\textsuperscript{\textregistered} através de um minicurso de algoritmos desenvolvido no ambiente nos meses de
+Abril e Maio de 2018. Ao final do minicurso os alunos receberão um questionário para responder sobre a sua experiência
+ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}.
 
 Antes da realização do experimento em si, será realizado um Teste Piloto com alunos que já realizaram a disciplina de algoritmos
 com o objetivo de avaliar os instrumentos (TCLE e Questionário), além de encontrar possíveis problemas preliminares na

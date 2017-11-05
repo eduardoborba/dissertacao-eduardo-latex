@@ -113,124 +113,6 @@ para outros alunos. E não foram encontrados trabalhos que mostrem um modelo par
 personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de forma empírica e
 aplicam o mesmo fator para todos os usuários.
 
-\section{Descrição do Ambiente AdaptWeb\textsuperscript{\textregistered}}
-
-O algoritmo proposto será incorporado ao ambiente AdaptWeb\textsuperscript{\textregistered}. O
-AdaptWeb\textsuperscript{\textregistered} (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
-que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
-e preferências do aluno \cite{gasparini2009adaptweb}. A próxima seção apresenta a Estrutura Geral do
-AdaptWeb\textsuperscript{\textregistered}.
-
-\subsection{Estrutura do AdaptWeb\textsuperscript{\textregistered}}
-
-A estrutura do AdaptWeb\textsuperscript{\textregistered} é composta por quatro módulos: (1) o módulo de autoria; (2) o
-módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
-usuário e (4) o módulo de interface adaptativa \cite{gasparini2003interface}, conforme pode ser visto na Figura
-\ref{fig:adaptweb-arquitetura}.
-
-O módulo de autoria (1) consiste na organização do conteúdo instrucional a ser disponibilizado para o aluno, sendo que
-este conteúdo pode ter arquivos classificados como conceito, exemplos, exercícios e materiais complementares
-\cite{gasparini2003interface}. Ao criar um conteúdo no sistema, o autor pode definir para quais cursos e disciplinas
-deseja que o conteúdo ou arquivo esteja disponível. Isto significa que um aluno de um Curso X e de outro Curso Y,
-matriculados em uma mesma disciplina, podem ter conteúdos distintos, conforme definido pelo professor. Por exemplo, a
-disciplina de Cálculo I pode ser oferecida para os cursos de Ciência da Computação e Engenharia Elétrica e sua
-abrangência e profundidade pode ser distinta para cada curso.
-
-\begin{figure}[htb]
-  \caption{\label{fig:adaptweb-arquitetura}Estrutura do AdaptWeb\textsuperscript{\textregistered}}
-  \begin{center}
-      \includegraphics[scale=1.0]{./Figuras/adaptweb-arquitetura.png}
-  \end{center}
-  \legend{Fonte: \citeonline{gasparini2003interface}}
-\end{figure}
-
-O módulo de armazenamento em XML (2) é responsável por organizar os conteúdos e arquivos disponibilizados pelo autor em
-um arquivo XML \cite{gasparini2003interface}. É utilizada a representação através de XML devido à sua alta
-flexibilidade, oferecendo a estruturação dos documentos de forma independente da apresentação.
-
-O módulo de adaptação do conteúdo baseado no modelo do aluno (3) é responsável por adaptar o conteúdo da disciplina
-para cada curso. Por fim, o módulo de interface adaptativa (4) é responsável pela adaptação da navegação e da
-apresentação da interface do ambiente de acordo com o curso, preferências do modo de navegação (modo tutorial ou livre)
-e o conhecimento do usuário \cite{gasparini2003interface}.
-
-\subsection{Sistema de Recomendação Presente no Ambiente}
-
-O ambiente AdaptWeb\textsuperscript{\textregistered} possui um SR que foi desenvolvido em \citeonline{de2015sistema}. Em \citeonline{de2015sistema}
-foi decidido que os itens que o SR recomendaria são uma nova categoria de materiais da disciplina, não existente
-originalmente no AdaptWeb\textsuperscript{\textregistered}, chamada "Links de Apoio", na qual o professor pode adicionar
-apenas links externos ao ambiente. O perfil do usuário no SR existente é composto pelas palavras-chave que descrevem os
-materiais complementares acessados pelo usuário.
-
-Na Figura \ref{fig:adaptweb-notificacao-recomendacao} pode ser observada a apresentação das recomendações para o aluno
-através de uma notificação (destacada na Figura) proposta em \citeonline{de2015sistema}.
-
-\begin{figure}[htb]
-  \caption{\label{fig:adaptweb-notificacao-recomendacao}Interface do SR: Notificação de Link Recomendado}
-  \begin{center}
-      \includegraphics[scale=1.0]{./Figuras/adaptweb-notificacao-recomendacao.png}
-  \end{center}
-  \legend{Fonte: \citeonline{de2015sistema}}
-\end{figure}
-
-Ao clicar na notificação (indicada pela seta), é aberta uma janela pop-up com os links recomendados para aquele aluno.
-Neste momento aparece o Título do Material e a Descrição, informados pelo professor. Além disso, é possível que o aluno
-avalie o material, com uma nota de 1 a 5, e reporte links quebrados. A Figura 4 mostra a interface contendo as
-recomendações realizadas em certo momento da interação do usuário.
-
-\begin{figure}[htb]
-  \caption{\label{fig:adaptweb-itens-recomendacao}Interface da Recomendação para o Aluno}
-  \begin{center}
-      \includegraphics[scale=1.0]{./Figuras/adaptweb-itens-recomendacao.png}
-  \end{center}
-  \legend{Fonte: \citeonline{de2015sistema}}
-\end{figure}
-
-Em \citeonline{de2017sistema} foi feito um estudo com os dados de log gerados pela ferramenta de Learning Analytics
-presente no ambiente. Nesse estudo foi possível observar que, dentro de um minicurso de algoritmos realizado, as
-recomendações não foram percebidas pelos usuários. Dos 99 alunos ativos no minicurso, apenas 18 acessaram pelo menos
-uma vez a área de recomendações. Além disso, dos 27.116 registros de páginas acessadas no ambiente, apenas 30 estão
-relacionados ao SR \cite{de2017sistema}.
-
-Por isso, para o desenvolvimento da proposta desse trabalho é necessário considerar também uma forma mais eficiente de
-apresentar essas recomendações. Isso porque não é possível medir o desempenho do algoritmo de recomendação se os alunos
-com a forma como a recomendação é apresentada atualmente, na qual os alunos não tem facilidade em encontrar e entender as
-recomendações. Na seção a seguir é apresentada as melhorias sugeridas para a apresentação das recomendações no ambiente.
-
-\section{Apresentação das Recomendações}
-
-Como mostrado anteriormente, o SR existente no AdaptWeb\textsuperscript{\textregistered} não é facilmente acessável pelos
-alunos. A primeira decisão do presente trabalho foi mover as recomendações para a área principal do ambiente do aluno.
-Dessa forma, se o SR possuir itens para recomendar para o usuário esses itens aparecem logo abaixo do conteúdo que ele estiver
-visualizando no momento, independente se o aluno esteja na tela de Conceito, Exercícios, Exemplos ou Materiais Complementares.
-Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar um protótipo dessa mudança.
-
-\begin{figure}[htb]
-  \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
-  \begin{center}
-      \includegraphics[scale=1.0]{./Figuras/recomendacoes_v2.png}
-  \end{center}
-  \legend{Fonte: O autor.}
-\end{figure}
-
-As principais informações dos links recomendados continuam sendo as mesmas que a versão anterior do SR: Link, Nome do Link,
-Descrição e a possibilidade de avaliar o item com notas de 1 a 5. \citeonline{pu2012evaluating} afirmam que enquanto
-recomendar um item apenas é pouco, recomendar mais do que cinco itens aumenta a dificuldade de escolhar do usuário. Por isso,
-a quantidade máxima de itens recomendadas para o usuário em cada recomendação é de cinco itens.
-
-Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, será adicionado um
-botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
-funcionamento do algoritmo de recomendação o usuário tem a possibilidade aprimorar o seu perfil para personalizar as
-recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está um protótipo da explicação da recomendação
-mostrada para o aluno.
-
-\begin{figure}[htb]
-  \caption{\label{fig:adaptweb-proposta-explicacao}Explicação da recomendação}
-  \begin{center}
-      \includegraphics[scale=0.6]{./Figuras/explicacoes_v2.png}
-  \end{center}
-  \legend{Fonte: O autor.}
-\end{figure}
-
 \section{Considerações sobre o capítulo}
 
 Nesse capítulo é apresentada a proposta desse trabalho. O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
@@ -238,12 +120,6 @@ conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é da
 itens acessados a mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
 proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
 se os links recomendados já foram ou não acessados.
-
-O perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário. No contexto do
-AdaptWeb\textsuperscript{\textregistered}, os itens que são considerados para o perfil do usuário são todos os conceitos,
-exemplos, exercícios, materiais complementares e links de apoio acessados por ele. Já os itens a serem recomendados são
-apenas os links de apoio, isso porque se for recomendado itens das outras categorias estaria sendo quebrada a estrutura
-do AdaptWeb\textsuperscript{\textregistered} e da disciplina definida pelo professor.
 
 O cálculo da similaridade é feito então utilizando a técnica do Cosseno entre o perfil do usuário e todos os links de apoio
 da disciplina. O cálculo da recência é realizado apenas para os itens acessados pelo usuário que tem alguma similaridade com
@@ -257,9 +133,3 @@ O último fator considerado pela proposta desse trabalho é se o link de apoio j
 ele terá um grau relevância menor, pois consideramos que itens já acessados tendem a ser menos relevantes para o usuário.
 Apesar disso, esses links já acessados ainda podem ser recomendados desde que sejam similares ao perfil do usuário e similares
 a itens acessados recentemente por este.
-
-Uma outra parte dessa proposta está relacionada a apresentação das recomendações. Utilizando como base as diretrizes propostas
-por \citeonline{pu2012evaluating} foi proposta uma nova interface para o SR já existente no AdaptWeb\textsuperscript{\textregistered},
-com o objetivo de que os usuários tenham mais acesso as recomendações e entendam melhor o porque aqueles itens foram
-recomendados.
-
