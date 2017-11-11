@@ -14,10 +14,10 @@
 %\Huge               24.88   24.88   24.88
 
 % ---
-% Pacotes fundamentais 
+% Pacotes fundamentais
 % ---
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
@@ -37,7 +37,7 @@
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
-\usepackage{lipsum}       % para geração de dummy text - 
+\usepackage{lipsum}       % para geração de dummy text -
 
 % ---
 % Citações
@@ -69,16 +69,16 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 %----------------------------------------------------------------------------
-% Espaçamentos entre linhas e parágrafos 
+% Espaçamentos entre linhas e parágrafos
 %----------------------------------------------------------------------------
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.5cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{2 mm}  
+\setlength{\parskip}{2 mm}
 
 % Controle do espaçamento entre a legenda e a fonte (e nota) de figuras e tabelas}:
 \setlength{\abovecaptionskip}{0 mm}
@@ -114,12 +114,12 @@
 \newcommand{\fulldata}[1]{\renewcommand{\imprimirfulldata}{#1}}
 
 
-%----------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------
 % Novos Nomes
 %-----------------------------------------------------------------------------
 \renewcommand{\listfigurename}{Lista de Figuras}
 \renewcommand{\listtablename}{Lista de Tabelas}
-%----------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------
 % Tamanhos de Fontes
 %-----------------------------------------------------------------------------
 \renewcommand{\ABNTEXchapterfont}{\bfseries}
@@ -132,39 +132,39 @@
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 
 
-%-----------------------------------------------------------------------------   
+%-----------------------------------------------------------------------------
 % Customização da Capa
-%----------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
-    \center    
+    \center
   	\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirinstituicao} \\
   	\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimircampus} \\
   	\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimircurso}
-    
+
     \vspace*{\fill}
     {\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}
-    
+
     \vspace*{\fill}
 	    \begin{Spacing}{1.0}
 	    	\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirtitulo}
 	    \end{Spacing}
     \vspace*{6.78cm}
-    
+
     {\bfseries\large\MakeUppercase{\imprimirlocal}}
     \par
     {\bfseries\large\imprimirdata}
   \end{capa}
 }
 
-%-----------------------------------------------------------------------------   
+%-----------------------------------------------------------------------------
 % Customização da Folha de Rosto
-%----------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------
 %   Use \imprimirfolhaderosto* caso seja necessário imprimir algo no verso da
 %   página, estando no modo twoside. Util para imprimir a Ficha
 %   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
 %   é idếntica.
-%----------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------
 \renewenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
 \renewenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
 \makeatletter
@@ -189,7 +189,7 @@
          }%
          }%
        \end{minipage}%
-      
+
     \vfill
     %Final
     {\bfseries\large\MakeUppercase{\imprimirlocal}}
@@ -226,7 +226,7 @@
         \hfill
         \begin{minipage}{0.50\textwidth}
 }
-{       
+{
         \end{minipage}
       \vfill
     \hspace{0pt}
@@ -235,28 +235,28 @@
 %----------------------------------------------------------------------------
 % Ajeitar os destaques tipográficos do sumário
 %----------------------------------------------------------------------------
-\setlength{\cftbeforeparagraphskip}{0pt} 
-\setlength{\cftbeforesubsectionskip}{0pt} 
-\setlength{\cftbeforesectionskip}{0pt} 
-\setlength{\cftbeforesubsubsectionskip}{0pt} 
-\setlength{\cftbeforechapterskip}{\onelineskip} 
- 
-% Secao Primaria (Chapter): Caixa alta, Negrito, tamanho 12 
-\makeatletter 
+\setlength{\cftbeforeparagraphskip}{0pt}
+\setlength{\cftbeforesubsectionskip}{0pt}
+\setlength{\cftbeforesectionskip}{0pt}
+\setlength{\cftbeforesubsubsectionskip}{0pt}
+\setlength{\cftbeforechapterskip}{\onelineskip}
 
-\settocpreprocessor{chapter}{% 
-  \let\tempf@rtoc\f@rtoc% 
-  \def\f@rtoc{% 
-  \texorpdfstring{\bfseries\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}% 
-} 
+% Secao Primaria (Chapter): Caixa alta, Negrito, tamanho 12
+\makeatletter
 
-% Secao Secundária (section): Caixa alta,  tamanho 12 
+\settocpreprocessor{chapter}{%
+  \let\tempf@rtoc\f@rtoc%
+  \def\f@rtoc{%
+  \texorpdfstring{\bfseries\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+}
+
+% Secao Secundária (section): Caixa alta,  tamanho 12
 \renewcommand*{\cftsectionfont}{\normalfont}
 
-% Secao Terciária (subsection): Negrito,  tamanho 12 
+% Secao Terciária (subsection): Negrito,  tamanho 12
 \renewcommand*{\cftsubsectionfont}{\bfseries}
 
-% Secao Quaternária (subsubsection): Negrito,  tamanho 12 
+% Secao Quaternária (subsubsection): Negrito,  tamanho 12
 \renewcommand*{\cftsubsubsectionfont}{\bfseries}
 
 \renewcommand*{\cftparagraphfont}{\normalfont\itshape}
@@ -265,4 +265,6 @@
 \addto\captionsbrazil{
     \renewcommand{\bibname}{REFER\^ENCIAS}
 }
+
+\newcommand{\adaptweb}{AdaptWeb\textsuperscript{\textregistered}}
 
