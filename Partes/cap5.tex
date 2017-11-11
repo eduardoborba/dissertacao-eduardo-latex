@@ -3,17 +3,17 @@
 Neste capítulo é apresentado o experimento que será realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
 Para avaliar a proposta deste trabalho irá utilizar uma avaliação pela perspectiva do usuário, que segundo a definição de
 \citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O algoritmo proposto será incorporado ao ambiente
-AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um minicurso de algoritmos. As próximas seções explicam
+AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um minicurso de algoritmos. Esse capítulo explica
 em mais detalhes o ambiente AdaptWeb\textsuperscript, as mudanças propostas para o ambiente e o experimento planejado.
 
 \section{Descrição do Ambiente \adaptweb}
 
 O \adaptweb (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
 que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
-e preferências do aluno \cite{gasparini2009adaptweb}. A próxima seção apresenta a Estrutura Geral do
+e preferências do aluno \cite{gasparini2009adaptweb}. A Subseção \ref{subsection:estrutura-adaptweb} apresenta a Estrutura Geral do
 \adaptweb.
 
-\subsection{Estrutura do \adaptweb}
+\subsection{Estrutura do \adaptweb}\label{subsection:estrutura-adaptweb}
 
 A estrutura do \adaptweb é composta por quatro módulos: (1) o módulo de autoria; (2) o
 módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
@@ -62,16 +62,15 @@ essas palavras-chave farão parte do perfil do aluno a partir do momento em que 
 
 Já para os itens recomendados, apenas os Links de Apoio serão considerados. O Sistema de Recomendação (SR) irá buscar, com
 base nos itens acessados pelo aluno os Links de Apoio mais adequados para a recomendação e irá apresentar através de uma
-lista de itens. A forma de apresentação das Recomendações é discutida em mais detalhe na próxima subseção.
+lista de itens. A forma de apresentação das Recomendações é discutida em mais detalhe na Subseção \ref{subsection:apresentacao-recomendacoes}.
 
-\subsection{Apresentação das Recomendações}
+\subsection{Apresentação das Recomendações}\label{subsection:apresentacao-recomendacoes}
 
-Para avaliar o algoritmo proposto no ambiente \adaptweb, é necessário a preocupação com a
-forma como as recomendações são apresentadas para o usuário. Uma decisão tomada neste trabalho foi de apresentar as
-recomendações na tela principal do ambiente do aluno. Dessa forma, quando o SR possuir itens para recomendar para o usuário
-esses itens aparecem em uma lista logo abaixo do conteúdo que ele estiver visualizando no momento, independente se o aluno esteja na
-tela de Conceito, Exercícios, Exemplos ou Materiais Complementares. Na Figura \ref{fig:adaptweb-proposta-recomendacao}
-pode-se observar um protótipo da apresentação das recomendações.
+A lista de recomendações neste trabalho será apresentada ao aluno na tela principal do ambiente do aluno. Dessa forma,
+quando o SR possuir itens para recomendar para o usuário esses itens aparecem em uma lista logo abaixo do conteúdo que
+ele estiver visualizando no momento, independente se o aluno esteja na tela de Conceito, Exercícios, Exemplos ou
+Materiais Complementares. Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar um protótipo da
+apresentação das recomendações.
 
 \begin{figure}[htb]
   \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
