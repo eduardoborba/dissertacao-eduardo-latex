@@ -396,46 +396,7 @@ informação para recomendar. Dessa forma, quando o SR encontra um padrão nos a
 é possível utilizar os próximos itens da sequência como recomendações para o usuário. Essa categoria que os usuários
 tendem a seguir algum padrão de acesso (trajetória) enquanto interagem com o sistema.
 
-\section{Avaliação de Sistemas de Recomendação}
-
-A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
-
-\begin{itemize}
-\item Experimentos \textit{offline}, avaliação do método de recomendação através de uma base de dados, simulando as ações
-dos usuários sem necessitar da participação dos mesmos;
-\item Estudos com os usuários, em que um pequeno grupo de usuários realiza tarefas específicas relacionadas ao SR e
-podem ser utilizados em conjunto com medidas qualitativas para mensurar a satisfação dos usuários, por exemplo através
-de questionários;
-\item Uso real do sistema, na qual o SR é avaliado em situações reais de uso e os dados para avaliação quantitativa são
-capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics}.
-\end{itemize}
-
-\citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
-de realizar uma avaliação do SR através da perspectiva do usuário. Esse \textit{framework} se chama \textit{Recommender
-Systems' Quality of User Experiente}  (ResQue) e foi proposto com base em outras ferramentas para avaliação centrada no
-usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM), que define três construtos FFacilidade de Uso
-Percebida), Utilidade Percebida e Intenções do Usuário em utilizar o sistema e \textit{Software Usability Measurement
-Inventory} (SUMI), que consiste de cinco construtos (Eficiência, Influência, Ajuda, Controle, Capacidade de Aprendizado)
-e um questionário de 50 questões.
-
-O \textit{framework} proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelos
-Usuários, (2) Crenças/Opiniões do Usuário, (3) Atitudes/Propósitos do Usuário, (4) Intenções Comportamentais.
-Para cada um dos construtos, vários aspectos são avaliados, como pode ser visto na Figura \ref{fig:resque-framework}.
-Os autores definem ainda um conjunto de 60 questões para aplicar nessa avaliação como pode ser visto no Anexo
-\ref{ane:questoes-framework}. Nesse questionário as questões são afirmações nas quais o usuário deve ser posicionar em
-um escala de Likert de 5 pontos, de "Discordo totalmente" até "Concordo totalmente". Os autores ainda afirmam que o
-conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 questões (questões com asterisco no Anexo
-\ref{ane:questoes-framework}).
-
-\begin{figure}[htb]
-  \caption{\label{fig:resque-framework}Construtos do framework de avaliação de SRs pela perspectiva do usuário}
-  \begin{center}
-      \includegraphics[scale=0.6]{./Figuras/resque-framework.png}
-  \end{center}
-  \legend{Fonte: \citeonline{pu2011user}}
-\end{figure}
-
-\section{Apresentação das Recomendações}\label{section:fundamentacao-apresentacao-recomendacao}
+\section{Projeto de Interface de Recomendações}\label{section:fundamentacao-apresentacao-recomendacao}
 
 No trabalho de \citeonline{pu2012evaluating} os autores argumentam que apenas a eficiência do algoritmo não garante
 que o usuário estará satisfeito com o sistema, será leal e continuará utilizando-o ou que os itens serão "convertidos"
@@ -464,6 +425,45 @@ confiança do usuário, como a intenção de retornar ao sistema.
 \item Diretriz 20: Considere fornecer informação suficiente relacionadas aos itens recomendados, controlar a qualidade
 das informações e da estrutura de navegação.
 \end{itemize}
+
+\section{Avaliação de Sistemas de Recomendação}
+
+A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
+
+\begin{itemize}
+\item Experimentos \textit{offline}, avaliação do método de recomendação através de uma base de dados, simulando as ações
+dos usuários sem necessitar da participação dos mesmos;
+\item Estudos com os usuários, em que um pequeno grupo de usuários realiza tarefas específicas relacionadas ao SR e
+podem ser utilizados em conjunto com medidas qualitativas para mensurar a satisfação dos usuários, por exemplo através
+de questionários;
+\item Uso real do sistema, na qual o SR é avaliado em situações reais de uso e os dados para avaliação quantitativa são
+capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics}.
+\end{itemize}
+
+\citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
+de realizar uma avaliação do SR através da perspectiva do usuário. Esse \textit{framework} se chama \textit{Recommender
+Systems' Quality of User Experience}  (ResQue) e foi proposto com base em outras ferramentas para avaliação centrada no
+usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM), que define três construtos (Facilidade de Uso
+Percebida, Utilidade Percebida e Intenções do Usuário em Utilizar o Sistema) e \textit{Software Usability Measurement
+Inventory} (SUMI), que consiste de cinco construtos (Eficiência, Influência, Ajuda, Controle, Capacidade de Aprendizado)
+e um questionário de 50 questões.
+
+O \textit{framework} proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelos
+Usuários, (2) Crenças/Opiniões do Usuário, (3) Atitudes/Propósitos do Usuário, (4) Intenções Comportamentais.
+Para cada um dos construtos, vários aspectos são avaliados, como pode ser visto na Figura \ref{fig:resque-framework}.
+Os autores definem ainda um conjunto de 60 questões para aplicar nessa avaliação como pode ser visto no Anexo
+\ref{ane:questoes-framework}. Nesse questionário as questões são afirmações nas quais o usuário deve ser posicionar em
+um escala de Likert de 5 pontos, de "Discordo totalmente" até "Concordo totalmente". Os autores ainda afirmam que o
+conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 questões (questões com asterisco no Anexo
+\ref{ane:questoes-framework}).
+
+\begin{figure}[htb]
+  \caption{\label{fig:resque-framework}Construtos do framework de avaliação de SRs pela perspectiva do usuário}
+  \begin{center}
+      \includegraphics[scale=0.6]{./Figuras/resque-framework.png}
+  \end{center}
+  \legend{Fonte: \citeonline{pu2011user}}
+\end{figure}
 
 \section{Considerações sobre o capítulo}
 
