@@ -54,10 +54,9 @@
 % % Exemplo de folha de aprovação antes da Banca. Após isso, incluia o pdf digitalizado com as assinaturas%
 % % \includepdf{folhadeaprovacao_final.pdf}
 \begin{folhadeaprovacao}
-
 	\begin{center}
 		{\ABNTEXchapterfont\bfseries\imprimirautor}
-		\vspace{6em}
+		\vspace{2em}
 
 			\ABNTEXchapterfont\bfseries\imprimirtitulo
 
@@ -66,14 +65,22 @@
 		{\justify
     Qualificação apresentada ao Programa de Pós-Graduação em Computação Aplicada, da Universidade do Estado de Santa
     Catarina, como requisito parcial para a obtenção do grau de Mestre em Computação Aplicada.}
-	\vspace{3em}
+	 \vspace{2em}
 	\noindent
-	{\bfseries Banca Examinadora:}
-	\assinatura{\textbf{\imprimirorientador} \\ Orientador}
-  \assinatura{\textbf{\imprimircoorientador} \\ Coorientador}
-	\assinatura{\textbf{Dr. Rui Jorge Tramontin Junior (UDESC)} \\ Convidado 1}
-    \assinatura{\textbf{Dr. Thiago T. Primo (UFPel)} \\ Convidado 2}
-    \assinatura{\textbf{Dr. José Palazzo M. de Oliveira (UFRGS)} \\ Convidado 3}
+
+	{\justify \bfseries Banca Examinadora}
+
+  \vspace{2em}
+
+  \noindent{Orientadora:\hfill \assinatura*{\textbf{\imprimirorientador} \\ Universidade do Estado de Santa Catarina (UDESC)}}
+
+  \noindent{Coorientador:\hfill \assinatura*{\textbf{\imprimircoorientador} \\ Universidade Federal de Santa Marina (UFSM)}}
+
+	\noindent{Membros:\hfill \assinatura*{\textbf{Dr. Rui Jorge Tramontin Junior} \\ Universidade do Estado de Santa Catarina (UDESC)}}
+
+  \hfill \assinatura*{\textbf{Dr. Thiago T. Primo (UFPel)} \\ Universidade Federal de Pelotas (UFPel)}
+
+  \hfill \assinatura*{\textbf{Dr. José Palazzo M. de Oliveira (UFRGS)} \\ Universidade Federal do Rio Grande do Sul (UFRGS)}
 
     \vspace*{\fill}
     \begin{center}
@@ -114,19 +121,18 @@
 % Português
 \begin{resumo}
   Sistemas de Recomendação (SR) são ferramentas de software que sugerem itens para os usuários de forma automatizada e personalizada,
-  sem a necessidade do usuário formular um argumento de busca para encontrar os itens do seu interesse. Esses sistemas são
+  sem a necessidade do usuário formular uma consulta para encontrar os itens do seu interesse. Esses sistemas são
   explorados em Ambientes Virtuais de Aprendizagem (AVA) com o objetivo de reduzir alguns problemas existentes nesses ambientes
   quando a quantidade de materiais disponíveis é grande, tais como: sobrecarga cognitiva, dificuldade de encontrar os materiais
   do seu interesse e muitos materiais nunca serem utilizados. Pesquisadores da área argumentam que os algoritmos de SRs tradicionais não são suficientes para os AVAs,
   sendo necessário um nível maior de personalização a situação do usuário, como considerar dimensões do contexto. O objetivo
   desse trabalho é a criação de perfis de usuário que levem em conta a mudança dos interesses destes usuários
-  ao longo do tempo. Esses perfis considerando o contexto temporal serão aplicados no algoritmo de recomendação proposto nesse
-  trabalho. O algoritmo proposto combina a (1) similaridade do perfil do usuário (representado
-  pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência dos materiais
-  acessados pelo usuários, além da (3) informação se aquele item disponível para a recomendação já foi acessado ou não. A
+  ao longo do tempo. O algoritmo proposto combina a (1) similaridade do perfil do usuário (representado
+  pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência do acesso ou uso
+  desse materiais, além da (3) informação se aquele item disponível para a recomendação já foi acessado ou não. A
   proposta leva em conta que o ritmo de estudo dos alunos pode ser diferente, portanto a recência é considerada em relação
   a sequência de itens acessados e não ao tempo absoluto (em segundos) desde o acesso. A proposta desse trabalho será
-  incorporada ao ambiente \adaptweb e será avaliado através de um minicurso de algoritmos que é ministrado no ambiente.
+  incorporada ao ambiente \adaptweb e será avaliado através de um minicurso de algoritmos ministrado no ambiente.
   O algoritmo proposto será comparado a abordagem Baseada em Conteúdo tradicional através de um experimento utilizando um
   estratégia \textit{Between Subjects}. O objetivo do experimento é verificar se existe diferença na percepção do usuário
   sobre a qualidade das recomendações do algoritmo proposto em relação a abordagem Baseada em Conteúdo tradicional.

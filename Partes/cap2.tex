@@ -2,8 +2,8 @@
 
 Nesse capítulo são apresentados os principais conceitos relacionados a proposta desse trabalho. Primeiramente são apresentados
 os Sistemas de Recomendação e as suas abordagens tradicionais, seguidos pelos Sistemas de Recomendação Sensíveis ao Contexto
-e mais especificamente os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentadas as formas de avaliação de Sistema de Recomendação
-e as formas de apresentação de Recomendações.
+e mais especificamente os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentados aspectos relacionados ao
+projeto de interfaces de recomendação e formas de avaliação de Sistemas de Recomendação.
 
 \section{Sistemas de Recomendação}
 
@@ -75,7 +75,7 @@ indicam que o item ou usuário que estão representando possuem o primeiro termo
 funciona para a segunda posição em diante. Ao calcular a similaridade entre esses itens, temos $sim(u, i_1) \approx 0.71$
 e $sim(u, i_2) = 1$, identificando que o item representado por $i_2$ é mais similar às preferências do usuário $u$.
 
-Outra técnica de Recuperação da Informação é o tf-idf (\textit{term-frequency inverse document frequency}). Essa técnica
+Outra técnica de Recuperação da Informação é o TF-IDF (\textit{Term-Frequency Inverse Document Frequency}). Essa técnica
 é utilizada para identificar termos importantes em um documento \cite{christopher2008introduction} e pode ser utilizada
 para a descoberta das palavras-chave que descrevem um item. É utilizada a fórmula da Equação \ref{eq:tf-idf} para o cálculo dos
 pesos de cada termo do documento \cite{christopher2008introduction}.
@@ -477,12 +477,8 @@ do tempo. Para isso, itens acessados recentemente tem um peso maior no algoritmo
 o peso gradativamente.
 
 Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
-trabalho é utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
+trabalho será utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
 apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
 questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, será necessário
 selecionar quais das questões serão utilizadas, pois como citado por \citeonline{pu2011user} nem todas as questões se
 aplicam a todos os SRs, e traduzir essas questões para tornar possível a aplicação.
-
-Na Seção \ref{section:fundamentacao-apresentacao-recomendacao} são apresentados algumas diretrizes definidas por
-\citeonline{pu2012evaluating} para a apresentação das recomendações. Essas diretrizes foram definidas através de
-experimentos com participação do usuário e serão consideradas para a definição da interface da proposta desse trabalho.

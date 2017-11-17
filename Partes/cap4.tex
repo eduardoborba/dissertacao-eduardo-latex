@@ -1,10 +1,10 @@
 \chapter{SR Sensível ao Tempo}\label{chapter:proposta}
 
 Neste capítulo é apresentado o SR Sensível ao Tempo para ambientes educacionais proposto nesse trabalho. O algoritmo proposto
-considera o decaimento nos interesses do usuário com o passar do tempo (categoria do \textit{Decay}). Nesse capítulo é apresentado
+considera o decaimento nos interesses do usuário com o passar do tempo (categoria do \textit{Decay} - Seção \ref{section:decay}). Nesse capítulo é apresentado
 o algoritmo proposto, uma análise das suas vantagens e cenários que ilustram o uso desse algoritmo.
 
-\section{Algoritmo Proposto}
+\section{Algoritmo Proposto}\label{section:algoritmo-proposto}
 
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo tradicional com o uso do
 contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}).
@@ -73,14 +73,14 @@ Mapeamento Sistemático realizado \cite{de2017time}, e demonstraram bons resulta
 aplicar o contexto temporal no algoritmo de recomendação na área educacional (na qual foram encontrados apenas quatro
 trabalhos) e avaliar os resultados.
 
-A escolha do \textit{Decay} se justifica como forma de resolver uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
+A escolha do \textit{Decay} se justifica como forma de procurar minimizar uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
 Superespecialização. Na abordagem Baseada em Conteúdo as recomendações seriam geradas levando em conta todos os itens
 acessados pelo usuário igualitariamente. Enquanto ao aplicar o \textit{Decay}, os itens acessados mais recentemente possuem um
 grau de importância maior para o algoritmo do que itens acessados anteriormente. Dessa forma, mesmo que o usuário
-acessou muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
+tenha acessado muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
 recomendação consegue rapidamente se adaptar e gerar recomendações sobre esse novo conteúdo.
 
-Um cenário de uso do \textit{Decay} é apresentado a seguir: \textit{o aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
+Um cenário de uso do \textit{Decay} é apresentado a seguir. \textit{O aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
 que possui quatro tópicos, sendo eles Pilhas, Filas, Listas e Árvores. Nessa disciplina, para cada um dos conteúdos é
 aplicada uma prova para avaliar os conhecimentos dos alunos. Até o momento da primeira prova sobre o conteúdo de Pilhas,
 Pedro acessou apenas materiais relacionados a Pilhas. O algoritmo de recomendação utilizando a abordagem Baseada em
@@ -94,21 +94,21 @@ forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conc
 recomendará itens relacionados ao primeiro conteúdo novamente.}
 
 O algoritmo proposto nesse trabalho considera o decaimento no peso dos itens do perfil do usuário em função da posição
-do item na sequência de materiais acessados, como mostrado anteriormente, e não na quantidade de tempo passada em
+do item na sequência de materiais acessados, como mostrado na Seção \ref{section:algoritmo-proposto}, e não na quantidade de tempo passada em
 segundos como feito na maioria dos trabalhos relacionados mostrados no Capítulo \ref{chapter:trabalhos-relacionados}. Isso é uma vantagem, pois no domínio
 educacional o passar do tempo não é tão relevante quanto em outros domínios, como na recomendação de \textit{Web Services} por
 exemplo.
 
 Os alunos em um AVA podem ter ritmos de estudo diferentes e, por isso, é assumido nesse trabalho que faz
 mais sentido analisar quantos itens foram acessados desde do acesso de determinado material do que o tempo passado desde
-a interação. Dessa forma, nesse algoritmo não faz diferença se o usuário acessou todos os itens do seu perfil em um
-único dia, se ele acessou metade do materiais na primeira semana do curso e a outra metade na última semana ou se ele
+a interação. Dessa forma, esse algoritmo não considera se o usuário acessou todos os itens do seu perfil em um
+único dia, ou se ele acessou metade do materiais na primeira semana do curso e a outra metade na última semana ou se ele
 acessou alguns materiais todos os dias durante o curso.
 
-Além disso, no algoritmo proposto nesse trabalho não é necessário definir um fator de decaimento como nos trabalhos
-relacionados apresentados no Capítulo \ref{chapter:trabalhos-relacionados}. Ao considerar um parâmetro como fator de decaimento seria necessário considerar
+Além disso, no algoritmo proposto nesse trabalho não é definido um fator de decaimento único para os todos os usuários como nos trabalhos
+relacionados apresentados no Capítulo \ref{chapter:trabalhos-relacionados}. Isto porque é necessário considerar
 que cada aluno tem um estilo de aprendizagem diferente e o decaimento para um aluno poderia ser diferente do decaimento
-para outros alunos. E não foram encontrados trabalhos que mostrem um modelo para calcular o fator de decaimento de forma
+para outros alunos. E não foram encontrados nos trabalhos relacionados que mostrem um modelo para calcular o fator de decaimento de forma
 personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de forma empírica e
 aplicam o mesmo fator para todos os usuários.
 
@@ -118,17 +118,7 @@ Nesse capítulo é apresentada a proposta desse trabalho. O algoritmo proposto u
 conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é dado um peso menor na recomendação para os
 itens acessados a mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
 proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
-se os links recomendados já foram ou não acessados.
+se os links recomendados já foram ou não acessados. O algoritmo proposto será avaliado utilizando o experimento descrito
+no Capítulo \ref{chapter:experimento}
 
-O cálculo da similaridade será feito utilizando a técnica do Cosseno entre o perfil do usuário e todos os itens da disciplina
-que podem ser recomendados. O cálculo da recência é realizado apenas para os itens do perfil do usuário que tem alguma similaridade com
-determinado item candidato a recomendação. Nesse cálculo é considerada a posição do item na lista de acessos do usuário ordenada pelo tempo
-em que foi acessado o item e a quantidade de itens acessados por esse usuário. Dessa forma, um link de apoio que é similar
-a um item acessado pelo usuário recentemente terá uma recência maior e consequentemente um grau de relevância maior para
-aquele usuário. Enquanto um link de apoio que é similar a itens acessado a mais tempo pelo usuário terão uma recência maior
-e consequentemente um grau de relevância manor.
 
-O último fator considerado pela proposta desse trabalho é se o link de apoio já foi acessado ou não. Se já foi acessado
-ele terá um grau relevância menor, pois consideramos que itens já acessados tendem a ser menos relevantes para o usuário.
-Apesar disso, esses links já acessados ainda podem ser recomendados desde que sejam similares ao perfil do usuário e similares
-a itens acessados recentemente por este.

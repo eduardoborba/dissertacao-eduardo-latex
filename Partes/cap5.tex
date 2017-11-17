@@ -52,7 +52,7 @@ e o conhecimento do usuário \cite{gasparini2003interface}.
 
 \subsection{Sistema de Recomendação no \adaptweb}
 
-Na subseção anterior foi visto como a estrutura do ambiente \adaptweb possui quatro categorias
+Na Subseção \ref{subsection:estrutura-adaptweb} foi visto como a estrutura do ambiente \adaptweb possui quatro categorias
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
 material auxiliar que pode ser recomendado a qualquer momento para o usuário.
 
@@ -117,8 +117,7 @@ estratégia \textit{Between Subjects}, i.e., os alunos serão divididos em dois 
 um dos sistemas. Porém, para garantir que a única variável será qual o SR utilizado, ambos os grupos irão utilizar a mesma
 interface proposta para as recomendações.
 
-O experimento será realizado no ambiente \adaptweb, o ambiente no qual será incorporado o
-SR proposto, em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
+O experimento será realizado em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
 Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC). Isso porque em todos os cursos do CCT
 a disciplina de algoritmos está presente. O processo de design instrucional desse minicurso foi realizado pelo aluno
 Lúcio Vasconcelos dos Santos, bolsista do Programa de Pós-Graduação em Ensino de Ciências, Matemática e Tecnologias
@@ -159,33 +158,23 @@ entrevista será exclusivamente para aprimorar os instrumentos (i.e., TCLE e o q
 
 \section{Considerações sobre o capítulo}
 
-Neste capítulo descrito o ambiente no qual o Sistema de Recomendação (SR) proposto será incorporado (\adaptweb) e foi definido o
-experimento para a avaliação da proposta desse trabalho. Foi visto que no ambiente \adaptweb
-cada conteúdo é composto por quatro categorias de materiais: Conceito, Exercícios, Exemplos e Materiais Complementares.
-Além disso, existe uma outra categoria chamada Links de Apoio que tem o objetivo de possuir links externos ao ambiente e que
-não estejam diretamente relacionadas a apenas um conceito, para que possam ser recomendados a qualquer momento da interessante.
+Neste capítulo foi descrito o ambiente no qual o Sistema de Recomendação (SR) proposto será incorporado (\adaptweb) e definido o
+experimento para a avaliação da proposta desse trabalho. Nos SRs desenvolvidos no \adaptweb, tanto para a proposta deste trabalho como para a abordagem
+Baseada em Conteúdo tradicional que será utilizada como parâmetro, o perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
+cinco categorias apresentadas. Já os itens a serem recomendados são apenas os Links de Apoio. Isso porque essa é a única das categorias
+que não está diretamente relacionada a um conceito em específico, podendo ser recomendada durante todo o processo de
+aprendizagem do aluno e podendo estar relacionada a mais de um conceito da disciplina.
 
-Nos SRs desenvolvidos nos \adaptweb, tanto para a proposta deste trabalho como para a abordagem
-Baseada em Conteúdo, o perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
-cinco categorias. Já os itens a serem recomendados são apenas os Links de Apoio. Isso porque essa é a única das categorias
-que não está diretamente relacionada a um conceito em específico, podendo ser recomendados durante todo o processo de
-aprendizagem do aluno e estando provavelmente relacionadas a mais de um dos conceitos da disciplina.
-
-Um ponto levado em consideração nesse trabalho está relacionada a apresentação das recomendações. Utilizando como base as diretrizes propostas
-por \citeonline{pu2012evaluating} foi proposta uma interface para a apresentação das recomendações no \adaptweb,
+Utilizando como base as diretrizes propostas por \citeonline{pu2012evaluating} foi proposta uma interface para a apresentação das recomendações no \adaptweb,
 com o objetivo de que os usuários tenham acesso direto as recomendações na tela principal do ambiente do aluno e entendam
-melhor o porque aqueles itens foram recomendados.
+melhor o porque aqueles itens foram recomendados. Como visto, essa interface será utilizada tanto pelo algoritmo proposto
+quanto pela abordagem tradicional.
 
-O experimento proposto visa avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
-comparação a um SR utilizando a abordagem Baseada em Conteúdo tradicional. O experimento acontecerá no ambiente
+O experimento visa avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
+comparação à abordagem Baseada em Conteúdo tradicional. O experimento acontecerá no ambiente
 \adaptweb através de um minicurso de algoritmos desenvolvido no ambiente nos meses de
 Abril e Maio de 2018. Ao final do minicurso os alunos receberão um questionário para responder sobre a sua experiência
-ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}.
-
-Antes da realização do experimento em si, será realizado um Teste Piloto com alunos que já realizaram a disciplina de algoritmos
-com o objetivo de avaliar os instrumentos (TCLE e Questionário), além de encontrar possíveis problemas preliminares na
-ferramenta de recomendação.
-
-Ao final do experimento, espera-se encontrar a uma conclusão de se existe uma diferença na percepção do usuário sobre a
-qualidade das recomendações recebidas ao utilizar um SR Sensível ao Tempo, que se adapta as variações de interesse do
+ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}. Ao final do
+experimento, espera-se chegar a uma conclusão se existe diferença na percepção do usuário sobre a qualidade
+das recomendações recebidas ao utilizar um SR Sensível ao Tempo, que se adapta as variações de interesse do
 aluno, em relação a uma abordagem tradicional de recomendação.
