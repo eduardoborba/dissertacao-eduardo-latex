@@ -59,6 +59,91 @@ pelo \textit{timestamp}, em ordem crescente, temos: (1) Item B, (2) Item A, (3) 
   \label{eq:recencia-item-c}
 \end{equation}
 
+No Algoritmo \ref{alg:proposta-pseudocodigo} é possível observar o pseudo-código do algoritmo proposto. Nesse algoritmo
+está representado em mais alto nível as etapas da recomendação. Primeiramente, são buscados no banco de dados a lista de itens
+acessados pelo usuário e a lista de itens que podem ser recomendados. O cálculo da recência para cada item do perfil do usuário
+é feito também na fase de inicialização, pois esse cálculo só precisa ser realizado uma vez. Depois disso, para cada item
+candidato a ser recomendado para o usuário, é calculada a similaridade do perfil do usuário (composto pelas palavras dos itens acessados
+por ele) com as palavras-chave do item candidato. Nessa etapa também é encontrado qual o item do perfil do usuário que é semelhante
+ao item candidato e é mais recente, para utilizar o seu valor de recência no cálculo do score.
+
+\begin{algorithm}\label{alg:proposta-pseudocodigo}
+  \caption{Pseudo-código do Algoritmo de Recomendação Proposto}
+
+  \SetKwInOut{Input}{input}
+  \SetKwInOut{Output}{output}
+  \SetKwProg{algoritmoRecomendacaoDecay}{algoritmoRecomendacaoDecay}{}{}
+
+  \algoritmoRecomendacaoDecay{$(Usuário)$}{
+    \Input{Usuário que irá receber a recomendação.}
+    \Output{Lista com cinco itens recomendados para o usuário.}
+    itens = buscarItensCandidatos()\;
+    itensPerfilUsuario = buscarItensPerfil(Usuário)\;
+
+
+    recênciaItensPerfil = calcularRecência(itensPerfilUsuario)\;
+    scores = \{\}\;
+
+    \ForEach{$item \in itens$}{
+      similaridade, itensSimilares = calcularCosseno(itensPerfilUsuario, item)\;
+      recência = calcularMaxRecência(itensSimilares, recênciaItensPerfil)\;
+      scores[item] = similaridade * recência + item.acessado\;
+    }
+
+    \Return scores.max(5)\;
+  }
+\end{algorithm}
+
+O cálculo do score para o item candidato é finalmente realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
+itens com o maior score são retornados pelo algoritmo para serem recomendados ao usuário.
+
+No Algoritmo \ref{alg:calcular-recencia-pseudocodigo} é demonstrado o cálculo da recência para cada um dos itens do perfil do
+usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Nesse cálculo, os itens são
+ordenados pela data de acesso inicialmente e após isso uma versão simplificada da Equação \ref{eq:recencia-proposta} é aplicada.
+A função $max$ presente na Equação \ref{eq:recencia-proposta} não é aplicada nesse momento, sendo cálculada apenas a recência
+para cada item individualmente. No método descrito no Algoritmo \ref{{alg:calcular-recencia-pseudocodigo}} é que será aplicado
+o $max$ nas recências, para encontrar a maior recência entre os itens similares ao item candidato à recomendação.
+
+\begin{algorithm}
+  \caption{Pseudo-código do cálculo da recência para cada item presente no perfil do usuário \label{alg:calcular-recencia-pseudocodigo}}
+
+  \SetKwInOut{Input}{input}
+  \SetKwInOut{Output}{output}
+  \SetKwProg{calcularRecencia}{calcularRecência}{}{}
+
+  \calcularRecencia{$(itensPerfilUsuario)$}{
+    \Input{Lista de itens acessados pelo usuário.}
+    \Output{Hash com a recência calculada para cada item no perfil do usuário.}
+    recênciaItensPerfil = \{\}\;
+    itensOrdenados = itensPerfilUsuario.ordenarPor(dataAcesso)\;
+    tamanhoPerfilUsuario = itensPerfilUsuario.tamanho()\;
+
+    \ForEach{$item \in itensPerfilUsuario$}{
+      recênciaItensPerfil[item] = itensOrdernados.find(item).posição() / tamanhoPerfilUsuario\;
+    }
+
+    \Return recênciaItensPerfil\;
+  }
+\end{algorithm}
+
+\begin{algorithm}\label{alg:max-recencia-pseudocodigo}
+  \caption{Pseudo-código do cálculo da recência máxima entre os itens do perfil do usuário similares ao item candidato}
+
+  \SetKwInOut{Input}{input}
+  \SetKwInOut{Output}{output}
+  \SetKwProg{calcularMaxRecencia}{calcularMaxRecência}{}{}
+
+  \calcularMaxRecencia{$(itensSimilares, recênciaItensPerfil)$}{
+    \Input{Lista de itens similares e hash com a recência calculada para cada item do perfil do usuário.}
+    \Output{Valor máximo de recência entre itens similares.}
+
+    recênciaItensSimilares = recênciaItensPerfil.find(itensSimilares)\;
+
+    \Return recênciaItensSimilares.max(1)\;
+  }
+\end{algorithm}
+
+
 \section{Discussão Sobre o Algoritmo Proposto}
 
 Um ponto negativo da Filtragem Colaborativa é a necessidade de uma comunidade de usuários ativa, que nem sempre é
