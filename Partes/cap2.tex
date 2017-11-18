@@ -431,13 +431,23 @@ das informações e da estrutura de navegação.
 A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
 
 \begin{itemize}
-\item Experimentos \textit{offline}, avaliação do método de recomendação através de uma base de dados, simulando as ações
-dos usuários sem necessitar da participação dos mesmos;
-\item Estudos com os usuários, em que um pequeno grupo de usuários realiza tarefas específicas relacionadas ao SR e
-podem ser utilizados em conjunto com medidas qualitativas para mensurar a satisfação dos usuários, por exemplo através
-de questionários;
-\item Uso real do sistema, na qual o SR é avaliado em situações reais de uso e os dados para avaliação quantitativa são
-capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics}.
+\item \textit{Offline}: avaliação do método de recomendação através de uma base de dados, simulando as ações
+dos usuários sem necessitar da participação dos mesmos. Essa avaliação geralmente utiliza uma estratégia onde a base de dados
+é separada em base de treinamento e base de testes. A base de treinamento terão as notas dadas pelo usuário que serão
+repassadas ao algoritmo de recomendação como forma de construir o perfil desde. A base de teste contém os itens para os
+quais o algoritmo de recomendação irá buscar prever o interesse do usuário. As métricas tradicionalmente utilizadas para
+medir a eficiência do algoritmo de recomendação nesse tipo de avaliação são: (1) \textit{Mean Absolute Error} (MAE)
+e (2) \textit{Root Mean Square Error} (RMSE), utilizadas para calcular o quão próximas as notas previstas estão das notas
+reais; (3) \textit{Precision}, definida pela divisão do número de itens relevantes
+recomendados pelo número total de itens recomendados; (4) \textit{Recall}, definida pela divisão do número de itens relevantes
+recomendados pelo número total de itens relevantes existentes; e (5) \textit{F-measure}, definida pela média harmônica
+entre Precisão e Recall.;
+\item Estudos com os usuários, no qual um pequeno grupo de usuários é convidado a participar de um experimento e realiza
+tarefas específicas relacionadas ao SR. As métricas mais comuns de SR podem ser utilizados em conjunto com medidas
+qualitativas para mensurar a satisfação dos usuários, por exemplo através da observação, questionários, entrevistas, etc.;
+\item Uso real do sistema, na qual o SR é avaliado em situações reais de uso, com uma quantidade grande de usuários, e
+os dados para a avaliação (quantitativa) são capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics},
+registros de Logs, notas dadas pelos usuários, etc.
 \end{itemize}
 
 \citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
