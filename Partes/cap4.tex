@@ -6,11 +6,11 @@ o algoritmo proposto, uma análise das suas vantagens e cenários que ilustram o
 
 \section{Algoritmo Proposto}\label{section:algoritmo-proposto}
 
-O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo tradicional com o uso do
-contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}).
-
-O cálculo da relevância de um determinado item $i$ para um usuário $u$ no algoritmo proposto está formalizada na Equação
-\ref{eq:relevancia-proposta}.
+O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo com o uso do
+contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}). O perfil do usuário é representado
+pelas palavras-chave dos itens acessados por ele combinado com quão recente esses itens são no seu perfil. Os itens que serão
+recomendados também são representados no algoritmo de recomendação por um conjunto de palavras-chave. O cálculo da
+relevância de um determinado item $i$ para um usuário $u$ no algoritmo proposto está representado na Equação \ref{eq:relevancia-proposta}.
 
 \begin{equation}
   F(u,i) = S(u,i) \cdot R(I_{u,i}) + A(i)
@@ -65,7 +65,7 @@ acessados pelo usuário e a lista de itens que podem ser recomendados. O cálcul
 é feito também na fase de inicialização, pois esse cálculo só precisa ser realizado uma vez. Depois disso, para cada item
 candidato a ser recomendado para o usuário, é calculada a similaridade do perfil do usuário (composto pelas palavras dos itens acessados
 por ele) com as palavras-chave do item candidato. Nessa etapa também é encontrado qual o item do perfil do usuário que é semelhante
-ao item candidato e é mais recente, para utilizar o seu valor de recência no cálculo do Escore.
+ao item candidato e é mais recente, para utilizar o seu valor de recência no cálculo da Relevância.
 
 \begin{algorithm}
   \caption{Pseudo-código do Algoritmo de Recomendação Proposto \label{alg:proposta-pseudocodigo}}
@@ -82,20 +82,20 @@ ao item candidato e é mais recente, para utilizar o seu valor de recência no c
 
 
     recênciaItensPerfil = calcularRecência(itensPerfilUsuario)\;
-    Escores = \{\}\;
+    relevâncias = \{\}\;
 
     \ForEach{$item \in itens$}{
       similaridade, itensSimilares = calcularCosseno(itensPerfilUsuario, item)\;
       recência = calcularMaxRecência(itensSimilares, recênciaItensPerfil)\;
-      Escores[item] = similaridade * recência + item.acessado\;
+      relevâncias[item] = similaridade * recência + item.acessado\;
     }
 
-    \Return Escores.max(5)\;
+    \Return relevâncias.max(5)\;
   }
 \end{algorithm}
 
-O cálculo do Escore para o item candidato é finalmente realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
-itens com o maior Escore são retornados pelo algoritmo para serem recomendados ao usuário.
+O cálculo da Relevância para o item candidato é finalmente realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
+itens com a maior Relevância são retornados pelo algoritmo para serem recomendados ao usuário.
 
 No Algoritmo \ref{alg:calcular-recencia-pseudocodigo} é demonstrado o cálculo da recência para cada um dos itens do perfil do
 usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Nesse cálculo, os itens são
@@ -187,13 +187,13 @@ que nenhum item recomendado tenha sido acessado).
   \hline
   Acessado ou não & $1.0$ & $1.0$ & $1.0$ & $1.0$ \\
   \hline
-  Escore final & $2.0$ & $1.0$ & $1.0$ & $1.0$ \\
+  Relevância & $2.0$ & $1.0$ & $1.0$ & $1.0$ \\
   \hline
 \end{tabular}
 \legend{Fonte: O autor.}
 \end{table}
 
-Dessa forma, como podemos ver na tabela os itens relacionados a pilhas terão um maior Escore e serão os itens recomendados.
+Dessa forma, como podemos ver na tabela os itens relacionados a pilhas terão uma maior Relevância e serão os itens recomendados.
 A partir do momento que o usuário comece a acessar itens relacionados a filas, o algoritmo irá rapidamente se adaptar
 e começar a dar uma importância maior a itens relacionados a esse segundo tópico. Na Tabela \ref{tab:cenario-de-uso-2}
 é possível observar o comportamento do algoritmo nesse caso.
@@ -213,14 +213,14 @@ e começar a dar uma importância maior a itens relacionados a esse segundo tóp
   \hline
   Acessado ou não & $1.0$ & $1.0$ & $1.0$ & $1.0$ \\
   \hline
-  Escore final & $1.245$ & $1.3$ & $1.0$ & $1.0$ \\
+  Relevância & $1.245$ & $1.3$ & $1.0$ & $1.0$ \\
   \hline
 \end{tabular}
 \legend{Fonte: O autor.}
 \end{table}
 
 Podemos observar na tabela que, mesmo o perfil do usuário sendo ainda mais similar a itens com a palavra-chave "Pilha",
-o impato da Recência no algoritmo fez com o escore final dos itens relacionados a filas seja maior e, dessa forma, esses
+o impato da Recência no algoritmo fez com a Relevância dos itens relacionados a filas seja maior e, dessa forma, esses
 itens sejam recomendados. Agora vamos supor que o aluno Pedro decida voltar a acessar itens relacionados a pilhas para
 recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela \ref{tab:cenario-de-uso-3}.
 
@@ -239,7 +239,7 @@ recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentad
   \hline
   Acessado ou não & $1.0$ & $1.0$ & $1.0$ & $1.0$ \\
   \hline
-  Escore final & $1.75$ & $1.175$ & $1.0$ & $1.0$ \\
+  Relevância & $1.75$ & $1.175$ & $1.0$ & $1.0$ \\
   \hline
 \end{tabular}
 \legend{Fonte: O autor.}

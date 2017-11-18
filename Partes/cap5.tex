@@ -54,14 +54,15 @@ e o conhecimento do usuário \cite{gasparini2003interface}.
 
 Na Subseção \ref{subsection:estrutura-adaptweb} foi visto como a estrutura do ambiente \adaptweb possui quatro categorias
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
-material auxiliar que pode ser recomendado a qualquer momento para o usuário.
+material auxiliar que pode ser recomendado a qualquer momento para o usuário. Como no ambiente \adaptweb as palavras-chave para o itens
+já são cadastradas pelo professor da disciplina, não será utilizado nenhuma técnica para captura automática das palavras-chave.
 
-Neste trabalho todas as cinco categorias de materiais serão consideradas para a composição do perfil do usuário. Todos os
-materiais acessados em cada uma das categorias é caracterizado pelo professor da disciplina através de palavras-chave, e
-essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material.
-
-Já para os itens recomendados, apenas os Links de Apoio serão considerados. O Sistema de Recomendação (SR) irá buscar, com
-base nos itens acessados pelo aluno os Links de Apoio mais adequados para a recomendação e irá apresentar através de uma
+Fazendo uma relação da estrutura do \adaptweb com o algoritmo proposto no Capítulo \ref{chapter:proposta}, os itens de
+todas as cinco categorias de materiais serão consideradas para a composição do perfil do usuário. Todos os
+materiais acessados em cada uma das categorias é representado através das palavras-chave, e
+essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material. Já para os itens
+recomendados, apenas os Links de Apoio serão considerados. O Sistema de Recomendação (SR) irá buscar, com
+base nos itens acessados pelo aluno, os Links de Apoio mais adequados para a recomendação e irá apresentar através de uma
 lista de itens. A forma de apresentação das Recomendações é discutida em mais detalhe na Subseção \ref{subsection:apresentacao-recomendacoes}.
 
 \subsection{Apresentação das Recomendações}\label{subsection:apresentacao-recomendacoes}
@@ -119,12 +120,10 @@ interface proposta para as recomendações.
 
 O experimento será realizado em um minicurso de algoritmos do qual serão convidados a participar alunos de todos os cursos do Centro de
 Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC). Isso porque em todos os cursos do CCT
-a disciplina de algoritmos está presente. O processo de design instrucional desse minicurso foi realizado pelo aluno
-Lúcio Vasconcelos dos Santos, bolsista do Programa de Pós-Graduação em Ensino de Ciências, Matemática e Tecnologias
-oferecido pela UDESC, em conjunto com os professores que lecionam a disciplina.
+a disciplina de algoritmos está presente. O processo de design instrucional desse minicurso foi realizado por \citeonline{santos2017addie}.
 
-Nesse minicurso costumam se matricular em média 100 alunos por semestre. Sendo que desses, espera-se que pele menos 60 alunos chegam até
-o final do curso e realizam a prova final. Estima-se que o minicurso terá a duração de aproximadamente 45 dias e irá ocorrer no primeiro semestre
+Nesse minicurso costumam se matricular em média 100 alunos por semestre. Sendo que desses, espera-se que pelo menos 60 alunos chegam até
+o final do curso e respondam ao questionário. Estima-se que o minicurso terá a duração de aproximadamente 45 dias e irá ocorrer no primeiro semestre
 de 2018, entre os meses de Abril e Maio.
 
 Os usuários ao se matricularem no minicurso serão aleatóriamente divididos nos dois grupos de usuários, de forma que ambos

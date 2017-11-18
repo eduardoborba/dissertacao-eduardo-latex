@@ -60,7 +60,7 @@ considerando todos os usuários (RBA), Filtragem Colaborativa Usuário-Usuário 
 Filtragem Colaborativa Item-Item utilizando a Correlação de Pearson (IPCC), \textit{Context-Aware Service Recommender}
 (CASR), Método que considera a preferência do usuário de acordo com a sua localização (CASR-UP) e UPCC que considera o
 decaimento (ITRP-WS). A avaliação foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para
-a comparação foram \textit{Mean Absolute Error} (MAE) e \textit{Root Mean Squared Error} (RMSE).
+a comparação foram MAE e RMSE.
 
 Primeiramente foi realizado um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
 considerados para decidir quais são os itens considerados significantes, ou seja, depois de calculada nota prevista para
@@ -135,7 +135,7 @@ utilizando os algoritmos de \textit{Logic-Based Resource Relevant Degree} e remo
 dispositivo do usuário e a satisfação mínima com o tempo de resposta esperado.
 
 Esse algoritmo foi avaliado através de uma avaliação \textit{offline} utilizando o base de dados do Movielens, onde foram adicionados dados de
-contexto às interações existentes na base. As métricas utilizadas para avaliar o algoritmo foram Precisão, Utilidade e
+contexto às interações existentes na base. As métricas utilizadas para avaliar o algoritmo foram \textit{Precision}, Utilidade e
 Validade (razão entre a quantidade de itens apropriados para o tipo de conexão do usuário e o total de itens existentes).
 A avaliação foi feita em relação aos seguintes  algoritmos tradicionais de recomendação: Algoritmo Baseado em Conteúdo
 utilizando o modelo de espaço vetorial, Filtragem Colaborativa combinando a abordagem Usuário-Usuário com a Item-Item, Abordagem
@@ -181,7 +181,7 @@ de recomendação de notícias durante o período de um mês. Nessa simulação,
 notícias para três perfis de usuários: um usuário que lê notícias todos os dias pela manhã; outra que lê notícias apenas
 nas segundas pela manhã e sextas a noite; e outro que começa lendo as notícias apenas nas segundas pela manhã e muda o
 seu comportamento com o passar do tempo para a leitura as sextas a noite. Os resultados mostraram que o método conseguiu
-compreender o comportamento dos três tipos de usuário com uma Precisão e um Recall de quase 100\%.
+compreender o comportamento dos três tipos de usuário com um \texti{Precision} e um \textit{Recall} de quase 100\%.
 
 \section{Hawalah e Fasli 2014}
 
@@ -274,9 +274,8 @@ decaimento é definida na Equação \ref{eq:qiao-funcao-decaimento}.
   f(t_{ni}) = e^{-t_{ni}}
 \end{equation}
 
-A avaliação desse algoritmo foi realizada utilizando a base do MovieLens – 100 K, através da métrica MAE (Erro Absoluto
-Médio). Quando comparado a Filtragem Colaborativa tradicional o algoritmo proposto alcançou melhores resultados, ou
-seja, teve uma taxa de erro menor.
+A avaliação desse algoritmo foi realizada utilizando a base do MovieLens – 100 K, através da métrica MAE. Quando
+comparado a Filtragem Colaborativa tradicional o algoritmo proposto alcançou melhores resultados, ou seja, teve uma taxa de erro menor.
 
 \section{Kushwaha et al. 2016}
 
@@ -324,7 +323,7 @@ das \textit{tags}, representando a variação nos interesses do usuário.
 
 O algoritmo proposto pelos autores foi avaliado utilizando uma base de dados do próprio Last.fm, combinado com a base de
 dados do DBpedia para a captura de informações sobre os artistas, compositores e músicas. A avaliação considerou a
-métrica RMSE (\textit{Root Mean Square Error}) para as previsões para as notas que o usuário daria para um determinado
+métrica RMSE para as previsões para as notas que o usuário daria para um determinado
 item comparada com a nota real. Quando comparado com outros dois algoritmos de recomendação que incorporam
 informação social para recomendação (chamados BPMFSR e Sorec), o algoritmo proposto por \citeonline{kushwaha2016inclusion} se saiu melhor em 3
 das 6 condições de experimento realizadas.
