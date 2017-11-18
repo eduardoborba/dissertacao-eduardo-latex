@@ -67,8 +67,8 @@ candidato a ser recomendado para o usuário, é calculada a similaridade do perf
 por ele) com as palavras-chave do item candidato. Nessa etapa também é encontrado qual o item do perfil do usuário que é semelhante
 ao item candidato e é mais recente, para utilizar o seu valor de recência no cálculo do score.
 
-\begin{algorithm}\label{alg:proposta-pseudocodigo}
-  \caption{Pseudo-código do Algoritmo de Recomendação Proposto}
+\begin{algorithm}
+  \caption{Pseudo-código do Algoritmo de Recomendação Proposto \label{alg:proposta-pseudocodigo}}
 
   \SetKwInOut{Input}{input}
   \SetKwInOut{Output}{output}
@@ -100,9 +100,11 @@ itens com o maior score são retornados pelo algoritmo para serem recomendados a
 No Algoritmo \ref{alg:calcular-recencia-pseudocodigo} é demonstrado o cálculo da recência para cada um dos itens do perfil do
 usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Nesse cálculo, os itens são
 ordenados pela data de acesso inicialmente e após isso uma versão simplificada da Equação \ref{eq:recencia-proposta} é aplicada.
-A função $max$ presente na Equação \ref{eq:recencia-proposta} não é aplicada nesse momento, sendo cálculada apenas a recência
-para cada item individualmente. No método descrito no Algoritmo \ref{{alg:calcular-recencia-pseudocodigo}} é que será aplicado
-o $max$ nas recências, para encontrar a maior recência entre os itens similares ao item candidato à recomendação.
+A função $max$ presente na Equação \ref{eq:recencia-proposta} não é aplicada nesse momento, sendo calculada apenas a recência
+para cada item individualmente. No método descrito no Algoritmo \ref{alg:max-recencia-pseudocodigo} é que a função $max$ será
+aplicada para encontrar a maior recência entre os itens similares ao item candidato à recomendação. O algoritmo tem um processo
+que difere da Equação \ref{eq:recencia-proposta} justamente para que recência não seja recalculada várias vezes e assim
+melhor o seu tempo de processamento.
 
 \begin{algorithm}
   \caption{Pseudo-código do cálculo da recência para cada item presente no perfil do usuário \label{alg:calcular-recencia-pseudocodigo}}
@@ -126,8 +128,8 @@ o $max$ nas recências, para encontrar a maior recência entre os itens similare
   }
 \end{algorithm}
 
-\begin{algorithm}\label{alg:max-recencia-pseudocodigo}
-  \caption{Pseudo-código do cálculo da recência máxima entre os itens do perfil do usuário similares ao item candidato}
+\begin{algorithm}
+  \caption{Pseudo-código do cálculo da recência máxima entre os itens do perfil do usuário similares ao item candidato \label{alg:max-recencia-pseudocodigo}}
 
   \SetKwInOut{Input}{input}
   \SetKwInOut{Output}{output}
