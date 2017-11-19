@@ -71,7 +71,8 @@ A lista de recomendações neste trabalho será apresentada ao aluno na tela pri
 quando o SR possuir itens para recomendar para o usuário esses itens aparecem em uma lista logo abaixo do conteúdo que
 ele estiver visualizando no momento, independente se o aluno esteja na tela de Conceito, Exercícios, Exemplos ou
 Materiais Complementares. Na Figura \ref{fig:adaptweb-proposta-recomendacao} pode-se observar um protótipo da
-apresentação das recomendações.
+apresentação das recomendações. Essas recomendações podem ser apresentadas ao usuário no momento em que este estiver acessando
+quaisquer itens que sejam da categoria Conceito e Materiais Complementares, assim que o SR possuir itens relevantes para recomendar.
 
 \begin{figure}[htb]
   \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
@@ -82,9 +83,11 @@ apresentação das recomendações.
 \end{figure}
 
 As principais informações dos Links de Apoio recomendados apresentados para o aluno são: Link, Nome do Link, Descrição e a possibilidade de avaliar o item
-com notas de 1 a 5. \citeonline{pu2012evaluating} afirmam que enquanto recomendar um item apenas é pouco, recomendar
-mais do que cinco itens aumenta a dificuldade de escolhar do usuário. Por isso, a quantidade máxima de itens recomendadas
-para o usuário em cada recomendação é de cinco itens.
+com notas de 1 a 5. A nota dada pelo usuário não será considerada pelo algoritmo em um primeiro momento, mas como trabalho
+futuro pode vir a incorporar na recomendação, e.g., não tornar a recomendar itens que foram avaliado com notas baixas.
+\citeonline{pu2012evaluating} afirmam que enquanto recomendar um item apenas é pouco, recomendar mais do que cinco itens
+aumenta a dificuldade de escolhar do usuário. Por isso, a quantidade máxima de itens recomendadas para o usuário em cada
+recomendação é de cinco itens.
 
 Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, será adicionado um
 botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
