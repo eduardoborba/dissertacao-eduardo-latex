@@ -1,15 +1,16 @@
 \chapter{SR Sensível ao Tempo}\label{chapter:proposta}
 
 Neste capítulo é apresentado o SR Sensível ao Tempo para ambientes educacionais proposto nesse trabalho. O algoritmo proposto
-considera o decaimento nos interesses do usuário com o passar do tempo (categoria do \textit{Decay} - Seção \ref{section:decay}). Nesse capítulo é apresentado
-o algoritmo proposto, uma análise das suas vantagens e cenários que ilustram o uso desse algoritmo.
+considera o decaimento nos interesses do usuário com o passar do tempo (categoria do \textit{Decay} - Seção \ref{section:decay}). Além
+do algoritmo proposto, são apresentados cenários que ilustram o uso desse algoritmo e discussões sobre as suas vantagens.
 
 \section{Algoritmo Proposto}\label{section:algoritmo-proposto}
 
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo com o uso do
-contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}). O perfil do usuário é representado
-pelas palavras-chave dos itens acessados por ele combinado com quão recente esses itens são no seu perfil. Os itens que serão
-recomendados também são representados no algoritmo de recomendação por um conjunto de palavras-chave. O cálculo da
+contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}). Para o SR, o perfil do usuário é composto pelos
+itens acessados por ele. A cada item acessado pelo usuário, são armazenadas as palavra-chaves
+do item juntamente com o timestamp do acesso e a sequência desse item no histórico do usuário, começando em $1$ para o
+primeiro item acessado. Os itens que serão recomendados também são representados no algoritmo de recomendação por um conjunto de palavras-chave. O cálculo da
 relevância de um determinado item $i$ para um usuário $u$ no algoritmo proposto está representado na Equação \ref{eq:relevancia-proposta}.
 
 \begin{equation}
@@ -21,10 +22,10 @@ Onde: $F$ é a função que calcula a relevância de um item $i$ para um usuári
 o perfil do usuário $u$ (representado através de conjunto de palavras-chave dos itens acessados) e o item $i$
 (representado pelo conjunto de palavras-chave que o caracterizam); $R$ é o maior valor de recência dos itens do conjunto
 $I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o item $i$); $A$ é uma função que retorna $1$
-se o item $i$ nunca foi acessado pelo usuário u e $0$ se o item já foi acessado.
+se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado.
 
 A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada utilizando a fórmula do cosseno (ver Seção
-\ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, estéa definida na Equação
+\ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, está definida na Equação
 \ref{eq:recencia-proposta}.
 
 \begin{equation}
@@ -32,43 +33,58 @@ A função $S$ de similaridade entre o usuário $u$ e o item $i$ é calculada ut
   \label{eq:recencia-proposta}
 \end{equation}
 
-Onde: $x_j$ é a posição do item j na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
+Onde: $x_j$ é a posição do item $j$ na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
 \textit{timestamp} do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
 que mais de um item acessado pelo usuário pode ser similar ao item $i$, por isso a fórmula retorna a maior recência de
 todos os itens presentes no perfil do usuário que são similares a $i$. A seguir temos um exemplo do uso da fórmula da
-recência de um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
+recência considerando apenas um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
 fórmula acima.
 
 Considerando um usuário $u$ que acessou três itens diferentes nos seguintes \textit{timestamps} (em \textit{epoch}):
-Item A acessado $1503670382$; Item B acessado em $1500027182$; Item C acessado em $1508051582$. Ao ordenar esses itens
-pelo \textit{timestamp}, em ordem crescente, temos: (1) Item B, (2) Item A, (3) Item C. As equações \ref{eq:recencia-item-a},
+Item A acessado em $1503670382$; Item B acessado em $1500027182$; Item C acessado em $1508051582$. A posição desses itens
+no histórico do usuário $u$ é: Item A - posição 2, Item B - posição 1 e Item C - posição 3. As equações \ref{eq:recencia-item-a},
 \ref{eq:recencia-item-b} e \ref{eq:recencia-item-c} apresentam o resultado do cálculo de recência para cada um dos itens:
 
 \begin{equation}
-  R(A) = \frac{2}{3} = 0.\overline{6}
+  R(A) = \max{\frac{2}{3}} = 0.\overline{6}
   \label{eq:recencia-item-a}
 \end{equation}
 
 \begin{equation}
-  R(B) = \frac{1}{3} = 0.\overline{3}
+  R(B) = \max{\frac{1}{3}} = 0.\overline{3}
   \label{eq:recencia-item-b}
 \end{equation}
 
 \begin{equation}
-  R(C) = \frac{3}{3} = 1.0
+  R(C) = \max{\frac{3}{3}} = 1.0
   \label{eq:recencia-item-c}
 \end{equation}
 
+Na Figura \ref{fig:mer-item-acessado} é possível observar a tabela de Itens Acessados mencionada anteriormente. Essa tabela
+representa o perfil do usuário para o algoritmo de recomendação.
+
+\begin{figure}[htb]
+  \caption{\label{fig:mer-item-acessado}Modelo Entidade Relacionamento representando os itens acessados pelo usuário.}
+  \begin{center}
+      \includegraphics[scale=0.5]{./Figuras/mer-item-acessado.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
 No Algoritmo \ref{alg:proposta-pseudocodigo} é possível observar o pseudo-código do algoritmo proposto. Nesse algoritmo
-está representado em mais alto nível as etapas da recomendação. Primeiramente, são buscados no banco de dados a lista de itens
-acessados pelo usuário e a lista de itens que podem ser recomendados. O cálculo da recência para cada item do perfil do usuário
-é feito também na fase de inicialização, pois esse cálculo só precisa ser realizado uma vez. Depois disso, para cada item
-candidato a ser recomendado para o usuário, é calculada a similaridade do perfil do usuário (composto pelas palavras dos itens acessados
-por ele) com as palavras-chave do item candidato. Nessa etapa também é encontrado qual o item do perfil do usuário que é semelhante
-ao item candidato e é mais recente, para utilizar o seu valor de recência no cálculo da Relevância.
+estão representadas em mais alto nível as etapas da recomendação. Primeiramente, são buscados no banco de dados os itens acessados
+pelo usuário, armazenados na tabela de Itens Acessados apresentada na Figura \ref{fig:mer-item-acessado}, e os itens candidatos a recomendação. Os itens candidatos a
+recomendação podem ser todos os itens disponíveis no ambiente ou um subconjunto de itens, de acordo com a necessidade da aplicação.
+
+O cálculo da recência para cada item do perfil do usuário é feito também na fase de inicialização, pois esse cálculo só
+precisa ser realizado uma vez. Depois disso, para cada item candidato a ser recomendado para o usuário, é calculada a
+similaridade do perfil do usuário (composto pelas palavras-chave dos itens acessados por ele) com as palavras-chave do item
+candidato utilizando o cálculo do Cosseno. O cálculo do Cosseno possui dois retornos: o valor da similaridade entre o perfil do usuário
+e o item candidato e a lista de itens acessados pelo usuário que são similares ao item candidato. Nessa etapa, também é
+encontrado o Item Acessado pelo usuário mais recente que é similar ao item candidato, para utilizar o seu valor de recência no cálculo da Relevância.
 
 \begin{algorithm}
-  \caption{Pseudo-código do Algoritmo de Recomendação Proposto \label{alg:proposta-pseudocodigo}}
+  \caption{Pseudo-código do Algoritmo de Recomendação Proposto. \label{alg:proposta-pseudocodigo}}
 
   \SetKwInOut{Input}{input}
   \SetKwInOut{Output}{output}
@@ -77,16 +93,15 @@ ao item candidato e é mais recente, para utilizar o seu valor de recência no c
   \algoritmoRecomendacaoDecay{$(Usuário)$}{
     \Input{Usuário que irá receber a recomendação.}
     \Output{Lista com cinco itens recomendados para o usuário.}
+    \tcc{Inicialização}
     itens = buscarItensCandidatos()\;
-    itensPerfilUsuario = buscarItensPerfil(Usuário)\;
-
-
-    recênciaItensPerfil = calcularRecência(itensPerfilUsuario)\;
+    itensAcessados = buscarItensAcessados(Usuário)\;
+    recênciaItensAcessados = calcularRecência(itensAcessados)\;
     relevâncias = \{\}\;
-
+    \tcc{Computação das recomendações}
     \ForEach{$item \in itens$}{
-      similaridade, itensSimilares = calcularCosseno(itensPerfilUsuario, item)\;
-      recência = calcularMaxRecência(itensSimilares, recênciaItensPerfil)\;
+      similaridade, itensSimilares = calcularCosseno(itensAcessados, item)\;
+      recência = calcularMaxRecência(itensSimilares, recênciaItensAcessados)\;
       relevâncias[item] = similaridade * recência + item.acessado\;
     }
 
@@ -94,52 +109,52 @@ ao item candidato e é mais recente, para utilizar o seu valor de recência no c
   }
 \end{algorithm}
 
-O cálculo da Relevância para o item candidato é finalmente realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
+O cálculo da Relevância para o item candidato é realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
 itens com a maior Relevância são retornados pelo algoritmo para serem recomendados ao usuário.
 
 No Algoritmo \ref{alg:calcular-recencia-pseudocodigo} é demonstrado o cálculo da recência para cada um dos itens do perfil do
-usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Nesse cálculo, os itens são
-ordenados pela data de acesso inicialmente e após isso uma versão simplificada da Equação \ref{eq:recencia-proposta} é aplicada.
-A função $max$ presente na Equação \ref{eq:recencia-proposta} não é aplicada nesse momento, sendo calculada apenas a recência
+usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Para esse cálculo, o próprio registro
+de item acessado pelo usuário possui a informação da posição em que se encontra no histórico do usuário e é aplicada
+uma versão simplificada da Equação \ref{eq:recencia-proposta}. A função $max$ presente na Equação \ref{eq:recencia-proposta}
+não é aplicada nesse momento, sendo calculada apenas a recência
 para cada item individualmente. No método descrito no Algoritmo \ref{alg:max-recencia-pseudocodigo} é que a função $max$ será
 aplicada para encontrar a maior recência entre os itens similares ao item candidato à recomendação. O algoritmo tem um processo
 que difere da Equação \ref{eq:recencia-proposta} justamente para que recência não seja recalculada várias vezes e assim
-melhor o seu tempo de processamento.
+melhore o seu tempo de processamento.
 
 \begin{algorithm}
-  \caption{Pseudo-código do cálculo da recência para cada item presente no perfil do usuário \label{alg:calcular-recencia-pseudocodigo}}
+  \caption{Pseudo-código do cálculo da recência para cada item presente no perfil do usuário. \label{alg:calcular-recencia-pseudocodigo}}
 
   \SetKwInOut{Input}{input}
   \SetKwInOut{Output}{output}
   \SetKwProg{calcularRecencia}{calcularRecência}{}{}
 
-  \calcularRecencia{$(itensPerfilUsuario)$}{
-    \Input{Lista de itens acessados pelo usuário.}
-    \Output{Hash com a recência calculada para cada item no perfil do usuário.}
-    recênciaItensPerfil = \{\}\;
-    itensOrdenados = itensPerfilUsuario.ordenarPor(dataAcesso)\;
-    tamanhoPerfilUsuario = itensPerfilUsuario.tamanho()\;
+  \calcularRecencia{$(itensAcessados)$}{
+    \Input{Lista de registros de acesso do usuário.}
+    \Output{Vetor Associativo onde as chaves são os itens acessados pelo usuário e os valores são as recências calculadas para esses itens.}
+    recênciaItensAcessados = \{\}\;
+    quantidadeItensAcessados = itensAcessados.tamanho()\;
 
-    \ForEach{$item \in itensPerfilUsuario$}{
-      recênciaItensPerfil[item] = itensOrdernados.find(item).posição() / tamanhoPerfilUsuario\;
+    \ForEach{$itemAcessado \in itensAcessados$}{
+      recênciaItensAcessados[item] = itemAcessado.posição() / quantidadeItensAcessados\;
     }
 
-    \Return recênciaItensPerfil\;
+    \Return recênciaItensAcessados\;
   }
 \end{algorithm}
 
 \begin{algorithm}
-  \caption{Pseudo-código do cálculo da recência máxima entre os itens do perfil do usuário similares ao item candidato \label{alg:max-recencia-pseudocodigo}}
+  \caption{Pseudo-código do cálculo da recência máxima entre os itens do perfil do usuário similares ao item candidato. \label{alg:max-recencia-pseudocodigo}}
 
   \SetKwInOut{Input}{input}
   \SetKwInOut{Output}{output}
   \SetKwProg{calcularMaxRecencia}{calcularMaxRecência}{}{}
 
-  \calcularMaxRecencia{$(itensSimilares, recênciaItensPerfil)$}{
-    \Input{Lista de itens similares e hash com a recência calculada para cada item do perfil do usuário.}
+  \calcularMaxRecencia{$(itensSimilares, recênciaItensAcessados)$}{
+    \Input{Lista de itens similares ao item candidato a recomendação e vetor associativo com a recência calculada para cada item do perfil do usuário.}
     \Output{Valor máximo de recência entre itens similares.}
 
-    recênciaItensSimilares = recênciaItensPerfil.find(itensSimilares)\;
+    recênciaItensSimilares = recênciaItensAcessados.find(itensSimilares)\;
 
     \Return recênciaItensSimilares.max(1)\;
   }
@@ -174,7 +189,7 @@ que nenhum item recomendado tenha sido acessado).
 
 \begin{table}[hp]
 \footnotesize
-\caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas}
+\caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas.]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas.}
 \label{tab:cenario-de-uso-1}
 \centering
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -193,14 +208,14 @@ que nenhum item recomendado tenha sido acessado).
 \legend{Fonte: O autor.}
 \end{table}
 
-Dessa forma, como podemos ver na tabela os itens relacionados a pilhas terão uma maior Relevância e serão os itens recomendados.
-A partir do momento que o usuário comece a acessar itens relacionados a filas, o algoritmo irá rapidamente se adaptar
-e começar a dar uma importância maior a itens relacionados a esse segundo tópico. Na Tabela \ref{tab:cenario-de-uso-2}
-é possível observar o comportamento do algoritmo nesse caso.
+Dessa forma, como é possível ver na tabela os itens relacionados a pilhas terão uma maior Relevância e serão os itens recomendados.
+A partir do momento que o usuário comece a acessar itens relacionados a filas, o algoritmo passará a dar uma importância
+maior a itens relacionados a esse segundo tópico. Na Tabela \ref{tab:cenario-de-uso-2} é possível observar o
+comportamento do algoritmo nesse caso.
 
 \begin{table}[hp]
 \footnotesize
-\caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas}
+\caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas.]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas.}
 \label{tab:cenario-de-uso-2}
 \centering
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -219,14 +234,14 @@ e começar a dar uma importância maior a itens relacionados a esse segundo tóp
 \legend{Fonte: O autor.}
 \end{table}
 
-Podemos observar na tabela que, mesmo o perfil do usuário sendo ainda mais similar a itens com a palavra-chave "Pilha",
+É possível observar na tabela que, mesmo o perfil do usuário sendo ainda mais similar a itens com a palavra-chave "Pilha",
 o impato da Recência no algoritmo fez com a Relevância dos itens relacionados a filas seja maior e, dessa forma, esses
-itens sejam recomendados. Agora vamos supor que o aluno Pedro decida voltar a acessar itens relacionados a pilhas para
+itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens relacionados a pilhas para
 recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela \ref{tab:cenario-de-uso-3}.
 
 \begin{table}[hp]
 \footnotesize
-\caption[Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas]{Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas}
+\caption[Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas.]{Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas.}
 \label{tab:cenario-de-uso-3}
 \centering
 \begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -248,7 +263,7 @@ recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentad
 Como pode ser observado na tabela, algoritmo percebe que o aluno voltou a um tópico já estudado anteriormente e
 voltaria a recomendar itens relacionados a isso. Como o perfil do aluno é composto ainda por muitos itens relacionados ao tópico
 de Pilhas acessado primeiramente, ao voltar a acessar esses itens o algoritmo voltará a recomendar esses itens
-ao aluno mais rapidamente.
+ao aluno.
 
 \section{Discussão Sobre o Algoritmo Proposto}
 

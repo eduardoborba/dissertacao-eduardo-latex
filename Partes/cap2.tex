@@ -170,7 +170,7 @@ mesmos gostos, pois cada usuário poderá avaliar conjuntos muito diferentes de 
 \item Necessidade de uma comunidade de usuários ativa: para essa abordagem é necessário ter uma grande quantidade de
 usuários ativas no sistema ao mesmo. No caso de um sistema com poucos usuários pode acontecer também a esparsidade
 pois os usuários acessam e avaliam itens diferentes e não é possível calcular a similaridade entre eles;
-\item Ovelha Negra: para usuários que possuem gostos distintos demais, se torna um desafio realizar recomendações
+\item Ovelha Cinza: para usuários que possuem gostos distintos demais, se torna um desafio realizar recomendações
 interessantes para ele. O principal motivo é que o sistema não consegue definir outros usuários semelhantes a ele para
 gerar recomendações;
 \item Escalabilidade: com o aumento do número de usuários, o custo computacional se torna alto;
@@ -434,7 +434,7 @@ A avaliação de SR são divididas em três categorias \cite{shani2011evaluating
 \item \textit{Offline}: avaliação do método de recomendação através de uma base de dados, simulando as ações
 dos usuários sem necessitar da participação dos mesmos. Essa avaliação geralmente utiliza uma estratégia onde a base de dados
 é separada em base de treinamento e base de testes. A base de treinamento terão as notas dadas pelo usuário que serão
-repassadas ao algoritmo de recomendação como forma de construir o perfil desde. A base de teste contém os itens para os
+repassadas ao algoritmo de recomendação como forma de construir o perfil. A base de teste contém os itens para os
 quais o algoritmo de recomendação irá buscar prever o interesse do usuário. As métricas tradicionalmente utilizadas para
 medir a eficiência do algoritmo de recomendação nesse tipo de avaliação são: (1) \textit{Mean Absolute Error} (MAE)
 e (2) \textit{Root Mean Square Error} (RMSE), utilizadas para calcular o quão próximas as notas previstas estão das notas
@@ -483,8 +483,8 @@ categorias de SRs Sensíveis ao Tempo definidas em \citeonline{de2017time}.
 
 Dentre as categorias de SRs Sensíveis ao Tempo apresentadas na Seção \ref{section:sr-sensivel-tempo}, a utilizada por esse
 trabalho é o \textit{Decay}. Nessa categoria é considerado que o interesse do usuário por um item acessado diminui com o passar
-do tempo. Para isso, itens acessados recentemente tem um peso maior no algoritmo de recomendação e os itens vão perdendo
-o peso gradativamente.
+do tempo. Neste sentido, considerando que o acesso a um item é um indicativo do interesse do usuário, os itens acessados
+mais recentemente tem um peso maior na identificação dos interesses do usuário, i.e., na definição do perfil do usuário.
 
 Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
 trabalho será utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
