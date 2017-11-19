@@ -102,7 +102,7 @@ encontrado o Item Acessado pelo usuário mais recente que é similar ao item can
     \ForEach{$item \in itens$}{
       similaridade, itensSimilares = calcularCosseno(itensAcessados, item)\;
       recência = calcularMaxRecência(itensSimilares, recênciaItensAcessados)\;
-      relevâncias[item] = similaridade * recência + item.acessado\;
+      relevâncias[item] = similaridade * recência + itensAcessados.inclui?(item)\;
     }
 
     \Return relevâncias.max(5)\;
@@ -187,12 +187,12 @@ terá um impacto importante nesse momento, pois independente do item que for mai
 Tabela \ref{tab:cenario-de-uso-1} é possível observar de forma resumida o comportamento do algoritmo (estamos considerando
 que nenhum item recomendado tenha sido acessado).
 
-\begin{table}[hp]
+\begin{table}[h]
 \footnotesize
 \caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas.]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a pilhas.}
 \label{tab:cenario-de-uso-1}
 \centering
-\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
   \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
@@ -213,12 +213,12 @@ A partir do momento que o usuário comece a acessar itens relacionados a filas, 
 maior a itens relacionados a esse segundo tópico. Na Tabela \ref{tab:cenario-de-uso-2} é possível observar o
 comportamento do algoritmo nesse caso.
 
-\begin{table}[hp]
+\begin{table}[h]
 \footnotesize
 \caption[Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas.]{Cenário de Uso: comportamento do algoritmo após o acesso de itens relacionados a filas.}
 \label{tab:cenario-de-uso-2}
 \centering
-\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
   \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
@@ -239,12 +239,12 @@ o impato da Recência no algoritmo fez com a Relevância dos itens relacionados 
 itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens relacionados a pilhas para
 recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela \ref{tab:cenario-de-uso-3}.
 
-\begin{table}[hp]
+\begin{table}[h]
 \footnotesize
 \caption[Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas.]{Cenário de Uso: comportamento do algoritmo após o aluno voltar a acessar itens relacionados a pilhas.}
 \label{tab:cenario-de-uso-3}
 \centering
-\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
   \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
