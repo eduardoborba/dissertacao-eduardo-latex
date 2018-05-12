@@ -20,8 +20,7 @@
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-  hidelinks
+	brazil				% o último idioma é o principal do documento
 	]{abntex2}
 
 %Pacotes prinicipais e customização
@@ -93,12 +92,13 @@
 
 % ---
 
-\include{Partes/cap1}
-\include{Partes/cap2}
-\include{Partes/cap3}
-\include{Partes/cap4}
-\include{Partes/cap5}
-\include{Partes/cap6}
+\include{Partes/1-introducao}
+\include{Partes/2-fundamentacao}
+\include{Partes/3-trabalhos-relacionados}
+\include{Partes/4-sr-sensivel-ao-tempo}
+\include{Partes/5-experimento}
+\include{Partes/6-resultados}
+\include{Partes/7-conclusao}
 
 % ---
 % Finaliza o bookmark do PDF
@@ -131,10 +131,12 @@
   % Imprime uma página indicando o início dos apêndices
   \partapendices
 
-  \include{Partes/apeA}
-  \include{Partes/apeB}
-  \include{Partes/apeC}
-  \include{Partes/apeD}
+  \include{Partes/apeA-cronograma}
+  \include{Partes/apeB-teste-piloto}
+  \include{Partes/apeC-tcle}
+  \include{Partes/apeD-questionario}
+  \include{Partes/apeE-dicionario}
+  \include{Partes/apeF-palavras-materiais}
 \end{apendicesenv}
 
 % ----------------------------------------------------------
@@ -144,7 +146,7 @@
   % Imprime uma página indicando o início dos anexos
   \partanexos
 
-  \include{Partes/aneA}
+  \include{Partes/aneA-questoes}
 \end{anexosenv}
 
 \end{document}

@@ -60,8 +60,25 @@ Fazendo uma relação da estrutura do \adaptweb com o algoritmo proposto no Cap�
 das categorias Conceito e Materiais Complementares serão considerados para a composição do perfil do usuário. Todos os
 materiais acessados em cada uma das categorias é representado através das palavras-chave, e
 essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material. Já para os itens
-recomendados, apenas os Links de Apoio serão considerados. Como no ambiente \adaptweb as palavras-chave para o itens
-já são cadastradas pelo professor da disciplina, não será utilizada nenhuma técnica para captura automática das palavras-chave.
+recomendados, apenas os Links de Apoio serão utilizados.
+
+Como no ambiente \adaptweb as palavras-chave para o itens podem ser cadastradas pelo professor da disciplina, não será
+utilizada nenhuma técnica para captura automática das palavras-chave. Para a representação dos materiais envolvidos no
+processo de recomedanção (i.e., Conceitos, Materiais Complementares e Links de Apoio) foi criado um Dicionário de Palavras-Chave
+com as possíveis palavras a ser utilizadas. Esse Dicionário foi essencial para o funcionamento do SR, pois garante que as
+palavras-chave presentes nos materiais que são similares também serão similares. Isso evita a necessidade de lidar com palavras-chave
+sinônimas ou a variação de singular e plural, já que as palavras-chave que podem ser utilizadas para representar os materiais
+são restritas às presentes no dicionário.
+
+O Dicionário completo pode ser visto no Apêndice \ref{ape:dicionario-palavras-chave}. A criação do Dicionário foi validado
+por um aluno do Mestrado em Ensino de Ciências, Matemática e Tecnologias que também é professor da disciplina de
+Algoritmos no SENAC-SC. O professor teve acesso ao Minicurso de Algoritmos utilizado no experimento
+e teve o papel de avaliar o Dicionário criado e acrescentar mais palavras para agregar conjunto de palavras-chave.
+
+Depois de criado e validado o Dicionário, foi realizada a associação de forma manual entre cada material dos Conceitos,
+Materiais Complementares e Links de Apoio com as palavras-chave do Dicionário. No total, 51 Conceitos, 28 Materiais
+Complementares e 108 Links de Apoio foram analisados. O resultado dessa associação pode ser visto no Apêndice \ref{ape:palavras-chave-materiais}.
+
 O Sistema de Recomendação (SR) irá buscar, com base nos itens acessados pelo aluno, os Links de Apoio mais adequados
 para a recomendação e irá apresentar através de uma lista de itens. A forma de apresentação das Recomendações é discutida
 em mais detalhe na Subseção \ref{subsection:apresentacao-recomendacoes}.
@@ -85,8 +102,8 @@ quaisquer itens que sejam da categoria Conceito e Materiais Complementares, assi
 \end{figure}
 
 Como visto na imagem, as principais informações dos Links de Apoio recomendados apresentados para o aluno são: Link, Nome do Link, Descrição e a possibilidade de avaliar o item
-com notas de 1 a 5. A nota dada pelo usuário não é considerada pelo algoritmo de recomendação, sendo que os itens acessados pelo
-usuário são considerados como do seu interesse. Mas como trabalho futuro pode vir a incorporar na recomendação, e.g.,
+positivamente ou negativamente. A avaliação feita pelo usuário não é considerada pelo algoritmo de recomendação, sendo que os itens acessados pelo
+usuário são considerados como do seu interesse. Como trabalho futuro é possível incorporar a avaliação na recomendação, e.g.,
 não tornar a recomendar itens que foram avaliado com notas baixas ou apenas considerar para o algoritmo Baseado em Conteúdo
 os itens avaliados positivamente. \citeonline{pu2012evaluating} afirmam que enquanto recomendar um item apenas é pouco, recomendar mais do que cinco itens
 aumenta a dificuldade de escolhar do usuário. Por isso, a quantidade máxima de itens recomendadas para o usuário em cada
