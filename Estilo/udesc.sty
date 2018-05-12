@@ -26,7 +26,7 @@
 \usepackage{longtable}          % Permite utilizar o ambiente longtable
 \usepackage{caption}
 \usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{enumitem,amssymb}
 \usepackage[font=footnotesize]{caption}
 \usepackage[inner=3cm,outer=2cm,top=3.0cm,bottom=2cm,head=0.7cm,foot=0.7cm]{geometry}
 \usepackage{setspace}
@@ -34,6 +34,7 @@
 \usepackage{listings} % para código fonte
 \usepackage{epstopdf}
 \usepackage[portuguese]{algorithm2e}
+\usepackage{pifont}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -268,3 +269,5 @@
 }
 
 \newcommand{\adaptweb}{AdaptWeb\textsuperscript{\textregistered}}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
