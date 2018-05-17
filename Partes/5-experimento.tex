@@ -1,19 +1,24 @@
-\chapter{Planejamento do Experimento}\label{chapter:experimento}
+\chapter{Experimento}\label{chapter:experimento}
 
-Neste capítulo é apresentado o experimento que será realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
-Para avaliar a proposta deste trabalho irá utilizar uma avaliação pela perspectiva do usuário, que segundo a definição de
+Neste capítulo é apresentado o experimento que realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
+Para avaliar a proposta deste trabalho foi utilizada uma avaliação pela perspectiva do usuário, que segundo a definição de
 \citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O algoritmo proposto será incorporado ao ambiente
-AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um minicurso de algoritmos. Esse capítulo explica
-em mais detalhes o ambiente AdaptWeb\textsuperscript, as mudanças propostas para o ambiente e o experimento planejado.
+AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um Minicurso de Algoritmos desenvolvido por \citeonline{santos2017addie}.
+Na Seção \ref{section:planejamento-experimento} é descrito o ambiente \adaptweb no qual a proposta será incorporada,
+as mudanças realizadas no ambiente para o experimento, o objetivo do experimento e o teste piloto realizado. A Seção
+\ref{section:execucao-experimento} descreve o experimento que foi realizado e Seção \ref{section:analise-experimento} apresenta
+as análises estatísticas realizadas no questionário de satisfação e no uso do Sistema de Recomendação (SR).
 
-\section{Descrição do Ambiente \adaptweb}
+\section{Planejamento}\label{section:planejamento-experimento}
+
+\subsection{Descrição do Ambiente \adaptweb}
 
 O \adaptweb (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
 que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
 e preferências do aluno \cite{gasparini2009adaptweb}. A Subseção \ref{subsection:estrutura-adaptweb} apresenta a Estrutura Geral do
 \adaptweb.
 
-\subsection{Estrutura do \adaptweb}\label{subsection:estrutura-adaptweb}
+\subsubsection{Estrutura do \adaptweb}\label{subsection:estrutura-adaptweb}
 
 A estrutura do \adaptweb é composta por quatro módulos: (1) o módulo de autoria; (2) o
 módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
@@ -50,7 +55,7 @@ para cada curso. Por fim, o módulo de interface adaptativa (4) é responsável 
 apresentação da interface do ambiente de acordo com o curso, preferências do modo de navegação (modo tutorial ou livre)
 e o conhecimento do usuário \cite{gasparini2003interface}.
 
-\subsection{Sistema de Recomendação no \adaptweb}
+\subsubsection{Sistema de Recomendação no \adaptweb}
 
 Na Subseção \ref{subsection:estrutura-adaptweb} foi apresentada a estrutura do ambiente \adaptweb, que possui quatro categorias
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
@@ -83,7 +88,7 @@ O Sistema de Recomendação (SR) irá buscar, com base nos itens acessados pelo 
 para a recomendação e irá apresentar através de uma lista de itens. A forma de apresentação das Recomendações é discutida
 em mais detalhe na Subseção \ref{subsection:apresentacao-recomendacoes}.
 
-\subsection{Apresentação das Recomendações}\label{subsection:apresentacao-recomendacoes}
+\subsubsection{Apresentação das Recomendações}\label{subsection:apresentacao-recomendacoes}
 
 A lista de recomendações neste trabalho será apresentada ao aluno na tela principal do ambiente do aluno. Dessa forma,
 quando o SR possuir itens para recomendar para o usuário esses itens aparecem em uma lista logo abaixo do conteúdo que
@@ -123,7 +128,7 @@ mostrada para o aluno.
   \legend{Fonte: O autor.}
 \end{figure}
 
-\section{Definição do experimento}
+\subsection{Definição do experimento}
 
 O experimento proposto neste trabalho visa avaliar a experiência dos alunos ao interagir com o SR proposto, se comparado a um SR
 utilizando a abordagem Baseada em Conteúdo tradicional. Este experimento foi
@@ -137,14 +142,14 @@ Baseada em Conteúdo tradicional e a proposta desse trabalho.
 \end{itemize}
 
 Para a execução do experimento, o SR proposto foi comparado a abordagem Baseada em Conteúdo tradicional utilizando uma
-estratégia \textit{Between Subjects}, i.e., os alunos serão divididos em dois grupos e cada grupo irá testar apenas
+estratégia \textit{Between Subjects}, i.e., os alunos foram divididos em dois grupos e cada grupo utilizou apenas
 um dos sistemas. Para garantir que a única variável seja o SR utilizado, ambos os grupos irão utilizar a mesma
 interface proposta para as recomendações.
 
 O experimento foi realizado através do Minicurso de Algoritmos e Linguagem de Programação, o qual teve seu design instrucional realizado por \citeonline{santos2017addie}.
 Foram convidados a participar alunos de todos os cursos do Centro de Ciências Tecnológicas (CCT) da Universidade do
 Estado de Santa Catarina (UDESC), sendo que todos os cursos do CCT possuem essa disciplina na grade curricular. Os convites
-foram realizados em todas a salas das disciplinas de Algoritmos (ALG), Algoritmos e Linguagem de Programação (ALP), Linguagem
+foram realizados em todas as salas das disciplinas de Algoritmos (ALG), Algoritmos e Linguagem de Programação (ALP), Linguagem
 de Programação (LPG) e Iniciação a Ciência da Computação (ICC). Além disso, foi enviado um convite para todos os alunos do
 campus por e-mail através da Assessoria de Comunicação e foi divulgado na página do Facebook da UDESC Joinville.
 
@@ -161,10 +166,6 @@ conjunto de questões definidas por \citeonline{pu2011user} (presente no Anexo \
 ficasse de acordo com o objetivo desse experimento. As questões selecionadas foram traduzidas para o português para garantir o entendimento de todos os alunos
 e estão presentes no Apêndice \ref{ape:questionario-de-satisfacao}.
 
-Os resultados dos questionários são analisados na Seção \ref{subsection:analise-questionario} para definir se existe diferença
-significativa entre a percepção do usuário da qualidade das recomendações nos dois SRs (o proposto e o Baseado em Conteúdo tradicional) e, se existir,
-qual deles teve o melhor desempenho.
-
 Durante o desenvolvimento do Minicurso foram utilizadas as Intervenções definidas por \citeonline{santos2017addie}, para
 fazer com que os alunos fiquem engajados no curso. As Intervenções são e-mails combinadas com postagens no Fórum de Discussão
 que guiam os alunos no seu estudo e também propõe desafios para os estudantes. As Intervenções propostas por \citeonline{santos2017addie}
@@ -172,7 +173,7 @@ consideram o Minicurso com uma duração de dois meses, por isso foi necessário
 mais reduzido no qual foi realizado esse experimento. As Intervenções adaptadas de \citeonline{santos2017addie} podem
 ser vistar no Apêndice \ref{ape:intervencoes} e os Desafios postados no Fórum de Discussão estão presentes no Apêndice \ref{ane:desafios}.
 
-\section{Teste piloto}\label{section:planejamento-teste-piloto}
+\subsection{Testes piloto}\label{section:planejamento-teste-piloto}
 
 Antes do experimento ser realizado com os alunos do CCT, foi realizado um teste piloto com
 quatro alunos que já realizaram essa disciplina. O objetivo do teste piloto foi avaliar os instrumentos do experimento,
@@ -185,6 +186,162 @@ um protocolo de atividades para realizar, presente no Apêndice \ref{ape:protoco
 realizar a matrícula na disciplina, na qual eles leram e aceitaram o TCLE, realizar o acesso a alguns conceitos e
 materiais complementares, utilizar o Sistema de Recomendação, realizar a avaliação da disciplina e responder ao Questionário
 de Satisfação. Durante o teste, os comentários e observações feitas pelos alunos foram anotadas para posterior análise.
+
+Os quatro participantes do teste piloto foram identificados como Participante 1, Participante 2,
+Participante 3 e Participante 4.
+
+Os Partipantes 1 e 2 utilizaram o algoritmo tradicional de recomendação, enquanto os participantes 3 e 4 utilizaram a
+proposta desse trabalho, porém eles tinham essa informação durante a realização do Teste. Os participantes foram livres na escolha do Sistema Operacional e Navegador utilizados, bem como
+no Modo de Navegação escolhido (Livre ou Tutorial). A Tabela \ref{tab:participantes-teste-piloto} apresenta o
+Sistema Operacional, Navegador, Modo de Navegação e o Algoritmo de Recomendação utilizado por
+cada participante.
+
+\begin{table}[h]
+\footnotesize
+\caption[Dados Técnicos do Participantes do Teste Piloto]{Dados Técnicos do Participantes do Teste Piloto}
+\label{tab:participantes-teste-piloto}
+\centering
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+  \hline
+  \textbf{Participante} & \textbf{Sistema Operacional} & \textbf{Navegador} & \textbf{Modo de Navegação} & \textbf{Algoritmo de Recomendação} \\
+  \hline
+  1 & Windows 7 & Firefox & Tutorial & Baseado Em Conteúdo Tradicional \\
+  \hline
+  2 & Windows 7 & Firefox e Chrome & Livre & Baseado Em Conteúdo Tradicional \\
+  \hline
+  3 & Ubuntu & Firefox & Tutorial & Baseado Em Conteúdo com Decaimento \\
+  \hline
+  4 & Windows 7 & Firefox & Livre & Baseado Em Conteúdo com Decaimento \\
+  \hline
+\end{tabular}
+\legend{Fonte: O autor.}
+\end{table}
+
+Durante a execução do Teste Piloto, os participantes encontraram erros de digitação no Termo de Consentimento Livre e Esclarecido (TCLE)
+e alguns problemas na prova da disciplina, como perguntas de Verdadeiro e Falso com questões duplicadas e uma
+pergunta que não possuía nenhuma resposta certa. Esses problemas foram resolvidos antes do início do experimento
+propriamente dito.
+
+Os alunos também encontraram um problema de código que aconteceu em versões antigas do Firefox, por não possuir suporte a
+algumas funções do \textit{JavaScript} como atrelar ações ao evento de \textit{click} de \textit{links}. O problema encontrado foi que não estavam
+sendo salvas as recomendações acessadas por esses usuários no momento em que este clicava no \textit{link}, e foi confirmado
+que era um problema com o Firefox, pois os próprios participantes do Teste Piloto testaram no navegador Chrome e não tiveram
+o mesmo problema. Para corrigir isso, foi mudada a forma de implementação do método para salvar os \textit{clicks} nas recomendações
+utilizando uma técnica chamada de \textit{Redirect Link}, na qual o usuário ao clicar na recomendação acessa primeiro um
+\textit{link} interno ao \adaptweb que salva qual o \textit{link} acessado e depois redireciona o usuário para o \textit{link} externo.
+Dessa forma, a implementação não depende do suporte ao \textit{JavaScript} e pode ser acessado por qualquer versão de navegador.
+
+Sobre as recomendações, os Participantes 1 e 2 comentaram que aparentemente os Links de Apoio recomendados para eles não
+mudaram muito durante toda a interação. As vezes mudavam de ordem apenas, porém continuavam os mesmo itens. Já os Participantes
+3 e 4 comentaram que ao acessar um novo conceito pelo menos 3 novos Links eram recomendados, enquanto os outros dois continuavam
+os mesmos da tela anterior. Esse resultado demonstra o problema da Superespecilização presente na Abordagem Baseada em Conteúdo Tradicional,
+e mostra um indício de que a proposta desse trabalho utilizando o Decaimento diminui consideravelmente esse problema.
+
+Os participantes também observaram que desde o primeiro acesso a disciplina eles receberam cinco links com recomendação, i.e.,
+o número máximo possível. Isso mostra que, como não foi definido um limiar mínimo para a similaridade entre o perfil do usuário
+e os Links de Apoio, mesmo que a similaridade seja muito pequena o algoritmo sempre irá recomendar algo para o aluno. Por
+outro lado, não seria interessante adicionar um limiar para o experimento deste trabalho pois estaria adicionando uma
+variável interveniente. Como trabalho futuro é possível analisar como o limiar mínimo para a similaridade pode afetar
+a qualidade percebida das recomendações.
+
+A Tabela \ref{tab:teste-piloto-dados-de-uso} apresenta os dados de uso de cada Participante do Teste Piloto. Os Itens Acessados
+representam os Conceitos, Materiais Complementares e Links de Apoio acessados pelo usuário. Os Links de Apoio acessados
+representam as recomendações e as recomendações geradas representam quantas vezes a página acessada pelos usuários apresentou
+a área de recomendações. Esse número tende a ser mais alto pois todas as páginas de Conceitos e Materiais Complementares
+apresentam a área das recomendações.
+
+\begin{table}[h]
+\footnotesize
+\caption[Teste Piloto: Dados de Uso]{Teste Piloto: Dados de Uso}
+\label{tab:teste-piloto-dados-de-uso}
+\centering
+\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|}
+  \hline
+  \textbf{Participante} & \textbf{Itens Acessados} & \textbf{Links de Apoio Acessados} & \textbf{Recomendações Geradas} \\
+  \hline
+  1            & 52              & -                        & 53                    \\
+  \hline
+  2            & 106             & 5                        & 105                   \\
+  \hline
+  3            & 29              & 8                        & 23                    \\
+  \hline
+  4            & 58              & -                        & 64                    \\
+  \hline
+\end{tabular}
+\end{table}
+
+Os Participantes 1 e 4 não tiveram nenhum Link de Apoio Acessado por conta do problema citado anteriormente com o navegador
+Firefox numa versão mais antiga. O Participante 2 teve o mesmo problema, mas depois mudou para o Google Chrome e teve os
+seus acessos salvos. Além disso, é possível observar que o número de itens foram acessados pelos participantes é bastante
+similar ao número de recomendações geradas. Isso porque as principais páginas do ambiente do aluno são salvas como Item acessado
+e também geram recomendação.
+
+Ao final do Teste Piloto foi realizada uma pequena entrevista com os participantes onde eles afirmaram ter entendido e gostado
+da interface do Sistema de Recomendação. Quando revelado que cada participante fazia parte de um grupo diferente e que eles
+não estavam todos utilizando o mesmo Sistema de Recomendação, os participantes associaram essa informação com os
+comentários que tinham feito anteriormente sobre a repetição dos itens por alguns e a novidade nas recomendações por outros.
+
+\section{Execução}\label{section:execucao-experimento}
+
+O período de matrícula para o minicurso 09 de Abril de 2018 até 13 de Abril de 2018. Durante esse período, todas as turmas
+das disciplinas mencionadas na Seção \ref{} foram visitadas, convidando os alunos a se matricular no minicurso.
+
+No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos utilizando os
+seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{} mostra o resultado da divisão dos alunos.
+
+\begin{table}[ht]
+\footnotesize
+\caption[Divisão dos alunos de acordo com os critérios]{Divisão dos alunos de acordo com os critérios}
+\label{tab:divisao-alunos-experimento}
+\centering
+\begin{tabular}{ccccc}
+  \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Critério}}}           & \multirow{2}{*}{\textbf{Total}}           & \multicolumn{2}{c}{\textbf{Algoritmo de Recomendação}} \\
+                                        &                          &                                           & Tradicional          & Proposta                        \\
+  \hline
+  \multirow{12}{*}{Professor}           & Professor A              & 12                                        & 6                    & 6                               \\
+                                        & Professor B              & 18                                        & 9                    & 9                               \\
+                                        & Professor C              & 7                                         & 4                    & 3                               \\
+                                        & Professor D              & 5                                         & 3                    & 2                               \\
+                                        & Professor E              & 38                                        & 19                   & 19                              \\
+                                        & Professor F              & 4                                         & 2                    & 2                               \\
+                                        & Professor G              & 10                                        & 5                    & 5                               \\
+                                        & Professor H              & 6                                         & 3                    & 3                               \\
+                                        & Professor I              & 6                                         & 3                    & 3                               \\
+                                        & Professor J              & 26                                        & 13                   & 13                              \\
+                                        & Professor K              & 14                                        & 7                    & 7                               \\
+                                        & Outro                    & 52                                        & 30                   & 32                              \\
+  \hline
+  \multirow{9}{*}{Curso}                & Computação               & 55                                        & 23                   & 22                              \\
+                                        & TADS                     & 36                                        & 18                   & 18                              \\
+                                        & Elétrica                 & 36                                        & 18                   & 18                              \\
+                                        & Física                   & 10                                        & 5                    & 5                               \\
+                                        & Mecânica                 & 31                                        & 15                   & 16                              \\
+                                        & Química                  & 3                                         & 2                    & 1                               \\
+                                        & Produção                 & 20                                        & 10                   & 10                              \\
+                                        & Civil                    & 15                                        & 7                    & 8                               \\
+                                        & Matematica               & 12                                        & 6                    & 6                               \\
+  \hline
+  \multirow{3}{*}{Sexo}                 & Masculino                & 135                                       & 67                   & 68                              \\
+                                        & Feminino                 & 72                                        & 36                   & 36                              \\
+                                        & Não informado            & 1                                         & 1                    & 0                               \\
+  \hline
+  \multirow{6}{*}{Idade}                & Até 17 anos              & 21                                        & 10                   & 11                              \\
+                                        & 18 ou 19 anos            & 75                                        & 37                   & 38                              \\
+                                        & 20 ou 21 anos            & 35                                        & 18                   & 17                              \\
+                                        & 22 ou 23 anos            & 11                                        & 6                    & 5                               \\
+                                        & 24 ou 25 anos            & 26                                        & 13                   & 13                              \\
+                                        & 26 anos ou mais          & 40                                        & 20                   & 20                              \\
+  \hline
+                                        & Total                    & 208                                       & 104                  & 104                             \\
+\end{tabular}
+\end{table}
+
+
+\section{Análise Estatística}\label{section:analise-experimento}
+
+\subsection{Análise do Questionário de Satisfação}
+
+\subsection{Análise do uso do SR}
 
 \section{Considerações sobre o capítulo}
 
