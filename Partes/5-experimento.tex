@@ -182,7 +182,7 @@ foi realizado no dia 06 de Abril de 2018.
 
 Durante o teste piloto os alunos foram divididos em dois grupos aleatóriamente, sendo que dois alunos utilizaram o Sistema de Recomendação
 Baseado em Conteúdo Tradicional e os outros dois utilizaram o Sistema de Recomendação com o Decaimento. Os alunos receberam
-um protocolo de atividades para realizar, presente no Apêndice \ref{ape:protocolo-teste-piloto}. As tarefas envolvem
+um protocolo de atividades para realizar, presente no Apêndice \ref{ape:teste-piloto}. As tarefas envolvem
 realizar a matrícula na disciplina, na qual eles leram e aceitaram o TCLE, realizar o acesso a alguns conceitos e
 materiais complementares, utilizar o Sistema de Recomendação, realizar a avaliação da disciplina e responder ao Questionário
 de Satisfação. Durante o teste, os comentários e observações feitas pelos alunos foram anotadas para posterior análise.
@@ -341,7 +341,7 @@ utilizando o algoritmo Tradicional de recomendação e 69 que utilizaram a Propo
 acessaram a disciplina pelo menos uma vez, 85 finalizaram a disciplina fazendo a prova final e respondendo ao
 questionário de satisfação, sendo 48 do grupo que utilizou o algoritmo Tradicional e 37 do grupo que utilizou a Proposta
 com decaimento. Dos 85 alunos que finalizaram a disciplina, 47 acessaram pelo menos uma recomendação que recebeu, sendo
-25 do grupo utilizou a abordagem Tradiconal e 22 que utilizaram a Proposta desse trabalho. A Tabela \ref{} apresenta
+25 do grupo utilizou a abordagem Tradiconal e 22 que utilizaram a Proposta desse trabalho. A Tabela \ref{tab:uso-minicurso-sr} apresenta
 mais alguns dados, além dos comentados anteriormente, como: (1) a quantidade de usuários que avaliaram as recomendações que acessaram;
 (2) quantidade de recomendações acessadas; (3) quantidade de recomendações avaliadas positivamente; etc.
 
@@ -378,7 +378,9 @@ Avaliações negativas ao itens recomendados                                    
 \end{tabular}
 \end{table}
 
-Na Subseção \ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
+Pela Tabela \ref{tab:uso-minicurso-sr} podemos perceber que 38 alunos que responderam ao questionário não acessaram nenhuma
+recomendação, sendo 23 do grupo que utilizou o algoritmo Tradicional e 15 do grupo que utilizou a Proposta desse
+trabalho. Na Subseção \ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
 comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Subseção \ref{section:tecnicas-analise-estatistica}.
 
 \section{Análise dos Resultados}\label{section:analise-experimento}
@@ -390,17 +392,141 @@ dos alunos.
 
 \subsection{Técnicas de Análise Estatística}\label{section:tecnicas-analise-estatistica}
 
-Descrever os tipos de variaveis
-Descrever os tipos de analise para cada tipo de variavel
+Para realizar as análises estatísticas, primeiro foi necessário entender os tipos de variáveis que podem ser analisadas.
+As variáveis são as informações coletadas durante o experimento e podem ser quantitativas ou qualitativas \cite{bussab2012morettin}.
+As variváveis quantitativas são resultado de uma contagem e/ou mensuração \cite{bussab2012morettin} e podem ser discretas
+(conjunto finito ou enumerável de números) ou contínuas (pertencem a um intervalo de números reais). Exemplos de variáveis
+quantitativas são número de filhos, número de cômodos em uma casa, número de pessoas presentes em uma sala, altura e peso.
+As variáveis qualitativas são aquelas que descrevem um aspecto relacionado ao objeto estudado \cite{bussab2012morettin} e podem ser
+nominais (quando não possuem ordenação) ou ordinais (quando há ordem entre os valores). Exemplos de variáveis qualitativas
+são sexo, estado civil e grau de instrução.
 
+A variável independente desse trabalho é o algoritmo de recomendação utilizado pelo alunos, que pode assumir os valores
+"Baseado em Conteúdo Tradicional" ou "Baseado em Conteúdo com Decaimento". As variáveis dependentes analisadas são o grau de
+satisfação do alunos em relação ao Sistema de Recomendação, a quantidade de recomendações utilizadas pelos alunos, a quantidade de recomendações
+avaliadas positiva ou negativamente pelos alunos e a Precisão do algoritmo de recomendação. O grau de satisfação pode ser
+categorizado como uma variável qualitativa ordinal, pois os alunos indicaram a sua satisfação respondendo a um questionário
+com questão com escala de Likert. A quantidade de recomendações acessadas e/ou avaliadas são variáveis quantitativas discretas,
+enquanto a Precisão do algoritmo de recomendação é uma variável quantitativa contínua.
+
+De acordo com o tipo de variável analisado e a distribuição dos valores dessa variável é possível definir qual técnica
+estatística será utilizada. O fluxograma da Figura \ref{fig:fluxograma-tecnica-moissa} produzido por \citeonline{moissa2016influencia}
+define como decidir as técnicas estatísticas utilizadas.
+
+\begin{figure}[htb]
+  \caption{\label{fig:fluxograma-tecnica-moissa}Fluxograma de uso das técnicas estatísticas}
+  \begin{center}
+      \includegraphics[scale=1.0]{./Figuras/fluxograma-tecnicas-moissa.png}
+  \end{center}
+  \legend{Fonte: \citeonline{moissa2016influencia}}
+\end{figure}
+
+Conforme o fluxograma na Figura \ref{fig:fluxograma-tecnica-moissa}, quando a variável é quantitativa (discreta ou contínua)
+é realizado um teste de normalidade para verificar a distribuição dos valores. Se o resultado mostrar uma distribuição
+normal é realizado o teste F para verificar a variância das amostras. Se o resultado do teste F mostrar que as variâncias
+são diferentes a Aproximação de Welch será utilizada no teste T, caso contrário o teste T é aplicado sem a Aproximação de Welch.
+Se o resultado do teste de normalidade mostrar uma distribuição não-normal é adotado o teste não paramétrico de
+Mann-Whitney U. Este teste também é utilizado para todas as variáveis qualitativas ordinais, pois estas variáveis devem
+ser analisadas através de testes não-paramétricos \cite{moissa2016influencia}.
+
+Todos os testes mencionados estão disponíveis na ferramenta estatística R, que foi a ferramenta utilizada para todas as análises
+realizadas nas Subseções a seguir.
 
 \subsection{Análise do Questionário de Satisfação}\label{subsection:analise-questionario-satisfacao}
 
-Apresentar as analises do questionario de satisfação e linkar para o apendice
+O Questionário de Satisfação aplicado ao final do Minicurso de Algoritmos tem o objetivo de identificar a percepção dos
+alunos sobre a qualidade das recomendações e também da interface do Sistema de Recomendação em si. As questões do questionário
+podem ser vistas no Apêndice \ref{ape:questionario-de-satisfacao} e possui 13 questões, divididas em 7 categorias. Todas
+as questões foram selecionadas do questionário definido por \citeonline{pu2011user} (presente no Anexo \ref{ane:questoes-framework})
+e traduzidas para o Português. Essas questões são afirmações nas quais os alunos devem se posicionar em uma escala de
+Likert de cinco pontos, de "Discordo Totalmente" até "Concordo Totalmente". Também foi adicionada uma opção de "Não utilizei" para
+os alunos que não utilizaram o Sistema de Recomendação (ou usaram sem perceber). A Tabela \ref{tab:questionario-satisfacao-respostas}
+apresenta as respostas agrupadas dos alunos para cada uma das perguntas.
+
+\begin{table}[h]
+\footnotesize
+\caption{Respostas ao Questionário de Satisfação}
+\label{tab:questionario-satisfacao-respostas}
+\centering
+\begin{tabular}{|p{1.5cm}|p{1.8cm}|p{2.2cm}|p{0.6cm}|p{0.6cm}|p{0.6cm}|p{2.3cm}|p{2cm}|}
+\hline
+\textbf{Questão} & \textbf{Algoritmo}   & \textbf{Discordo tot.} & \textbf{-} & \textbf{-} & \textbf{-} & \textbf{Concordo tot.} & \textbf{Não utilizei} \\
+\hline
+\multirow{2}{*}{1}          & Tradicional & 2                   & 1                     & 2                         & 15                    & 11                  & 17           \\
+                            & Proposta    & 0                   & 0                     & 6                         & 11                    & 7                   & 13           \\
+\hline
+\multirow{2}{*}{2}          & Tradicional & 1                   & 0                     & 5                         & 18                    & 6                   & 18           \\
+                            & Proposta    & 0                   & 1                     & 7                         & 9                     & 9                   & 11           \\
+\hline
+\multirow{2}{*}{3}          & Tradicional & 2                   & 0                     & 8                         & 13                    & 8                   & 17           \\
+                            & Proposta    & 0                   & 2                     & 4                         & 12                    & 8                   & 11           \\
+\hline
+\multirow{2}{*}{4}          & Tradicional & 1                   & 0                     & 5                         & 17                    & 6                   & 19           \\
+                            & Proposta    & 0                   & 1                     & 8                         & 8                     & 10                  & 10           \\
+\hline
+\multirow{2}{*}{5}          & Tradicional & 3                   & 0                     & 4                         & 10                    & 10                  & 21           \\
+                            & Proposta    & 0                   & 2                     & 9                         & 8                     & 6                   & 12           \\
+\hline
+\multirow{2}{*}{6}          & Tradicional & 3                   & 3                     & 3                         & 12                    & 8                   & 19           \\
+                            & Proposta    & 0                   & 0                     & 5                         & 11                    & 10                  & 11           \\
+\hline
+\multirow{2}{*}{7}          & Tradicional & 2                   & 5                     & 4                         & 14                    & 9                   & 14           \\
+                            & Proposta    & 1                   & 1                     & 7                         & 9                     & 7                   & 12           \\
+\hline
+\multirow{2}{*}{8}          & Tradicional & 0                   & 6                     & 3                         & 12                    & 9                   & 18           \\
+                            & Proposta    & 0                   & 2                     & 8                         & 8                     & 6                   & 13           \\
+\hline
+\multirow{2}{*}{9}          & Tradicional & 2                   & 2                     & 7                         & 10                    & 7                   & 20           \\
+                            & Proposta    & 0                   & 0                     & 11                        & 5                     & 8                   & 13           \\
+\hline
+\multirow{2}{*}{10}         & Tradicional & 1                   & 0                     & 10                        & 14                    & 4                   & 19           \\
+                            & Proposta    & 0                   & 2                     & 4                         & 12                    & 8                   & 11           \\
+\hline
+\multirow{2}{*}{11}         & Tradicional & 2                   & 2                     & 6                         & 13                    & 5                   & 20           \\
+                            & Proposta    & 0                   & 1                     & 6                         & 10                    & 8                   & 12           \\
+\hline
+\multirow{2}{*}{12}         & Tradicional & 4                   & 1                     & 6                         & 17                    & 2                   & 18           \\
+                            & Proposta    & 0                   & 1                     & 5                         & 9                     & 10                  & 12           \\
+\hline
+\multirow{2}{*}{13}         & Tradicional & 2                   & 0                     & 6                         & 13                    & 12                  & 15           \\
+                            & Proposta    & 0                   & 1                     & 4                         & 7                     & 14                  & 11           \\
+\hline
+\end{tabular}
+\end{table}
+
+Através das respostas dos alunos presentes na Tabela \ref{tab:questionario-satisfacao-respostas}, podemos perceber que
+os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional tiveram mais respostas de "Discordo Totalmente" do
+que os alunos utilizaram a abordagem Com Decaimento, com 25 para o algoritmo Tradicional e uma para a proposta desse trabalho.
+Além disso, podemos perceber que 12 questões tiveram pelo menos um "Discordo Totalmente" para o grupo que utilizou o algoritmo
+Tradicional e uma questão para o grupo que utilizou a Proposta Com Decaimento.
+
+Com relação a resposta "Concordo Totalmente", tiveram 97 respostas para o grupo que utilizou o algoritmo Tradicional e 111
+para o grupo que utilizou a proposta desse trabalho. O resultado das respostas "Não utilizei" mostram que os alunos responderam
+que não utilizaram para apenas algumas perguntas e não para todas, sendo que para o grupo
+que utilizou o algoritmo Tradicional o valor varia entre 17 e 21 alunos e para o grupo que utilizou a Proposta desse
+trabalho variou entre 10 e 13 alunos. O fato desse valor ter variado tanto não foi esperado inicialmente, mas podemos afirmar que pelo menos 17 alunos do primeiro grupo e 10 alunos do segundo grupo
+não utilizaram ter utilizado o Sistema de Recomendação. Ao comparar essa informação com os dados de acesso
+dos alunos, que diz que 23 alunos do grupo Tradicional e 15 alunos do grupo Com Decaimento não acessaram nenhuma recomendação,
+é provável que apesar de não terem acessado nenhuma recomendação os alunos perceberam o Sistema de Recomendação e analisaram
+as recomendações recebidas.
+
+As respostas dadas ao questionário de satisfação foram analisadas utilizando teste não paramétrico de
+Mann-Whitney U para verificar se existe diferença estatisticamente significativa entre as respostas dos dois grupos (i.e., \textit{p} < 0.05).
+As respostas de "Não utilizei" não foram consideradas nessa análise. O resultado das análises está presente no Apêndice
+\ref{ape:analise-estatistica-questionario}. Essa análise mostrou que, apesar da aparente diferença nas respostas dadas
+pelos alunos favorável à proposta desse trabalho, apenas uma questão apresentou uma diferença significativa entre as
+respostas dos dois grupos. Isso se deve ao fato de ter mais respostas em "Discordo Parcialmente",
+"Não Concordo e Nem Discordo" e "Concordo Parcialmente" para o grupo do algoritmo Tradicional do que para o grupo da
+Proposta desse trabalho, com 248 para o primeiro e 217 para o segundo, que equilibrou os resultados dos dois grupos.
+
+A única questão que apresentou diferença significativa foi a questão 12 (i.e., "Eu entendi porque os
+itens foram recomendados para mim.") e foi favorável à proposta desse trabalho. A diferença significativa nessa questão
+mostra que os alunos que utilizaram o algoritmo Com Decaimento puderam perceber melhor a relação entre os itens que acessaram
+com os links que foram recomendados do que os alunos que utilizaram a abordagem Tradicional.
 
 \subsection{Análise do uso do SR}\label{subsection:analise-uso-sr}
 
-\subsection{Análise da Questão Aberta do Questionário}\label{subsection:analise-questao-aberta}
+\section{Outras Análises}\label{section:outras-analises}
 
 \section{Considerações sobre o capítulo}
 
