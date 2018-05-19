@@ -3,7 +3,7 @@
 Neste capítulo é apresentado o experimento que realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
 Para avaliar a proposta deste trabalho foi utilizada uma avaliação pela perspectiva do usuário, que segundo a definição de
 \citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O algoritmo proposto será incorporado ao ambiente
-AdaptWeb\textsuperscript e avaliado em uma situação real de uso em um Minicurso de Algoritmos desenvolvido por \citeonline{santos2017addie}.
+\adaptweb e avaliado em uma situação real de uso em um Minicurso de Algoritmos desenvolvido por \citeonline{santos2017addie}.
 Na Seção \ref{section:planejamento-experimento} é descrito o ambiente \adaptweb no qual a proposta será incorporada,
 as mudanças realizadas no ambiente para o experimento, o objetivo do experimento e o teste piloto realizado. A Seção
 \ref{section:execucao-experimento} descreve o experimento que foi realizado e Seção \ref{section:analise-experimento} apresenta
@@ -128,7 +128,7 @@ mostrada para o aluno.
   \legend{Fonte: O autor.}
 \end{figure}
 
-\subsection{Definição do experimento}
+\subsection{Definição do experimento}\label{subsection:definicao-experimento}
 
 O experimento proposto neste trabalho visa avaliar a experiência dos alunos ao interagir com o SR proposto, se comparado a um SR
 utilizando a abordagem Baseada em Conteúdo tradicional. Este experimento foi
@@ -284,10 +284,10 @@ comentários que tinham feito anteriormente sobre a repetição dos itens por al
 \section{Execução}\label{section:execucao-experimento}
 
 O período de matrícula para o minicurso 09 de Abril de 2018 até 13 de Abril de 2018. Durante esse período, todas as turmas
-das disciplinas mencionadas na Seção \ref{} foram visitadas, convidando os alunos a se matricular no minicurso.
+das disciplinas mencionadas na Seção \ref{subsection:definicao-experimento} foram visitadas, convidando os alunos a se matricular no minicurso.
 
 No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos utilizando os
-seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{} mostra o resultado da divisão dos alunos.
+seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
 
 \begin{table}[ht]
 \footnotesize
@@ -336,12 +336,71 @@ seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{} mostra o r
 \end{tabular}
 \end{table}
 
+Dos 208 alunos matriculados no Minicurso, 145 acessaram a disciplina pelo menos uma vez, sendo 76 do grupo estava
+utilizando o algoritmo Tradicional de recomendação e 69 que utilizaram a Proposta desse trabalho. Dos 145 alunos que
+acessaram a disciplina pelo menos uma vez, 85 finalizaram a disciplina fazendo a prova final e respondendo ao
+questionário de satisfação, sendo 48 do grupo que utilizou o algoritmo Tradicional e 37 do grupo que utilizou a Proposta
+com decaimento. Dos 85 alunos que finalizaram a disciplina, 47 acessaram pelo menos uma recomendação que recebeu, sendo
+25 do grupo utilizou a abordagem Tradiconal e 22 que utilizaram a Proposta desse trabalho. A Tabela \ref{} apresenta
+mais alguns dados, além dos comentados anteriormente, como: (1) a quantidade de usuários que avaliaram as recomendações que acessaram;
+(2) quantidade de recomendações acessadas; (3) quantidade de recomendações avaliadas positivamente; etc.
 
-\section{Análise Estatística}\label{section:analise-experimento}
+\begin{table}[h]
+\centering
+\caption{Uso do Minicurso de Algoritmos e do Sistema de Recomendação}
+\label{tab:uso-minicurso-sr}
+\begin{tabular}{|p{7.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Quantidade de:}                                                                     & \textbf{Tradicional} & \textbf{Proposta}    & \textbf{Total}    \\
+\hline
+Alunos que se matricularam                                                                  & 104                  & 104                  & 208      \\
+\hline
+Alunos que entraram pelo menos uma vez no curso                                             & 76                   & 69                   & 145      \\
+\hline
+Alunos que acessaram pelo menos uma recomendação                                            & 46                   & 39                   & 85       \\
+\hline
+Alunos que avaliaram pelo menos uma recomendação                                            & 30                   & 22                   & 52       \\
+\hline
+Alunos que responderam a avaliação                                                          & 48                   & 38                   & 86       \\
+\hline
+Alunos que responderam o questionário de satisfação                                         & 48                   & 37                   & 85       \\
+\hline
+Alunos que responderam o questionário de satisfação e acessaram pelo menos uma recomendação & 25                   & 22                   & 47       \\
+\hline
+Alunos que responderam o questionário de satisfação e avaliaram pelo menos uma recomendação & 16                   & 13                   & 29       \\
+\hline
+Acessos aos itens recomendados                                                              & 227                  & 396                  & 623      \\
+\hline
+Avaliações positivas ao itens recomendados                                                  & 141                  & 234                  & 375      \\
+\hline
+Avaliações negativas ao itens recomendados                                                  & 5                    & 4                    & 9        \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Análise do Questionário de Satisfação}
+Na Subseção \ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
+comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Subseção \ref{section:tecnicas-analise-estatistica}.
 
-\subsection{Análise do uso do SR}
+\section{Análise dos Resultados}\label{section:analise-experimento}
+
+Nessa Seção são descritas as análises estatísticas realizadas sobre os dados coletados durante a execução do experimento.
+As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Subseção \ref{section:tecnicas-analise-estatistica}
+e nas Subseções subsequentes são apresentas as análises realizadas no questionário de satisfação e nos dados de acesso
+dos alunos.
+
+\subsection{Técnicas de Análise Estatística}\label{section:tecnicas-analise-estatistica}
+
+Descrever os tipos de variaveis
+Descrever os tipos de analise para cada tipo de variavel
+
+
+\subsection{Análise do Questionário de Satisfação}\label{subsection:analise-questionario-satisfacao}
+
+Apresentar as analises do questionario de satisfação e linkar para o apendice
+
+\subsection{Análise do uso do SR}\label{subsection:analise-uso-sr}
+
+\subsection{Análise da Questão Aberta do Questionário}\label{subsection:analise-questao-aberta}
 
 \section{Considerações sobre o capítulo}
 
