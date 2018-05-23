@@ -115,7 +115,7 @@ aumenta a dificuldade de escolhar do usuário. Por isso, a quantidade máxima de
 recomendação é de cinco itens.
 
 Para cumprir o requisito de Explicação das recomendações citada por \citeonline{pu2012evaluating}, foi adicionado o
-botão de "Entenda melhor" que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
+botão de ''Entenda melhor'' que tem por objetivo explicar ao usuário como a lista de itens foi gerada. Ao entender o
 funcionamento do algoritmo de recomendação o usuário tem a possibilidade aprimorar o seu perfil para personalizar as
 recomendações recebidas. Na Figura \ref{fig:adaptweb-proposta-explicacao} está um protótipo da explicação da recomendação
 mostrada para o aluno.
@@ -387,16 +387,16 @@ Avaliações negativas ao itens recomendados                                    
 Pela Tabela \ref{tab:uso-minicurso-sr} podemos perceber que 38 alunos que responderam ao questionário não acessaram nenhuma
 recomendação, sendo 23 do grupo que utilizou o algoritmo Tradicional e 15 do grupo que utilizou a Proposta desse
 trabalho. Na Subseção \ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
-comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Subseção \ref{section:tecnicas-analise-estatistica}.
+comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Subseção \ref{subsection:tecnicas-analise-estatistica}.
 
 \section{Análise dos Resultados}\label{section:analise-experimento}
 
 Nessa Seção são descritas as análises estatísticas realizadas sobre os dados coletados durante a execução do experimento.
-As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Subseção \ref{section:tecnicas-analise-estatistica}
+As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Subseção \ref{subsection:tecnicas-analise-estatistica}
 e nas Subseções subsequentes são apresentas as análises realizadas no questionário de satisfação e nos dados de acesso
 dos alunos.
 
-\subsection{Técnicas de Análise Estatística}\label{section:tecnicas-analise-estatistica}
+\subsection{Técnicas de Análise Estatística}\label{subsection:tecnicas-analise-estatistica}
 
 Para realizar as análises estatísticas, primeiro foi necessário entender os tipos de variáveis que podem ser analisadas.
 As variáveis são as informações coletadas durante o experimento e podem ser quantitativas ou qualitativas \cite{bussab2012morettin}.
@@ -408,7 +408,7 @@ nominais (quando não possuem ordenação) ou ordinais (quando há ordem entre o
 são sexo, estado civil e grau de instrução.
 
 A variável independente desse trabalho é o algoritmo de recomendação utilizado pelo alunos, que pode assumir os valores
-"Baseado em Conteúdo Tradicional" ou "Baseado em Conteúdo com Decaimento". As variáveis dependentes analisadas são o grau de
+''Baseado em Conteúdo Tradicional'' ou ''Baseado em Conteúdo com Decaimento''. As variáveis dependentes analisadas são o grau de
 satisfação do alunos em relação ao Sistema de Recomendação, a quantidade de recomendações utilizadas pelos alunos, a quantidade de recomendações
 avaliadas positiva ou negativamente pelos alunos e a Precisão do algoritmo de recomendação. O grau de satisfação pode ser
 categorizado como uma variável qualitativa ordinal, pois os alunos indicaram a sua satisfação respondendo a um questionário
@@ -445,7 +445,7 @@ alunos sobre a qualidade das recomendações e também da interface do Sistema d
 podem ser vistas no Apêndice \ref{ape:questionario-de-satisfacao} e possui 13 questões, divididas em 7 categorias. Todas
 as questões foram selecionadas do questionário definido por \citeonline{pu2011user} (presente no Anexo \ref{ane:questoes-framework})
 e traduzidas para o Português. Essas questões são afirmações nas quais os alunos devem se posicionar em uma escala de
-Likert de cinco pontos, de "Discordo Totalmente" até "Concordo Totalmente". Também foi adicionada uma opção de "Não utilizei" para
+Likert de cinco pontos, de ''Discordo Totalmente'' até ''Concordo Totalmente''. Também foi adicionada uma opção de ''Não utilizei'' para
 os alunos que não utilizaram o Sistema de Recomendação (ou usaram sem perceber). A Tabela \ref{tab:questionario-satisfacao-respostas}
 apresenta as respostas agrupadas dos alunos para cada uma das perguntas.
 
@@ -501,38 +501,142 @@ apresenta as respostas agrupadas dos alunos para cada uma das perguntas.
 \end{table}
 
 Através das respostas dos alunos presentes na Tabela \ref{tab:questionario-satisfacao-respostas}, podemos perceber que
-os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional tiveram mais respostas de "Discordo Totalmente" do
+os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional tiveram mais respostas de ''Discordo Totalmente'' do
 que os alunos utilizaram a abordagem Com Decaimento, com 25 para o algoritmo Tradicional e uma para a proposta desse trabalho.
-Além disso, podemos perceber que 12 questões tiveram pelo menos um "Discordo Totalmente" para o grupo que utilizou o algoritmo
-Tradicional e uma questão para o grupo que utilizou a Proposta Com Decaimento.
+Além disso, podemos perceber que 12 questões tiveram pelo menos um ''Discordo Totalmente'' para o grupo que utilizou o algoritmo
+Tradicional e uma questão para o grupo que utilizou a Proposta Com Decaimento. Com relação a resposta ''Concordo Totalmente'',
+97 respostas foram dadas pelos alunos do grupo que utilizou o algoritmo Tradicional e 111
+pelo alunos que utilizaram a proposta desse trabalho. Por outro lado, tiveram mais respostas ''Discordo Parcialmente'',
+''Não Concordo e Nem Discordo'' e ''Concordo Parcialmente'' para o grupo do algoritmo Tradicional do que para o grupo da
+Proposta desse trabalho, com 267 para o primeiro e 217 para o segundo.
 
-Com relação a resposta "Concordo Totalmente", tiveram 97 respostas para o grupo que utilizou o algoritmo Tradicional e 111
-para o grupo que utilizou a proposta desse trabalho. O resultado das respostas "Não utilizei" mostram que os alunos responderam
-que não utilizaram para apenas algumas perguntas e não para todas, sendo que para o grupo
+O resultado das respostas ''Não utilizei'' mostram que os alunos responderam que não utilizaram para apenas algumas perguntas e não para todas, sendo que para o grupo
 que utilizou o algoritmo Tradicional o valor varia entre 17 e 21 alunos e para o grupo que utilizou a Proposta desse
 trabalho variou entre 10 e 13 alunos. O fato desse valor ter variado tanto não foi esperado inicialmente, mas podemos afirmar que pelo menos 17 alunos do primeiro grupo e 10 alunos do segundo grupo
 não utilizaram ter utilizado o Sistema de Recomendação. Ao comparar essa informação com os dados de acesso
 dos alunos, que diz que 23 alunos do grupo Tradicional e 15 alunos do grupo Com Decaimento não acessaram nenhuma recomendação,
-é provável que apesar de não terem acessado nenhuma recomendação os alunos perceberam o Sistema de Recomendação e analisaram
+é provável que apesar de não terem acessado nenhuma recomendação os alunos perceberam a existência do Sistema de Recomendação e analisaram
 as recomendações recebidas.
 
-As respostas dadas ao questionário de satisfação foram analisadas utilizando teste não paramétrico de
+As respostas dadas ao questionário de satisfação foram analisadas utilizando o Teste não-paramétrico de
 Mann-Whitney U para verificar se existe diferença estatisticamente significativa entre as respostas dos dois grupos (i.e., \textit{p} < 0.05).
-As respostas de "Não utilizei" não foram consideradas nessa análise. O resultado das análises está presente no Apêndice
-\ref{ape:analise-estatistica-questionario}. Essa análise mostrou que, apesar da aparente diferença nas respostas dadas
-pelos alunos favorável à proposta desse trabalho, apenas uma questão apresentou uma diferença significativa entre as
-respostas dos dois grupos. Isso se deve ao fato de ter mais respostas em "Discordo Parcialmente",
-"Não Concordo e Nem Discordo" e "Concordo Parcialmente" para o grupo do algoritmo Tradicional do que para o grupo da
-Proposta desse trabalho, com 248 para o primeiro e 217 para o segundo, que equilibrou os resultados dos dois grupos.
-
-A única questão que apresentou diferença significativa foi a questão 12 (i.e., "Eu entendi porque os
-itens foram recomendados para mim.") e foi favorável à proposta desse trabalho. A diferença significativa nessa questão
+As respostas de ''Não utilizei'' não foram consideradas nessa análise. O resultado das análises está presente no Apêndice
+\ref{ape:analise-estatistica-questionario}. A análise mostrou que apenas uma das questões apresentou diferença
+significativa entre as respostas dos dois grupos, que foi a questão 12 (i.e., ''Eu entendi porque os
+itens foram recomendados para mim.'') e foi favorável à proposta desse trabalho. A diferença significativa nessa questão
 mostra que os alunos que utilizaram o algoritmo Com Decaimento puderam perceber melhor a relação entre os itens que acessaram
 com os links que foram recomendados do que os alunos que utilizaram a abordagem Tradicional.
 
 \subsection{Análise do uso do SR}\label{subsection:analise-uso-sr}
 
-\section{Outras Análises}\label{section:outras-analises}
+Nessa Subseção é realizada uma análise estatística sobre os acessos e avaliações dos usuários aos Links de Apoio recomendados.
+O objetivo é extrair informações dos dados capturados durante a interação que possam complementar as informações obtidas
+com o questionário de satisfação. As análises feitas foram (1) Quantidade de recomendações acessadas,
+(2) Quantidade de avaliações positivas para as recomendações, (3) Quantidade de avaliações negativas para as recomendações,
+(4) Precisão do algoritmo de recomendação e (5) Cobertura do algoritmo de recomendação, comparando os alunos que utilizaram
+a abordagem Baseada em Conteúdo Tradicional com os alunos que utilizaram a Proposta desse trabalho. Todos
+os resultados das análises realizadas nessa Subseção estão presentes no Apêndice \ref{ape:analise-estatistica-do-uso}.
+
+Para a análise da quantidade de recomendações acessadas, foram considerados apenas os alunos que acessaram pelo
+menos uma recomendação no ambiente (i.e., 85 alunos). A média do grupo que utilizou o algoritmo Tradicional foi de 4,935 itens
+acessados por aluno, enquanto na abordagem Com Decaimento foi de 6,5 itens. A análise utilizando o Teste de normalidade de
+Shapiro-Wilk mostrou que a distribuição dos dados não é normal e portanto o Teste não-paramétrico de Mann-Whitney U foi utilizado
+para comparar os dois fatores. Esse Teste mostrou que não existe diferença significativa entre as amostras e portanto
+não podemos que afirmar que existe diferença na quantidade de recomendações acessadas nos dois grupos analisados.
+
+A análise realizada sobre as avaliações positivas para as recomendações utilizou apenas os alunos que avaliaram positivamente
+alguma recomendação (i.e., 52 alunos). A média da quantidade de avaliações positivas para o grupo que utilizou o algoritmo
+Tradicional foi de 4,7 avaliações por aluno, enquanto na abordagem Com Decaimento foi de 10,64 avaliações por aluno.
+Essa análise teve um resultado similar ao anterior, onde o Teste de normalidade de Shapiro-Wilk também mostrou que a
+distribuição é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre
+as amostras dos dois grupos.
+
+A análise da quantidade de avaliações negativas para as recomendações utilizou apenas os alunos que avaliaram negativamente
+os itens (i.e., 7 alunos). A média de avaliações para o grupo que utilizou a abordagem Tradicional foi de 1 avaliação negativa
+por aluno, enquanto para o grupo que utilizou a Proposta desse trabalho foi de 2 avaliações negativas por aluno. Ao realizar
+a análise estatística, o Teste de normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal. O Teste
+não-paramétrico de Mann-Whitney U foi aplicado e mostrou que não existe diferença significativa para esse critério entre
+os dois grupos.
+
+A Precisão dos algoritmos de recomendação foi calculada para cada aluno que acessou pelo menos uma recomendação dentro do
+ambiente (i.e., 85 alunos) dividindo a quantidade de recomendações distintas acessadas pelo usuário pela quantidade de itens distintos
+que foram recomendados para o usuário durante todo o minicurso. Essa métrica resulta em um valor entre 0 e 1, onde um valor
+próximo de 0 indica que poucos dos itens recomendados foram acessados e um valor próximo de 1 mostra que a maioria dos itens
+recomendados foram acessados, independente da quantidade de vezes que um item foi acessado e da quantidade de vezes que o
+item foi recomendado. A média da Precisão para o algoritmo Tradicional foi 0,49679 e para o algoritmo Com Decaimento foi
+0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distruibuição dos dados da Precisão é não-normal e o Teste
+de Mann-Whitney U mostrou que não existem diferença signifitiva entre as Precisões calculadas para cada algoritmo.
+
+A Cobertura dos algoritmos da recomendação foi calculada considerando os alunos que acessaram pelo menos uma recomendação
+dentro do Minicurso (i.e., 85 alunos). Essa métrica foi calculada dividindo a quantidade de itens distintos recebidos
+como recomendação pelo usuário pela quantidade de itens disponíveis para recomendação na disciplina (i.e., 108 itens) e mostra
+a diversidade de itens recomendados pelos algoritmos de recomendação. A média da cobertura para a abordagem Baseada em Conteúdo
+Tradicional é de 0,10064 e para a abordagem Baseada em Conteúdo Com Decaimento é de 0,17450. Ao realizar o Teste de
+normalidade de Shapiro-Wilk o resultado mostrou que a distribuição dos dados é não-normal. Quando aplicado o Teste de Mann-Whitney
+U o resultado mostrou que existe diferença significativa entre as duas abordagens com relação à cobertura e, nesse caso,
+podemos afirmar que a abordagem Com Decaimento tem uma Cobertura melhor que a abordagem Tradicional. Essa diferença significativa
+mostra que a Proposta desse trabalho resolve o problema da Superespecialização presente na abordagem Tradicional, sem perder
+na Precisão, Quantidade de recomendações acessadas e nas avaliações feitas pelos alunos, como pode-se ver nas outras análises feitas
+nessa Subseção.
+
+\subsection{Questão Aberta sobre o Sistema de Recomendação}\label{subsection:questao-aberta}
+
+Juntamente com o questionário de satisfação, foi colocada um questão aberta para alunos com a seguinte pergunta:
+''Você utilizou o sistema de recomendação? Se sim, cite os pontos positivos e negativos desse sistema.''. Dos 85 alunos
+que responderam à essa questão, 61 disseram não ter utilizado ou ter utilizado muito pouco o sistema de recomendação
+e não citaram nenhum ponto positivo ou negativo, sendo 37 do grupo que utilizou a abordagem Baseada em Conteúdo Tradicional
+e 24 que utilizaram a abordagem Com Decaimento. Um desses alunos que justifica dizendo que não encontrou o Sistema de Recomendação
+no ambiente e outro dizendo que não entendeu como ele funcionava. Outro aluno ainda justificou dizendo que não utilizou
+o Sistema de Recomendação pois achou que o conteúdo do Minicurso de Algoritmos era bem completo por si só.
+
+Dos alunos que utilizaram a abordagem Tradicional e que responderam ter utilizado o SR, os principais comentários positivos foram:
+
+\begin{itemize}
+  \item ''O sistema lhe coloca conteúdo condizente ao seu nível.''
+  \item ''Os materiais recomendados ajudaram a entender alguns assuntos pouco aprofundados.''
+  \item ''O sistema atende às necessidades, recomendando sempre o que convém.''
+  \item ''Ajudou bastante pois foi me passando um conhecimento sequencial.''
+  \item ''Para guiar-me melhor.''
+  \item ''Foi muito bem criado.''
+  \item ''O sistema de recomendação esclareceu pontos do nosso interesse.''
+  \item ''O layout do sistema é simples e intuitivo.''
+  \item ''Achei muito interessante a sugestão conter vários artigos e também slides sobre o conteúdo, sobretudo, ter a possiblidade de fazer download dos arquivos foi a melhor parte.''
+\end{itemize}
+
+Dos alunos que utilizaram a abordagem Tradicional e que responderam ter utilizado o SR, os principais comentários negativos foram:
+
+\begin{itemize}
+  \item ''Após um tempo não recebia mais recomendações novas.''
+  \item ''Se repete demais em muitos conceitos. Dá a mesma informação, porém com palavras e exemplos diferentes. Acaba se repetindo demais, enquanto poderia estar mostrando conteúdos novos.''
+\end{itemize}
+
+Dos alunos que utilizaram a Proposta desse trabalho e que responderam ter utilizado o SR, os principais comentários positivos foram:
+
+\begin{itemize}
+  \item ''Dá mais suporte pro aluno.''
+  \item ''As recomendações feitas pelo minicurso são muito boas.''
+  \item ''Facilidade de encontrar itens para estudo.''
+  \item ''Muitos dos links continham conteúdos muito bons e relevantes.''
+  \item ''Achei adequado ao andamento da disciplina e às minhas dúvidas.''
+  \item ''As minhas recomendações eram condizentes ao conteúdo que iria ver.''
+  \item ''Auxilia no desempenho e interesse do aluno.''
+  \item ''Considerei de maneira muito positiva pois ajuda em uma melhor e mais eficiente construção do conhecimento, uma vez que conhecimentos bem dominados não precisam ser repetidos e conhecimentos 'pouco dominados' são mais bem explorados.''
+  \item ''Nas vezes em que eu o utilizei o mesmo sempre trouxe sugestões apropriadas sem nenhum erro.''
+  \item ''Achei interessante a parte de direcionamento e incentivo ao aprendizado.''
+\end{itemize}
+
+Dos alunos que utilizaram a Proposta desse trabalho e que responderam ter utilizado o SR, os principais comentários negativos foram:
+
+\begin{itemize}
+  \item ''Talvez eles pudessem se renovar mais a cada conteúdo.''
+  \item ''Itens que eu não tinha interesse apareceram repetidas vezes.''
+  \item ''Não achei ele necessário, visto que bastava fazer uma busca no Google para encontrar algumas respostas ou buscar aprofundamentos.''
+\end{itemize}
+
+Pela questão aberta é possível perceber que alunos de ambos os grupos gostaram do Sistema de Recomendação e consideram que
+esse tipo de sistema auxilia nos seus estudos. Porém, também pode-se perceber que alguns alunos de ambos os grupos
+perceberam que os itens recomendados se repetiam muito e poderiam ser mais diversificados. Por essa questão, não foi possível
+perceber qual dos algoritmos teve um resultado melhor.
 
 \section{Considerações sobre o capítulo}
 
@@ -544,14 +648,28 @@ são estruturados pelo professor e estão fortemente relacionados à conceitos e
 
 Utilizando como base as diretrizes propostas por \citeonline{pu2012evaluating} foi proposta uma interface para a apresentação das recomendações no \adaptweb,
 com o objetivo de que os usuários tenham acesso direto as recomendações na tela principal do ambiente do aluno e entendam
-melhor o porque aqueles itens foram recomendados. Como visto, essa interface será utilizada tanto pelo algoritmo proposto
+melhor o porque aqueles itens foram recomendados. Essa interface foi utilizada tanto pelo algoritmo proposto
 quanto pela abordagem tradicional.
 
-O experimento visa avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
-comparação à abordagem Baseada em Conteúdo tradicional. O experimento acontecerá no ambiente
-\adaptweb através de um minicurso de algoritmos desenvolvido no ambiente nos meses de
-Abril e Maio de 2018. Ao final do minicurso os alunos receberão um questionário para responder sobre a sua experiência
-ao interagir com o SR, que será adaptado do conjunto de questões definidas por \citeonline{pu2011user}. Ao final do
-experimento, espera-se chegar a uma conclusão se existe diferença na percepção do usuário sobre a qualidade
-das recomendações recebidas ao utilizar um SR Sensível ao Tempo, que se adapta as variações de interesse do
-aluno, em relação a uma abordagem tradicional de recomendação.
+O experimento têm por objetivo avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
+comparação à abordagem Baseada em Conteúdo tradicional. O experimento foi realizado no ambiente
+\adaptweb através de um Minicurso de Algoritmos e Linguagem de Programação desenvolvido no ambiente nos meses de
+Abril e Maio de 2018. Ao final do minicurso os alunos receberam um questionário para responder sobre a sua experiência
+ao interagir com o SR, que foi adaptado do conjunto de questões definidas por \citeonline{pu2011user}. No total, 208 alunos
+se matricularam no Minicurso, sendo que 85 alunos chegaram até o final e responderam ao questionário de satisfação.
+
+Ao analisar o questionário de satisfação utilizando-se de técnicas estatísticas descritas na Subseção \ref{subsection:tecnicas-analise-estatistica},
+foi chegado ao resultado que proposta desse trabalho apresentou melhor resultado apenas na questão 12, na qual dizia
+''Eu entendi porque os itens foram recomendados para mim''. Isso mostra que os alunos puderam perceber uma melhor relação
+entre os conteúdos acessados com os itens recebidos como recomedação pelos alunos que utilizaram a proposta desse trabalho
+do que pelos alunos que utlizaram a abordagem Tradicional de recomendação. Sobre as outras 12 questões do questionário de
+satisfação não é possível realizar nenhum tipo de afirmação pois não existe diferença significativa entre os resultados
+alcançados pelos dois grupos.
+
+Foram analisados os dados de acesso e avaliações das recomendações pelos alunos e da geração de recomendações pelos dois
+SRs. Nessas análises, a Cobertura foi a única métrica onde foi encontrada diferença significativa entre os resultados
+da abordagem Tradicional e a Proposta desse trabalho, sendo que a proposta desse trabalho teve um resultado melhor. Para as
+outras métricas, como quantidade de links acessados e precisão do algoritmo, não existe diferença significativa entre os resultados
+dos dois grupos. Isso é um ponto positivo pois mostra que a Proposta desse trabalho foi capaz de aumentar a Cobertura (e consequentemente a diversidade)
+das recomendações, diminuindo o problema da Superespecialização presente na Abordagem Baseada em Conteúdo Tradicional,
+sem perder a Precisão e a Satisfação do Usuário.
