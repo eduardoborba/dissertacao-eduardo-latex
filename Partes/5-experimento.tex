@@ -579,64 +579,117 @@ mostra que a Proposta desse trabalho resolve o problema da Superespecialização
 na Precisão, Quantidade de recomendações acessadas e nas avaliações feitas pelos alunos, como pode-se ver nas outras análises feitas
 nessa Subseção.
 
+Como visto na Seção \ref{section:fundamentacao-avaliacao-sr}, o \textit{F-measure} é calculado como a média harmônica entre
+a Precisão e o Recall do algoritmo. Essa métrica é interessante para garantir que o algoritmo não sacrifique o Recall
+para melhor a Precisão, e vice-versa. Como no experimento realizado o Recall não faz sentido de ser calculado, pois não
+temos como saber quais são todos os itens relevantes existentes para calcular quantos desses foram recomendados, nesse
+trabalho iremos utilizar a mesma ideia do \textit{F-measure} porém calculando a média harmônica entre a Precisão e a Cobertura.
+Com isso podemos mostrar se o algoritmo Proposto teve uma melhor Cobertura que a abordagem Tradicional sem sacrificar
+a sua Precisão. A análise foi realizada utilizando os 85 alunos que acessaram pelo menos uma recomendação e o valor médio
+dessa métrica proposta foi de 0,13852 para os alunos do grupo que utilizou a abordagem Tradicional e de 0,21719 para os alunos
+do grupo que utilizaram a proposta desse trabalho. O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos
+dados é não-normal e portanto o Teste de Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois
+grupos. Esse teste mostrou que existe diferença significativa entre os dois grupos e portanto podemos afirmar que Média harmônica entre a
+Precisão e a Cobertura teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso confirma a
+afirmação anterior de que o uso do Decaimento melhorou a Cobertura do algoritmo sem sacrificar outros aspectos.
+
 \subsection{Questão Aberta sobre o Sistema de Recomendação}\label{subsection:questao-aberta}
 
 Juntamente com o questionário de satisfação, foi colocada um questão aberta para alunos com a seguinte pergunta:
 ''Você utilizou o sistema de recomendação? Se sim, cite os pontos positivos e negativos desse sistema.''. Dos 85 alunos
-que responderam à essa questão, 61 disseram não ter utilizado ou ter utilizado muito pouco o sistema de recomendação
-e não citaram nenhum ponto positivo ou negativo, sendo 37 do grupo que utilizou a abordagem Baseada em Conteúdo Tradicional
-e 24 que utilizaram a abordagem Com Decaimento. Um desses alunos que justifica dizendo que não encontrou o Sistema de Recomendação
-no ambiente e outro dizendo que não entendeu como ele funcionava. Outro aluno ainda justificou dizendo que não utilizou
+que responderam à essa questão, 60 disseram não ter utilizado ou ter utilizado muito pouco o sistema de recomendação
+e não citaram nenhum ponto positivo ou negativo, sendo 36 do grupo que utilizou a abordagem Baseada em Conteúdo Tradicional
+e 24 que utilizaram a abordagem Com Decaimento. Dois disseram do grupo que utilizou a abordagem Tradicional
+não utilizaram pois não perceberam a existência do Sistema de Recomendação e um disse que não utilizou com tanta frequência
+pois não entendeu como este funcionava. Um aluno do grupo que utilizou a proposta desse trabalho disee não ter utilizado
 o Sistema de Recomendação pois achou que o conteúdo do Minicurso de Algoritmos era bem completo por si só.
 
-Dos alunos que utilizaram a abordagem Tradicional e que responderam ter utilizado o SR, os principais comentários positivos foram:
+Os pontos positivos e negativos apontados pelos alunos que utilizaram o SR foram analisados utilizando a técnica de análise
+e interpretação de dados qualitativos como descrito por \citeonline{creswell1994research}. O processo de análise e interpretação
+é composto pelos seguintes passos \cite{creswell1994research}: (1) Organizar e preparar os dados para análise;
+(2) Ler todos os dados; (3) Codificar os dados; (4) Usar o processo de codificação para gerar descrição ou categorização
+dos dados; (5) Decidir como a descrição ou categorização será representada para a narrativa qualitativa; (6) Interpretar
+as descobertar ou resultados. No processo de interpretação, o autor ainda destaca que é possível citar passagens da narrativa
+para transmitir os resultados da análise.
 
-\begin{itemize}
-  \item ''O sistema lhe coloca conteúdo condizente ao seu nível.''
-  \item ''Os materiais recomendados ajudaram a entender alguns assuntos pouco aprofundados.''
-  \item ''O sistema atende às necessidades, recomendando sempre o que convém.''
-  \item ''Ajudou bastante pois foi me passando um conhecimento sequencial.''
-  \item ''Para guiar-me melhor.''
-  \item ''Foi muito bem criado.''
-  \item ''O sistema de recomendação esclareceu pontos do nosso interesse.''
-  \item ''O layout do sistema é simples e intuitivo.''
-  \item ''Achei muito interessante a sugestão conter vários artigos e também slides sobre o conteúdo, sobretudo, ter a possiblidade de fazer download dos arquivos foi a melhor parte.''
-\end{itemize}
+O primeiro passo, de organização e preparação dos dados, foi realizado capturando as respostas dadas pelos alunos que disseram
+ter utilizado o SR e organizando em uma planilha de dados, separando as respostas pelo grupo ao qual o aluno fazia parte
+(Tradicional ou Proposta). Na sequência, todos dados foram lidos e vários códigos (categorias) foram propostos com base
+nas respostas dos alunos (Passos dois e três). A partir dessas categorias, o quarto passo foi ler as respostas dos alunos
+e contar quantas vezes cada uma das categorias propostas apareceram nas respostas dos alunos de cada grupo, também
+chamado de etiquetagem. A representação da categorização foi realizada utilizando a Tabela \ref{ref:categorizacao-questao-aberta} (quinto passo).
 
-Dos alunos que utilizaram a abordagem Tradicional e que responderam ter utilizado o SR, os principais comentários negativos foram:
+\begin{table}[h]
+\centering
+\caption{Categorização da questão aberta do questionário}
+\label{ref:categorizacao-questao-aberta}
+\footnotesize
+\begin{tabular}{|p{3cm}|p{10cm}|p{2cm}|}
+\hline
+                          & \textbf{Tradicional}                                           & \textbf{Frequência} \\
+\hline
+\textbf{Pontos positivos} & Conteúdo das recomendações                                     & 1          \\
+                          & Layout simples e intuitivo                                     & 1          \\
+                          & Guiar os estudos                                               & 2          \\
+                          & Funciona corretamente                                          & 1          \\
+                          & Ajudou a aprofundar alguns conteúdos                           & 2          \\
+                          & Recomendações adequadas ao conteúdo estudado                   & 2          \\
+\hline
+\textbf{Pontos negativos} & Recomendações repetidas                                        & 2          \\
+\hline
+                          & \textbf{Proposta}                                              & \textbf{Frequência} \\
+\hline
+\textbf{Pontos positivos} & Encontrar materiais para estudar                               & 2          \\
+                          & Recomendações adequadas ao conteúdo estudado                   & 3          \\
+                          & Ajudou a engajar mais nos estudos                              & 2          \\
+                          & Funciona corretamente                                          & 1          \\
+                          & Recomendações são boas                                         & 2          \\
+                          & Guiar os estudos                                               & 1          \\
+\hline
+\textbf{Pontos negativos} & Recomendações repetidas                                        & 2          \\
+                          & Difícil de encontrar recomendações do meu interesse            & 1          \\
+                          & Possível encontrar materiais similares com uma busca no Google & 1          \\
+\hline
+\end{tabular}
+\end{table}
 
-\begin{itemize}
-  \item ''Após um tempo não recebia mais recomendações novas.''
-  \item ''Se repete demais em muitos conceitos. Dá a mesma informação, porém com palavras e exemplos diferentes. Acaba se repetindo demais, enquanto poderia estar mostrando conteúdos novos.''
-\end{itemize}
+A partir da Tabela \ref{ref:categorizacao-questao-aberta} podemos realizar o último passo que é a análise e interpretação
+dos resultados. Podemos perceber pontos positivos em comum nos dois grupos, como ''Guiar os estudos'' e ''Recomendações adequadas ao conteúdo estudado''.
+Com relação a esses códigos, algumas respostas do grupo que utilizou a abordagem Tradicional foram ''ajudou bastante pois foi me passando um conhecimento sequencial'',
+''atende às necessidades, recomendando sempre o que convém'' e ''lhe coloca conteúdo condizente ao seu nível''.
+Já dos alunos que utilizaram a abordagem Proposta por esse trabalho foram ''achei adequado ao andamento da disciplina'',
+''ajuda em uma melhor e mais eficiente construção do conhecimento'' e ''sempre trouxe sugestões apropriadas''.
 
-Dos alunos que utilizaram a Proposta desse trabalho e que responderam ter utilizado o SR, os principais comentários positivos foram:
+Também é possível perceber que o ponto negativo ''Recomendações repetidas'' aparecem nos dois grupos. Uma resposta do grupo
+que utilizou a abordagem Tradicional com esse código foi ''Se repete demais em muitos conceitos'', enquanto do grupo que utilizou
+a proposta foi ''talvez eles pudessem se renovar mais a cada conteúdo''. Por essas respostas podemos afirmar que, mesmo
+as respostas com esse código tendo aparecido nos dois grupos, o aluno do grupo que utilizou a abordagem Baseada em Conteúdo
+tradicional aparentou estar mais decepcionado com o SR do que o aluno do grupo que utilizou a abordagem com Decaimento.
+Sendo que a segunda resposta demonstrou mais uma sugestão de renovar mais o conteúdo do que uma crítica ao SR.
 
-\begin{itemize}
-  \item ''Dá mais suporte pro aluno.''
-  \item ''As recomendações feitas pelo minicurso são muito boas.''
-  \item ''Facilidade de encontrar itens para estudo.''
-  \item ''Muitos dos links continham conteúdos muito bons e relevantes.''
-  \item ''Achei adequado ao andamento da disciplina e às minhas dúvidas.''
-  \item ''As minhas recomendações eram condizentes ao conteúdo que iria ver.''
-  \item ''Auxilia no desempenho e interesse do aluno.''
-  \item ''Considerei de maneira muito positiva pois ajuda em uma melhor e mais eficiente construção do conhecimento, uma vez que conhecimentos bem dominados não precisam ser repetidos e conhecimentos 'pouco dominados' são mais bem explorados.''
-  \item ''Nas vezes em que eu o utilizei o mesmo sempre trouxe sugestões apropriadas sem nenhum erro.''
-  \item ''Achei interessante a parte de direcionamento e incentivo ao aprendizado.''
-\end{itemize}
+Dois pontos positivos que apareceram nas respostas dos alunos que utilizaram a abordagem Tradicional não se referem diretamente
+ao SR, que são ''Conteúdo das recomendações'' e ''Layout simples e intuitivo''. Essas respostas se referem ao conteúdo
+dos links recomendados, que o aluno achou interessante por serem artigos e que ele podia baixar esse conteúdo para estudar
+\textit{offline}, e à interface do SR, que era a mesma para os dois sistemas.
 
-Dos alunos que utilizaram a Proposta desse trabalho e que responderam ter utilizado o SR, os principais comentários negativos foram:
+Os principais destaques do algoritmo Tradicional foram nas respostas de ''Guiar os estudos'',
+''Ajudou a aprofundar alguns conteúdos'' e ''Recomendações adequadas ao conteúdo estudado'',
+com um total de seis respostas. E o único ponto negativo citado pelo alunos foi o mencionado anteriormente de muitas recomendações
+repetidas.
 
-\begin{itemize}
-  \item ''Talvez eles pudessem se renovar mais a cada conteúdo.''
-  \item ''Itens que eu não tinha interesse apareceram repetidas vezes.''
-  \item ''Não achei ele necessário, visto que bastava fazer uma busca no Google para encontrar algumas respostas ou buscar aprofundamentos.''
-\end{itemize}
+Os principais destaques do algoritmo Proposto foram nas respostas de ''Encontrar materiais para estudar'',
+''Recomendações adequadas ao conteúdo estudado'', ''Recomendações são boas'' e ''Ajudou a engajar mais nos estudos'',
+com um total de nove respostas. Por outro lado, alguns alunos também citaram alguns pontos negativos para a proposta desse
+trabalho, que são a dificuldade de encontrar recomendações interessantes e que seria mais fácil procurar pela resposta de
+suas dúvidas no Google do que tentar encontrar uma recomendação do SR para isso, além do ponto negativo em comum com a abordagem
+tradicional de muitas recomendações repetidas.
 
-Pela questão aberta é possível perceber que alunos de ambos os grupos gostaram do Sistema de Recomendação e consideram que
-esse tipo de sistema auxilia nos seus estudos. Porém, também pode-se perceber que alguns alunos de ambos os grupos
-perceberam que os itens recomendados se repetiam muito e poderiam ser mais diversificados. Por essa questão, não foi possível
-perceber qual dos algoritmos teve um resultado melhor.
+Em geral, consideramos que a proposta teve um resultado mais positivo em relação a abordagem tradicional, tendo um maior
+número de respostas com pontos positivos (11 contra 9) e também pela forma como os alunos dos dois grupos relataram
+as recomendações repetidas que receberam, que demonstraram uma maior decepção pelos alunos que utilizaram a abordagem
+tradicional. Outro ponto relevante foi o fato de dois alunos que utilizaram a abordagem Tradicional não lembrarem no momento
+de responder ao questionário da existência do SR. Isso demonstrou mesmo as recomendações estando bem a vista dos alunos
+através da interface proposta, eles provavelmente não ficaram interessados em nenhum momento pelos links recomendados.
 
 \section{Considerações sobre o capítulo}
 

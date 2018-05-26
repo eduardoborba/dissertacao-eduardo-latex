@@ -36,7 +36,7 @@ Max.   :18.000\\
 Shapiro-Wilk normality test
 
 \noindent
-data:  data\_links\_acessados[["quantidade"]]\\
+data:  data[["quantidade"]]\\
 W = 0.42461, p-value < 2.2e-16
 
 \textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
@@ -44,8 +44,7 @@ W = 0.42461, p-value < 2.2e-16
 Wilcoxon rank sum test with continuity correction
 
 \noindent
-data:  data\_links\_acessados[["quantidade"]] by \\
-data\_links\_acessados[["algoritmo\_recomendacao"]]\\
+data:  data[["quantidade"]] by data[["algoritmo\_recomendacao"]]\\
 W = 820, p-value = 0.4957\\
 alternative hypothesis: true location shift is not equal to 0
 
@@ -87,7 +86,7 @@ Max.   :107.00
   Shapiro-Wilk normality test
 
 \noindent
-data:  data\_links\_avaliados\_positivamente[["quantidade"]]\\
+data:  data[["quantidade"]]\\
 W = 0.37836, p-value = 1.654e-13
 
 \textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
@@ -95,8 +94,7 @@ W = 0.37836, p-value = 1.654e-13
 Wilcoxon rank sum test with continuity correction
 
 \noindent
-data:  data\_links\_avaliados\_positivamente[["quantidade"]] by \\
-data\_links\_avaliados\_positivamente[["algoritmo\_recomendacao"]]\\
+data:  data[["quantidade"]] by data[["algoritmo\_recomendacao"]]\\
 W = 318, p-value = 0.8275\\
 alternative hypothesis: true location shift is not equal to 0
 
@@ -138,7 +136,7 @@ Max.   :3.0
   Shapiro-Wilk normality test
 
 \noindent
-data:  data\_links\_avaliados\_negativamente[["quantidade"]]\\
+data:  data[["quantidade"]]\\
 W = 0.45297, p-value = 4.136e-06
 
 \textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
@@ -146,8 +144,7 @@ W = 0.45297, p-value = 4.136e-06
 Wilcoxon rank sum test with continuity correction
 
 \noindent
-data:  data\_links\_avaliados\_negativamente[["quantidade"]] by \\
-data\_links\_avaliados\_negativamente[["algoritmo\_recomendacao"]]\\
+data:  data[["quantidade"]] by data[["algoritmo\_recomendacao"]]\\
 W = 2.5, p-value = 0.2059\\
 alternative hypothesis: true location shift is not equal to 0
 
@@ -189,7 +186,7 @@ Max.   :1.00000
   Shapiro-Wilk normality test
 
 \noindent
-data:  data\_precisao[["precisao"]]\\
+data:  data[["precisao"]]\\
 W = 0.89495, p-value = 4.234e-06
 
 \textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
@@ -197,8 +194,7 @@ W = 0.89495, p-value = 4.234e-06
 Wilcoxon rank sum test with continuity correction
 
 \noindent
-data:  data\_precisao[["precisao"]] by \\
-data\_precisao[["algoritmo\_recomendacao"]]\\
+data:  data[["precisao"]] by data[["algoritmo\_recomendacao"]]\\
 W = 1025, p-value = 0.2603\\
 alternative hypothesis: true location shift is not equal to 0
 
@@ -240,7 +236,7 @@ Max.   :0.99074
     Shapiro-Wilk normality test
 
 \noindent
-data:  data\_coverage[["coverage"]]\\
+data:  data[["coverage"]]\\
 W = 0.55934, p-value = 1.421e-14
 
 \textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
@@ -248,9 +244,58 @@ W = 0.55934, p-value = 1.421e-14
   Wilcoxon rank sum test with continuity correction
 
 \noindent
-data:  data\_coverage[["coverage"]] by \\
-data\_precisao[["algoritmo\_recomendacao"]]\\
+data:  data[["coverage"]] by data[["algoritmo\_recomendacao"]]\\
 W = 525.5, p-value = 0.001031\\
+alternative hypothesis: true location shift is not equal to 0
+
+\textbf{Resultado: Aceita a hipótese alternativa - Com diferença significativa}
+
+\textbf{Média harmônica entre Precisão e Cobertura}
+
+\begin{figure}[htb]
+  \caption{\label{fig:media-harmonica-boxplot}Boxplot da Média harmônica entre a Precisão e a Cobertura dos dois algoritmos}
+  \begin{center}
+      \includegraphics[scale=0.4]{./Figuras/media-harmonica-boxplot.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
+Total de alunos comparados: 85
+
+\begin{multicols}{2}
+
+\noindent\textbf{Tradicional}\\
+Min.   :0.07221\\
+1st Qu.:0.09545\\
+Median :0.12952\\
+Mean   :0.13852\\
+3rd Qu.:0.16618\\
+Max.   :0.30717\\
+
+\columnbreak
+
+\noindent\textbf{Proposta}\\
+Min.   :0.07519\\
+1st Qu.:0.10913\\
+Median :0.16393\\
+Mean   :0.21719\\
+3rd Qu.:0.24919\\
+Max.   :0.99535
+\end{multicols}
+
+Shapiro-Wilk normality test
+
+\noindent
+data:  data[["media\_harmonica"]]\\
+W = 0.63292, p-value = 2.931e-13
+
+\textbf{Resultado: Aceita a hipótese alternativa - Distribuição não normal}
+
+Wilcoxon rank sum test with continuity correction
+
+\noindent
+data:  data[["media\_harmonica"]] by data[["algoritmo\_recomendacao"]]\\
+W = 634.5, p-value = 0.02082\\
 alternative hypothesis: true location shift is not equal to 0
 
 \textbf{Resultado: Aceita a hipótese alternativa - Com diferença significativa}
