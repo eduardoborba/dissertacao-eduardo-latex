@@ -428,6 +428,19 @@ das informações e da estrutura de navegação.
 
 \section{Avaliação de Sistemas de Recomendação}\label{section:fundamentacao-avaliacao-sr}
 
+As métricas (quantitativas) tradicionalmente utilizadas para avaliar algoritmos de recomendação são:
+
+\begin{itemize}
+\item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error} e \textit{Root Mean Square Error} (RMSE): utilizadas
+para calcular o quão próximas as notas previstas pelo algoritmo de recomendação estão das notas reais;
+\item Precisão: definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
+\item \textit{Recall}: definida pela divisão do número de itens relevantes recomendados pelo número total de itens
+relevantes existentes;
+\item Cobertura (do inglês \textit{Coverage}): a união de todas a listas de recomendação geradas (i.e., todos os itens
+distintos recomendados) pela quantidade de itens disponíveis no sistema. Também chamada de Cobertura do Catálogo \cite{ge2010beyond};
+\item \textit{F-measure}: definida pela média harmônica entre Precisão e Recall.
+\end{itemize}
+
 A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
 
 \begin{itemize}
@@ -435,19 +448,15 @@ A avaliação de SR são divididas em três categorias \cite{shani2011evaluating
 dos usuários sem necessitar da participação dos mesmos. Essa avaliação geralmente utiliza uma estratégia onde a base de dados
 é separada em base de treinamento e base de testes. A base de treinamento terão as notas dadas pelo usuário que serão
 repassadas ao algoritmo de recomendação como forma de construir o perfil. A base de teste contém os itens para os
-quais o algoritmo de recomendação irá buscar prever o interesse do usuário. As métricas tradicionalmente utilizadas para
-medir a eficiência do algoritmo de recomendação nesse tipo de avaliação são: (1) \textit{Mean Absolute Error} (MAE)
-e (2) \textit{Root Mean Square Error} (RMSE), utilizadas para calcular o quão próximas as notas previstas estão das notas
-reais; (3) \textit{Precision}, definida pela divisão do número de itens relevantes
-recomendados pelo número total de itens recomendados; (4) \textit{Recall}, definida pela divisão do número de itens relevantes
-recomendados pelo número total de itens relevantes existentes; e (5) \textit{F-measure}, definida pela média harmônica
-entre Precisão e Recall.;
-\item Estudos com os usuários, no qual um pequeno grupo de usuários é convidado a participar de um experimento e realiza
-tarefas específicas relacionadas ao SR. As métricas mais comuns de SR podem ser utilizados em conjunto com medidas
+quais o algoritmo de recomendação irá buscar prever o interesse do usuário. As métricas apresentadas anteriormente são
+utilizadas para medir a eficiência do algoritmo, comparando a recomendação e/ou predições realizadas pelo algoritmo de
+recomendação com o resultado real presente na base de teste;
+\item Estudos com os usuários: no qual um pequeno grupo de usuários é convidado a participar de um experimento e realiza
+tarefas específicas relacionadas ao SR. As métricas tradicionais de SR podem ser utilizadas em conjunto com medidas
 qualitativas para mensurar a satisfação dos usuários, por exemplo através da observação, questionários, entrevistas, etc.;
-\item Uso real do sistema, na qual o SR é avaliado em situações reais de uso, com uma quantidade grande de usuários, e
-os dados para a avaliação (quantitativa) são capturados de forma automática, por exemplo ferramentas de \textit{Web Analytics},
-registros de Logs, notas dadas pelos usuários, etc.
+\item Uso real do sistema: na qual o SR é avaliado em situações reais de uso, com uma quantidade grande de usuários, e
+os dados para a avaliação (quantitativa) são capturados de forma automática, por exemplo através de ferramentas de
+\textit{Web Analytics}, registros de Logs, notas dadas pelos usuários, etc.
 \end{itemize}
 
 \citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
