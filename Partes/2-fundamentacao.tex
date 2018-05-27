@@ -105,7 +105,7 @@ usuário recebe sempre itens semelhantes aos que já viu \cite{lops2011content}.
 \subsection{Filtragem Colaborativa}
 
 Nessa abordagem o usuário receberá como recomendação itens que usuários com os mesmos interesses que ele se
-interessaram no passado, ou seja, é a automatização do processo de "boca-a-boca" \cite{jannach2010recommender}. A
+interessaram no passado, ou seja, é a automatização do processo de ''boca-a-boca'' \cite{jannach2010recommender}. A
 técnica de Filtragem Colaborativa tenta prever a utilidade  do item para o usuário, com base na utilidade do mesmo
 produto para um conjunto de usuários  possuidores de características semelhantes às suas \cite{jannach2010recommender}.
 
@@ -305,33 +305,63 @@ Onde $F$ é a função que prediz o interesse do usuário por item ainda não ut
 $I$ representa o conjunto de itens, $T$ representa o contexto temporal e $R$ representa o conjunto de itens ordenado pelo
 interesse previsto do usuário para os itens disponíveis.
 
-De acordo com o dicionário \citeonline{michaelis2011disponivel}, o tempo é um  "Período de momentos, de horas, de dias,
-de semanas, de meses, de anos etc. no qual os eventos se sucedem, dando-se a noção de presente, passado e futuro".
+De acordo com o dicionário \citeonline{michaelis2011disponivel}, o tempo é um  ''Período de momentos, de horas, de dias,
+de semanas, de meses, de anos etc. no qual os eventos se sucedem, dando-se a noção de presente, passado e futuro''.
 Com essa informação é possível para um sistema computacional estabelecer uma ordem para os eventos que ocorrem.
 
 O Tempo pode ser representado de uma variável contínua ou categórica. A representação contínua utiliza o exato momento
-em que os itens foram consumidos/avaliados \cite{campos2014time}, por exemplo: "8 de outubro de 2017, 16:15:03".
+em que os itens foram consumidos/avaliados \cite{campos2014time}, por exemplo: ''8 de outubro de 2017, 16:15:03''.
 Enquanto na representação categórica as variáveis são calculadas em relação a períodos de interesse \cite{campos2014time},
 e.g., Dias da semana: {Domingo, Segunda, Terça, ...} ou Estações do ano: {Primavera, Verão, Outono, Inverno}. Além
 disso, o tempo pode ser representado por diferentes unidades de tempo, e.g., segundos, minutos, horas, meses, anos,
 etc., e as unidades tempo são hierárquicas, e.g., um dia tem 24 horas, uma hora tem 60 minutos e 1 minuto tem 60
 segundos.
 
-Um mapeamento sistemático foi conduzido sobre os SR Sensíveis ao Tempo \cite{de2017time} utilizando a metodologia de
+Em \citeonline{de2017time} um mapeamento sistemático foi conduzido sobre os SR Sensíveis ao Tempo utilizando a metodologia de
 \citeonline{petersen2008systematic}. Esse mapeamento sistemático não foi restringido apenas trabalhos na área
-educacional. A principal questão de pesquisa desse mapeamento foi: Como o contexto temporal é utilizado em SRs
-Sensíveis ao Contexto? Para responder a essa questão de pesquisa principal, três questões de pesquisa secundárias
-foram definidas, são elas: (1) Como os algoritmos de recomendação utilizam o tempo? (2) Qual é a diferença entre o uso
-do tempo em diferentes domínios de aplicação? (3) Que outras dimensões são utilizadas juntamente com o contexto
-temporal?
+educacional. A principal questão de pesquisa desse mapeamento é ''Como o contexto temporal é utilizado em SRs
+Sensíveis ao Contexto?''. Para responder a essa questão de pesquisa principal, três questões de pesquisa secundárias
+foram definidas, são elas ''Como os algoritmos de recomendação utilizam o tempo?''; ''Qual é a diferença entre o uso
+do tempo em diferentes domínios de aplicação?''; e ''Que outras dimensões são utilizadas juntamente com o contexto
+temporal?''.
 
-Após o processo de seleção dos artigos, 88 trabalhos fizeram parte do estudo e foram considerados para responder as
-questões de pesquisa. Entre os resultados do mapeamento sistemático desenvolvido em \citeonline{de2017time}, o principal
+Com base nas questões de pesquisa que buscamos responder, foi definida o seguinte argumento de busca
+\textit{(time-aware OR context-aware) AND (''recommender system'').}, que tem o objetivo de encontrar artigos sobre
+SRs Sensíveis ao Tempo ou SRs Sensíveis ao Contexto que utilizem o tempo como uma de suas dimensões.
+O argumento de busca foi aplicado em três Mecanismos de Busca Acadêmica (MBA): \textit{IEEE Xplorer}, \textit{Scopus} e
+\textit{Springer Link}. Esses MBAs foram os escolhidos por terem um grande acervo
+de artigos da área da Computação e possuírem mecanismos de busca e de filtro necessários \cite{de2017time}. A busca
+foi realizado procurando pelos argumentos de busca no Título, Resumo ou Palavras-chave.
+
+Três Critérios Objetivos (CO) foram definidos para filtrar artigos mais relevantes para a pesquisa. O primeiro CO é que os
+artigos tenham sido publicados nos 10 anos anteriores à realização do mapeamento, i.e., de 2006 à 2016. O segundo CO é
+que apenas artigos que estiverem disponíveis para o download completo foram utilizados e o último CO é que apenas artigos
+em inglês foram considerados. Após o processo de filtragem utilizando os COs, 556 foram baixados e analisados individualmente
+conforme os seguintes Critérios de Inclusão (CI) e Exclusão (CE):
+
+\begin{itemize}
+\item CI1: Incluir apenas artigos que tenha como objetivo descrever uma estratégia (i.e., algoritmo, \textit{framework},
+método, modelo, etc.) para recomendar.
+\item CE1: Excluir artigos que não utilizem o tempo para recomendar ou não expliquem detalhadamente como o tempo é utilizado.
+\item CE2: Excluir artigos duplicados ou artigos diferentes relativos ao mesmo trabalho.
+\end{itemize}
+
+Após a última filtragem, 88 trabalhos fizeram parte do estudo e foram considerados para responder as
+questões de pesquisa. Entre os resultados do mapeamento sistemático desenvolvido, o principal
 foi a definição de sete categorias de SRs Sensíveis ao Tempo. Essa categorização foi feita a partir do agrupamento
 dos artigos que utilizam o tempo de forma semelhante. A partir disso foi possível identificar as sete principais
-formas de utilizar o tempo nos algoritmos de recomendação que são descritas nas próximas subseções.
+formas de utilizar o tempo nos algoritmos de recomendação: \textit{Restriction}, \textit{Micro-profiles}, \textit{Bias},
+\textit{Decay}, \textit{Time Rating}, \textit{Novelty} e \textit{Sequence}. Essas categorias são descritas em detalhes
+nas Subseções \ref{subsection:restriction}-\ref{subsection:sequence}.
 
-\subsection{Restriction}
+Além disso, os resultados mostraram que as aplicações do Tempo mais comuns são através de \textit{Restriction},
+\textit{Micro-profiles} e \textit{Bias}. O formato do tempo mais utilizado é o contínuo e a dimensão do contexto mais
+utilizada em conjunto com o tempo é a localização. Foi observado também que dependendo da área o Tempo costuma ser
+aplicado de forma diferente, e.g., Na recomendação de Pontos de Interesse a \textit{Restriction} é mais comum enquanto na recomendação de Multimídia o Tempo são mais aplicados os
+\textit{Micro-profiles}. Dentre os 88 artigos analisados, apenas quatro eram da área educacional e utilizaram o
+\textit{Decay} (dois artigos) e o \textit{Restriction} (2 artigos).
+
+\subsection{Restriction}\label{subsection:restriction}
 
 Na categoria \textit{Restriction}, o tempo é utilizado para restringir que itens serão utilizados. Isso significa que o SR
 compara variáveis de tempo relacionadas aos itens e ao usuário para restringir quais itens irão aparecer na lista de
@@ -389,7 +419,7 @@ ser recomendados, o mais novo é o escolhido mesmo que o mais antigo esteja mais
 Essa categoria é mais comum em domínios onde novos itens tendem a ser mais relevantes que itens antigos, e.g., redes
 sociais, notícias, etc.
 
-\subsection{Sequence}
+\subsection{Sequence}\label{subsection:sequence}
 
 Na categoria \textit{Sequence}, o SR observa itens que são geralmente consumidos juntos em uma determinada ordem e utiliza essa
 informação para recomendar. Dessa forma, quando o SR encontra um padrão nos acessos de um usuário que já é conhecido,
@@ -399,7 +429,7 @@ tendem a seguir algum padrão de acesso (trajetória) enquanto interagem com o s
 \section{Projeto de Interface de Recomendações}\label{section:fundamentacao-apresentacao-recomendacao}
 
 No trabalho de \citeonline{pu2012evaluating} os autores argumentam que apenas a eficiência do algoritmo não garante
-que o usuário estará satisfeito com o sistema, será leal e continuará utilizando-o ou que os itens serão "convertidos"
+que o usuário estará satisfeito com o sistema, será leal e continuará utilizando-o ou que os itens serão ''convertidos''
 (nesse sentido, os autores se referem a conversão como a aceitar a recomendação dada e utilizar/comprar/assistir/etc.
 o item recomendado). Os autores afirmam que percepção do usuário sobre a qualidade da recomendação é afetada tanto pela
 qualidade das recomendações, que é responsabilidade do algoritmo de recomendação, quanto pela eficiência na apresentação
@@ -472,7 +502,7 @@ Usuários, (2) Crenças/Opiniões do Usuário, (3) Atitudes/Propósitos do Usuá
 Para cada um dos construtos, vários aspectos são avaliados, como pode ser visto na Figura \ref{fig:resque-framework}.
 Os autores definem ainda um conjunto de 60 questões para aplicar nessa avaliação como pode ser visto no Anexo
 \ref{ane:questoes-framework}. Nesse questionário as questões são afirmações nas quais o usuário deve ser posicionar em
-um escala de Likert de 5 pontos, de "Discordo totalmente" até "Concordo totalmente". Os autores ainda afirmam que o
+um escala de Likert de 5 pontos, de ''Discordo totalmente'' até ''Concordo totalmente''. Os autores ainda afirmam que o
 conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 questões (questões com asterisco no Anexo
 \ref{ane:questoes-framework}).
 
