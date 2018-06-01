@@ -15,12 +15,13 @@ e encontrar os itens de seu interesse, atrapalhando o processo de aprendizagem;
 utilizado.
 \end{itemize}
 
-Com o objetivo de reduzir esses problemas, pesquisadores tem aplicado técnicas de personalização para selecionar os melhores itens para cada estudante,
-considerando o seu conhecimento, objetivos, preferências e necessidades \cite{brusilovsky1998methods}. Os Sistemas de Recomendação são um alternativa
-para reduzir esses problemas, sugerindo itens para o usuários utilizando informações sobre seus interesses e sobre os itens disponíveis \cite{adomavicius2005toward}.
+Com o objetivo de reduzir esses problemas, pesquisadores tem aplicado técnicas de personalização para selecionar os
+itens mais adequados para cada estudante, considerando o seu conhecimento, objetivos, preferências e necessidades
+\cite{brusilovsky1998methods}. Os Sistemas de Recomendação são um alternativa para reduzir esses problemas, sugerindo
+itens para o usuários utilizando informações sobre seus interesses e sobre os itens disponíveis \cite{adomavicius2005toward}.
 
 Porém, pesquisadores da área argumentam que no domínio educacional os SRs tradicionais (aqueles que consideram apenas
-informações sobre os usuários e os itens para recomendar) não são suficientes \cite{verbert2012context, drachsler2015panorama}.
+informações sobre as interações do usuário com os itens para recomendar) não são suficientes \cite{verbert2012context, drachsler2015panorama}.
 \citeonline{verbert2012context} afirmam que nessa área é necessário um nível maior de personalização, como utilizar informações
 do contexto do usuário na recomendação.
 
@@ -35,7 +36,8 @@ domínios de aplicação \cite{campos2014time}.
 Como dito anteriormente, foram encontrados poucos trabalhos sobre o uso do contexto temporal em SRs para AVAs. Além disso,
 nos trabalhos encontrados as propostas não foram avaliadas em ambientes reais de uso, não sendo possível avaliar o
 impacto dos SRs Sensíveis ao Tempo nesse domínio. Assim, a pergunta a ser respondida por este trabalho
-é: "\textbf{Como considerar a variação dos interesses do aluno com o passar do tempo em um AVA para recomendar itens para ele?}".
+é: "\textbf{Considerar o decaimento dos interesses do aluno por conteúdos acessados anteriormente influencia o desempenho
+da abordagem de recomendação e a percepção dos alunos sobre a qualidade das recomendações recebidas?}".
 
 \section{Objetivos}
 
@@ -44,18 +46,20 @@ de pesquisa definida acima.
 
 \subsection{Objetivo Geral}
 
-Criar modelos de usuário e algoritmos para sistemas de recomendação voltados a AVAs que levem em
-conta a mudança dos interesses destes usuários ao longo do tempo.
+Avaliar em um ambiente real de uso se a aplicação do decaimento em sistemas de recomendação voltados a AVAs influencia o
+desempenho da abordagem de recomendação e a percepção dos alunos sobre a qualidade das recomendações recebidas.
 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-\item Definir formas de levar em conta aspectos temporais em um algoritmo de recomendação;
-\item Definir como usar o aspecto temporal em sistemas de recomendação para ambiente educacionais;
-\item Implementar o algoritmo de recomendação proposto em um AVA;
-\item Considerar diretrizes de apresentação de recomendação ao desenvolver a interface do sistema de recomendação
+\item Identificar as formas de utilizar os aspectos temporais do contexto do usuário em um algoritmo de recomendação;
+\item Definir como aspecto temporal pode ser utilizado em sistemas de recomendação para AVAs;
+\item Propor e Implementar em um AVA um algoritmo de recomendação considerando o Decaimento do interesse dos alunos por itens
+acessados anteriormente;
+\item Considerar diretrizes para a apresentação de recomendação ao desenvolver a interface do sistema de recomendação
 em um AVA;
-\item Avaliar a percepção do usuário sobre o algoritmo proposto em um ambiente real de uso.
+\item Avaliar o desempenho do algoritmo proposto e a percepção do usuário sobre as recomendações em um ambiente real de uso
+através de um experimento controlado.
 \end{itemize}
 
 \section{Escopo}
