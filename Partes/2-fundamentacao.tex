@@ -356,10 +356,10 @@ nas Subseções \ref{subsection:restriction}-\ref{subsection:sequence}.
 
 Além disso, os resultados mostraram que as aplicações do Tempo mais comuns são através de \textit{Restriction},
 \textit{Micro-profiles} e \textit{Bias}. O formato do tempo mais utilizado é o contínuo e a dimensão do contexto mais
-utilizada em conjunto com o tempo é a localização. Foi observado também que dependendo da área o Tempo costuma ser
-aplicado de forma diferente, e.g., Na recomendação de Pontos de Interesse a \textit{Restriction} é mais comum enquanto na recomendação de Multimídia o Tempo são mais aplicados os
-\textit{Micro-profiles}. Dentre os 88 artigos analisados, apenas quatro eram da área educacional e utilizaram o
-\textit{Decay} (dois artigos) e o \textit{Restriction} (2 artigos).
+utilizada em conjunto com o tempo é a localização. Foi observado também que em cada domínio de aplicação o Tempo costuma ser
+aplicado de forma diferente, e.g., na recomendação de Pontos de Interesse o uso de \textit{Restriction} é mais comum enquanto
+na recomendação de Multimídia o Tempo é mais aplicadoa através dos \textit{Micro-profiles}. Dentre os 88 artigos analisados,
+apenas quatro são da área educacional e utilizam \textit{Decay} (dois artigos) e \textit{Restriction} (dois artigos).
 
 \subsection{Restriction}\label{subsection:restriction}
 
@@ -458,20 +458,23 @@ das informações e da estrutura de navegação.
 
 \section{Avaliação de Sistemas de Recomendação}\label{section:fundamentacao-avaliacao-sr}
 
-As métricas (quantitativas) tradicionalmente utilizadas para avaliar algoritmos de recomendação são:
+Para avaliar o desempenho dos algoritmos de recomendação, as métricas (quantitativas) tradicionalmente utilizadas são:
 
 \begin{itemize}
 \item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error} e \textit{Root Mean Square Error} (RMSE): utilizadas
-para calcular o quão próximas as notas previstas pelo algoritmo de recomendação estão das notas reais;
+para calcular o quão próximas as previsões do algoritmo de recomendação estão da realidade;
 \item Precisão: definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
 \item \textit{Recall}: definida pela divisão do número de itens relevantes recomendados pelo número total de itens
 relevantes existentes;
-\item Cobertura (do inglês \textit{Coverage}): a união de todas a listas de recomendação geradas (i.e., todos os itens
+\item Cobertura (do inglês \textit{Coverage}): definida pela união de todas a listas de recomendação geradas (i.e., todos os itens
 distintos recomendados) pela quantidade de itens disponíveis no sistema. Também chamada de Cobertura do Catálogo \cite{ge2010beyond};
 \item \textit{F-measure}: definida pela média harmônica entre Precisão e Recall.
 \end{itemize}
 
-A avaliação de SR são divididas em três categorias \cite{shani2011evaluating}:
+A avaliação dos SRs é comumente realizada através de experimentos, comparando dois ou mais algoritmos de recomendação. A
+avaliação pode ter por objetivo medir as métricas quantitativas citadas anteriormente ou fazer uma avaliação pela
+perspectiva do usuário onde informações qualitativas são extraídas e analisadas. Os métodos de avaliação de SRs podem ser
+divididos em três categorias \cite{shani2011evaluating}:
 
 \begin{itemize}
 \item \textit{Offline}: avaliação do método de recomendação através de uma base de dados, simulando as ações
