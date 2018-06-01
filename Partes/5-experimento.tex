@@ -15,7 +15,7 @@ as análises realizadas no uso do Sistema de Recomendação (SR) e no questioná
 
 O \adaptwebspace (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
 que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
-e preferências do aluno \cite{gasparini2009adaptweb}. A Subseção \ref{subsection:estrutura-adaptweb} apresenta a Estrutura Geral do
+e preferências do aluno \cite{gasparini2009adaptweb}. A Seção \ref{subsection:estrutura-adaptweb} apresenta a Estrutura Geral do
 \adaptweb.
 
 \subsubsection{Estrutura do \adaptweb}\label{subsection:estrutura-adaptweb}
@@ -57,7 +57,7 @@ e o conhecimento do usuário \cite{gasparini2003interface}.
 
 \subsubsection{Sistema de Recomendação no \adaptweb}
 
-Na Subseção \ref{subsection:estrutura-adaptweb} foi apresentada a estrutura do ambiente \adaptweb, que possui quatro categorias
+Na Seção \ref{subsection:estrutura-adaptweb} foi apresentada a estrutura do ambiente \adaptweb, que possui quatro categorias
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
 material auxiliar e que pode ser recomendado a qualquer momento para o usuário.
 
@@ -86,7 +86,7 @@ Complementares e 108 Links de Apoio foram analisados. O resultado dessa associa�
 
 O SR irá buscar, com base nos itens acessados pelo aluno, os Links de Apoio mais adequados
 para a recomendação e irá apresentar através de uma lista de itens. A forma de apresentação das Recomendações é discutida
-em mais detalhe na Subseção \ref{subsection:apresentacao-recomendacoes}.
+em mais detalhe na Seção \ref{subsection:apresentacao-recomendacoes}.
 
 \subsubsection{Apresentação das Recomendações}\label{subsection:apresentacao-recomendacoes}
 
@@ -255,8 +255,8 @@ pelos alunos da Proposta.
 O período de matrícula para o minicurso foi de 09 de Abril de 2018 até 13 de Abril de 2018. Durante esse período, todas as turmas
 das disciplinas mencionadas na Seção \ref{subsection:definicao-experimento} foram visitadas, convidando os alunos a se matricular no minicurso.
 
-No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos utilizando os
-seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
+No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos (AlgoritmoTradicional
+e AlgoritmoProposta) utilizando os seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
 
 \begin{table}[ht]
 \footnotesize
@@ -266,7 +266,7 @@ seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-
 \begin{tabular}{ccccc}
   \hline
   \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Critério}}}           & \multirow{2}{*}{\textbf{Total}}           & \multicolumn{2}{c}{\textbf{Algoritmo de Recomendação}} \\
-                                        &                          &                                           & Tradicional          & Proposta                        \\
+                                        &                          &                                           & AlgoritmoTradicional          & AlgoritmoProposta                        \\
   \hline
   \multirow{12}{*}{Professor}           & Professor A              & 12                                        & 6                    & 6                               \\
                                         & Professor B              & 18                                        & 9                    & 9                               \\
@@ -308,17 +308,15 @@ seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-
 \end{table}
 
 O período de execução do Minicurso foi de 16 de Abril de 2018 até 10 de Maio de 2018. Nesse período, dos 208 alunos
-matriculados no Minicurso, 145 acessaram a disciplina pelo menos uma vez, sendo 76 do grupo estava
-utilizando o algoritmo Tradicional de recomendação e 69 que utilizaram a Proposta desse trabalho.
+matriculados no Minicurso, 145 acessaram a disciplina pelo menos uma vez, sendo 76 do grupo AlgoritmoTradicional e 69
+do grupo AlgoritmoProposta.
 
 O período para realizar a prova da disciplina e responder ao questionário foi de 11 de Maio de 2018 até
 14 de Maio de 2018. Nesse período, dos 145 alunos que acessaram a disciplina pelo menos uma vez, 85 realizaram a prova final e responderam ao
-questionário, sendo 48 do grupo que utilizou o algoritmo Tradicional e 37 do grupo que utilizou a Proposta
-com decaimento. Dos 85 alunos que finalizaram a disciplina (i.e., realizaram a prova e responderam ao questionário),
-47 acessaram pelo menos uma recomendação que recebeu, sendo 25 do grupo utilizou a abordagem Tradicional e
-22 que utilizaram a Proposta desse trabalho. A Tabela \ref{tab:uso-minicurso-sr} apresenta mais alguns dados, além dos
-comentados anteriormente, como: (1) a quantidade de usuários que avaliaram as recomendações que acessaram;
-(2) quantidade de recomendações acessadas; (3) quantidade de recomendações avaliadas positivamente; etc.
+questionário, sendo 48 do grupo AlgoritmoTradicional e 37 do grupo AlgoritmoProposta. Dos 85 alunos que finalizaram a
+disciplina (i.e., realizaram a prova e responderam ao questionário), 47 acessaram pelo menos uma recomendação que
+recebeu, sendo 25 do grupo AlgoritmoTradicional e 22 do grupo AlgoritmoProposta. A Tabela \ref{tab:uso-minicurso-sr}
+apresenta mais informações sobre as ações dos alunos dentro do \adaptweb.
 
 \begin{table}[h]
 \centering
@@ -354,14 +352,14 @@ Avaliações negativas ao itens recomendados                                    
 \end{table}
 
 Pela Tabela \ref{tab:uso-minicurso-sr} podemos perceber que 38 alunos que responderam ao questionário não acessaram nenhuma
-recomendação, sendo 23 do grupo que utilizou o algoritmo Tradicional e 15 do grupo que utilizou a Proposta desse
-trabalho. Na Subseção \ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
-comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Subseção \ref{subsection:tecnicas-analise-estatistica}.
+recomendação, sendo 23 do grupo AlgoritmoTradicional e 15 do grupo AlgoritmoProposta. Na Seção
+\ref{subsection:analise-uso-sr} os dados de acesso e avaliação das recomendações são analisadas mais profundamente,
+comparando os resultados dos dois algoritmos utilizando técnicas estatísticas descritas na Seção \ref{subsection:tecnicas-analise-estatistica}.
 
 \section{Análise dos Resultados}\label{section:analise-experimento}
 
 Nessa Seção são descritas as análises estatísticas realizadas sobre os dados coletados durante a execução do experimento.
-As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Subseção \ref{subsection:tecnicas-analise-estatistica}
+As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Seção \ref{subsection:tecnicas-analise-estatistica}
 e nas Subseções subsequentes são apresentas as análises realizadas sobre o desempenho dos algoritmos de recomendação e sobre
 a percepção dos alunos sobre a qualidade do SR utilizado.
 
@@ -377,8 +375,8 @@ nominais (quando não possuem ordenação) ou ordinais (quando há ordem entre o
 são sexo, estado civil e grau de instrução.
 
 A variável independente desse trabalho é o algoritmo de recomendação utilizado pelo alunos, que pode assumir os valores
-''Baseado em Conteúdo Tradicional'' ou ''Baseado em Conteúdo com Decaimento''. As variáveis dependentes analisadas são o
-desempenho do algoritmo de recomendaçõa e a percepção do usuário sobre a qualidade das recomendações. O desempenho do SR
+AlgoritmoTradicional ou AlgoritmoProposta. As variáveis dependentes analisadas são o
+desempenho do algoritmo de recomendação e a percepção do usuário sobre a qualidade das recomendações. O desempenho do SR
 foi medido através da quantidade de recomendações acessadas, quantidade de recomendações avaliadas, Precisão e Cobertura do
 algoritmo. A quantidade de recomendações acessadas e/ou avaliadas são variáveis quantitativas discretas,
 enquanto a Precisão e a Cobertura do algoritmo de recomendação são variáveis quantitativas contínuas. A percepção do usuário sobre
@@ -401,67 +399,72 @@ Subseções a seguir.
 
 \subsection{Análise do Desempenho da Abordagem de Recomendação}\label{subsection:analise-uso-sr}
 
-Nessa Subseção é realizada uma análise estatística sobre os acessos e avaliações dos usuários aos Links de Apoio recomendados.
+Nessa seção é realizada uma análise estatística sobre os acessos e avaliações dos usuários aos Links de Apoio recomendados.
 O objetivo é extrair informações dos dados capturados durante a interação para avaliar o desempenho do algoritmo em
 relação a diversas métricas. As análises feitas foram da (1) Quantidade de recomendações acessadas,
 (2) Quantidade de avaliações positivas para as recomendações, (3) Quantidade de avaliações negativas para as recomendações,
 (4) Precisão do algoritmo de recomendação, (5) Cobertura do algoritmo de recomendação e (6) F-measure do algoritmo de
 recomendação, comparando os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional com os alunos
-que utilizaram a Proposta desse trabalho. Os resultados das análises realizadas nessa Subseção estão presentes no Apêndice \ref{ape:analise-estatistica-do-uso}.
+que utilizaram a Proposta desse trabalho. Os resultados das análises realizadas nessa Seção estão presentes no Apêndice \ref{ape:analise-estatistica-do-uso}.
 
 Para a análise da quantidade de recomendações acessadas, foram considerados apenas os alunos que acessaram pelo
-menos uma recomendação no ambiente (i.e., 85 alunos). A média do grupo que utilizou o algoritmo Tradicional foi de 4,935 itens
-acessados por aluno, enquanto na abordagem Com Decaimento foi de 6,5 itens. A análise utilizando o Teste de normalidade de
+menos uma recomendação no ambiente (i.e., 85 alunos). A média do grupo AlgoritmoTradicional foi de 4,935 itens
+acessados por aluno, enquanto no grupo AlgoritmoProposta foi de 6,5 itens. A análise utilizando o Teste de normalidade de
 Shapiro-Wilk mostrou que a distribuição dos dados não é normal e portanto o Teste não-paramétrico de Mann-Whitney U foi utilizado
 para comparar os dois fatores. Esse Teste mostrou que não existe diferença significativa entre as amostras e portanto
 não podemos que afirmar que existe diferença na quantidade de recomendações acessadas nos dois grupos analisados.
 
 A análise realizada sobre as avaliações positivas para as recomendações utilizou apenas os alunos que avaliaram positivamente
-alguma recomendação (i.e., 52 alunos). A média da quantidade de avaliações positivas para o grupo que utilizou o algoritmo
-Tradicional foi de 4,7 avaliações por aluno, enquanto na abordagem Com Decaimento foi de 10,64 avaliações por aluno.
+alguma recomendação (i.e., 52 alunos). A média da quantidade de avaliações positivas para o grupo AlgoritmoTradicional
+foi de 4,7 avaliações por aluno, enquanto no grupo AlgoritmoProposta foi de 10,64 avaliações por aluno.
 Essa análise teve um resultado similar ao anterior, onde o Teste de normalidade de Shapiro-Wilk também mostrou que a
 distribuição é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre
 as amostras dos dois grupos.
 
 A análise da quantidade de avaliações negativas para as recomendações utilizou apenas os alunos que avaliaram negativamente
-os itens (i.e., 7 alunos). A média de avaliações para o grupo que utilizou a abordagem Tradicional foi de 1 avaliação negativa
-por aluno, enquanto para o grupo que utilizou a Proposta desse trabalho foi de 2 avaliações negativas por aluno. Ao realizar
+os itens (i.e., 7 alunos). A média de avaliações para o grupo que AlgoritmoTradicional foi de 1 avaliação negativa
+por aluno, enquanto para o grupo AlgoritmoProposta foi de 2 avaliações negativas por aluno. Ao realizar
 a análise estatística, o Teste de normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal. O Teste
 não-paramétrico de Mann-Whitney U foi aplicado e mostrou que não existe diferença significativa para esse critério entre
 os dois grupos.
 
 A Precisão dos algoritmos de recomendação foi calculada para cada aluno que acessou pelo menos uma recomendação dentro do
-ambiente (i.e., 85 alunos) dividindo a quantidade de recomendações distintas acessadas pelo usuário pela quantidade de itens distintos
-que foram recomendados para o usuário durante todo o minicurso. Essa métrica resulta em um valor entre 0 e 1, onde um valor
-próximo de 0 indica que poucos dos itens recomendados foram acessados e um valor próximo de 1 mostra que a maioria dos itens
-recomendados foram acessados, independente da quantidade de vezes que um item foi acessado e da quantidade de vezes que o
-item foi recomendado. A média da Precisão para o algoritmo Tradicional foi 0,49679 e para o algoritmo Com Decaimento foi
-0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distruibuição dos dados da Precisão é não-normal e o Teste
-de Mann-Whitney U mostrou que não existem diferença signifitiva entre as Precisões calculadas para cada algoritmo.
+ambiente (i.e., 85 alunos) dividindo a quantidade de recomendações distintas acessadas pelo usuário pela quantidade de
+itens distintos que foram recomendados para o usuário durante todo o minicurso. Essa métrica resulta em um valor entre
+0 e 1, onde um valor próximo de 0 indica que poucos dos itens recomendados foram acessados e um valor próximo de 1
+mostra que a maioria dos itens recomendados foram acessados, independente da quantidade de vezes que um item foi
+acessado e da quantidade de vezes que o item foi recomendado. A média da Precisão para o grupo AlgoritmoTradicional foi
+0,49679 e para o AlgoritmoProposta foi 0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distruibuição dos
+dados da Precisão é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre as
+precisão calculada para cada algoritmo.
 
 A Cobertura dos algoritmos da recomendação foi calculada considerando os alunos que acessaram pelo menos uma recomendação
 dentro do Minicurso (i.e., 85 alunos). Essa métrica foi calculada dividindo a quantidade de itens distintos recebidos
 como recomendação pelo usuário pela quantidade de itens disponíveis para recomendação na disciplina (i.e., 108 itens) e mostra
-a diversidade de itens recomendados pelos algoritmos de recomendação. A média da cobertura para a abordagem Baseada em Conteúdo
-Tradicional é de 0,10064 e para a abordagem Baseada em Conteúdo Com Decaimento é de 0,17450. Ao realizar o Teste de
+a porcentagem dos itens disponíveis para recomendação que foram efetivamente recomendados. A média da Cobertura para o
+grupo AlgoritmoTradicional é de 0,10064 e para o AlgoritmoProposta é de 0,17450. Ao realizar o Teste de
 normalidade de Shapiro-Wilk o resultado mostrou que a distribuição dos dados é não-normal. Quando aplicado o Teste de Mann-Whitney
-U o resultado mostrou que existe diferença significativa entre as duas abordagens com relação à cobertura e, nesse caso,
-podemos afirmar que a abordagem Com Decaimento tem uma Cobertura melhor que a abordagem Tradicional. Essa diferença significativa
+U o resultado mostrou que existe diferença significativa entre os resultados dos dois grupos com relação à Cobertura e, nesse caso,
+podemos afirmar que o algoritmo Com Decaimento tem uma Cobertura melhor que a algoritmo Tradicional. Essa diferença significativa
 mostra que a Proposta desse trabalho ajuda a diminuir o problema da Superespecialização presente na abordagem Tradicional.
 
 Como visto na Seção \ref{section:fundamentacao-avaliacao-sr}, o \textit{F-measure} é calculado como a média harmônica entre
-a Precisão e o Recall do algoritmo. Essa métrica é interessante para garantir que o algoritmo não sacrifique o Recall
-para melhor a Precisão, e vice-versa. Como no experimento realizado o Recall não pode ser determinado, pois não
-é possível saber todos os itens relevantes existentes para cada usuário, nesse
-trabalho foi utilizado a Cobertura no cálculo do \textit{F-measure} ao invés do Recall.
+a Precisão e o Recall do algoritmo. Essa métrica é interessante para garantir que o algoritmo não diminua o Recall
+para aumentar a Precisão, e vice-versa. Como no experimento realizado o Recall não pode ser determinado, pois não
+é possível saber todos os itens relevantes existentes para cada usuário (essa métrica é mais comum em experimentos
+\textit{offline}), nesse trabalho foi utilizado a Cobertura no cálculo do \textit{F-measure} ao invés do Recall.
 Com isso podemos mostrar se o algoritmo Proposto teve uma melhor Cobertura que a abordagem Tradicional sem diminuir
 a sua Precisão. A análise foi realizada utilizando os 85 alunos que acessaram pelo menos uma recomendação e o valor médio
-dessa métrica proposta foi de 0,13852 para os alunos do grupo que utilizou a abordagem Tradicional e de 0,21719 para os alunos
-do grupo que utilizaram a proposta desse trabalho. O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos
-dados é não-normal e portanto o Teste de Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois
-grupos. Esse teste mostrou que existe diferença significativa entre os dois grupos e portanto podemos afirmar que F-measure,
-com a Cobertura ao invés do Recall, teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso mostra
-que o uso do Decaimento aumentou a Cobertura do algoritmo sem influenciar negativamente outros aspectos.
+dessa métrica proposta foi de 0,13852 para o grupo AlgoritmoTradicional e de 0,21719 o grupo AlgoritmoProposta.
+O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal e portanto o Teste de
+Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois grupos. Esse teste mostrou que
+existe diferença significativa entre os dois grupos e portanto podemos afirmar que F-measure, com a Cobertura ao invés
+do Recall, teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso mostra
+que o uso do Decaimento aumentou a Cobertura do algoritmo sem influenciar negativamente outros aspectos, como a Precisão.
+
+Como a Cobertura e F-measure deram diferença significativa, podemos aceitar a hipótese alternativa definida
+que diz que ''Há diferenças entre o desempenho da abordagem Baseada em Conteúdo Tradicional e a proposta desse trabalho''
+e a diferença significativa nos dois casos foi favorável a proposta desse trabalho.
 
 \subsection{Análise da Percepção do Usuário}\label{subsection:analise-questionario-satisfacao}
 
@@ -525,22 +528,23 @@ apresenta as respostas agrupadas dos alunos para cada uma das perguntas.
 \end{table}
 
 Através das respostas dos alunos presentes na Tabela \ref{tab:questionario-satisfacao-respostas}, podemos perceber que
-os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional tiveram mais respostas de ''Discordo Totalmente'' do
-que os alunos utilizaram a abordagem Com Decaimento, com 25 para o algoritmo Tradicional e uma para a proposta desse trabalho.
-Além disso, podemos perceber que 12 questões tiveram pelo menos um ''Discordo Totalmente'' para o grupo que utilizou o algoritmo
-Tradicional e uma questão para o grupo que utilizou a Proposta Com Decaimento. Com relação a resposta ''Concordo Totalmente'',
-97 respostas foram dadas pelos alunos do grupo que utilizou o algoritmo Tradicional e 111
-pelo alunos que utilizaram a proposta desse trabalho. Por outro lado, tiveram mais respostas ''Discordo Parcialmente'',
-''Não Concordo e Nem Discordo'' e ''Concordo Parcialmente'' para o grupo do algoritmo Tradicional do que para o grupo da
-Proposta desse trabalho, com 267 para o primeiro e 217 para o segundo.
+o grupo AlgoritmoTradicional tem mais respostas de ''Discordo Totalmente'' do
+que o grupo AlgoritmoProposta, com 25 para o AlgoritmoTradicional e uma para o AlgoritmoProposta.
+Além disso, pode-se perceber que 12 questões tiveram pelo menos um ''Discordo Totalmente'' para o grupo AlgoritmoTradicional
+e uma questão para o grupo AlgoritmoProposta. Com relação a resposta ''Concordo Totalmente'',
+97 respostas foram dadas pelos alunos do grupo AlgoritmoTradicional e 111
+pelos alunos do grupo AlgoritmoProposta. Por outro lado, tiveram mais respostas ''Discordo Parcialmente'',
+''Não Concordo e Nem Discordo'' e ''Concordo Parcialmente'' para o grupo AlgoritmoTradicional do que para o grupo
+AlgoritmoProposta, com 267 para o primeiro e 217 para o segundo.
 
-O resultado das respostas ''Não utilizei'' mostram que os alunos responderam que não utilizaram para apenas algumas perguntas e não para todas, sendo que para o grupo
-que utilizou o algoritmo Tradicional o valor varia entre 17 e 21 alunos e para o grupo que utilizou a Proposta desse
-trabalho variou entre 10 e 13 alunos. O fato desse valor ter variado tanto não foi esperado inicialmente, mas podemos
+O resultado das respostas ''Não utilizei'' mostram que os alunos responderam que não utilizaram para apenas algumas
+perguntas e não para todas, sendo que para o grupo AlgoritmoTradicional o valor varia entre 17 e 21 alunos e para o grupo
+AlgoritmoProposta varia entre 10 e 13 alunos. O fato desse valor ter variado tanto não foi esperado inicialmente, mas pode-se
 afirmar que pelo menos 17 alunos do primeiro grupo e 10 alunos do segundo grupo não utilizaram o SR. Ao comparar essa
-informação com os dados de acesso dos alunos, que diz que 23 alunos do grupo Tradicional e 15 alunos do grupo Com
-Decaimento não acessaram nenhuma recomendação, é provável que apesar de não terem acessado nenhuma recomendação os
-alunos perceberam a existência do SR e analisaram as recomendações recebidas.
+informação com os dados de acesso dos alunos, que mostra que 23 alunos do grupo AlgoritmoTradicional e 15 alunos do
+grupo AlgoritmoProposta não acessaram nenhuma recomendação, é provável que apesar de não terem acessado nenhuma recomendação os
+alunos perceberam a existência do SR, analisaram as recomendações recebidas e com base nisso responderam às questões do
+questionário.
 
 As respostas dadas ao questionário foram analisadas utilizando o Teste não-paramétrico de
 Mann-Whitney U para verificar se existe diferença estatisticamente significativa entre as respostas dos dois grupos (i.e., \textit{p} < 0.05).
@@ -548,25 +552,29 @@ As respostas de ''Não utilizei'' não foram consideradas nessa análise. O resu
 \ref{ape:analise-estatistica-questionario}.
 
 A análise mostrou que a questão 12 (i.e., ''Eu entendi porque os itens foram recomendados para mim.'') apresentou
-diferença significativa entre as respostas dos dois grupos, e a diferença foi favorável à proposta desse trabalho.
+diferença significativa entre as respostas dos dois grupos, e a diferença foi favorável ao grupo AlgoritmoProposta.
 Para as outras questões não foi encontrada diferença significativa entre as respostas dos
-alunos dos dois grupos. A diferença existente na questão 12 mostra que os alunos que utilizaram o algoritmo Com
-Decaimento perceberam melhor a relação entre os conteúdos que acessaram com os links que foram recomendados para eles
-do que os alunos que utilizaram a abordagem Tradicional. Essa informação mostra que o uso do Decaimento na Abordagem
+alunos dos dois grupos. A diferença existente na questão 12 mostra que os alunos do grupo AlgoritmoProposta perceberam
+melhor a relação entre os conteúdos que acessaram com os links que foram recomendados para eles
+do que o grupo AlgoritmoTradicional. Essa informação mostra que o uso do Decaimento na Abordagem
 Baseada em Conteúdo fez com que as recomendações geradas fossem relacionadas aos conteúdos acessados recentemente,
-enquanto na Abordagem Tradicional recomenda considerando em todos os conteúdos acessados pelo aluno durante todo o Minicurso
+enquanto a Abordagem Tradicional recomenda considerando todos os conteúdos acessados pelo aluno durante todo o Minicurso
 igualmente.
+
+Como pelo menos uma questão do questionário deu diferença significativa, podemos aceitar a hipótese alternativa definida
+que diz que ''Há diferenças na percepção do usuário da qualidade das recomendações recebidas utilizando a abordagem
+Baseada em Conteúdo tradicional e a proposta desse trabalho'' e a diferença significativa foi favorável a proposta desse trabalho.
 
 \subsection{Questão Aberta sobre o SR}\label{subsection:questao-aberta}
 
 Juntamente com o questionário de satisfação, foi colocada um questão aberta para alunos com a seguinte pergunta:
 ''Você utilizou o Sistema de Recomendação? Se sim, cite os pontos positivos e negativos desse sistema.''. Dos 85 alunos
 que responderam à essa questão, 60 disseram não ter utilizado ou ter utilizado muito pouco o SR
-e não citaram nenhum ponto positivo ou negativo, sendo 36 do grupo que utilizou a abordagem Baseada em Conteúdo Tradicional
-e 24 que utilizaram a abordagem Com Decaimento. Dois disseram do grupo que utilizou a abordagem Tradicional
-não utilizaram pois não perceberam a existência do SR e um disse que não utilizou com tanta frequência
-pois não entendeu como este funcionava. Um aluno do grupo que utilizou a proposta desse trabalho disse não ter utilizado
-o SR pois achou que o conteúdo do Minicurso de Algoritmos era bem completo por si só.
+e não citaram nenhum ponto positivo ou negativo, sendo 36 do grupo AlgoritmoTradicional
+e 24 do grupo AlgoritmoProposta. Dois alunos do grupo AbordagemTradicional disseram
+não ter utilizado o SR pois não perceberam a sua existência e um aluno desse mesmo grupo disse que não utilizou com tanta frequência
+pois não entendeu como este funcionava. Um aluno do grupo AlgoritmoProposta disse não ter utilizado
+o SR pois achou que o conteúdo do Minicurso de Algoritmos era bem completo e não viu necessidade de acessar as recomendações.
 
 Os pontos positivos e negativos apontados pelos alunos que utilizaram o SR foram analisados utilizando a técnica de análise
 e interpretação de dados qualitativos como descrito por \citeonline{creswell2014research}. O processo de análise e interpretação
@@ -578,10 +586,11 @@ para transmitir os resultados da análise.
 
 O primeiro passo, de organização e preparação dos dados, foi realizado capturando as respostas dadas pelos alunos que disseram
 ter utilizado o SR e organizando em uma planilha de dados, separando as respostas pelo grupo ao qual o aluno fazia parte
-(Tradicional ou Proposta). Na sequência, todos dados foram lidos e vários códigos (categorias) foram propostos com base
-nas respostas dos alunos (Passos dois e três). A partir dessas categorias, o quarto passo foi ler as respostas dos alunos
-e contar quantas vezes cada uma das categorias propostas apareceram nas respostas dos alunos de cada grupo, também
-chamado de etiquetagem. A representação da categorização foi realizada utilizando a Tabela \ref{ref:categorizacao-questao-aberta} (quinto passo).
+(AlgoritmoTradicional ou AlgoritmoProposta). Na sequência, todos dados foram lidos e vários códigos (categorias) foram
+propostos com base nas respostas dos alunos (Passos dois e três). A partir dessas categorias, o quarto passo foi ler as
+respostas dos alunos e contar quantas vezes cada uma das categorias propostas apareceram nas respostas dos alunos de
+cada grupo, também chamado de etiquetagem. A representação da categorização foi realizada utilizando a Tabela
+\ref{ref:categorizacao-questao-aberta} (quinto passo).
 
 \begin{table}[h]
 \centering
@@ -590,7 +599,7 @@ chamado de etiquetagem. A representação da categorização foi realizada utili
 \footnotesize
 \begin{tabular}{|p{3cm}|p{10cm}|p{2cm}|}
 \hline
-                          & \textbf{Tradicional}                                           & \textbf{Frequência} \\
+                          & \textbf{AlgoritmoTradicional}                                           & \textbf{Frequência} \\
 \hline
 \textbf{Pontos positivos} & Conteúdo das recomendações                                     & 1          \\
                           & Layout simples e intuitivo                                     & 1          \\
@@ -601,7 +610,7 @@ chamado de etiquetagem. A representação da categorização foi realizada utili
 \hline
 \textbf{Pontos negativos} & Recomendações repetidas                                        & 2          \\
 \hline
-                          & \textbf{Proposta}                                              & \textbf{Frequência} \\
+                          & \textbf{AlgoritmoProposta}                                              & \textbf{Frequência} \\
 \hline
 \textbf{Pontos positivos} & Encontrar materiais para estudar                               & 2          \\
                           & Recomendações adequadas ao conteúdo estudado                   & 3          \\
@@ -619,47 +628,47 @@ chamado de etiquetagem. A representação da categorização foi realizada utili
 
 A partir da Tabela \ref{ref:categorizacao-questao-aberta} é possível realizar o último passo que é a análise e interpretação
 dos resultados. Pode-se perceber pontos positivos em comum nos dois grupos, como ''Guiar os estudos'' e ''Recomendações adequadas ao conteúdo estudado''.
-Com relação a esses códigos, algumas respostas do grupo que utilizou a abordagem Tradicional foram ''ajudou bastante pois foi me passando um conhecimento sequencial'',
+Com relação a esses códigos, algumas respostas do grupo AlgoritmoTradicional foram ''ajudou bastante pois foi me passando um conhecimento sequencial'',
 ''atende às necessidades, recomendando sempre o que convém'' e ''lhe coloca conteúdo condizente ao seu nível''.
-Já dos alunos que utilizaram a abordagem Proposta por esse trabalho foram ''achei adequado ao andamento da disciplina'',
+Já dos alunos do grupo AlgoritmoProposta foram ''achei adequado ao andamento da disciplina'',
 ''ajuda em uma melhor e mais eficiente construção do conhecimento'' e ''sempre trouxe sugestões apropriadas''.
 
 Também é possível perceber que o ponto negativo ''Recomendações repetidas'' aparecem nos dois grupos. Uma resposta do grupo
-que utilizou a abordagem Tradicional com esse código foi ''Se repete demais em muitos conceitos'', enquanto do grupo que utilizou
-a proposta foi ''talvez eles pudessem se renovar mais a cada conteúdo''. Por essas respostas podemos afirmar que, mesmo
+AlgoritmoTradicional com esse código foi ''Se repete demais em muitos conceitos'', enquanto do grupo AlgoritmoProposta
+foi ''talvez eles pudessem se renovar mais a cada conteúdo''. Por essas respostas podemos afirmar que, mesmo
 as respostas com esse código tendo aparecido nos dois grupos, o aluno do grupo que utilizou a abordagem Baseada em Conteúdo
 tradicional aparentou estar mais decepcionado com o SR do que o aluno do grupo que utilizou a abordagem com Decaimento.
 Sendo que a segunda resposta demonstrou mais uma sugestão de renovar mais o conteúdo do que uma crítica ao SR.
 
-Dois pontos positivos que apareceram nas respostas dos alunos que utilizaram a abordagem Tradicional não se referem diretamente
+Dois pontos positivos que apareceram nas respostas dos alunos do grupo AlgoritmoTradicional não se referem diretamente
 ao SR, que são ''Conteúdo das recomendações'' e ''Layout simples e intuitivo''. Essas respostas se referem ao conteúdo
 dos links recomendados, que o aluno achou interessante por serem artigos e que ele podia baixar esse conteúdo para estudar
-\textit{offline}, e à interface do SR, que era a mesma para os dois sistemas.
+\textit{offline}, e à interface do SR, que era a mesma para os dois grupos.
 
-Os principais destaques do algoritmo Tradicional foram nas respostas de ''Guiar os estudos'',
+Os principais destaques do AlgoritmoTradicional foram nas respostas de ''Guiar os estudos'',
 ''Ajudou a aprofundar alguns conteúdos'' e ''Recomendações adequadas ao conteúdo estudado'',
-com um total de seis respostas. E o único ponto negativo citado pelo alunos foi o mencionado anteriormente de muitas recomendações
-repetidas.
+com um total de seis respostas. E o único ponto negativo citado pelo alunos desse grupo foi o ponto já mencionado
+anteriormente de muitas recomendações serem repetidas.
 
-Os principais destaques do algoritmo Proposto foram nas respostas de ''Encontrar materiais para estudar'',
+Os principais destaques do AlgoritmoProposta foram nas respostas de ''Encontrar materiais para estudar'',
 ''Recomendações adequadas ao conteúdo estudado'', ''Recomendações são boas'' e ''Ajudou a engajar mais nos estudos'',
-com um total de nove respostas. Por outro lado, alguns alunos também citaram alguns pontos negativos para a proposta desse
-trabalho, que são a dificuldade de encontrar recomendações interessantes e que seria mais fácil procurar pela resposta de
-suas dúvidas no Google que tentar encontrar uma recomendação do SR para isso, além do ponto negativo em comum com a abordagem
-tradicional de muitas recomendações repetidas.
+com um total de nove respostas. Por outro lado, alguns alunos desse grupo também citaram alguns pontos negativos para o
+SR, que são a dificuldade de encontrar recomendações interessantes e que seria mais fácil procurar pela resposta de
+suas dúvidas no Google que tentar encontrar uma recomendação do SR para isso, além do ponto negativo em comum com o
+AlgoritmoTradiconal de recomendações repetidas.
 
-Em geral, pode-se considerar que a proposta teve um maior número de respostas com pontos positivos (11 para a proposta
-e 9 para a abordagem tradicional) e também pela forma como os alunos dos dois grupos relataram as recomendações repetidas
-que receberam, que demonstraram uma maior decepção pelos alunos que utilizaram a abordagem tradicional. Outro ponto
-relevante é o fato de dois alunos que utilizaram a abordagem Tradicional não lembrarem no momento de responder ao
-questionário da existência do SR. Isso desmonstra que mesmo as recomendações estando bem a vista dos alunos através da
-interface proposta, eles provavelmente não ficaram interessados em nenhum momento pelos links recomendados, já que a
-interface para os dois grupos era a mesma e o mesmo não apareceu nas respostas do grupo que utilizou a proposta desse
-trabalho.
+Em geral, pode-se observar que o AlgoritmoProposta teve um maior número de respostas com pontos positivos (11 para
+o AlgoritmoProposta e 9 para AlgoritmoTradicional). Além disso, foi notado uma diferença na forma como os alunos dos
+dois grupos relataram as  recomendações repetidas que receberam, que demonstraram uma maior decepção pelos alunos
+do grupo AlgoritmoTradicional. Outro ponto relevante é o fato de dois alunos do grupo AlgoritmoTradicional não lembrarem,
+no momento de responder ao questionário, da existência do SR. Isso desmonstra que, mesmo as recomendações estando bem a
+vista dos alunos através da interface proposta, eles provavelmente não ficaram interessados em nenhum momento pelos
+Links recomendados, já que a interface para os dois grupos era a mesma e o mesmo não apareceu nas respostas do grupo
+AlgoritmoProposta.
 
 \subsection{Limitações e Ameaças a Validade do Experimento}\label{subsection:ameacas-a-validade}
 
-Nesta subseção são apresentados as limitações do experimento realizado e as ameaças que podem ter influenciado o resultado
+Nesta Seção são apresentados as limitações do experimento realizado e as ameaças que podem ter influenciado o resultado
 do experimento e poderiam invalidá-lo.
 
 O tempo de execução do experimento (i.e., pouco menos de um mês) foi uma limitação do experimento, que não permitiu que
@@ -696,24 +705,34 @@ muitas das variáveis medidas, a maioria delas não apresentou diferença signif
 \section{Considerações sobre o capítulo}
 
 Neste capítulo foi descrito o ambiente no qual o Sistema de Recomendação (SR) proposto será incorporado (\adaptweb) e definido o
-experimento para a avaliação da proposta desse trabalho. Nos SRs desenvolvidos no \adaptweb, tanto para a proposta deste trabalho como para a abordagem
-Baseada em Conteúdo tradicional que será utilizada como parâmetro, o perfil do usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
-cinco categorias apresentadas. Os itens a serem recomendados são os Links de Apoio, visto que os itens das outras categorias
-são estruturados pelo professor e estão fortemente relacionados à conceitos específicos.
+experimento para a avaliação da proposta desse trabalho. Nos SRs desenvolvidos no \adaptweb, tanto para a proposta
+deste trabalho como para a abordagem Baseada em Conteúdo Tradicional que será utilizada como parâmetro, o perfil do
+usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
+categorias ''Conceito'', ''Materiais Complementares'' e ''Links de Apoio''. Os itens a serem recomendados são os
+Links de Apoio, visto que os itens das outras categorias são estruturados pelo professor para serem acessados em determinada
+ordem e estão fortemente relacionados à conceitos específicos.
 
-Utilizando como base as diretrizes propostas por \citeonline{pu2012evaluating} foi proposta uma interface para a apresentação das recomendações no \adaptweb,
-com o objetivo de que os usuários tenham acesso direto as recomendações na tela principal do ambiente do aluno e entendam
-melhor o porque aqueles itens foram recomendados. Essa interface foi utilizada tanto pelo algoritmo proposto
-quanto pela abordagem tradicional.
+Utilizando como base as diretrizes propostas por \citeonline{pu2012evaluating} foi proposta uma interface para a
+apresentação das recomendações no \adaptweb, com o objetivo de que os usuários tenham acesso direto as recomendações na
+tela principal do ambiente do aluno e entendam melhor o porquê daqueles itens serem recomendados. Essa interface foi
+utilizada tanto pelo grupo AlgoritmoTradicional quanto pelo AlgoritmoProposta.
 
-O experimento tem por objetivo avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
-comparação à abordagem Baseada em Conteúdo tradicional. O experimento foi realizado no ambiente
-\adaptwebspace através de um Minicurso de Algoritmos e Linguagem de Programação desenvolvido no ambiente nos meses de
-Abril e Maio de 2018. Ao final do minicurso os alunos receberam um questionário para responder sobre a sua experiência
-ao interagir com o SR, que foi adaptado do conjunto de questões definidas por \citeonline{pu2011user}. No total, 208 alunos
-se matricularam no Minicurso, sendo que 85 alunos chegaram até o final e responderam ao questionário.
+O experimento realizado tem por objetivo avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta}
+(AlgoritmoProposta) em comparação à abordagem Baseada em Conteúdo tradicional (AlgoritmoTradicional). O experimento foi
+realizado no ambiente \adaptwebspace através de um Minicurso de Algoritmos e Linguagem de Programação desenvolvido no
+ambiente nos meses de Abril e Maio de 2018. Ao final do minicurso os alunos receberam um questionário para responder
+sobre a sua experiência ao interagir com o SR, que foi adaptado do conjunto de questões definidas por
+\citeonline{pu2011user}. No total, 208 alunos se matricularam no Minicurso, sendo que 85 alunos chegaram até o final e
+responderam ao questionário.
 
-Ao analisar o questionário utilizando-se de técnicas estatísticas descritas na Subseção \ref{subsection:tecnicas-analise-estatistica},
+Foram analisados os dados de acesso e avaliações das recomendações pelos alunos e da geração de recomendações pelos dois
+algroitmos. Na análise da Cobertura e do F-measure o AlgoritmoProposta teve resultado estatisticamente melhor que
+o AlgoritmoTradicional. Isso mostra que a proposta desse trabalho ajudou a diminuir o problema da Superespecialização
+presente na Abordagem Baseada em Conteúdo Tradicional, aumentando a Cobertura do método sem impactar negativamente na
+Precisão e na  Percepção do Usuário. Para as outras métricas, como quantidade de links acessados e precisão do
+algoritmo, não existe diferença significativa entre os resultados dos dois grupos.
+
+Ao analisar o questionário utilizando-se de técnicas estatísticas descritas na Seção \ref{subsection:tecnicas-analise-estatistica},
 o resultado foi que proposta desse trabalho apresentou melhor resultado na questão 12, na qual dizia
 ''Eu entendi porque os itens foram recomendados para mim''. Isso mostra que os alunos puderam perceber uma melhor relação
 entre os conteúdos acessados com os itens recebidos como recomedação pelos alunos que utilizaram a proposta desse trabalho
@@ -721,22 +740,14 @@ do que pelos alunos que utlizaram a abordagem Tradicional de recomendação. Sob
 não é possível realizar nenhum tipo de afirmação pois não existe diferença significativa entre os resultados
 alcançados pelos dois grupos.
 
-Foram analisados os dados de acesso e avaliações das recomendações pelos alunos e da geração de recomendações pelos dois
-SRs. Na análise da Cobertura foi encontrada diferença significativa entre os resultados
-da abordagem Tradicional e a Proposta desse trabalho, sendo que a proposta desse trabalho teve um resultado melhor. Para as
-outras métricas, como quantidade de links acessados e precisão do algoritmo, não existe diferença significativa entre os resultados
-dos dois grupos. Na análise da Média Harmônica entre a Precisão e a Cobertura também existe diferença significativa
-entre os dois grupos, e isso mostra que a proposta desse trabalho ajudou a diminuir o problema da Superespecialização presente na Abordagem Baseada em Conteúdo Tradicional,
-aumentando a cobertura do método sem perder na Precisão e na Percepção do Usuário.
-
 Na análise da questão aberta do questionário, foi aplicado uma técnica de análise e interpretação de dados qualitativos
 para identificar os principais pontos positivos e negativos. Ao final do processo podemos afirmar que os dois algoritmos
 de recomendação tiveram algumas respostas em comum, tanto em pontos positivos (e.g., ''Guiar o aluno'') como em pontos
 negativos (e.g., ''Recomendações repetidas''). Porém, a proposta desse trabalho teve mais pontos positivos apontados,
 com pontos que indicaram a importância do SR para esses alunos, como ''Ajudou a engajar mais nos estudos'' e ''Recomendações são boas''.
 
-Como resultado final do experimento podemos afirmar que a Proposta desse trabalho, que aplica o Decaimento na
-Abordagem Baseada em Conteúdo, teve um resultado superior ao da Abordagem Baseada em Conteúdo Tradicional em vários aspectos
-medidos e foi igual à Abordagem Tradicional em outros. Os pontos em que a Proposta foi superior foram na questão do questionário
-''Eu entendi porque os itens foram recomendados para mim.'', na Cobertura e no F-measure do algoritmo. Ainda cabe ressaltar que a proposta
-desse trabalho não foi inferior a abordagem Tradicional em nenhum dos aspectos analisados.
+Como resultado final do experimento podemos aceitar as duas hipóteses alternativas, confirmando que existe diferença significativa
+tanto no desempenho do algoritmo de recomendação quanto na percepção do usuário sobre as recomendações recebidas
+entre o AlgoritmoTradicional e o AlgoritmoProposta. Parece essas duas hipóteses, o resultado foi favorável a proposta desse trabalho
+e portanto pode-se afirmar que a aplicação do Decaimento teve um melhor resultado nos dois aspectos medidos em relação
+a Abordagem Baseada em Conteúdo Tradicional.
