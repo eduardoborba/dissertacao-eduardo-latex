@@ -3,8 +3,8 @@
 Neste capítulo é apresentado o experimento realizado para a avaliação da proposta apresentada no Capítulo \ref{chapter:proposta}.
 Para avaliar a proposta deste trabalho foi utilizada uma avaliação pela perspectiva do usuário, que segundo a definição de
 \citeonline{shani2011evaluating} se encaixa em um Estudo com usuários. O algoritmo proposto foi incorporado ao ambiente
-\adaptweb e avaliado em uma situação real de uso em um Minicurso de Algoritmos desenvolvido por \citeonline{santos2017addie}.
-Na Seção \ref{section:planejamento-experimento} é descrito o ambiente \adaptweb no qual a proposta foi incorporada,
+\adaptwebspace e avaliado em uma situação real de uso em um Minicurso de Algoritmos desenvolvido por \citeonline{santos2017addie}.
+Na Seção \ref{section:planejamento-experimento} é descrito o ambiente \adaptwebspace no qual a proposta foi incorporada,
 as mudanças realizadas no ambiente para o experimento, o objetivo do experimento e o teste piloto realizado. A Seção
 \ref{section:execucao-experimento} descreve o experimento que foi realizado e a Seção \ref{section:analise-experimento} apresenta
 as análises realizadas no uso do Sistema de Recomendação (SR) e no questionário aplicado.
@@ -13,14 +13,14 @@ as análises realizadas no uso do Sistema de Recomendação (SR) e no questioná
 
 \subsection{Descrição do Ambiente \adaptweb}
 
-O \adaptweb (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
+O \adaptwebspace (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema open source
 que consiste em um AVA capaz de adaptar o conteúdo, a apresentação e a navegação em determinado curso às características
 e preferências do aluno \cite{gasparini2009adaptweb}. A Subseção \ref{subsection:estrutura-adaptweb} apresenta a Estrutura Geral do
 \adaptweb.
 
 \subsubsection{Estrutura do \adaptweb}\label{subsection:estrutura-adaptweb}
 
-A estrutura do \adaptweb é composta por quatro módulos: (1) o módulo de autoria; (2) o
+A estrutura do \adaptwebspace é composta por quatro módulos: (1) o módulo de autoria; (2) o
 módulo de armazenamento em XML (Extensible Markup Language); (3) o módulo de adaptação do conteúdo baseado no modelo do
 usuário e (4) o módulo de interface adaptativa \cite{gasparini2003interface}, conforme pode ser visto na Figura
 \ref{fig:adaptweb-arquitetura}.
@@ -42,7 +42,7 @@ disciplina de Cálculo I pode ser oferecida para os cursos de Ciência da Comput
 abrangência e profundidade pode ser distinta para cada curso.
 
 Em \citeonline{de2015sistema}, foi proposto uma nova categoria para os conteúdos chamada Links de Apoio. Esses Links de Apoio
-são links externos ao ambiente \adaptweb que são cadastrados pelo professor como um
+são links externos ao ambiente \adaptwebspace que são cadastrados pelo professor como um
 material alternativo de estudo e não estão diretamente atrelados á nenhum conceito em específico. O objetivo foi criar
 uma nova categoria de materiais que poderia ser recomendada para o usuário a qualquer momento de sua interação.
 
@@ -61,13 +61,13 @@ Na Subseção \ref{subsection:estrutura-adaptweb} foi apresentada a estrutura do
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
 material auxiliar e que pode ser recomendado a qualquer momento para o usuário.
 
-Fazendo uma relação da estrutura do \adaptweb com o algoritmo proposto no Capítulo \ref{chapter:proposta}, os itens de
+Fazendo uma relação da estrutura do \adaptwebspace com o algoritmo proposto no Capítulo \ref{chapter:proposta}, os itens de
 das categorias Conceito, Materiais Complementares e os próprios Links de Apoio serão considerados para a composição do perfil do usuário. Todos os
 materiais acessados em cada uma das categorias é representado através das palavras-chave, e
 essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material. Já para os itens
 recomendados, apenas os Links de Apoio serão utilizados.
 
-Como no ambiente \adaptweb as palavras-chave para o itens podem ser cadastradas pelo professor da disciplina, não será
+Como no ambiente \adaptwebspace as palavras-chave para o itens podem ser cadastradas pelo professor da disciplina, não será
 utilizada nenhuma técnica para captura automática das palavras-chave. Para a representação dos materiais envolvidos no
 processo de recomedanção (i.e., Conceitos, Materiais Complementares e Links de Apoio) foi criado um Dicionário de Palavras-Chave
 com as possíveis palavras a ser utilizadas. Esse Dicionário foi essencial para o funcionamento do SR, pois garante que as
@@ -671,7 +671,7 @@ o tamanho da amostra que efetivamente utilizou o Minicurso (145 alunos) e princi
 Recomendação (85 alunos) é outra limitação do experimento, que poderia ter resultados mais conclusivos se mais alunos tivessem
 utilizado a ferramenta de recomendação.
 
-A qualidade dos Links de Apoio cadastrados no ambiente \adaptweb é uma ameaça a validade do experimento, pois podem
+A qualidade dos Links de Apoio cadastrados no ambiente \adaptwebspace é uma ameaça a validade do experimento, pois podem
 influenciar a percepção dos alunos sobre o SR positiva ou negativamente. Além disso, os Links de Apoio foram encontrados
 por pessoas que não são professores da disciplina de Algoritmos e podem não serem totalmente adequados para alunos do Minicurso.
 A representação dos Links de Apoio e dos demais itens do Minicurso através do Dicionário de Palavras criado também
@@ -708,7 +708,7 @@ quanto pela abordagem tradicional.
 
 O experimento tem por objetivo avaliar a experiência do usuário com o SR proposto no Capítulo \ref{chapter:proposta} em
 comparação à abordagem Baseada em Conteúdo tradicional. O experimento foi realizado no ambiente
-\adaptweb através de um Minicurso de Algoritmos e Linguagem de Programação desenvolvido no ambiente nos meses de
+\adaptwebspace através de um Minicurso de Algoritmos e Linguagem de Programação desenvolvido no ambiente nos meses de
 Abril e Maio de 2018. Ao final do minicurso os alunos receberam um questionário para responder sobre a sua experiência
 ao interagir com o SR, que foi adaptado do conjunto de questões definidas por \citeonline{pu2011user}. No total, 208 alunos
 se matricularam no Minicurso, sendo que 85 alunos chegaram até o final e responderam ao questionário.
