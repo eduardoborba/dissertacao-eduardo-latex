@@ -9,7 +9,7 @@ do algoritmo proposto, são apresentados cenários que ilustram o uso desse algo
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo com o uso do
 contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}). Para o SR, o perfil do usuário é composto pelos
 itens acessados por ele. A cada item acessado pelo usuário, são armazenadas as palavra-chaves
-do item juntamente com o timestamp do acesso e a sequência desse item no histórico do usuário, começando em $1$ para o
+do item juntamente com a posição desse item no histórico do usuário, começando em $1$ para o
 primeiro item acessado. Os itens que serão recomendados também são representados no algoritmo de recomendação por um conjunto de palavras-chave. O cálculo da
 relevância de um determinado item $i$ para um usuário $u$ no algoritmo proposto está representado na Equação \ref{eq:relevancia-proposta}.
 
@@ -33,17 +33,15 @@ o Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). A função de rec�
   \label{eq:recencia-proposta}
 \end{equation}
 
-Onde: $x_j$ é a posição do item $j$ na lista de itens acessados pelo usuário $u$ ordenada de forma crescente pelo
-\textit{timestamp} do acesso; e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
+Onde: $x_j$ é a posição do item $j$ na lista de itens acessados pelo usuário $u$ ordenada pela ordem de acesso;
+e $\left| I_u \right|$ é a quantidade de itens acessados pelo usuário $u$. Essa fórmula considera
 que mais de um item acessado pelo usuário pode ser similar ao item $i$, por isso a fórmula retorna a maior recência de
 todos os itens presentes no perfil do usuário que são similares a $i$. A seguir temos um exemplo do uso da fórmula da
 recência considerando apenas um item, que pode ser estendida para o uso com vários itens e aplicada a função $max$ como descrito na
 fórmula acima.
 
-Considerando um usuário $u$ que acessou três itens diferentes nos seguintes \textit{timestamps} (em \textit{epoch}):
-Item A acessado em $1503670382$; Item B acessado em $1500027182$; Item C acessado em $1508051582$. A posição desses itens
-no histórico do usuário $u$ é: Item A - posição 2, Item B - posição 1 e Item C - posição 3. As equações \ref{eq:recencia-item-a},
-\ref{eq:recencia-item-b} e \ref{eq:recencia-item-c} apresentam o resultado do cálculo de recência para cada um dos itens:
+Considerando um usuário $u$ que acessou três itens A, B e C com as seguintes posições: Item A - posição 2, Item B - posição 1 e
+Item C - posição 3. As equações \ref{eq:recencia-item-a}, \ref{eq:recencia-item-b} e \ref{eq:recencia-item-c} apresentam o resultado do cálculo de recência para cada um dos itens:
 
 \begin{equation}
   R(A) = \max{\frac{2}{3}} = 0.\overline{6}
@@ -301,7 +299,7 @@ O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
 conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é dado um peso menor na recomendação para os
 itens acessados há mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
 proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
-se os links recomendados já foram ou não acessados. O algoritmo proposto será avaliado utilizando o experimento descrito
-no Capítulo \ref{chapter:experimento}.
+se os links recomendados já foram ou não acessados. O Capítulo \ref{chapter:experimento} apresenta o experimento no qual
+o algoritmo proposto foi avaliado.
 
 

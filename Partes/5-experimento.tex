@@ -11,6 +11,10 @@ as análises realizadas no uso do Sistema de Recomendação (SR) e no questioná
 
 \section{Planejamento}\label{section:planejamento-experimento}
 
+Essa seção explica em mais detalhes o ambiente \adaptweb, o Minicurso de Algoritmos e Linguagem de Programação utilizado
+para o experimento, as mudanças propostas para o ambiente para a realização do experimento e os detalhes do experimento
+realizado, tais como as hipóteses do experimento e os critérios para divisão dos alunos nos dois grupos.
+
 \subsection{Descrição do Ambiente \adaptweb}
 
 O \adaptwebspace (Ambiente de Ensino-Aprendizagem Adaptativo na Web) é um sistema \textit{open source}
@@ -106,8 +110,9 @@ quaisquer itens que sejam da categoria Conceito e Materiais Complementares, assi
   \legend{Fonte: O autor.}
 \end{figure}
 
-Como visto na imagem, as principais informações dos Links de Apoio recomendados apresentados para o aluno são: Link, Nome do Link, Descrição e a possibilidade de avaliar o item
-positivamente ou negativamente. A avaliação feita pelo usuário não é considerada pelo algoritmo de recomendação, sendo que os itens acessados pelo
+Como visto na imagem, as principais informações dos Links de Apoio apresentadas para o aluno são: Link, Nome do Link,
+Descrição e a possibilidade de avaliar o item positivamente ou negativamente. A avaliação feita pelo usuário não é
+considerada pelo algoritmo de recomendação, sendo que os itens acessados pelo
 usuário são considerados como do seu interesse. Como trabalho futuro é possível incorporar a avaliação na recomendação, e.g.,
 não tornar a recomendar itens que foram avaliado com notas baixas ou apenas considerar para o algoritmo Baseado em Conteúdo
 os itens avaliados positivamente. \citeonline{pu2012evaluating} afirmam que enquanto recomendar um item apenas é pouco, recomendar mais do que cinco itens
@@ -135,7 +140,7 @@ estratégia \textit{Between Subjects}, i.e., os alunos foram divididos em dois g
 um dos sistemas. Para garantir que a única variável seja o SR utilizado, ambos os grupos utilizaram a mesma
 interface proposta para as recomendações.
 
-O experimento proposto neste trabalho visa avaliar o desempenho e a percepção do usuário dontr o SR proposto quando
+O experimento proposto neste trabalho visa avaliar o desempenho e a percepção do usuário do SR proposto quando
 comparado à abordagem Baseada em Conteúdo Tradicional. Para avaliar o desempenho do algoritmo de recomendação em relação
 à variável independente \textit{Algoritmo de Recomendação} foram adotadas as seguintes hipóteses:
 
@@ -165,18 +170,18 @@ Computação (ICC). Além disso, foi enviado um convite para todos os alunos do 
 Comunicação e foi divulgado na página do Facebook da UDESC Joinville.
 
 Os usuários que se matricularam no Minicurso foram aleatoriamente divididos em dois grupos, da forma mais igualitária possível
-pelos mesmos critérios utilizados por \citeonline{klockanalise}: Professor, Curso, Sexo e Idade. Isso foi possível
+pelos seguintes critérios: Professor, Curso, Sexo e Idade. Isso foi possível
 porque durante o processo de matrícula os alunos responderam um questionário para montar o seu perfil. Também durante a
 matrícula os alunos tiveram acesso ao Termo de Consentimento Livre e Esclarecido (TCLE), presente no Apêndice
 \ref{ape:termo-de-consentimento}, que explica o objetivo do experimento e no qual eles consentiram em participar e em
-permitir o uso dos resultados para essa pesquisa, sempre garantindo a anonimidade dos participantes.
+permitir o uso dos resultados para essa pesquisa, garantindo a anonimidade dos participantes.
 
 Ao final do minicurso, os alunos puderam acessar a avaliação do Minicurso, composta de 10 questões, e o questionário
-sobre a percepção do usuário sobre o SR. As questões foram selecionadas do
+sobre a percepção do usuário sobre o SR. As questões do questionário foram selecionadas de um
 conjunto de questões definidas por \citeonline{pu2011user} (presente no Anexo \ref{ane:questoes-framework}), de acordo
-com o objetivo desse experimento que é medir a percepção do usuário sobre a qualidade das recomendações recebidas.
+com um dos objetivos desse experimento que é medir a percepção do usuário sobre as recomendações recebidas.
 As questões selecionadas foram traduzidas para o Português e estão presentes no Apêndice \ref{ape:questionario-de-satisfacao}.
-Além dessas questões, foi adicionada uma questão aberta perguntando sobre os pontos positivos e negativos do SR utilizado.
+Além dessas questões, foi adicionada uma questão discursiva perguntando sobre os pontos positivos e negativos do SR utilizado.
 
 Durante o desenvolvimento do Minicurso foram utilizadas as Intervenções definidas por \citeonline{santos2017addie}, para
 fazer com que os alunos fiquem engajados no curso. As Intervenções são e-mails combinadas com postagens no Fórum de Discussão
@@ -231,11 +236,11 @@ Durante a execução do Teste Piloto, os participantes encontraram erros de digi
 e alguns problemas na prova da disciplina, como perguntas de Verdadeiro e Falso com questões duplicadas e uma
 pergunta que não possuía nenhuma resposta certa. Esses problemas foram todos resolvidos antes do início do experimento.
 
-Sobre as recomendações, os Participantes 1 e 2 comentaram que aparentemente os Links de Apoio recomendados para eles não
-mudaram muito durante toda a interação - as vezes mudavam de ordem apenas, porém continuavam os mesmo itens. Já os Participantes
+Sobre as recomendações, os Participantes 1 e 2 comentaram que que as recomendações recebidas eram quase sempre as mesmas,
+mesmo tendo acessado conceitos diferentes - mudando apenas de ordem. Já os Participantes
 3 e 4, que utilizaram a proposta desse trabalho, comentaram que ao acessar um novo conceito pelo menos 3 novos Links eram
-recomendados. Esse resultado demonstra o problema da Superespecilização presente na Abordagem Baseada em Conteúdo Tradicional,
-e mostra que a proposta desse trabalho utilizando o Decaimento ajuda a diminuir esse problema.
+recomendados. Essa observação dos participantes demonstra o problema da Superespecilização presente na Abordagem Baseada
+em Conteúdo Tradicional, e mostra que a proposta desse trabalho utilizando o Decaimento ajuda a diminuir esse problema.
 
 Os participantes também observaram que desde o primeiro acesso a disciplina eles receberam cinco links com recomendação, i.e.,
 o número máximo possível. Isso mostra que, como não foi definido um limiar mínimo para a similaridade entre o perfil do usuário
@@ -353,7 +358,7 @@ comparando os resultados dos dois algoritmos utilizando técnicas estatísticas 
 
 \section{Análise dos Resultados}\label{section:analise-experimento}
 
-Nessa Seção são descritas as análises estatísticas realizadas sobre os dados coletados durante a execução do experimento.
+Nessa seção são descritas as análises estatísticas realizadas sobre os dados coletados durante a execução do experimento.
 As técnicas estatísticas utilizadas para fazer a análise são apresentadas na Seção \ref{subsection:tecnicas-analise-estatistica}
 e nas Subseções subsequentes são apresentas as análises realizadas sobre o desempenho dos algoritmos de recomendação e sobre
 a percepção dos alunos sobre a qualidade do SR utilizado.
@@ -560,9 +565,9 @@ Como pelo menos uma questão do questionário deu diferença significativa, pode
 que diz que ''Há diferenças na percepção do usuário da qualidade das recomendações recebidas utilizando a abordagem
 Baseada em Conteúdo tradicional e a proposta desse trabalho'' e a diferença significativa foi favorável a proposta desse trabalho.
 
-\subsection{Questão Aberta sobre o SR}\label{subsection:questao-aberta}
+\subsection{Questão Discursiva sobre o SR}\label{subsection:questao-aberta}
 
-Juntamente com o questionário de satisfação, foi colocada um questão aberta para alunos com a seguinte pergunta:
+Juntamente com o questionário de satisfação, foi colocada um questão discursiva para alunos com a seguinte pergunta:
 ''Você utilizou o Sistema de Recomendação? Se sim, cite os pontos positivos e negativos desse sistema.''. Dos 85 alunos
 que responderam à essa questão, 60 disseram não ter utilizado ou ter utilizado muito pouco o SR
 e não citaram nenhum ponto positivo ou negativo, sendo 36 do grupo AlgoritmoTradicional
@@ -589,7 +594,7 @@ cada grupo, também chamado de etiquetagem. A representação da categorização
 
 \begin{table}[h]
 \footnotesize
-\caption{Categorização da questão aberta do questionário}
+\caption{Categorização da questão discursiva do questionário}
 \label{ref:categorizacao-questao-aberta}
 \centering
 \begin{tabular}{|p{3cm}|p{10cm}|p{2cm}|}
@@ -699,7 +704,7 @@ muitas das variáveis medidas, a maioria delas não apresentou diferença signif
 
 \section{Considerações sobre o capítulo}
 
-Neste capítulo foi descrito o ambiente no qual o Sistema de Recomendação (SR) proposto será incorporado (\adaptweb) e definido o
+Neste capítulo foi descrito o ambiente no qual o Sistema de Recomendação (SR) proposto foi incorporado (\adaptweb) e definido o
 experimento para a avaliação da proposta desse trabalho. Nos SRs desenvolvidos no \adaptweb, tanto para a proposta
 deste trabalho como para a abordagem Baseada em Conteúdo Tradicional que será utilizada como parâmetro, o perfil do
 usuário é composto pelo conjunto de palavras-chave de todos os itens acessados pelo usuário, das
@@ -735,7 +740,7 @@ do que pelos alunos que utlizaram a abordagem Tradicional de recomendação. Sob
 não é possível realizar nenhum tipo de afirmação pois não existe diferença significativa entre os resultados
 alcançados pelos dois grupos.
 
-Na análise da questão aberta do questionário, foi aplicado uma técnica de análise e interpretação de dados qualitativos
+Na análise da questão discursiva do questionário, foi aplicado uma técnica de análise e interpretação de dados qualitativos
 para identificar os principais pontos positivos e negativos. Ao final do processo podemos afirmar que os dois algoritmos
 de recomendação tiveram algumas respostas em comum, tanto em pontos positivos (e.g., ''Guiar o aluno'') como em pontos
 negativos (e.g., ''Recomendações repetidas''). Porém, a proposta desse trabalho teve mais pontos positivos apontados,

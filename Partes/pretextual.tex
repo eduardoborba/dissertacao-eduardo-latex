@@ -128,22 +128,20 @@
   dificuldade de encontrar os materiais do seu interesse e muitos materiais nunca serem utilizados. Pesquisadores da
   área argumentam que os algoritmos de SRs tradicionais não são suficientes para os AVAs, sendo necessário um nível
   maior de personalização da situação do usuário, como considerar informações do seu contexto. O objetivo desse trabalho é
-  avaliar se a aplicação do decaimento dos interesses do usuário em itens acessados anteriormente em sistemas de
-  recomendação voltados a AVAs influencia o desempenho da abordagem de recomendação e a percepção dos alunos sobre as
-  recomendações recebidas. O algoritmo com decaimento proposto combina a (1) similaridade do perfil do usuário
+  avaliar se a aplicação do decaimento dos interesses do usuário em itens acessados anteriormente em SRs voltados a AVAs
+  influencia o desempenho da abordagem de recomendação e a percepção dos alunos sobre as recomendações recebidas. O
+  algoritmo com decaimento proposto combina a (1) similaridade do perfil do usuário
   (representado pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência
   do acesso ou uso desse materiais, além da (3) informação se aquele item disponível para a recomendação já foi acessado
   ou não. A proposta leva em conta que o ritmo de estudo dos alunos pode ser diferente, portanto a recência é
   considerada em relação à sequência de itens acessados e não ao tempo absoluto (em segundos) desde o acesso. A proposta
   desse trabalho foi incorporada ao ambiente \adaptwebspace e avaliada através de um experimento utilizando um Minicurso
   de Algoritmos e Linguagem de Programação ministrado no ambiente. O algoritmo proposto foi comparado à abordagem
-  Baseada em Conteúdo Tradicional utilizando uma estratégia \textit{Between Subjects}. O objetivo do experimento é
-  verificar se existe diferença significativa no desempenho e na percepção do usuário sobre a qualidade das
-  recomendações do algoritmo proposto em relação à abordagem Baseada em Conteúdo Tradicional. Os resultados mostraram
-  que existe diferença significativa nos dois aspectos analisados entre os algoritmos e que a abordagem com Decaimento
-  teve melhores resultados na Cobertura, F-measure e em uma das questões do sobre a percepção do usuário, enquanto as
-  outras análises (e.g., número de recomendações acessadas, precisão e as outras 12 questões do questionário) não
-  apresentaram diferença significativa.
+  Baseada em Conteúdo Tradicional utilizando uma estratégia \textit{Between Subjects}. Os resultados mostraram
+  que existe diferença significativa na Cobertura, F-measure e em uma das questões do sobre a percepção do usuário e que
+  a abordagem com Decaimento teve resultados melhores nessas métricas. Portanto, as  duas hipóteses alternativas
+  definidas para o experimento foram aceitas e podemos afirmar que considerar o Decaimento em um SR
+  para AVAs influencia positivamente o desempenho do algoritmo e a percepção dos alunos sobre as recomendações.
 
   \vspace{\onelineskip}
 
@@ -156,23 +154,21 @@
  \begin{otherlanguage*}{english}
   	Recommender Systems (RS) are software tools that provide items as suggestions to users automatically and personalized to his
     interests, without the need to formulate a search argument to achieve this. This systems are applied to Virtual Learning
-    Environments (VLE) aiming to reduce some drawbacks existing in this enviroments when the number of available items is
-    huge, e.g., cognitive overload, difficulty finding items of user's interest or some materials never get used. Researchers
+    Environments (VLE) aiming to reduce some drawbacks existing in these enviroments when the number of available items is
+    huge, e.g., cognitive overload, difficulty finding items of user's interest or some materials never get accessed. Researchers
     in this area argues that traditional RS approaches are not enough for VLE, being required a major level of personalization
-    to user's current context. This work goals is to create user profiles that take into account the changing of user's interests
-    with the time. This profiles are going to be applied in the recommendation algorithm proposed in this work. The proposed
-    algorithm combines (1) similarity between user profile (represented by materials accessed by the user) with the items
+    to user's current context. This work goals is evaluate whether the use of Decay on user's interest for past items
+    on RS for VLEs influence the algorithm performance and the user's perception of the recommendations. The proposed
+    algorithm combines (1) similarity between user profile (represented by the materials accessed by the user) with the items
     available to recommendation with (2) the recency of materials accessed by the user and (3) the information about if
-    the item available to be recommended were accessed or not. The proposal takes into account that each learner can have
+    the item available to be recommended was accessed or not. The proposal takes into account that each learner can have
     a different study rhythm, therefore the recency considers the sequence of items accessed and not the absolute time (in
     seconds) from the access. The proposal of this work was incorporated to the \adaptwebspace environment and evaluated
     through an experiment using an Algorithms and Programming Language's course. The proposal was compared to the Content-Based traditional approach
-    through using a Between Subjects strategy. The objective of this experiment is to verify if there is differences
-    on the algorithm's performance and on the user's perception of recommendations between the proposal when compared
-    with Content-Based approach. The results show that there is significant difference in both aspects between these two
-    algorithms and that the approach with Decay had better results on the Coverage, F-measure and in one of the
-    questions about the user's perception, while the other analysis (e.g., number of recommendations accepted,
-    precision and other 12 questions from the questionnaire) didn't show any significant difference.
+    through using a Between Subjects strategy. The results show that there is significant difference on the Coverage,
+    F-measure and in one of the questions about the user's perception and that the approach with Decay had better results
+    in these metrics. Therefore, both alternative hypothesis defined for the experiment were accepted and we could say
+    that consider the Decay on a RS for VLEs influences the algorithm performance and the user's perception of the recommendations.
     \vspace{\onelineskip}
 
     \noindent

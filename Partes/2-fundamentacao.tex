@@ -107,7 +107,7 @@ usuário recebe sempre itens semelhantes aos que já viu \cite{lops2011content}.
 Nessa abordagem o usuário receberá como recomendação itens que usuários com os mesmos interesses que ele se
 interessaram no passado, ou seja, é a automatização do processo de ''boca-a-boca'' \cite{jannach2010recommender}. A
 técnica de Filtragem Colaborativa tenta prever a utilidade  do item para o usuário, com base na utilidade do mesmo
-produto para um conjunto de usuários  possuidores de características semelhantes às suas \cite{jannach2010recommender}.
+item para um conjunto de usuários  possuidores de características semelhantes às suas \cite{jannach2010recommender}.
 
 Existem duas variações básicas da Filtragem Colaborativa: Usuário-Usuário, onde a similaridade entre os usuários é analisada;
 Item-Item, onde a similaridade entre itens a serem recomendados é analisada \cite{jannach2010recommender}.
@@ -185,7 +185,7 @@ outros usuários.
 A abordagem Baseada em Conhecimento recomenda itens aos usuários com base no conhecimento que o sistema possui sobre
 como características de um item se encaixam nas necessidades de um usuário e o quão útil esse item será
 \cite{ricci2011introduction}. Geralmente são utilizadas formas de representar esse conhecimento que sejam de fácil interpretação
-por computadores, como Ontologias, por exemplo\cite{burke2002hybrid}. O sistema então recebe como entrada a descrição das
+por computadores, como Ontologias, por exemplo \cite{burke2002hybrid}. O sistema então recebe como entrada a descrição das
 necessidades e interesses do usuário, e o papel do sistema é realizar uma combinação entre essas necessidades e os itens.
 
 Os SRs Baseados em Caso (\textit{Case-Based}) são um exemplo de SR da abordagem Baseada em Conhecimento. Nesse sistema, uma
@@ -325,8 +325,8 @@ de pesquisa secundárias foram definidas, são elas ''Como os algoritmos de reco
 diferença entre o uso do tempo em diferentes domínios de aplicação?''; e ''Que outras dimensões são utilizadas
 juntamente com o contexto temporal?''.
 
-Com base nas questões de pesquisa que buscamos responder, foi definida o seguinte argumento de busca
-\textit{(time-aware OR context-aware) AND (''recommender system'').}, que tem o objetivo de encontrar artigos sobre
+Com base nas questões de pesquisa, foi definido o seguinte argumento de busca
+\textit{(time-aware OR context-aware) AND (''recommender system'')}, que tem o objetivo de encontrar artigos sobre
 SRs Sensíveis ao Tempo ou SRs Sensíveis ao Contexto que utilizem o tempo como uma de suas dimensões.
 O argumento de busca foi aplicado em três Mecanismos de Busca Acadêmica (MBA): \textit{IEEE Xplorer}, \textit{Scopus} e
 \textit{Springer Link}. Esses MBAs foram os escolhidos por terem um grande acervo
@@ -358,7 +358,7 @@ Além disso, os resultados mostraram que as aplicações do Tempo mais comuns s�
 \textit{Micro-profiles} e \textit{Bias}. O formato do tempo mais utilizado é o contínuo e a dimensão do contexto mais
 utilizada em conjunto com o tempo é a localização. Foi observado também que em cada domínio de aplicação o Tempo costuma ser
 aplicado de forma diferente, e.g., na recomendação de Pontos de Interesse o uso de \textit{Restriction} é mais comum enquanto
-na recomendação de Multimídia o Tempo é mais aplicadoa através dos \textit{Micro-profiles}. Dentre os 88 artigos analisados,
+na recomendação de Multimídia o Tempo é mais aplicado através dos \textit{Micro-profiles}. Dentre os 88 artigos analisados,
 apenas quatro são da área educacional e utilizam \textit{Decay} (dois artigos) e \textit{Restriction} (dois artigos).
 
 \subsection{Restriction}\label{subsection:restriction}
@@ -439,7 +439,7 @@ recomendação, mas o SR como um todo \cite{pu2012evaluating}.
 
 Além disso, \citeonline{pu2012evaluating} definem um conjunto de vinte diretrizes para o design de um SR bem aceito
 pelos usuários. Essas diretrizes foram criadas a partir da combinação do resultado de vários trabalhos que executaram
-experimentos com participação de usuários (i.e., Estudos com usuários) para avaliar a interface de SRs. As principais
+experimentos com participação de usuários para avaliar a interface de SRs. As principais
 diretrizes levadas em conta por esse trabalho são \cite{pu2012evaluating}:
 
 \begin{itemize}
@@ -461,7 +461,7 @@ das informações e da estrutura de navegação.
 Para avaliar o desempenho dos algoritmos de recomendação, as métricas (quantitativas) tradicionalmente utilizadas são:
 
 \begin{itemize}
-\item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error} e \textit{Root Mean Square Error} (RMSE): utilizadas
+\item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error}, MAE) e \textit{Root Mean Square Error} (RMSE): utilizadas
 para calcular o quão próximas as previsões do algoritmo de recomendação estão da realidade;
 \item Precisão: definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
 \item \textit{Recall}: definida pela divisão do número de itens relevantes recomendados pelo número total de itens
@@ -500,8 +500,8 @@ Percebida, Utilidade Percebida e Intenções do Usuário em Utilizar o Sistema) 
 Inventory} (SUMI), que consiste de cinco construtos (Eficiência, Influência, Ajuda, Controle, Capacidade de Aprendizado)
 e um questionário de 50 questões.
 
-O \textit{framework} proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelos
-Usuários, (2) Crenças/Opiniões do Usuário, (3) Atitudes/Propósitos do Usuário, (4) Intenções Comportamentais.
+O \textit{framework} proposto por \citeonline{pu2011user} consiste em quatro construtos: (1) Qualidades Percebidas pelo
+Usuário, (2) Opiniões do Usuário, (3) Atitudes do Usuário, (4) Intenções de comportamento.
 Para cada um dos construtos, vários aspectos são avaliados, como pode ser visto na Figura \ref{fig:resque-framework}.
 Os autores definem ainda um conjunto de 60 questões para aplicar nessa avaliação como pode ser visto no Anexo
 \ref{ane:questoes-framework}. Nesse questionário as questões são afirmações nas quais o usuário deve ser posicionar em
