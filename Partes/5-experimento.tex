@@ -211,7 +211,7 @@ de Recomendação utilizado por cada participante.
 \caption[Dados dos Participantes do Teste Piloto]{Dados dos Participantes do Teste Piloto}
 \label{tab:participantes-teste-piloto}
 \centering
-\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|}
+\begin{tabular}{|p{2cm}|p{3.5cm}|p{6.5cm}|}
   \hline
   \textbf{Participante} & \textbf{Modo de Navegação} & \textbf{Algoritmo de Recomendação} \\
   \hline
@@ -258,52 +258,46 @@ das disciplinas mencionadas na Seção \ref{subsection:definicao-experimento} fo
 No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos (AlgoritmoTradicional
 e AlgoritmoProposta) utilizando os seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
 
-\begin{table}[ht]
+\begin{table}[h]
 \footnotesize
 \caption[Divisão dos alunos de acordo com os critérios]{Divisão dos alunos de acordo com os critérios}
 \label{tab:divisao-alunos-experimento}
 \centering
-\begin{tabular}{ccccc}
+\begin{tabular}{|c|c|c|c|c|}
   \hline
-  \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Critério}}}           & \multirow{2}{*}{\textbf{Total}}           & \multicolumn{2}{c}{\textbf{Algoritmo de Recomendação}} \\
-                                        &                          &                                           & AlgoritmoTradicional          & AlgoritmoProposta                        \\
-  \hline
-  \multirow{12}{*}{Professor}           & Professor A              & 12                                        & 6                    & 6                               \\
-                                        & Professor B              & 18                                        & 9                    & 9                               \\
-                                        & Professor C              & 7                                         & 4                    & 3                               \\
-                                        & Professor D              & 5                                         & 3                    & 2                               \\
-                                        & Professor E              & 38                                        & 19                   & 19                              \\
-                                        & Professor F              & 4                                         & 2                    & 2                               \\
-                                        & Professor G              & 10                                        & 5                    & 5                               \\
-                                        & Professor H              & 6                                         & 3                    & 3                               \\
-                                        & Professor I              & 6                                         & 3                    & 3                               \\
-                                        & Professor J              & 26                                        & 13                   & 13                              \\
-                                        & Professor K              & 14                                        & 7                    & 7                               \\
-                                        & Outro                    & 52                                        & 30                   & 32                              \\
-  \hline
-  \multirow{9}{*}{Curso}                & Computação               & 55                                        & 23                   & 22                              \\
-                                        & TADS                     & 36                                        & 18                   & 18                              \\
-                                        & Elétrica                 & 36                                        & 18                   & 18                              \\
-                                        & Física                   & 10                                        & 5                    & 5                               \\
-                                        & Mecânica                 & 31                                        & 15                   & 16                              \\
-                                        & Química                  & 3                                         & 2                    & 1                               \\
-                                        & Produção                 & 20                                        & 10                   & 10                              \\
-                                        & Civil                    & 15                                        & 7                    & 8                               \\
-                                        & Matematica               & 12                                        & 6                    & 6                               \\
-  \hline
-  \multirow{3}{*}{Sexo}                 & Masculino                & 135                                       & 67                   & 68                              \\
-                                        & Feminino                 & 72                                        & 36                   & 36                              \\
-                                        & Não informado            & 1                                         & 1                    & 0                               \\
-  \hline
-  \multirow{6}{*}{Idade}                & Até 17 anos              & 21                                        & 10                   & 11                              \\
-                                        & 18 ou 19 anos            & 75                                        & 37                   & 38                              \\
-                                        & 20 ou 21 anos            & 35                                        & 18                   & 17                              \\
-                                        & 22 ou 23 anos            & 11                                        & 6                    & 5                               \\
-                                        & 24 ou 25 anos            & 26                                        & 13                   & 13                              \\
-                                        & 26 anos ou mais          & 40                                        & 20                   & 20                              \\
-  \hline
-                                        & Total                    & 208                                       & 104                  & 104                             \\
-  \hline
+  \multicolumn{3}{|c|}{}                                                                         & \multicolumn{2}{c|}{\textbf{Algoritmo de Recomendação}} \\ \hline
+  \multicolumn{2}{|c|}{\textbf{Critério}}                  & \multicolumn{1}{c|}{\textbf{Total}} & AlgoritmoTradicional & AlgoritmoProposta                \\ \hline
+  \multirow{12}{*}{Professor}           & Professor A      & 12                                  & 6                    & 6                                \\
+                                        & Professor B      & 18                                  & 9                    & 9                                \\
+                                        & Professor C      & 7                                   & 4                    & 3                                \\
+                                        & Professor D      & 5                                   & 3                    & 2                                \\
+                                        & Professor E      & 38                                  & 19                   & 19                               \\
+                                        & Professor F      & 4                                   & 2                    & 2                                \\
+                                        & Professor G      & 10                                  & 5                    & 5                                \\
+                                        & Professor H      & 6                                   & 3                    & 3                                \\
+                                        & Professor I      & 6                                   & 3                    & 3                                \\
+                                        & Professor J      & 26                                  & 13                   & 13                               \\
+                                        & Professor K      & 14                                  & 7                    & 7                                \\
+                                        & Outro            & 52                                  & 30                   & 32                               \\ \hline
+  \multirow{9}{*}{Curso}                & Computação       & 55                                  & 23                   & 22                               \\
+                                        & TADS             & 36                                  & 18                   & 18                               \\
+                                        & Elétrica         & 36                                  & 18                   & 18                               \\
+                                        & Física           & 10                                  & 5                    & 5                                \\
+                                        & Mecânica         & 31                                  & 15                   & 16                               \\
+                                        & Química          & 3                                   & 2                    & 1                                \\
+                                        & Produção         & 20                                  & 10                   & 10                               \\
+                                        & Civil            & 15                                  & 7                    & 8                                \\
+                                        & Matematica       & 12                                  & 6                    & 6                                \\ \hline
+  \multirow{3}{*}{Sexo}                 & Masculino        & 135                                 & 67                   & 68                               \\
+                                        & Feminino         & 72                                  & 36                   & 36                               \\
+                                        & Não informado    & 1                                   & 1                    & 0                                \\ \hline
+  \multirow{6}{*}{Idade}                & Até 17 anos      & 21                                  & 10                   & 11                               \\
+                                        & 18 ou 19 anos    & 75                                  & 37                   & 38                               \\
+                                        & 20 ou 21 anos    & 35                                  & 18                   & 17                               \\
+                                        & 22 ou 23 anos    & 11                                  & 6                    & 5                                \\
+                                        & 24 ou 25 anos    & 26                                  & 13                   & 13                               \\
+                                        & 26 anos ou mais  & 40                                  & 20                   & 20                               \\ \hline
+                                        & Total            & 208                                 & 104                  & 104                              \\ \hline
 \end{tabular}
 \end{table}
 
@@ -319,10 +313,11 @@ recebeu, sendo 25 do grupo AlgoritmoTradicional e 22 do grupo AlgoritmoProposta.
 apresenta mais informações sobre as ações dos alunos dentro do \adaptweb.
 
 \begin{table}[h]
+\footnotesize
 \centering
 \caption{Uso do Minicurso de Algoritmos e do SR}
 \label{tab:uso-minicurso-sr}
-\begin{tabular}{|p{7.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\begin{tabular}{|p{9.5cm}|p{2cm}|p{1.5cm}|p{1cm}|}
 \hline
 \textbf{Quantidade de:}                                                                     & \textbf{Tradicional} & \textbf{Proposta}    & \textbf{Total}    \\
 \hline
@@ -376,11 +371,11 @@ são sexo, estado civil e grau de instrução.
 
 A variável independente desse trabalho é o algoritmo de recomendação utilizado pelo alunos, que pode assumir os valores
 AlgoritmoTradicional ou AlgoritmoProposta. As variáveis dependentes analisadas são o
-desempenho do algoritmo de recomendação e a percepção do usuário sobre a qualidade das recomendações. O desempenho do SR
+desempenho do algoritmo de recomendação e a percepção do usuário sobre as recomendações. O desempenho do SR
 foi medido através da quantidade de recomendações acessadas, quantidade de recomendações avaliadas, Precisão e Cobertura do
 algoritmo. A quantidade de recomendações acessadas e/ou avaliadas são variáveis quantitativas discretas,
 enquanto a Precisão e a Cobertura do algoritmo de recomendação são variáveis quantitativas contínuas. A percepção do usuário sobre
-a qualidade das recomendações recebidas, que foi medida através do questionário, pode ser categorizado como uma variável
+as recomendações recebidas, que foi medida através do questionário, pode ser categorizado como uma variável
 qualitativa ordinal, pois as respostas da escala de Likert podem ser ordenadas de Discordo Totalmente até Concordo Totalmente.
 
 De acordo com o tipo de variável analisado e a distribuição dos valores dessa variável é possível definir qual técnica
@@ -593,15 +588,15 @@ cada grupo, também chamado de etiquetagem. A representação da categorização
 \ref{ref:categorizacao-questao-aberta} (quinto passo).
 
 \begin{table}[h]
-\centering
+\footnotesize
 \caption{Categorização da questão aberta do questionário}
 \label{ref:categorizacao-questao-aberta}
-\footnotesize
+\centering
 \begin{tabular}{|p{3cm}|p{10cm}|p{2cm}|}
 \hline
-                          & \textbf{AlgoritmoTradicional}                                           & \textbf{Frequência} \\
+\multicolumn{2}{|c|}{\textbf{AlgoritmoTradicional}}                                           & \textbf{Frequência} \\
 \hline
-\textbf{Pontos positivos} & Conteúdo das recomendações                                     & 1          \\
+\multirow{6}{*}{\textbf{Pontos positivos}} & Conteúdo das recomendações                                     & 1          \\
                           & Layout simples e intuitivo                                     & 1          \\
                           & Guiar os estudos                                               & 2          \\
                           & Funciona corretamente                                          & 1          \\
@@ -610,16 +605,16 @@ cada grupo, também chamado de etiquetagem. A representação da categorização
 \hline
 \textbf{Pontos negativos} & Recomendações repetidas                                        & 2          \\
 \hline
-                          & \textbf{AlgoritmoProposta}                                              & \textbf{Frequência} \\
+\multicolumn{2}{|c|}{\textbf{AlgoritmoProposta}}                                              & \textbf{Frequência} \\
 \hline
-\textbf{Pontos positivos} & Encontrar materiais para estudar                               & 2          \\
+\multirow{6}{*}{\textbf{Pontos positivos}} & Encontrar materiais para estudar                               & 2          \\
                           & Recomendações adequadas ao conteúdo estudado                   & 3          \\
                           & Ajudou a engajar mais nos estudos                              & 2          \\
                           & Funciona corretamente                                          & 1          \\
                           & Recomendações são boas                                         & 2          \\
                           & Guiar os estudos                                               & 1          \\
 \hline
-\textbf{Pontos negativos} & Recomendações repetidas                                        & 2          \\
+\multirow{3}{*}{\textbf{Pontos negativos}} & Recomendações repetidas                                        & 2          \\
                           & Difícil de encontrar recomendações do meu interesse            & 1          \\
                           & Possível encontrar materiais similares com uma busca no Google & 1          \\
 \hline

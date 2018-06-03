@@ -121,28 +121,34 @@
 
 % Português
 \begin{resumo}
-  Sistemas de Recomendação (SR) são ferramentas de software que sugerem itens para os usuários de forma automatizada e personalizada,
-  sem a necessidade do usuário formular uma consulta para encontrar os itens do seu interesse. Esses sistemas são
-  explorados em Ambientes Virtuais de Aprendizagem (AVA) com o objetivo de reduzir alguns problemas existentes nesses ambientes
-  quando a quantidade de materiais disponíveis é grande, tais como: sobrecarga cognitiva, dificuldade de encontrar os materiais
-  do seu interesse e muitos materiais nunca serem utilizados. Pesquisadores da área argumentam que os algoritmos de SRs tradicionais não são suficientes para os AVAs,
-  sendo necessário um nível maior de personalização a situação do usuário, como considerar dimensões do contexto. O objetivo
-  desse trabalho é a criação de perfis de usuário que levem em conta a mudança dos interesses destes usuários
-  ao longo do tempo. O algoritmo proposto combina a (1) similaridade do perfil do usuário (representado
-  pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência do acesso ou uso
-  desse materiais, além da (3) informação se aquele item disponível para a recomendação já foi acessado ou não. A
-  proposta leva em conta que o ritmo de estudo dos alunos pode ser diferente, portanto a recência é considerada em relação
-  a sequência de itens acessados e não ao tempo absoluto (em segundos) desde o acesso. A proposta desse trabalho foi
-  incorporada ao ambiente \adaptwebspace e avaliada através de um experimento utilizando um Minicurso de Algoritmos e Linguagem de Programação
-  ministrado no ambiente. O algoritmo proposto foi comparado à abordagem Baseada em Conteúdo Tradicional utilizando uma
-  estratégia \textit{Between Subjects}. O objetivo do experimento é verificar se existe diferença no desempenho e na
-  percepção do usuário sobre a qualidade das recomendações do algoritmo proposto em relação a abordagem Baseada em
-  Conteúdo Tradicional. ESCREVER RESULTADOS.
+  Sistemas de Recomendação (SR) são ferramentas de software que sugerem itens para os usuários de forma automatizada e
+  personalizada, sem a necessidade do usuário formular uma consulta para encontrar os itens do seu interesse. Esses
+  sistemas são explorados em Ambientes Virtuais de Aprendizagem (AVA) com o objetivo de reduzir alguns problemas
+  existentes nesses ambientes quando a quantidade de materiais disponíveis é grande, tais como: sobrecarga cognitiva,
+  dificuldade de encontrar os materiais do seu interesse e muitos materiais nunca serem utilizados. Pesquisadores da
+  área argumentam que os algoritmos de SRs tradicionais não são suficientes para os AVAs, sendo necessário um nível
+  maior de personalização a situação do usuário, como considerar dimensões do contexto. O objetivo desse trabalho é
+  avaliar se a aplicação do decaimento dos interesses do usuário em itens acessados anteriormente em sistemas de
+  recomendação voltados a AVAs influencia o desempenho da abordagem de recomendação e a percepção dos alunos sobre as
+  recomendações recebidas. O algoritmo com decaimento proposto combina a (1) similaridade do perfil do usuário
+  (representado pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência
+  do acesso ou uso desse materiais, além da (3) informação se aquele item disponível para a recomendação já foi acessado
+  ou não. A proposta leva em conta que o ritmo de estudo dos alunos pode ser diferente, portanto a recência é
+  considerada em relação a sequência de itens acessados e não ao tempo absoluto (em segundos) desde o acesso. A proposta
+  desse trabalho foi incorporada ao ambiente \adaptwebspace e avaliada através de um experimento utilizando um Minicurso
+  de Algoritmos e Linguagem de Programação ministrado no ambiente. O algoritmo proposto foi comparado à abordagem
+  Baseada em Conteúdo Tradicional utilizando uma estratégia \textit{Between Subjects}. O objetivo do experimento é
+  verificar se existe diferença significativa no desempenho e na percepção do usuário sobre a qualidade das
+  recomendações do algoritmo proposto em relação a abordagem Baseada em Conteúdo Tradicional. Os resultados mostraram
+  que existe diferença significativa nos dois aspectos analisados entre os algoritmos e que a abordagem com Decaimento
+  teve melhores resultados na Cobertura, F-measure e em uma das questões do sobre a percepção do usuário, enquanto as
+  outras análises (e.g., número de recomendações acessadas, precisão e as outras 12 questões do questionário) não
+  apresentaram diferença significativa.
 
   \vspace{\onelineskip}
 
   \noindent
-  \textbf{Palavras-chaves}: Sistema de Recomendação; Sensível ao Tempo; Sensível ao Contexto; Ambiente Virtual de Aprendizagem; \adaptweb.
+  \textbf{Palavras-chaves}: Sistema de Recomendação; Sensível ao Tempo; Sensível ao Contexto; Decaimento; Ambiente Virtual de Aprendizagem; \adaptweb.
 \end{resumo}
 
 % Inglês
@@ -162,12 +168,15 @@
     seconds) from the access. The proposal of this work was incorporated to the \adaptwebspace environment and evaluated
     through an experiment using an Algorithms and Programming Language's course. The proposal was compared to the Content-Based traditional approach
     through using a Between Subjects strategy. The objective of this experiment is to verify if there is differences
-    in user's perception of quality recommendations between the proposal when compared with Content-Based approach.
-    WRITE ABOUT OUR RESULTS.
+    on the algorithm's performance and on the user's perception of recommendations between the proposal when compared
+    with Content-Based approach. The results show that there is significant difference in both aspects between these two
+    algorithms and that the approach with Decay had better results on the Coverage, F-measure and in one of the
+    questions about the user's perception, while the other analysis (e.g., number of recommendations accepted,
+    precision and other 12 questions from the questionnaire) didn't show any significant difference.
     \vspace{\onelineskip}
 
     \noindent
-    \textbf{Keywords}: Recommender System; Time-Aware; Context-Aware; Virtual Learning Environment; \adaptweb.
+    \textbf{Keywords}: Recommender System; Time-Aware; Context-Aware; Decay; Virtual Learning Environment; \adaptweb.
  \end{otherlanguage*}
 \end{resumo}
 
