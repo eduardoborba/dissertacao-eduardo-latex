@@ -154,8 +154,8 @@ melhore o seu tempo de processamento.
 
 Um cenário de uso do \textit{Decay} é apresentado a seguir. \textit{O aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
 que possui quatro tópicos, sendo eles Pilhas, Filas, Listas e Árvores. Nessa disciplina, para cada um dos conteúdos é
-aplicada uma prova para avaliar os conhecimentos dos alunos. Para cada conteúdo da disciplina, existem 20 materiais que pode
-se acessado normalmente pelo aluno e mais 10 materiais relacionados que só podem ser acessados quando recomendados.
+aplicada uma prova para avaliar os conhecimentos dos alunos. Para cada conteúdo da disciplina, existem 20 materiais que podem
+ser acessados normalmente pelo aluno e mais 10 materiais relacionados que só podem ser acessados quando recomendados.
 Cada um desses itens é representado pela palavra-chave do conceito em que está relacionado. Até o momento da primeira prova sobre o conteúdo de Pilhas,
 Pedro acessou apenas materiais relacionados a Pilhas. O algoritmo de recomendação utilizando a abordagem Baseada em
 Conteúdo recomenda para Pedro apenas materiais relacionados a Pilhas. Após a primeira prova, Pedro começa a acessar
@@ -167,12 +167,12 @@ acessados anteriormente) e em pouco tempo Pedro já estará recebendo recomenda�
 forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conceito, o SR também perceberá isso e
 recomendará itens relacionados ao primeiro conteúdo novamente.}
 
-Agora será apresentado em mais detalhe qual seria o comportamento do algoritmo proposto nesse cenário de uso apresentado.
+Agora é apresentado em mais detalhe o comportamento do algoritmo proposto no cenário de uso apresentado.
 Ao estudar o primeiro assunto da disciplina, Pedro acessa os conteúdos relacionados a Pilhas e no seu perfil
 o SR formará o seu perfil com vários itens representados pela palavras-chave ''Pilha''. O SR, ao gerar uma recomendação,
 irá encontrar um valor de similaridade alto entre o perfil do usuário e os itens candidatos a recomendação que também possuam
 a palavra-chave ''Pilha''. Como todos os itens do perfil do usuário nesse momento tem a palavra-chave ''Pilha'', a recência não
-terá um impacto importante nesse momento, pois independente do item que for mais recente a recomendação será a mesma. Na
+terá um impacto importante nesse momento, pois independente do item que for mais recente, a recomendação será a mesma. Na
 Tabela \ref{tab:cenario-de-uso-1} é possível observar de forma resumida o comportamento do algoritmo (estamos considerando
 que nenhum item recomendado tenha sido acessado).
 
@@ -197,10 +197,10 @@ que nenhum item recomendado tenha sido acessado).
 \legend{Fonte: O autor.}
 \end{table}
 
-Dessa forma, como é possível ver na Tabela \ref{tab:cenario-de-uso-1} os itens relacionados a pilhas terão uma maior Relevância e serão os itens recomendados.
-A partir do momento que o usuário comece a acessar itens relacionados a filas, o algoritmo passará a dar uma importância
-maior a itens relacionados a esse segundo tópico. Na Tabela \ref{tab:cenario-de-uso-2} é possível observar o
-comportamento do algoritmo nesse caso.
+Como é possível ver na Tabela \ref{tab:cenario-de-uso-1}, os itens relacionados a pilhas terão uma maior
+Relevância e serão os itens recomendados. A partir do momento que o usuário comece a acessar itens relacionados a filas,
+o algoritmo passará a dar uma importância maior a itens relacionados a esse segundo tópico. Na Tabela
+\ref{tab:cenario-de-uso-2} é possível observar o comportamento do algoritmo nesse caso.
 
 \begin{table}[h]
 \footnotesize
@@ -223,10 +223,11 @@ comportamento do algoritmo nesse caso.
 \legend{Fonte: O autor.}
 \end{table}
 
-É possível observar na Tabela \ref{tab:cenario-de-uso-2} que, mesmo o perfil do usuário sendo ainda mais similar a itens com a palavra-chave ''Pilha'',
-o impacto da Recência no algoritmo fez com a Relevância dos itens relacionados a filas seja maior e, dessa forma, esses
-itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens relacionados a pilhas para
-recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela \ref{tab:cenario-de-uso-3}.
+É possível observar na Tabela \ref{tab:cenario-de-uso-2} que, mesmo o perfil do usuário sendo ainda mais similar a itens
+com a palavra-chave ''Pilha'', o impacto da Recência no algoritmo fez com a Relevância dos itens relacionados a filas
+seja maior e, dessa forma, esses itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens
+relacionados a pilhas para recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela
+\ref{tab:cenario-de-uso-3}.
 
 \begin{table}[h]
 \footnotesize
@@ -261,7 +262,7 @@ possível em um AVA onde as turmas muitas vezes são menores (entre 10 e 100 alu
 em Conteúdo é considerada para o SR proposto porque essa abordagem permite a recomendação em um sistema que não possui uma
 comunidade ativa e pode suprir as necessidades desse domínio.
 
-Os SRs Sensíveis ao Tempo tem uma vantagem em relação à outros SRs Sensíveis ao Contexto por a informação temporal ser
+Os SRs Sensíveis ao Tempo têm uma vantagem em relação a outros SRs Sensíveis ao Contexto por a informação temporal ser
 mais simples de capturar e manipular que outras informações contextuais, e.g., localização. Além disso, esses tipos de
 algoritmos estão sendo explorados em outros domínios de aplicação, como pode ser visto nos 88 artigos analisados no
 Mapeamento Sistemático realizado \cite{de2017time}, e demonstraram bons resultados. Por isso, esse trabalho busca
@@ -296,9 +297,9 @@ aplicam o mesmo fator para todos os usuários.
 
 \section{Considerações sobre o capítulo}
 
-Nesse capítulo é apresentada a proposta desse trabalho. O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
+O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
 conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é dado um peso menor na recomendação para os
-itens acessados a mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
+itens acessados há mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
 proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
 se os links recomendados já foram ou não acessados. O algoritmo proposto será avaliado utilizando o experimento descrito
 no Capítulo \ref{chapter:experimento}.

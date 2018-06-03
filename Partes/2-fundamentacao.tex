@@ -1,17 +1,17 @@
 \chapter{Fundamentação Teórica}\label{chapter:fundamentacao-teorica}
 
-Nesse capítulo são apresentados os principais conceitos relacionados a proposta desse trabalho. Primeiramente são apresentados
+Nesse capítulo são apresentados os principais conceitos relacionados à proposta desse trabalho. Primeiramente são apresentados
 os Sistemas de Recomendação e as suas abordagens tradicionais, seguidos pelos Sistemas de Recomendação Sensíveis ao Contexto
-e mais especificamente os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida são apresentados aspectos relacionados ao
+e, mais especificamente, os Sistemas de Recomendação Sensíveis ao Tempo. Em seguida, são apresentados aspectos relacionados ao
 projeto de interfaces de recomendação e formas de avaliação de Sistemas de Recomendação.
 
 \section{Sistemas de Recomendação}
 
 Sistemas de Recomendação (SRs) se tornaram uma importante área de pesquisa a partir dos anos 90, quando começaram a
 surgir os primeiros trabalhos na área de filtragem colaborativa \cite{adomavicius2005toward}. Os SRs são ferramentas
-computacionais que provém sugestões de itens personalizadas aos usuários \cite{ricci2011introduction}. Isso significa
+computacionais que proveem sugestões de itens personalizadas aos usuários \cite{ricci2011introduction}. Isso significa
 que o usuário recebe como recomendação um conjunto diferente de itens de acordo com as suas preferências e necessidades.
-Nos últimos anos, o interesse na aplicação de SRs têm crescido fortemente \cite{adomavicius2005toward, beel2016towards}.
+Nos últimos anos, o interesse na aplicação de SRs tem crescido fortemente \cite{adomavicius2005toward, beel2016towards}.
 Exemplos dessas aplicações são: recomendação de Livros, CDs, DVDs, etc., em sites de \textit{e-commerce} como Amazon e EBAY;
 recomendações de filmes em sites como MovieLens e Netflix; recomendação de músicas em sites de \textit{streaming} como Last.fm ou
 Spotify; recomendação de amigos ou de postagens em redes sociais como Facebook ou Twitter; entre outras.
@@ -28,7 +28,7 @@ $I$ representa o conjunto dos itens e $R$ representa a lista ordenada dos itens 
 (o usuário que irá receber a recomendação). O objetivo do SR então é conseguir prever de maneira mais correta, com as
 informações disponíveis, os itens que serão de maior interesse do usuário.
 
-Existem duas formas de capturar os interesses do usuário pelos itens acessados dentro do sistema: (1) Explicita, na
+Existem duas formas de capturar os interesses do usuário pelos itens acessados dentro do sistema: (1) Explícita, na
 qual o usuário indica explicitamente o seu interesse pelo item que acabou de acessar, geralmente com uma nota 1 a 5 ou
 apenas uma indicação de interesse positivo/negativo para o item; (2) Implícita, na qual o usuário não precisa indicar o
 seu interesse pelo item, essa informação é capturada implicitamente através do seu comportamento e das suas interações
@@ -44,7 +44,7 @@ cada uma dessas abordagens.
 Segundo \citeonline{ricci2011introduction}, essa é uma abordagem na qual o usuário recebe recomendações de itens
 similares aos que se interessou no passado. Consiste em avaliar a semelhança entre um item e os interesses do usuário.
 Os métodos dessa abordagem tentam prever o grau de utilidade de um item para um usuário com base na utilidade que o
-usuário determinou para os itens similares ao item \cite{adomavicius2005toward}.
+usuário determinou para itens similares a este \cite{adomavicius2005toward}.
 
 A abordagem Baseada em Conteúdo tem suas raízes na Recuperação da Informação \cite{adomavicius2005toward}. Na
 abordagem Baseada em Conteúdo, tem-se um conjunto de atributos descrevendo um item e um conjunto de atributos
@@ -56,7 +56,7 @@ ao sistema, por exemplo, respondendo a questionários \cite{adomavicius2005towar
 textuais (e.g., documentos) são os que mais utilizam a abordagem Baseada em Conteúdo, devido à facilidade da aplicação
 das técnicas de Recuperação da Informação nesse tipo de item.
 
-Dentro da área de Recuperação da Informação uma forma de medir a similaridade de itens em um SR é o Cosseno. O cálculo
+Dentro da área de Recuperação da Informação, uma forma de medir a similaridade de itens em um SR é o Cosseno. O cálculo
 da similaridade por Cosseno foi definido por Salton nos anos 60 \cite{salton1964document}. Nessa técnica, cada documento
 é representado por um vetor de termos $\vec{d_J} = (w_{1,j}, w_{2,j}, ..., w_{t,j})$. Os vetores são dispostos em um
 espaço vetorial de $t$ dimensões, onde $t$ é o número de termos, e documentos próximos nesse espaço são considerados
@@ -86,7 +86,7 @@ pesos de cada termo do documento \cite{christopher2008introduction}.
 \end{equation}
 
 Onde: $tf\hbox{-}idf_{t,d}$ representa o peso do termo $t$ no documento $d$; $tf_{t,d}$ é o número de vezes que o termo
-$t$ aparece no documento $d$; e $idf_{t,d}$ representa o Inverse Document Frequency do termo $t$, sendo o responsável por
+$t$ aparece no documento $d$; e $idf_{t,d}$ representa o \textit{Inverse Document Frequency} do termo $t$, sendo o responsável por
 identificar termos que aparecem em muitos documentos diferentes \cite{christopher2008introduction}. Os termos que aparecem em muitos
 documentos tendem a perder sua importância. O $idf_{t,d}$ é calculado através da Equação \ref{eq:idf} \cite{christopher2008introduction}.
 
@@ -141,7 +141,7 @@ do usuário $a$ para o item $i$; $\overline{r_a}$ é a média de todas as avalia
 $u$ para o item $i$; $\overline{r_u}$ é a média de todas as avaliações do usuário $u$. A similaridade é calculada apenas com
 itens que os dois usuários avaliaram.
 
-Com o aumento da quantidade de usuários e de itens, se torna um desafio para a Filtragem Colaborativa Usuário-Usuário
+Com o aumento da quantidade de usuários e de itens, torna-se um desafio para a Filtragem Colaborativa Usuário-Usuário
 realizar uma recomendação, principalmente pela dificuldade de identificar a vizinhança com tantos usuários
 \cite{jannach2010recommender}. A estratégia Item-Item é uma solução para ser utilizada nesse contexto, permitindo a
 computação das similaridades a acontecer \textit{off-line} (JANNACH et al., 2011). A ideia principal da estratégia Item-Item
@@ -167,10 +167,10 @@ Além disso, outras desvantagens são \cite{adomavicius2005toward}:
 \item Esparsidade: quanto maior a quantidade de usuários e de itens disponíveis, mais esparsa ficará a tabela com as
 notas dos usuários e mais difícil será realizar as comparações. Pode ser difícil prever com precisão usuários com os
 mesmos gostos, pois cada usuário poderá avaliar conjuntos muito diferentes de itens;
-\item Necessidade de uma comunidade de usuários ativa: para essa abordagem é necessário ter uma grande quantidade de
-usuários ativas no sistema ao mesmo. No caso de um sistema com poucos usuários pode acontecer também a esparsidade
+\item Necessidade de uma comunidade de usuários ativa: para essa abordagem, é necessário ter uma grande quantidade de
+usuários ativos no sistema ao mesmo. No caso de um sistema com poucos usuários, pode acontecer também a esparsidade,
 pois os usuários acessam e avaliam itens diferentes e não é possível calcular a similaridade entre eles;
-\item Ovelha Cinza: para usuários que possuem gostos distintos demais, se torna um desafio realizar recomendações
+\item Ovelha Cinza: para usuários que possuem gostos distintos demais, torna-se um desafio realizar recomendações
 interessantes para ele. O principal motivo é que o sistema não consegue definir outros usuários semelhantes a ele para
 gerar recomendações;
 \item Escalabilidade: com o aumento do número de usuários, o custo computacional se torna alto;
@@ -185,15 +185,15 @@ outros usuários.
 A abordagem Baseada em Conhecimento recomenda itens aos usuários com base no conhecimento que o sistema possui sobre
 como características de um item se encaixam nas necessidades de um usuário e o quão útil esse item será
 \cite{ricci2011introduction}. Geralmente são utilizadas formas de representar esse conhecimento que sejam de fácil interpretação
-por computadores, como Ontologias por exemplo\cite{burke2002hybrid}. O sistema então recebe como entrada a descrição das necessidades e interesses do usuário e o
-papel do sistema é realizar uma combinação entre essas necessidades e os itens.
+por computadores, como Ontologias, por exemplo\cite{burke2002hybrid}. O sistema então recebe como entrada a descrição das
+necessidades e interesses do usuário, e o papel do sistema é realizar uma combinação entre essas necessidades e os itens.
 
-Os SRs Baseado em Caso (Case-Based) são um exemplo de SR da abordagem Baseada em Conhecimento. Nesse sistema uma
+Os SRs Baseados em Caso (\textit{Case-Based}) são um exemplo de SR da abordagem Baseada em Conhecimento. Nesse sistema, uma
 função de similaridade estima o quanto a necessidade de um usuário (descrição de um problema) combina com uma
 determinada recomendação (solução do problema) \cite{ricci2011introduction}. Essa similaridade é o grau de utilidade
 da recomendação.
 
-Outro exemplo da abordagem Baseada em Conhecimento são os SR Baseados em Restrição. Nessa abordagem os itens que não
+Outro exemplo da abordagem Baseada em Conhecimento são os SR Baseados em Restrição. Nessa abordagem, os itens que não
 atendam a certas restrições são automaticamente eliminados dos itens a serem recomendados. Segundo
 \citeonline{ricci2011introduction}, a principal diferença entre um SR Baseado em Caso e um Baseado em Restrição está
 no fato de o Baseado em Caso considerar a similaridade entre as necessidades do usuário e o item enquanto a baseada
@@ -265,11 +265,11 @@ Sobre a aplicação do contexto em SRs, \citeonline{adomavicius2011context} defi
 do contexto no processo de recomendação:
 
 \begin{itemize}
-\item Pré-Filtragem Contextual, na qual o contexto filtra os dados que representam o usuário e esses dados servem
+\item Pré-Filtragem Contextual: o contexto filtra os dados que representam o usuário e esses dados servem
 como entrada para um algoritmo tradicional de recomendação;
-\item Pós-Filtragem Contextual, na qual uma abordagem tradicional de recomendação é utilizada para gerar uma lista de
-itens a ser recomendados e depois esses itens são filtrados de acordo com o contexto do usuário;
-\item Modelagem Contextual, na qual o contexto é aplicado diretamente no algoritmo de recomendação, gerando um
+\item Pós-Filtragem Contextual: uma abordagem tradicional de recomendação é utilizada para gerar uma lista de
+itens a serem recomendados e depois esses itens são filtrados de acordo com o contexto do usuário;
+\item Modelagem Contextual: o contexto é aplicado diretamente no algoritmo de recomendação, gerando um
 algoritmo diferente dos tradicionais.
 \end{itemize}
 
@@ -285,12 +285,12 @@ do aluno, as condições do ambiente e a acessibilidade dos recursos \cite{verbe
 
 Na Seção \ref{section:sr-sensivel-tempo} é apresentado um tipo específico de SRs Sensíveis ao Contexto que utilizam a dimensão temporal para
 recomendar, chamados de SRs Sensíveis ao Tempo. Esse tipo de SR pode também aplicar outras dimensões do contexto em
-conjunto a questão temporal.
+conjunto à questão temporal.
 
-\section{Sistemas de Recomendação Sensível ao Tempo}\label{section:sr-sensivel-tempo}
+\section{Sistemas de Recomendação Sensíveis ao Tempo}\label{section:sr-sensivel-tempo}
 
 Dentre as dimensões do contexto citadas na seção \ref{section:sr-sensivel-contexto}, o tempo tem uma vantagem de ser
-fácil de capturar, considerando que praticamente todos os dispositivos tem um relógio que pode capturar o tempo no qual
+fácil de capturar, considerando que praticamente todos os dispositivos têm um relógio que pode capturar o tempo no qual
 alguma interação ocorreu. Além disso, trabalhos na área demonstraram que o contexto temporal tem potencial para melhorar
 a qualidade das recomendações \cite{campos2014time}. Esse tipo de SR é chamado de SR Sensível ao Tempo.
 
@@ -306,7 +306,7 @@ $I$ representa o conjunto de itens, $T$ representa o contexto temporal e $R$ rep
 interesse previsto do usuário para os itens disponíveis.
 
 De acordo com o dicionário \citeonline{michaelis2011disponivel}, o tempo é um  ''Período de momentos, de horas, de dias,
-de semanas, de meses, de anos etc. no qual os eventos se sucedem, dando-se a noção de presente, passado e futuro''.
+de semanas, de meses, de anos, etc. no qual os eventos se sucedem, dando-se a noção de presente, passado e futuro''.
 Com essa informação é possível para um sistema computacional estabelecer uma ordem para os eventos que ocorrem.
 
 O Tempo pode ser representado de uma variável contínua ou categórica. A representação contínua utiliza o exato momento
@@ -314,16 +314,16 @@ em que os itens foram consumidos/avaliados \cite{campos2014time}, por exemplo: '
 Enquanto na representação categórica as variáveis são calculadas em relação a períodos de interesse \cite{campos2014time},
 e.g., Dias da semana: {Domingo, Segunda, Terça, ...} ou Estações do ano: {Primavera, Verão, Outono, Inverno}. Além
 disso, o tempo pode ser representado por diferentes unidades de tempo, e.g., segundos, minutos, horas, meses, anos,
-etc., e as unidades tempo são hierárquicas, e.g., um dia tem 24 horas, uma hora tem 60 minutos e 1 minuto tem 60
+etc., e as unidades de tempo são hierárquicas, e.g., um dia tem 24 horas, uma hora tem 60 minutos e 1 minuto tem 60
 segundos.
 
 Em \citeonline{de2017time} um mapeamento sistemático foi conduzido sobre os SR Sensíveis ao Tempo utilizando a metodologia de
-\citeonline{petersen2008systematic}. Esse mapeamento sistemático não foi restringido apenas trabalhos na área
-educacional. A principal questão de pesquisa desse mapeamento é ''Como o contexto temporal é utilizado em SRs
-Sensíveis ao Contexto?''. Para responder a essa questão de pesquisa principal, três questões de pesquisa secundárias
-foram definidas, são elas ''Como os algoritmos de recomendação utilizam o tempo?''; ''Qual é a diferença entre o uso
-do tempo em diferentes domínios de aplicação?''; e ''Que outras dimensões são utilizadas juntamente com o contexto
-temporal?''.
+\citeonline{petersen2008systematic}. Esse mapeamento sistemático considerou artigos de qualquer domínio de aplicação,
+e não apenas trabalhos na área educacional. A principal questão de pesquisa desse mapeamento é ''Como o contexto
+temporal é utilizado em SRs Sensíveis ao Contexto?''. Para responder a essa questão de pesquisa principal, três questões
+de pesquisa secundárias foram definidas, são elas ''Como os algoritmos de recomendação utilizam o tempo?''; ''Qual é a
+diferença entre o uso do tempo em diferentes domínios de aplicação?''; e ''Que outras dimensões são utilizadas
+juntamente com o contexto temporal?''.
 
 Com base nas questões de pesquisa que buscamos responder, foi definida o seguinte argumento de busca
 \textit{(time-aware OR context-aware) AND (''recommender system'').}, que tem o objetivo de encontrar artigos sobre
@@ -349,7 +349,7 @@ método, modelo, etc.) para recomendar.
 Após a última filtragem, 88 trabalhos fizeram parte do estudo e foram considerados para responder as
 questões de pesquisa. Entre os resultados do mapeamento sistemático desenvolvido, o principal
 foi a definição de sete categorias de SRs Sensíveis ao Tempo. Essa categorização foi feita a partir do agrupamento
-dos artigos que utilizam o tempo de forma semelhante. A partir disso foi possível identificar as sete principais
+dos artigos que utilizam o tempo de forma semelhante. A partir disso, foi possível identificar as sete principais
 formas de utilizar o tempo nos algoritmos de recomendação: \textit{Restriction}, \textit{Micro-profiles}, \textit{Bias},
 \textit{Decay}, \textit{Time Rating}, \textit{Novelty} e \textit{Sequence}. Essas categorias são descritas em detalhes
 nas Subseções \ref{subsection:restriction}-\ref{subsection:sequence}.
@@ -384,7 +384,7 @@ costuma acessar em um domingo a noite.
 \subsection{Bias}
 
 Na categoria \textit{Bias}, o tempo é utilizado para agregar informação na matriz Usuários x Itens normalmente utllizada pela
-Filtragem Colaborativa. Essa matriz é comumente utilizada com apenas duas dimensões que são os Usuários e o Itens e os
+Filtragem Colaborativa. Essa matriz é comumente utilizada com apenas duas dimensões que são os Usuários e os Itens e os
 valores dessa matriz são as notas dadas pelos usuários para os itens. Ao incorporar o tempo nessa matriz, é possível
 realizar uma comparação mais precisa entre os usuários do sistema e assim prever o interesse do usuário ativo para os
 itens ainda não acessados. Dessa forma, usuários que avaliaram os mesmos itens com notas semelhantes e em contextos
@@ -394,7 +394,7 @@ de acertar nos interesses do usuário.
 \subsection{Decay}\label{section:decay}
 
 Na categoria \textit{Decay}, o tempo é utilizado como um fator de decaimento na importância das interações do usuário, i.e.,
-interações (itens consumidos, avaliações, etc.) mais antigas tem um peso menor para o algoritmo de recomendação do que
+interações (itens consumidos, avaliações, etc.) mais antigas têm um peso menor para o algoritmo de recomendação do que
 as interações mais atuais. Os algoritmos dessa categoria consideram que o interesse do usuário varia com o tempo e é
 importante considerar que os interesses mais atuais do usuário representam melhor o seu perfil do que interesses mais
 antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com \textit{Decay}, é
@@ -402,7 +402,7 @@ apenas dado um peso menor para essas interações.
 
 \subsection{Time Rating}
 
-Na categoria \textit{Time Rating}, o tempo é considerado pelo SR para inferir as preferências do usuário. Nessa categoria o SR
+Na categoria \textit{Time Rating}, o tempo é considerado pelo SR para inferir as preferências do usuário. Nessa categoria, o SR
 utiliza uma estratégia implícita para capturar o interesse do usuário que considera o tempo que o usuário passou em
 determinado item. A categoria toma como princípio que itens no qual o usuário passou pouco tempo não são do seu
 interesse, enquanto itens em que ele passou mais tempo indicam os seus interesses. Essa forma de capturar é interessante
@@ -414,7 +414,7 @@ para todos os itens acessados por ele.
 Na categoria \textit{Novelty}, o SR considera que itens mais novos serão mais relavantes para os usuários do que itens mais
 antigos. Nessa catoria, existem pelo menos duas estratégias que podem ser utilizadas: (1) o SR possui uma idade limite
 definida (por exemplo, duas semanas) e itens que sejam mais velhos que isso serão retirados da lista de recomendação;
-(2) o SR não ignora itens antigos, porém os itens novos possuem um peso maior e, se dois itens similares estiver para
+(2) o SR não ignora itens antigos, porém os itens novos possuem um peso maior e, se dois itens similares estiverem para
 ser recomendados, o mais novo é o escolhido mesmo que o mais antigo esteja mais de acordo com o perfil do usuário.
 Essa categoria é mais comum em domínios onde novos itens tendem a ser mais relevantes que itens antigos, e.g., redes
 sociais, notícias, etc.
@@ -423,19 +423,19 @@ sociais, notícias, etc.
 
 Na categoria \textit{Sequence}, o SR observa itens que são geralmente consumidos juntos em uma determinada ordem e utiliza essa
 informação para recomendar. Dessa forma, quando o SR encontra um padrão nos acessos de um usuário que já é conhecido,
-é possível utilizar os próximos itens da sequência como recomendações para o usuário. Essa categoria que os usuários
+é possível utilizar os próximos itens da sequência como recomendações para o usuário. Essa categoria considera que os usuários
 tendem a seguir algum padrão de acesso (trajetória) enquanto interagem com o sistema.
 
 \section{Projeto de Interface de Recomendações}\label{section:fundamentacao-apresentacao-recomendacao}
 
 No trabalho de \citeonline{pu2012evaluating} os autores argumentam que apenas a eficiência do algoritmo não garante
 que o usuário estará satisfeito com o sistema, será leal e continuará utilizando-o ou que os itens serão ''convertidos''
-(nesse sentido, os autores se referem a conversão como a aceitar a recomendação dada e utilizar/comprar/assistir/etc.
-o item recomendado). Os autores afirmam que percepção do usuário sobre a qualidade da recomendação é afetada tanto pela
+(nesse sentido, os autores se referem à conversão como a aceitar a recomendação dada e consumir o item recomendado).
+Os autores afirmam que percepção do usuário sobre a qualidade da recomendação é afetada tanto pela
 qualidade das recomendações, que é responsabilidade do algoritmo de recomendação, quanto pela eficiência na apresentação
 das recomendações, explicando a razão daquelas recomendações e inspirando a confiança do usuário nas suas decisões.
-Para isso, os autores defendem uma avaliação do SR pela perspectiva usuário, de forma a avaliar não somente o algoritmo de
-recomendação mas o SR como um todo \cite{pu2012evaluating}.
+Para isso, os autores defendem uma avaliação do SR pela perspectiva do usuário, de forma a avaliar não somente o algoritmo de
+recomendação, mas o SR como um todo \cite{pu2012evaluating}.
 
 Além disso, \citeonline{pu2012evaluating} definem um conjunto de vinte diretrizes para o design de um SR bem aceito
 pelos usuários. Essas diretrizes foram criadas a partir da combinação do resultado de vários trabalhos que executaram
@@ -444,7 +444,7 @@ diretrizes levadas em conta por esse trabalho são \cite{pu2012evaluating}:
 
 \begin{itemize}
 \item Diretriz 14: Considere aprimorar a acurácia percebida pelo usuário com um \textit{layout} mais atrativo, rótulos mais
-efetivos, e explicando como o sistema gerou as recomendações. Fazendo isso pode aumentar a percepção do usuário sobre a
+efetivos, e explicando como o sistema gerou as recomendações. Fazendo isso, pode-se aumentar a percepção do usuário sobre a
 eficiência do sistema, sua satisfação com o sistema em geral, sua prontidão para aceitar os itens recomendados e a sua
 confiança no sistema.
 \item Diretriz 18: Considere fornecer como recomendação itens compatíveis ao contexto do usuário. Essa característica
@@ -479,20 +479,20 @@ divididos em três categorias \cite{shani2011evaluating}:
 \begin{itemize}
 \item \textit{Offline}: avaliação do método de recomendação através de uma base de dados, simulando as ações
 dos usuários sem necessitar da participação dos mesmos. Essa avaliação geralmente utiliza uma estratégia onde a base de dados
-é separada em base de treinamento e base de testes. A base de treinamento terão as notas dadas pelo usuário que serão
-repassadas ao algoritmo de recomendação como forma de construir o perfil. A base de teste contém os itens para os
+é separada em base de treinamento e base de testes. A base de treinamento terá as notas dadas pelo usuário que serão
+repassadas ao algoritmo de recomendação como forma de construir o perfil dos usuários. A base de teste contém os itens para os
 quais o algoritmo de recomendação irá buscar prever o interesse do usuário. As métricas apresentadas anteriormente são
 utilizadas para medir a eficiência do algoritmo, comparando a recomendação e/ou predições realizadas pelo algoritmo de
 recomendação com o resultado real presente na base de teste;
-\item Estudos com os usuários: no qual um pequeno grupo de usuários é convidado a participar de um experimento e realiza
+\item Estudos com os usuários: um pequeno grupo de usuários é convidado a participar de um experimento e realiza
 tarefas específicas relacionadas ao SR. As métricas tradicionais de SR podem ser utilizadas em conjunto com medidas
 qualitativas para mensurar a satisfação dos usuários, por exemplo através da observação, questionários, entrevistas, etc.;
-\item Uso real do sistema: na qual o SR é avaliado em situações reais de uso, com uma quantidade grande de usuários, e
+\item Uso real do sistema: o SR é avaliado em situações reais de uso, com uma quantidade grande de usuários, e
 os dados para a avaliação (quantitativa) são capturados de forma automática, por exemplo através de ferramentas de
-\textit{Web Analytics}, registros de Logs, notas dadas pelos usuários, etc.
+\textit{Web Analytics}, registros de \textit{Logs}, notas dadas pelos usuários, etc.
 \end{itemize}
 
-\citeonline{pu2011user} propõe um framework para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
+\citeonline{pu2011user} propõem um \textit{framework} para a avaliação de SRs utilizando \textbf{Estudos com os usuários}, com o objetivo
 de realizar uma avaliação do SR através da perspectiva do usuário. Esse \textit{framework} se chama \textit{Recommender
 Systems' Quality of User Experience}  (ResQue) e foi proposto com base em outras ferramentas para avaliação centrada no
 usuário não exclusivas de SR: \textit{Technology Acceptance Model} (TAM), que define três construtos (Facilidade de Uso
@@ -510,7 +510,7 @@ conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 ques
 \ref{ane:questoes-framework}).
 
 \begin{figure}[htb]
-  \caption{\label{fig:resque-framework}Construtos do framework de avaliação de SRs pela perspectiva do usuário}
+  \caption{\label{fig:resque-framework}Construtos do \textit{framework} de avaliação de SRs pela perspectiva do usuário}
   \begin{center}
       \includegraphics[scale=0.4]{./Figuras/resque-framework-traduzido.png}
   \end{center}
@@ -526,11 +526,11 @@ categorias de SRs Sensíveis ao Tempo definidas em \citeonline{de2017time}.
 Dentre as categorias de SRs Sensíveis ao Tempo apresentadas na Seção \ref{section:sr-sensivel-tempo}, a utilizada por esse
 trabalho é o \textit{Decay}. Nessa categoria é considerado que o interesse do usuário por um item acessado diminui com o passar
 do tempo. Neste sentido, considerando que o acesso a um item é um indicativo do interesse do usuário, os itens acessados
-mais recentemente tem um peso maior na identificação dos interesses do usuário, i.e., na definição do perfil do usuário.
+mais recentemente têm um peso maior na identificação dos interesses do usuário, i.e., na definição do perfil do usuário.
 
 Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
 trabalho será utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
 apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
-questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, será necessário
+questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, é necessário
 selecionar quais das questões serão utilizadas, pois como citado por \citeonline{pu2011user} nem todas as questões se
-aplicam a todos os SRs, e traduzir essas questões para tornar possível a aplicação.
+aplicam a todos os SRs.
