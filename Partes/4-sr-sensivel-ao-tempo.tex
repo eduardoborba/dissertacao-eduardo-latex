@@ -1,13 +1,13 @@
 \chapter{SR Sensível ao Tempo}\label{chapter:proposta}
 
 Neste capítulo é apresentado o SR Sensível ao Tempo para ambientes educacionais proposto nesse trabalho. O algoritmo proposto
-considera o decaimento nos interesses do usuário com o passar do tempo (categoria do \textit{Decay} - Seção \ref{section:decay}). Além
+considera o decaimento nos interesses do usuário com o passar do tempo (categoria do Decaimento - Seção \ref{section:decay}). Além
 do algoritmo proposto, são apresentados cenários que ilustram o uso desse algoritmo e discussões sobre as suas vantagens.
 
 \section{Algoritmo Proposto}\label{section:algoritmo-proposto}
 
 O algoritmo de recomendação proposto nesse trabalho combina a Abordagem Baseada em Conteúdo com o uso do
-contexto temporal através da categoria \textit{Decay} (ver seção \ref{section:decay}). Para o SR, o perfil do usuário é composto pelos
+contexto temporal através da categoria Decaimento (ver seção \ref{section:decay}). Para o SR, o perfil do usuário é composto pelos
 itens acessados por ele. A cada item acessado pelo usuário, são armazenadas as palavra-chaves
 do item juntamente com a posição desse item no histórico do usuário, começando em $1$ para o
 primeiro item acessado. Os itens que serão recomendados também são representados no algoritmo de recomendação por um conjunto de palavras-chave. O cálculo da
@@ -25,7 +25,7 @@ $I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o ite
 se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado.
 
 A função $S$ de similaridade entre o usuário $u$ e o item $i$ pode ser calculada utilizando funções de similaridade como
-o Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo \textit{Decay}, está definida na Equação
+o Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo Decaimento, está definida na Equação
 \ref{eq:recencia-proposta}.
 
 \begin{equation}
@@ -150,7 +150,7 @@ melhore o seu tempo de processamento.
 
 \section{Cenário de Uso}
 
-Um cenário de uso do \textit{Decay} é apresentado a seguir. \textit{O aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
+Um cenário de uso do Decaimento é apresentado a seguir. \textit{O aluno Pedro está matriculado em uma disciplina de Estrutura de Dados
 que possui quatro tópicos, sendo eles Pilhas, Filas, Listas e Árvores. Nessa disciplina, para cada um dos conteúdos é
 aplicada uma prova para avaliar os conhecimentos dos alunos. Para cada conteúdo da disciplina, existem 20 materiais que podem
 ser acessados normalmente pelo aluno e mais 10 materiais relacionados que só podem ser acessados quando recomendados.
@@ -267,9 +267,9 @@ Mapeamento Sistemático realizado \cite{de2017time}, e demonstraram bons resulta
 aplicar o contexto temporal no algoritmo de recomendação na área educacional (na qual foram encontrados apenas quatro
 trabalhos) e avaliar os resultados.
 
-A escolha do \textit{Decay} se justifica como forma de procurar minimizar uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
+A escolha do Decaimento se justifica como forma de procurar minimizar uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
 Superespecialização. Na abordagem Baseada em Conteúdo as recomendações seriam geradas levando em conta todos os itens
-acessados pelo usuário igualitariamente. Enquanto ao aplicar o \textit{Decay}, os itens acessados mais recentemente possuem um
+acessados pelo usuário igualitariamente. Enquanto ao aplicar o Decaimento, os itens acessados mais recentemente possuem um
 grau de importância maior para o algoritmo do que itens acessados anteriormente. Dessa forma, mesmo que o usuário
 tenha acessado muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
 recomendação consegue rapidamente se adaptar e gerar recomendações sobre esse novo conteúdo.
@@ -293,13 +293,11 @@ para outros alunos. E não foram encontrados nos trabalhos relacionados que most
 personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de forma empírica e
 aplicam o mesmo fator para todos os usuários.
 
-\section{Considerações sobre o capítulo}
-
 O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
-conjunto com o uso do tempo através da categoria \textit{Decay}, ou seja, é dado um peso menor na recomendação para os
+conjunto com o uso do tempo através da categoria Decaimento, ou seja, é dado um peso menor na recomendação para os
 itens acessados há mais tempo pelo usuário e um peso maior para os itens mais recentes. No Sistema de Recomendação (SR)
 proposto é combinada a similaridade entre o perfil do usuário e os itens, a recência dos itens acessados pelo usuário e
-se os links recomendados já foram ou não acessados. O Capítulo \ref{chapter:experimento} apresenta o experimento no qual
+se os itens recomendados já foram ou não acessados. O Capítulo \ref{chapter:experimento} apresenta o experimento no qual
 o algoritmo proposto foi avaliado.
 
 

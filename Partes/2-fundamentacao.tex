@@ -351,15 +351,16 @@ questões de pesquisa. Entre os resultados do mapeamento sistemático desenvolvi
 foi a definição de sete categorias de SRs Sensíveis ao Tempo. Essa categorização foi feita a partir do agrupamento
 dos artigos que utilizam o tempo de forma semelhante. A partir disso, foi possível identificar as sete principais
 formas de utilizar o tempo nos algoritmos de recomendação: \textit{Restriction}, \textit{Micro-profiles}, \textit{Bias},
-\textit{Decay}, \textit{Time Rating}, \textit{Novelty} e \textit{Sequence}. Essas categorias são descritas em detalhes
-nas Subseções \ref{subsection:restriction}-\ref{subsection:sequence}.
+\textit{Decay}, \textit{Time Rating}, \textit{Novelty} e \textit{Sequence}. Essas categorias têm seus nomes originalmente
+criadas em inglês, porém para o \textit{Decay} iremos utilizar Decaimento ou Recência no restante do texto. Essas
+categorias são descritas em detalhes nas Subseções \ref{subsection:restriction}-\ref{subsection:sequence}.
 
 Além disso, os resultados mostraram que as aplicações do Tempo mais comuns são através de \textit{Restriction},
 \textit{Micro-profiles} e \textit{Bias}. O formato do tempo mais utilizado é o contínuo e a dimensão do contexto mais
 utilizada em conjunto com o tempo é a localização. Foi observado também que em cada domínio de aplicação o Tempo costuma ser
 aplicado de forma diferente, e.g., na recomendação de Pontos de Interesse o uso de \textit{Restriction} é mais comum enquanto
 na recomendação de Multimídia o Tempo é mais aplicado através dos \textit{Micro-profiles}. Dentre os 88 artigos analisados,
-apenas quatro são da área educacional e utilizam \textit{Decay} (dois artigos) e \textit{Restriction} (dois artigos).
+apenas quatro são da área educacional e utilizam o Decaimento (dois artigos) e \textit{Restriction} (dois artigos).
 
 \subsection{Restriction}\label{subsection:restriction}
 
@@ -393,11 +394,11 @@ de acertar nos interesses do usuário.
 
 \subsection{Decay}\label{section:decay}
 
-Na categoria \textit{Decay}, o tempo é utilizado como um fator de decaimento na importância das interações do usuário, i.e.,
+Na categoria \textit{Decay} (em português, Decaimento), o tempo é utilizado como um fator de decaimento na importância das interações do usuário, i.e.,
 interações (itens consumidos, avaliações, etc.) mais antigas têm um peso menor para o algoritmo de recomendação do que
 as interações mais atuais. Os algoritmos dessa categoria consideram que o interesse do usuário varia com o tempo e é
 importante considerar que os interesses mais atuais do usuário representam melhor o seu perfil do que interesses mais
-antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com \textit{Decay}, é
+antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com Decaimento, é
 apenas dado um peso menor para essas interações.
 
 \subsection{Time Rating}
@@ -461,7 +462,7 @@ das informações e da estrutura de navegação.
 Para avaliar o desempenho dos algoritmos de recomendação, as métricas (quantitativas) tradicionalmente utilizadas são:
 
 \begin{itemize}
-\item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error}, MAE) e \textit{Root Mean Square Error} (RMSE): utilizadas
+\item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error}) e \textit{Root Mean Square Error}: utilizadas
 para calcular o quão próximas as previsões do algoritmo de recomendação estão da realidade;
 \item Precisão: definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
 \item \textit{Recall}: definida pela divisão do número de itens relevantes recomendados pelo número total de itens
@@ -521,15 +522,16 @@ conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 ques
 
 Nesse capítulo foram apresentados os principais conceitos relacionados a Sistemas de Recomendação (SRs) Sensíveis ao Tempo.
 Foram apresentadas desde as abordagens tradicionais, passando pelos SR Sensíveis Contexto e os seus paradigmas até as
-categorias de SRs Sensíveis ao Tempo definidas em \citeonline{de2017time}.
+categorias de SRs Sensíveis ao Tempo definidas por \citeonline{de2017time}.
 
 Dentre as categorias de SRs Sensíveis ao Tempo apresentadas na Seção \ref{section:sr-sensivel-tempo}, a utilizada por esse
-trabalho é o \textit{Decay}. Nessa categoria é considerado que o interesse do usuário por um item acessado diminui com o passar
+trabalho é o Decaimento. Nessa categoria é considerado que o interesse do usuário por um item acessado diminui com o passar
 do tempo. Neste sentido, considerando que o acesso a um item é um indicativo do interesse do usuário, os itens acessados
 mais recentemente têm um peso maior na identificação dos interesses do usuário, i.e., na definição do perfil do usuário.
 
 Além disso, foram apresentadas as formas de avaliação de um SR como definido por \citeonline{shani2011evaluating}. Neste
-trabalho será utilizada uma avaliação pela perspectiva do usuário, como orientado por \citeonline{pu2012evaluating}. Por isso, é
+trabalho foi utilizado um Estudo com Usuários para a avaliação, utilizando um ambiente real de uso e medindo tanto
+as interações dos alunos com os SRs e a percepção do usuário sobre as recomendações recebidas. Por isso, é
 apresentado o \textit{framework} definido por \citeonline{pu2011user} que busca avaliar a experiência do usuário através de um
 questionário com 60 questões dividas nos quatro construtos do \textit{framework}. Para ser utilizado, é necessário
 selecionar quais das questões serão utilizadas, pois como citado por \citeonline{pu2011user} nem todas as questões se

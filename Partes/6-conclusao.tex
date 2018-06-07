@@ -21,7 +21,7 @@ a recomendação. As sete categorias criadas como resultado do mapeamento são a
 O objetivo desse trabalho é analisar se a aplicação do contexto temporal, através do decaimento, em um sistema de recomendação
 voltado a AVAs influencia o desempenho do algoritmo de recomendação e a percepção do aluno sobre as recomendações
 recebidas. Dentre as categorias de SR Sensíveis ao Tempo presentes na Seção \ref{section:sr-sensivel-tempo}, a proposta
-desse trabalho se encaixa no \textit{Decay}.
+desse trabalho se encaixa no Decaimento.
 
 O algoritmo proposto no Capítulo \ref{chapter:proposta} combina a (1) similaridade do perfil do usuário (representado
 pelos materiais acessados pelo usuário) com os itens disponíveis para a recomendação com a (2) recência dos materiais
@@ -42,7 +42,7 @@ avaliar a percepção do usuário sobre as recomendações recebidas.
 Os dados coletados durante o experimento foram analisados utilizando técnicas estatísticas para verificar se existe
 diferença significativa entre o grupo que utilizou a Abordagem Baseada em Conteúdo Tradicional (AlgoritmoTradicional)
 e o grupo que utilizou a Proposta desse trabalho que considera o Decaimento no interesse nos alunos pelos itens acessados
-anteriormente (AlgoritmoProposta). Os resultados do experimento presentes na Seção \ref{:section:analise-experimento}
+anteriormente (AlgoritmoProposta). Os resultados do experimento presentes na Seção \ref{section:analise-experimento}
 mostraram que o grupo AlgoritmoProposta apresentou resultados estatísticamente melhores que o AlgoritmoTradicional em
 relação à Cobertura e ao F-measure do algoritmo (métricas do desempenho do algoritmo) e em relação à uma das perguntas
 do questionário aplicado (que visava medir a percepção do usuário). Em relação às outras métricas de desempenho e às
@@ -52,6 +52,18 @@ no desempenho do algoritmo e na percepção do usuário entre os dois algoritmos
 a proposta desse trabalho. Com esses resultados, pode-se responder à questão de pesquisa desse trabalho afirmando que
 considerar o Decaimento do interesse do aluno em relação aos itens acessados anteriormente influencia positivamente
 tanto o desempenho do algoritmo quanto a percepção do usuário sobre isso.
+
+Os principais resultados desse trabalho foram:
+
+\begin{itemize}
+\item A categorização dos SRs Sensíveis ao Tempo em sete formas distintas de utilizar o tempo em um SR e que representam
+os estudos na área, independente do domínio de aplicação.
+\item A concepção de um algoritmo que utiliza a categoria do Decaimento para o Contexto Educacional.
+\item A avaliação da proposta do trabalho utilizando Decaimento em um experimento com usuários reais em um Ambiente Educacional,
+comparando a proposta com uma das Abordagens Tradicionais de Recomendação através do desempenho do algoritmo e da percepção
+dos usuários sobre as recomendações. Esse tipo de avaliação não é comumente realizada na área, como pode ser visto nos
+trabalhos relacionados.
+\end{itemize}
 
 Como outros resultados desse trabalho tem-se as seguintes publicações:
 
@@ -76,5 +88,6 @@ algoritmo considera que o interesse do aluno por um determinado item acessado di
 
 Aplicar do algoritmo proposto nesse trabalho em outros domínios de aplicação e analisar se o resultado alcançado é o mesmo,
 utilizando-se de hipóteses e análises similares às feitas aqui, é também possível como trabalhos futuros para comparar
-com o resultado alcançado na área educacional. Além disso, é possível propor outros algoritmos utilizando outras categorias
-de SRs Sensíveis ao Tempo e comparar com o algoritmo Com Decaimento para ver qual deles é mais adequado para a área educacional.
+com o resultado alcançado na área educacional. Além disso, analisar as outras categorias de SRs Sensíveis ao Tempo e
+propor algoritmos para aplicação na área educacional, combinando com o Decaimento ou não, é outra proposta de trabalho
+futuro.
