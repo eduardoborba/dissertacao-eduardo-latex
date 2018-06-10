@@ -147,6 +147,27 @@ melhore o seu tempo de processamento.
   }
 \end{algorithm}
 
+Na Figura \ref{fig:modelo-proposta} está um diagrama que mostra a aplicação do SR proposto. A primeira etapa para que a
+recomendação aconteça é o usuário interagir com a Aplicação, no caso um Ambiente Virtual de Aprendizagem (AVA). Ao
+acessar os itens o usuário está montando o seu perfil e auxiliando o SR a encontrar os itens para a recomendação.
+Na segunda etapa, a aplicação salva os itens acessados pelo usuário no banco de dados, de forma que essa informação possa
+ser utilizada pelo SR. Durante essa etapa, é calculada a posição do item acessado, contando quantos itens já foram acessados
+pelo usuário até o momento, e salva juntamente com o restante das informações.
+
+\begin{figure}[htb]
+  \caption{\label{fig:modelo-proposta}Diagrama do funcionamento da proposta desse trabalho}
+  \begin{center}
+      \includegraphics[scale=0.4]{./Figuras/modelo-proposta.png}
+  \end{center}
+  \legend{Fonte: O autor.}
+\end{figure}
+
+Na terceira etapa o SR busca as informações necessárias para a recomendação, tanto sobre os itens acessados pelo usuário quanto
+sobre os conjunto de itens que podem ser recomendados. Sobre os itens acessados, o SR precisa das palavras-chave e a posição
+dos itens. Sobre os itens a serem recomendados, o SR precisa das palavras-chave e se aqueles itens
+já foram acessados pelo usuário ou não. Após buscar essas informações, o SR aplica o algoritmo mostrado anteriormente
+para gerar as recomendações e retorna para a Aplicação. A última etapa é responsabilidade da Aplicação, que prepara as
+recomendações para serem visualizadas pelo usuário e as apresenta para ele.
 
 \section{Cenário de Uso}
 
@@ -181,7 +202,7 @@ que nenhum item recomendado tenha sido acessado).
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
   Similaridade & $1.0$ & $0.0$ & $0.0$ & $0.0$ \\
   \hline
@@ -207,7 +228,7 @@ o algoritmo passará a dar uma importância maior a itens relacionados a esse se
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
   Similaridade & $0.7$ & $0.3$ & $0.0$ & $0.0$ \\
   \hline
@@ -234,7 +255,7 @@ relacionados a pilhas para recapitular os conteúdos. O comportamento do algorit
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Retornos} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
   \hline
   Similaridade & $0.75$ & $0.25$ & $0.0$ & $0.0$ \\
   \hline
@@ -289,9 +310,9 @@ acessou alguns materiais todos os dias durante o curso.
 Além disso, no algoritmo proposto nesse trabalho não é definido um fator de decaimento único para os todos os usuários como nos trabalhos
 relacionados apresentados no Capítulo \ref{chapter:trabalhos-relacionados}. Isto porque é necessário considerar
 que cada aluno tem um estilo de aprendizagem diferente e o decaimento para um aluno poderia ser diferente do decaimento
-para outros alunos. E não foram encontrados nos trabalhos relacionados que mostrem um modelo para calcular o fator de decaimento de forma
-personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de forma empírica e
-aplicam o mesmo fator para todos os usuários.
+para outros alunos. Vale ressaltar que não foram encontrados nos trabalhos relacionados que mostrem para calcular o fator
+de decaimento de forma personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de
+forma empírica e aplicam o mesmo fator para todos os usuários.
 
 O algoritmo proposto utiliza a abordagem Baseada em Conteúdo em
 conjunto com o uso do tempo através da categoria Decaimento, ou seja, é dado um peso menor na recomendação para os

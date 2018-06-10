@@ -144,7 +144,7 @@ itens que os dois usuários avaliaram.
 Com o aumento da quantidade de usuários e de itens, torna-se um desafio para a Filtragem Colaborativa Usuário-Usuário
 realizar uma recomendação, principalmente pela dificuldade de identificar a vizinhança com tantos usuários
 \cite{jannach2010recommender}. A estratégia Item-Item é uma solução para ser utilizada nesse contexto, permitindo a
-computação das similaridades a acontecer \textit{off-line} (JANNACH et al., 2011). A ideia principal da estratégia Item-Item
+computação das similaridades a acontecer \textit{offline} (JANNACH et al., 2011). A ideia principal da estratégia Item-Item
 é prever a nota que o usuário daria para um item com base nas notas que ele deu para itens semelhantes àquele. Para
 essa estratégia, o cálculo da similaridade pelo Cosseno, semelhante ao já citado, é uma métrica padrão e a que
 apresenta os melhores resultados \cite{jannach2010recommender}. Esse cálculo da similaridade, ao invés de comparar
@@ -464,12 +464,12 @@ Para avaliar o desempenho dos algoritmos de recomendação, as métricas (quanti
 \begin{itemize}
 \item Erro Absoluto Médio (do inglês \textit{Mean Absolute Error}) e \textit{Root Mean Square Error}: utilizadas
 para calcular o quão próximas as previsões do algoritmo de recomendação estão da realidade;
-\item Precisão: definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
+\item Precisão (do inglês \textit{Precision}): definida pela divisão do número de itens relevantes recomendados pelo número total de itens recomendados;
 \item \textit{Recall}: definida pela divisão do número de itens relevantes recomendados pelo número total de itens
 relevantes existentes;
 \item Cobertura (do inglês \textit{Coverage}): definida pela união de todas a listas de recomendação geradas (i.e., todos os itens
 distintos recomendados) pela quantidade de itens disponíveis no sistema. Também chamada de Cobertura do Catálogo \cite{ge2010beyond};
-\item \textit{F-measure}: definida pela média harmônica entre Precisão e Recall.
+\item \textit{F-measure}: definida pela média harmônica entre Precisão e \textit{Recall}.
 \end{itemize}
 
 A avaliação dos SRs é comumente realizada através de experimentos, comparando dois ou mais algoritmos de recomendação. A

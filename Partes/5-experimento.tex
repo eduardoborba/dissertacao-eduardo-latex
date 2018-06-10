@@ -65,19 +65,19 @@ Na Seção \ref{subsection:estrutura-adaptweb} foi apresentada a estrutura do am
 de materiais para cada conteúdo. Além disso, existe uma outra categoria chamada Links de Apoio com o propósito de ser um
 material auxiliar e que pode ser recomendado a qualquer momento para o usuário.
 
-Fazendo uma relação da estrutura do \adaptwebspace com o algoritmo proposto no Capítulo \ref{chapter:proposta}, os itens de
-das categorias Conceito, Materiais Complementares e os próprios Links de Apoio serão considerados para a composição do perfil do usuário. Todos os
-materiais acessados em cada uma das categorias é representado através das palavras-chave, e
+Fazendo uma relação da estrutura do \adaptwebspace com o algoritmo proposto no Capítulo \ref{chapter:proposta}, os itens
+das categorias Conceito, Materiais Complementares e os próprios Links de Apoio são considerados para a composição do
+perfil do usuário. Todos os materiais acessados em cada uma das categorias é representado através das palavras-chave, e
 essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material. Já para os itens
-recomendados, apenas os Links de Apoio serão utilizados.
+recomendados, apenas os Links de Apoio são utilizados.
 
 Como no ambiente \adaptwebspace as palavras-chave para o itens podem ser cadastradas pelo professor da disciplina, não será
 utilizada nenhuma técnica para captura automática das palavras-chave. Para a representação dos materiais envolvidos no
 processo de recomedanção (i.e., Conceitos, Materiais Complementares e Links de Apoio) foi criado um Dicionário de Palavras-Chave
 com as possíveis palavras a ser utilizadas. Esse Dicionário foi essencial para o funcionamento do SR, pois garante que as
-palavras-chave presentes nos materiais que são similares também serão similares. Isso evita a necessidade de lidar com palavras-chave
-sinônimas ou a variação de singular e plural, já que as palavras-chave que podem ser utilizadas para representar os materiais
-são restritas às presentes no dicionário.
+palavras-chave presentes nos materiais que são similares também serão similares. Isso também evita a necessidade de lidar
+com palavras-chave sinônimas ou a variação de singular e plural, já que as palavras-chave que podem ser utilizadas para
+representar os materiais são restritas às presentes no dicionário.
 
 O Dicionário completo pode ser visto no Apêndice \ref{ape:dicionario-palavras-chave}. A criação do Dicionário foi validado
 por um aluno do Mestrado em Ensino de Ciências, Matemática e Tecnologias que também é professor da disciplina de
@@ -103,7 +103,7 @@ do ambiente; (3) Interface das recomendações; (4) Mapa da disciplina; (5) Ajud
 quaisquer itens que sejam da categoria Conceito e Materiais Complementares, assim que o SR possuir itens relevantes para recomendar.
 
 \begin{figure}[htb]
-  \caption{\label{fig:adaptweb-proposta-recomendacao}Proposta de Interface de Recomendação}
+  \caption{\label{fig:adaptweb-proposta-recomendacao}Tela do Ambiente de Aula com as Áreas em Destaque}
   \begin{center}
       \includegraphics[scale=0.4]{./Figuras/interface-recomendacao.png}
   \end{center}
@@ -162,12 +162,13 @@ Baseada em Conteúdo tradicional e a proposta desse trabalho.
 \end{itemize}
 
 O experimento foi realizado através do Minicurso de Algoritmos e Linguagem de Programação, o qual teve seu design
-instrucional realizado por \citeonline{santos2017addie}. Foram convidados a participar alunos de todos os cursos do
-Centro de Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC), sendo que todos os cursos do
-CCT possuem essa disciplina na grade curricular. Os convites foram realizados em todas as salas das disciplinas de
-Algoritmos, Algoritmos e Linguagem de Programação, Linguagem de Programação e Iniciação a Ciência da
-Computação. Além disso, foi enviado um convite para todos os alunos do campus por e-mail através da Assessoria de
-Comunicação e foi divulgado na página do Facebook da UDESC Joinville.
+instrucional realizado por \citeonline{santos2017addie}. Foram convidados a participar alunos dos cursos do
+Centro de Ciências Tecnológicas (CCT) da Universidade do Estado de Santa Catarina (UDESC) que possuem essa disciplina na
+grade curricular, i.e.: Bacharelado em Ciência da Computação, Tecnólogo em Análise e Desenvolvimento de Sistemas, Engenharia
+Elétrica, Engenharia Civil, Engenheria Mecânica, Engenharia da Produção, Matemática e Física. Os convites foram
+realizados diretamente nas salas das disciplinas de Algoritmos, Algoritmos e Linguagem de Programação, Linguagem de
+Programação e Iniciação a Ciência da Computação. Além disso, foi enviado um convite para todos os alunos do campus por
+e-mail através da Assessoria de Comunicação e foi divulgado na página do Facebook da UDESC Joinville.
 
 Os usuários que se matricularam no Minicurso foram aleatoriamente divididos em dois grupos, da forma mais igualitária possível
 pelos seguintes critérios: Professor, Curso, Sexo e Idade. Isso foi possível
@@ -259,11 +260,13 @@ pelos alunos da Proposta.
 
 \section{Execução}\label{section:execucao-experimento}
 
-O período de matrícula para o minicurso foi de 09 de Abril de 2018 até 13 de Abril de 2018. Durante esse período, todas as turmas
-das disciplinas mencionadas na Seção \ref{subsection:definicao-experimento} foram visitadas, convidando os alunos a se matricular no minicurso.
+O período de matrícula para o minicurso foi de 09 de Abril de 2018 até 13 de Abril de 2018. Durante esse período, todas
+as turmas das disciplinas mencionadas na Seção \ref{subsection:definicao-experimento} foram visitadas, convidando os
+alunos a se matricular no minicurso. O apoio dos professores das disciplinas foi essencial nessa etapa.
 
-No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos (AlgoritmoTradicional
-e AlgoritmoProposta) utilizando os seguintes critérios: Professor, Curso, Sexo e Idade. A Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
+No total, 208 alunos se matricularam no Minicurso. Esses alunos foram homogeneamente divididos em dois grupos
+(AlgoritmoTradicional e AlgoritmoProposta) utilizando os seguintes critérios: Professor, Curso, Sexo e Idade. A
+Tabela \ref{tab:divisao-alunos-experimento} mostra o resultado da divisão dos alunos.
 
 \begin{table}[h]
 \footnotesize
@@ -451,17 +454,17 @@ podemos afirmar que o algoritmo Com Decaimento tem uma Cobertura melhor que a al
 mostra que a Proposta desse trabalho ajuda a diminuir o problema da Superespecialização presente na abordagem Tradicional.
 
 Como visto na Seção \ref{section:fundamentacao-avaliacao-sr}, o \textit{F-measure} é calculado como a média harmônica entre
-a Precisão e o Recall do algoritmo. Essa métrica é interessante para garantir que o algoritmo não diminua o Recall
-para aumentar a Precisão, e vice-versa. Como no experimento realizado o Recall não pode ser determinado, pois não
+a Precisão e o \textit{Recall} do algoritmo. Essa métrica é interessante para garantir que o algoritmo não diminua o \textit{Recall}
+para aumentar a Precisão, e vice-versa. Como no experimento realizado o \textit{Recall} não pode ser determinado, pois não
 é possível saber todos os itens relevantes existentes para cada usuário (essa métrica é mais comum em experimentos
-\textit{offline}), nesse trabalho foi utilizado a Cobertura no cálculo do \textit{F-measure} ao invés do Recall.
+\textit{offline}), nesse trabalho foi utilizado a Cobertura no cálculo do \textit{F-measure} ao invés do \textit{Recall}.
 Com isso podemos mostrar se o algoritmo Proposto teve uma melhor Cobertura que a abordagem Tradicional sem diminuir
 a sua Precisão. A análise foi realizada utilizando os 85 alunos que acessaram pelo menos uma recomendação e o valor médio
 dessa métrica proposta foi de 0,13852 para o grupo AlgoritmoTradicional e de 0,21719 o grupo AlgoritmoProposta.
 O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal e portanto o Teste de
 Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois grupos. Esse teste mostrou que
 existe diferença significativa entre os dois grupos e portanto podemos afirmar que F-measure, com a Cobertura ao invés
-do Recall, teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso mostra
+do \textit{Recall}, teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso mostra
 que o uso do Decaimento aumentou a Cobertura do algoritmo sem influenciar negativamente outros aspectos, como a Precisão.
 
 Como a Cobertura e F-measure deram diferença significativa, podemos aceitar a hipótese alternativa definida
