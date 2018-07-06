@@ -22,7 +22,8 @@ Onde: $F$ é a função que calcula a relevância de um item $i$ para um usuári
 o perfil do usuário $u$ (representado através de conjunto de palavras-chave dos itens acessados) e o item $i$
 (representado pelo conjunto de palavras-chave que o caracterizam); $R$ é o maior valor de recência dos itens do conjunto
 $I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o item $i$); $A$ é uma função que retorna $1$
-se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado.
+se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado.  O valor da relevância
+varia entre zero (menor relevância) e dois (maior relevância), e os itens com maior valor de $F$ serão recomendados.
 
 A função $S$ de similaridade entre o usuário $u$ e o item $i$ pode ser calculada utilizando funções de similaridade como
 o Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo Decaimento, está definida na Equação
@@ -41,26 +42,17 @@ recência considerando apenas um item, que pode ser estendida para o uso com vá
 fórmula acima.
 
 Considerando um usuário $u$ que acessou três itens A, B e C com as seguintes posições: Item A - posição 2, Item B - posição 1 e
-Item C - posição 3. As equações \ref{eq:recencia-item-a}, \ref{eq:recencia-item-b} e \ref{eq:recencia-item-c} apresentam o resultado do cálculo de recência para cada um dos itens:
+Item C - posição 3. Supondo que o item candidato $i$ a ser recomendado seja similar aos itens B e C, a Recência desse item, calculada
+utilizando a equação apresentada anteriormente, seria $1.0$ como pode ser vista na Equação \ref{eq:recencia-item-candidato}.
 
 \begin{equation}
-  R(A) = \max{\frac{2}{3}} = 0.\overline{6}
-  \label{eq:recencia-item-a}
-\end{equation}
-
-\begin{equation}
-  R(B) = \max{\frac{1}{3}} = 0.\overline{3}
-  \label{eq:recencia-item-b}
-\end{equation}
-
-\begin{equation}
-  R(C) = \max{\frac{3}{3}} = 1.0
-  \label{eq:recencia-item-c}
+  R(i) = \max{(\frac{1}{3}, \frac{3}{3})} = 1.0
+  \label{eq:recencia-item-candidato}
 \end{equation}
 
 No Algoritmo \ref{alg:proposta-pseudocodigo} é possível observar o pseudocódigo do algoritmo proposto. Nesse algoritmo
 estão representadas em mais alto nível as etapas da recomendação. Primeiramente, são buscados no banco de dados os itens acessados
-pelo usuário e os itens candidatos a recomendação. Os itens candidatos a recomendação podem ser todos os itens disponíveis
+pelo usuário e os itens candidatos à recomendação. Os itens candidatos à recomendação podem ser todos os itens disponíveis
 no ambiente ou um subconjunto de itens, de acordo com a necessidade da aplicação.
 
 O cálculo da recência para cada item do perfil do usuário é feito também na fase de inicialização, pois esse cálculo só
@@ -68,6 +60,7 @@ precisa ser realizado uma vez. Depois disso, para cada item candidato a ser reco
 similaridade do perfil do usuário (composto pelas palavras-chave dos itens acessados por ele) com as palavras-chave do item
 candidato. Além disso, é buscada a lista de itens acessados pelo usuário que são similares ao item candidato. Nessa etapa, também é
 encontrado o Item Acessado pelo usuário mais recente que é similar ao item candidato, para utilizar o seu valor de recência no cálculo da Relevância.
+O cálculo da Relevância para o item candidato é realizado utilizando a Equação \ref{eq:relevancia-proposta}.
 
 \begin{algorithm}
   \caption{Pseudocódigo do Algoritmo de Recomendação Proposto. \label{alg:proposta-pseudocodigo}}
@@ -95,9 +88,6 @@ encontrado o Item Acessado pelo usuário mais recente que é similar ao item can
     \Return relevâncias.max(5)\;
   }
 \end{algorithm}
-
-O cálculo da Relevância para o item candidato é realizado utilizando a Equação \ref{eq:relevancia-proposta}. Os cinco
-itens com a maior Relevância são retornados pelo algoritmo para serem recomendados ao usuário.
 
 No Algoritmo \ref{alg:calcular-recencia-pseudocodigo} é demonstrado o cálculo da recência para cada um dos itens do perfil do
 usuário, que é utilizado pelo Algoritmo \ref{alg:proposta-pseudocodigo} descrito anteriormente. Para esse cálculo, o próprio registro
@@ -147,12 +137,13 @@ melhore o seu tempo de processamento.
   }
 \end{algorithm}
 
-Na Figura \ref{fig:modelo-proposta} está um diagrama que mostra a aplicação do SR proposto. A primeira etapa para que a
-recomendação aconteça é o usuário interagir com a Aplicação, no caso um Ambiente Virtual de Aprendizagem (AVA). Ao
-acessar os itens o usuário está montando o seu perfil e auxiliando o SR a encontrar os itens para a recomendação.
-Na segunda etapa, a aplicação salva os itens acessados pelo usuário no Banco de Dados, de forma que essa informação possa
-ser utilizada pelo SR. Durante essa etapa, é calculada a posição do item acessado, contando quantos itens já foram acessados
-pelo usuário até o momento, e salva juntamente com o restante das informações.
+Na Figura \ref{fig:modelo-proposta} está um diagrama que mostra o funcionamento do SR proposto. As duas primeiras etapas envolvem
+a interação do usuário com a Aplicação, no caso um Ambiente Virtual de Aprendizagem (AVA), com o objetivo de permitir ao
+SR montar o perfil para o usuário, identificando seus interesses e necessidades. A primeira etapa é a ação do usuário de
+acessar algum item dentro da aplicação. Na segunda etapa, a aplicação salva os itens acessados pelo usuário no
+Banco de Dados, de forma que essa informação possa ser utilizada pelo SR. Durante essa etapa, é calculada a posição do
+item acessado, a partir da quantidade de itens que já foram acessados pelo usuário até o momento, e salva juntamente
+com o restante das informações.
 
 \begin{figure}[htb]
   \caption{\label{fig:modelo-proposta}Diagrama do funcionamento da proposta desse trabalho}
@@ -162,12 +153,13 @@ pelo usuário até o momento, e salva juntamente com o restante das informaçõe
   \legend{Fonte: O autor.}
 \end{figure}
 
-Na terceira etapa o SR busca do Banco de Dados as informações necessárias para a recomendação, tanto sobre os itens acessados pelo usuário quanto
-sobre os conjunto de itens que podem ser recomendados. Sobre os itens acessados, o SR precisa das palavras-chave e a posição
-dos itens. Sobre os itens a serem recomendados, o SR precisa das palavras-chave e se aqueles itens
-já foram acessados pelo usuário ou não. Após buscar essas informações, o SR aplica o algoritmo mostrado anteriormente
-para gerar as recomendações, salva as recomendações geradas no Banco de Dados e retorna para a Aplicação. A última etapa é responsabilidade da Aplicação, que prepara as
-recomendações para serem visualizadas pelo usuário e as apresenta para ele.
+Na terceira etapa, o SR busca do Banco de Dados as informações necessárias para a recomendação, tanto sobre os itens
+acessados pelo usuário quanto sobre os conjunto de itens que podem ser recomendados. Sobre os itens acessados, o SR
+precisa das palavras-chave e a posição dos itens. Sobre os itens a serem recomendados, o SR precisa das palavras-chave
+e se aqueles itens já foram acessados pelo usuário ou não. Após buscar essas informações, o SR aplica o algoritmo
+mostrado anteriormente para gerar as recomendações, salva as recomendações geradas no Banco de Dados e retorna para a
+Aplicação. A última etapa é responsabilidade da Aplicação, que prepara as recomendações para serem visualizadas pelo
+usuário e as apresenta para ele.
 
 \section{Cenário de Uso}
 
@@ -180,7 +172,7 @@ Pedro acessou apenas materiais relacionados a Pilhas. O algoritmo de recomendaç
 Conteúdo recomenda para Pedro apenas materiais relacionados a Pilhas. Após a primeira prova, Pedro começa a acessar
 materiais relacionados a Filas, o segundo tópico da disciplina. Em uma abordagem Baseada em Conteúdo tradicional as
 recomendações continuariam sendo sobre o conteúdo de Pilhas por um bom tempo, pois o perfil de Pedro seria em grande
-parte composto por materiais acessados sobre esse assunto. Porém, com o uso do \textbf{Decay}, no momento em que Pedro começar a
+parte composto por materiais acessados sobre esse assunto. Porém, com o uso do \textbf{Decaimento}, no momento em que Pedro começar a
 acessar materiais sobre Filas o algoritmo de recomendação dará um peso maior para esses materiais (sem ignorar os itens
 acessados anteriormente) e em pouco tempo Pedro já estará recebendo recomendações sobre o novo tópico estudado. Da mesma
 forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conceito, o SR também perceberá isso e
@@ -188,9 +180,9 @@ recomendará itens relacionados ao primeiro conteúdo novamente.}
 
 Agora é apresentado em mais detalhe o comportamento do algoritmo proposto no cenário de uso apresentado.
 Ao estudar o primeiro assunto da disciplina, Pedro acessa os conteúdos relacionados a Pilhas e no seu perfil
-o SR formará o seu perfil com vários itens representados pela palavras-chave ''Pilha''. O SR, ao gerar uma recomendação,
+o SR formará o seu perfil com vários itens representados pela palavras-chave ``Pilha''. O SR, ao gerar uma recomendação,
 irá encontrar um valor de similaridade alto entre o perfil do usuário e os itens candidatos a recomendação que também possuam
-a palavra-chave ''Pilha''. Como todos os itens do perfil do usuário nesse momento tem a palavra-chave ''Pilha'', a recência não
+a palavra-chave ``Pilha''. Como todos os itens do perfil do usuário nesse momento tem a palavra-chave ``Pilha'', a recência não
 terá um impacto importante nesse momento, pois independente do item que for mais recente, a recomendação será a mesma. Na
 Tabela \ref{tab:cenario-de-uso-1} é possível observar de forma resumida o comportamento do algoritmo (estamos considerando
 que nenhum item recomendado tenha sido acessado).
@@ -243,9 +235,9 @@ o algoritmo passará a dar uma importância maior a itens relacionados a esse se
 \end{table}
 
 É possível observar na Tabela \ref{tab:cenario-de-uso-2} que, mesmo o perfil do usuário sendo ainda mais similar a itens
-com a palavra-chave ''Pilha'', o impacto da Recência no algoritmo fez com a Relevância dos itens relacionados a filas
+com a palavra-chave ``Pilha'', o impacto da Recência no algoritmo fez com a Relevância dos itens relacionados a filas
 seja maior e, dessa forma, esses itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens
-relacionados a pilhas para recapitular os conteúdos. O comportamento do algoritmo nesse caso é apresentado na Tabela
+relacionados a pilhas para recapitular os conteúdos, o comportamento do algoritmo nesse caso é apresentado na Tabela
 \ref{tab:cenario-de-uso-3}.
 
 \begin{table}[h]
@@ -290,9 +282,9 @@ trabalhos) e avaliar os resultados.
 
 A escolha do Decaimento se justifica como forma de procurar minimizar uma das grandes desvantagens da abordagem Baseada em Conteúdo: a
 Superespecialização. Na abordagem Baseada em Conteúdo as recomendações seriam geradas levando em conta todos os itens
-acessados pelo usuário igualitariamente. Enquanto ao aplicar o Decaimento, os itens acessados mais recentemente possuem um
+acessados pelo usuário igualitariamente. Por outro lado, ao aplicar o Decaimento, os itens acessados mais recentemente possuem um
 grau de importância maior para o algoritmo do que itens acessados anteriormente. Dessa forma, mesmo que o usuário
-tenha acessado muitos materiais sobre determinado assunto, ao começar a acessar materiais sobre outro assunto o algoritmo de
+tenha acessado muitos materiais sobre determinado assunto, quando o usuário começar a acessar materiais sobre, outro assunto o algoritmo de
 recomendação consegue rapidamente se adaptar e gerar recomendações sobre esse novo conteúdo.
 
 O algoritmo proposto nesse trabalho considera o decaimento no peso dos itens do perfil do usuário em função da posição

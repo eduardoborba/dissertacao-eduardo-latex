@@ -76,13 +76,13 @@ aprendizagem pervasivos. Esse modelo utiliza uma abordagem híbrida (baseada em 
 com uma personalização pelo contexto. Três tipos de contexto são definidos:
 
 \begin{enumerate}
-\item Contexto do aluno, que possui as seguintes dimensões: tipo de dispositivo, ambiente (localização), perfil
-(informações pessoais como nome e afiliação), preferências (recursos pelo qual o aluno tem interesse), processo de
+\item contexto do aluno, que possui as seguintes dimensões: tipo de dispositivo, ambiente (localização), perfil
+(informações pessoais, como nome e afiliação), preferências (recursos pelos quais o aluno tem interesse), processo de
 aprendizagem (histórico de materiais acessados), pedido de acesso (a recursos educacionais massivos).
-\item Contexto do serviço, que possui as seguintes dimensões: ambiente (localização), perfil (nome, parâmetros,
+\item contexto do serviço, que possui as seguintes dimensões: ambiente (localização), perfil (nome, parâmetros,
 retornos), QoS (parâmetros de qualidade do serviço, como carga de trabalho, reputação, disponibilidade, segurança, etc.).
-\item Contexto do recurso, que segue o \textit{China ELearning Technology Standard} que define as dimensões de um recurso
-educacional. Esse padrão define as dimensões como sendo: perfil (informações sobre o recurso como Título, Assunto,
+\item contexto do recurso, que segue o \textit{China ELearning Technology Standard} que define as dimensões de um recurso
+educacional. Esse padrão define as dimensões como sendo: perfil (informações sobre o recurso, como Título, Assunto,
 Palavras-chave), criador (nome, organização), audiência (tipo de educação, nível de ensino).
 \end{enumerate}
 
@@ -123,8 +123,8 @@ A etapa de \textit{Logic-based Resource Relevant Degree} combina o conjunto de r
 descritos, removendo da lista os recursos já acessados pelo usuário.
 
 Na etapa de \textit{Situation-based Resource Relevant Degree} é considerado que mesmo um recurso que combine com as preferências
-do usuário pode não ser adequados para a recomendação se o contexto do usuário (dispositivo, ambiente) não for adequado
-para utilizar o recurso. Para isso, no contexto dos recursos é descrito quais os dispositivos no qual a utilização do
+do usuário pode não ser adequado para a recomendação se o contexto do usuário (dispositivo, ambiente) não for adequado
+para utilizar o recurso. Para isso, no contexto dos recursos são descritos quais os dispositivos nos quais a utilização do
 recurso é adequada e no contexto do usuário é descrito qual o dispositivo do usuário. Também é considerado o grau de
 satisfação no tempo para acessar um determinado recurso. Isso pode ser calculado pelo tamanho do recurso e a velocidade
 de internet do usuário. Combinando essas duas características é possível ter uma recomendação mais adequada a situação
@@ -403,12 +403,12 @@ a proposta desse trabalho.
 
 Pode-se observar que dos trabalhos relacionados, apenas um é da área educacional, enquanto os outros são aplicados em outros
 domínios de aplicação. Além disso, nenhum dos trabalhos apresentados utiliza a abordagem Baseada em Conteúdo. A
-abordagem mais comumente utilizada nos trabalhos relacionados é a Filtragem Colaborativa, aparecendo em sozinha em três trabalhos
+abordagem mais comumente utilizada nos trabalhos relacionados é a Filtragem Colaborativa, aparecendo sozinha em três trabalhos
 e em mais dois outros trabalhos combinada com outras abordagens (i.e., Abordagem Híbrida).
 
 Dos trabalhos relacionados, apenas um não considera uma Constante de decaimento. Essa Constante de decaimento geralmente
 é um valor entre $0$ e $1$ que define a velocidade com que o peso das interações do usuário diminui. Esse valor é definido
-pelos autores de forma empírica, não tendo um método para a definição dessa constante. No trabalho de \citeonline{qiao2015personalized},
+pelos autores de forma empírica, não havendo um método para a definição dessa constante. No trabalho de \citeonline{qiao2015personalized},
 que não utiliza uma Constante de decaimento, é utilizada um função exponencial para o decaimento do interesse do usuário. Na
 proposta do presente trabalho também não utiliza uma Constante de decaimento e é utilizada um função de decaimento linear.
 
@@ -422,12 +422,12 @@ Sobre a avaliação, pode-se observar que a maioria utiliza uma avaliação \tex
 uma simulação para demonstrar o algoritmo de recomendação, que não se encaixa em nenhuma das formas de avaliação
 previstas por \citeonline{shani2011evaluating}. O trabalho de \citeonline{luo2010context}, que é da área educacional assim como a
 proposta desse trabalho, utiliza uma avaliação \textit{offline} com a base do Movielens\footnote{Base de dados com
-notas dadas por usuários à filmes. Disponível em: https://grouplens.org/datasets/movielens/.}.
+notas dadas por usuários a filmes. Disponível em: https://grouplens.org/datasets/movielens/.}.
 Essa avaliação, apesar de ser realizada de forma correta e apresentar bons resultados, não garante que o SR desenvolvido por \citeonline{luo2010context}
-teria um bom resultado em um ambiente real de uso. Por isso, nesse trabalho foi realizada uma avaliação com
+teria um bom resultado em um ambiente real de uso. Por isso, no presente trabalho foi realizada uma avaliação com
 participação de usuários em um ambiente educacional durante uma situação real de uso.
 
-Na avaliação realizada nesse trabalho, o objetivo é comparar o algoritmo proposto neste trabalho com a abordagem Baseada
+Na avaliação realizada no presente trabalho, o objetivo é comparar o algoritmo proposto com a abordagem Baseada
 em Conteúdo tradicional. É possível observar pelos trabalhos relacionados que comparar a proposta com os algoritmos mais
 tradicionais da área é algo comumente realizado \cite{fan2015modeling, luo2010context, hawalah2014utilizing, qiao2015personalized, wei2013web}.
 
