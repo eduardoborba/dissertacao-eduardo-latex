@@ -146,7 +146,7 @@ item acessado, a partir da quantidade de itens que já foram acessados pelo usu�
 com o restante das informações.
 
 \begin{figure}[htb]
-  \caption{\label{fig:modelo-proposta}Diagrama do funcionamento da proposta desse trabalho}
+  \caption{\label{fig:modelo-proposta}Diagrama de metáfora de sistema}
   \begin{center}
       \includegraphics[scale=0.4]{./Figuras/modelo-proposta.png}
   \end{center}
@@ -179,13 +179,13 @@ forma, se Pedro voltar a acessar conteúdos anteriores para relembrar algum conc
 recomendará itens relacionados ao primeiro conteúdo novamente.}
 
 Agora é apresentado em mais detalhe o comportamento do algoritmo proposto no cenário de uso apresentado.
-Ao estudar o primeiro assunto da disciplina, Pedro acessa os conteúdos relacionados a Pilhas e no seu perfil
+Ao estudar o primeiro assunto da disciplina, Pedro acessa conteúdos relacionados a Pilhas e no seu perfil
 o SR formará o seu perfil com vários itens representados pela palavras-chave ``Pilha''. O SR, ao gerar uma recomendação,
-irá encontrar um valor de similaridade alto entre o perfil do usuário e os itens candidatos a recomendação que também possuam
+irá encontrar um valor de similaridade alto entre o perfil do usuário e itens que também possuam
 a palavra-chave ``Pilha''. Como todos os itens do perfil do usuário nesse momento tem a palavra-chave ``Pilha'', a recência não
-terá um impacto importante nesse momento, pois independente do item que for mais recente, a recomendação será a mesma. Na
+terá um impacto importante nesse momento, pois todos os itens similares ao perfil do usuário terão a mesma recência. Na
 Tabela \ref{tab:cenario-de-uso-1} é possível observar de forma resumida o comportamento do algoritmo (estamos considerando
-que nenhum item recomendado tenha sido acessado).
+que nenhum item candidato a recomendação tenha sido acessado).
 
 \begin{table}[h]
 \footnotesize
@@ -194,7 +194,7 @@ que nenhum item recomendado tenha sido acessado).
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Item relacionado a pilhas} & \textbf{Item relacionado a filas} & \textbf{Item relacionado a listas} & \textbf{Item relacionado a árvores} \\
   \hline
   Similaridade & $1.0$ & $0.0$ & $0.0$ & $0.0$ \\
   \hline
@@ -208,10 +208,10 @@ que nenhum item recomendado tenha sido acessado).
 \legend{Fonte: O autor.}
 \end{table}
 
-Como é possível ver na Tabela \ref{tab:cenario-de-uso-1}, os itens relacionados a pilhas terão uma maior
-Relevância e serão os itens recomendados. A partir do momento que o usuário comece a acessar itens relacionados a filas,
-o algoritmo passará a dar uma importância maior a itens relacionados a esse segundo tópico. Na Tabela
-\ref{tab:cenario-de-uso-2} é possível observar o comportamento do algoritmo nesse caso.
+Como é possível ver na Tabela \ref{tab:cenario-de-uso-1}, o item relacionado a pilhas terá uma maior
+Relevância e será o item recomendado. A partir do momento que o usuário comece a acessar itens relacionados a filas,
+o algoritmo passará a dar uma importância maior a itens relacionados a esse segundo tópico devido à recência desse tópico
+para o perfil do usuário. Na Tabela \ref{tab:cenario-de-uso-2} é possível observar o comportamento do algoritmo nesse caso.
 
 \begin{table}[h]
 \footnotesize
@@ -220,7 +220,7 @@ o algoritmo passará a dar uma importância maior a itens relacionados a esse se
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Item relacionado a pilhas} & \textbf{Item relacionado a filas} & \textbf{Item relacionado a listas} & \textbf{Item relacionado a árvores} \\
   \hline
   Similaridade & $0.7$ & $0.3$ & $0.0$ & $0.0$ \\
   \hline
@@ -234,10 +234,10 @@ o algoritmo passará a dar uma importância maior a itens relacionados a esse se
 \legend{Fonte: O autor.}
 \end{table}
 
-É possível observar na Tabela \ref{tab:cenario-de-uso-2} que, mesmo o perfil do usuário sendo ainda mais similar a itens
-com a palavra-chave ``Pilha'', o impacto da Recência no algoritmo fez com a Relevância dos itens relacionados a filas
-seja maior e, dessa forma, esses itens sejam recomendados. Supondo que o aluno Pedro decida voltar a acessar itens
-relacionados a pilhas para recapitular os conteúdos, o comportamento do algoritmo nesse caso é apresentado na Tabela
+É possível observar na Tabela \ref{tab:cenario-de-uso-2} que, mesmo o perfil do usuário sendo ainda mais similar ao item
+com a palavra-chave ``Pilha'', o impacto da Recência no algoritmo fez com a Relevância do item relacionado a filas
+fosse maior e, dessa forma, esse item seja recomendado. Supondo que o aluno Pedro decida voltar a acessar itens
+relacionados a pilhas, para recapitular os conteúdos, o comportamento do algoritmo nesse caso é apresentado na Tabela
 \ref{tab:cenario-de-uso-3}.
 
 \begin{table}[h]
@@ -247,7 +247,7 @@ relacionados a pilhas para recapitular os conteúdos, o comportamento do algorit
 \centering
 \begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
   \hline
-  \textbf{Funções} & \textbf{Itens relacionados a pilhas} & \textbf{Itens relacionados a filas} & \textbf{Itens relacionados a listas} & \textbf{Itens relacionados a árvores} \\
+  \textbf{Funções} & \textbf{Item relacionado a pilhas} & \textbf{Item relacionado a filas} & \textbf{Item relacionado a listas} & \textbf{Item relacionado a árvores} \\
   \hline
   Similaridade & $0.75$ & $0.25$ & $0.0$ & $0.0$ \\
   \hline
@@ -261,10 +261,10 @@ relacionados a pilhas para recapitular os conteúdos, o comportamento do algorit
 \legend{Fonte: O autor.}
 \end{table}
 
-Como pode ser observado na Tabela \ref{tab:cenario-de-uso-3}, algoritmo percebe que o aluno voltou a um tópico já estudado anteriormente e
-voltaria a recomendar itens relacionados a isso. Como o perfil do aluno é composto ainda por muitos itens relacionados ao tópico
-de Pilhas acessado primeiramente, ao voltar a acessar esses itens o algoritmo voltará a recomendar esses itens
-ao aluno.
+Como pode ser observado na Tabela \ref{tab:cenario-de-uso-3}, algoritmo percebe que o aluno voltou a um tópico já
+estudado anteriormente e voltaria a recomendar itens relacionados a isso. Como o perfil do aluno é composto ainda por
+muitos itens relacionados ao tópico de Pilhas acessados primeiramente, ao voltar a acessar esses itens a relevância do item
+relacionado a pilhas voltará a ser maior que o restante.
 
 \section{Discussão Sobre o Algoritmo Proposto}
 
@@ -273,8 +273,8 @@ possível em um AVA onde as turmas muitas vezes são menores (entre 10 e 100 alu
 em Conteúdo é considerada para o SR proposto porque essa abordagem permite a recomendação em um sistema que não possui uma
 comunidade ativa e pode suprir as necessidades desse domínio.
 
-Os SRs Sensíveis ao Tempo têm uma vantagem em relação a outros SRs Sensíveis ao Contexto por a informação temporal ser
-mais simples de capturar e manipular que outras informações contextuais, e.g., localização. Além disso, esses tipos de
+Os SRs Sensíveis ao Tempo têm uma vantagem em relação a outros SRs Sensíveis ao Contexto porque a informação temporal é
+mais simples de capturar, manipular e processar que outras informações contextuais, e.g., localização. Além disso, esses tipos de
 algoritmos estão sendo explorados em outros domínios de aplicação, como pode ser visto nos 88 artigos analisados no
 Mapeamento Sistemático realizado \cite{de2017time}, e demonstraram bons resultados. Por isso, esse trabalho busca
 aplicar o contexto temporal no algoritmo de recomendação na área educacional (na qual foram encontrados apenas quatro

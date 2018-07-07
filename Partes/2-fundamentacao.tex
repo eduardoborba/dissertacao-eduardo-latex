@@ -366,21 +366,21 @@ apenas quatro são da área educacional e utilizam o Decaimento (dois artigos) e
 
 Na categoria \textit{Restriction}, o tempo é utilizado para restringir que itens serão utilizados. Isso significa que o SR
 compara variáveis de tempo relacionadas aos itens e ao usuário para restringir quais itens irão aparecer na lista de
-recomendações. Existe pelo menos duas formas de restrição para se utilizar: (1) o SR compara o tempo disponível pelo
-usuário com o tempo necessário para consumir um determinado item, e.g., a duração dos filmes que serão recomendados e
-o tempo que o usuário tem até o seu próximo compromisso; (2) o SR compara o tempo atual (data e hora) com o horário de
-funcionamento dos itens que serão recomendados, e.g., na recomendação de restaurantes onde só faz sentido recomendar
-locais que estejam servindo no momento.
+recomendações. Duas formas identificadas durante o mapeamento para se aplicar a restrição na recomendação são: (1) o SR
+compara o tempo disponível pelo usuário com o tempo necessário para consumir um determinado item, e.g., a duração dos
+filmes que serão recomendados e o tempo que o usuário tem até o seu próximo compromisso; (2) o SR compara o tempo
+atual (data e hora) com o horário de funcionamento dos itens que serão recomendados, e.g., na recomendação de restaurantes
+onde só faz sentido recomendar locais que estejam servindo no momento.
 
 \subsection{Micro-profile}
 
 Na categoria \textit{Micro-Profile}, o usuário possui perfis distintos para cada período de tempo. Nessa categoria, o tempo
-deve ser utilizado de forma categórica, onde as categorias que serão utilizadas dependem da aplicação onde for aplicada.
+deve ser utilizado de forma categórica, onde as categorias que serão utilizadas dependem da aplicação.
 É possível, por exemplo, que o usuário possua um perfil para dias da semana e outro perfil para finais de semana, ou
 então um perfil para a manhã, outro para a tarde e outro para a noite. O objetivo é que as recomendações serão
 realizadas considerando apenas as interações do usuário que aconteceram no mesmo contexto temporal em que ele está no
 momento, e.g., recomendar programas de TV para o usuário em um domingo a noite considerando apenas quais programas ele
-costuma acessar em um domingo a noite.
+costuma assistir em um domingo a noite.
 
 \subsection{Bias}
 
@@ -515,7 +515,7 @@ conjunto de questões aplicado pode ser reduzido para um subconjunto com 15 ques
   \begin{center}
       \includegraphics[scale=0.4]{./Figuras/resque-framework-traduzido.png}
   \end{center}
-  \legend{Fonte: \citeonline{pu2011user}}
+  \legend{Fonte: Tradução de \citeonline{pu2011user}}
 \end{figure}
 
 \section{Considerações sobre o capítulo}
