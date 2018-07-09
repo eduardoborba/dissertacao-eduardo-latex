@@ -21,8 +21,9 @@ usuários. A função de decaimento de um item $k$ é definida na Equação \ref
   f(t_{i,k}, t_{j,k}) = e^{-\alpha \left|t_{atual} - \Delta t \right|}
 \end{equation}
 
-Onde: $\alpha$ é o fator de decaimento; e $\Delta t$ é a variação de tempo combinando o acesso do usuários $u_i$ e $u_j$
-e é calculada com a fórmula apresentada na Equação \ref{eq:fan-fator-decaimento}.
+Onde: $t_{i,k}$ e $t_{j,k}$ são os tempos no qual os usuários $u_i$ e $u_j$ invocaram o serviço $k$; $\alpha$ é o fator
+de decaimento; e $\Delta t$ é a variação de tempo combinando o acesso do usuários $u_i$ e $u_j$ e é calculada com a
+fórmula apresentada na Equação \ref{eq:fan-fator-decaimento}.
 
 \begin{equation}
   \label{eq:fan-fator-decaimento}
@@ -55,14 +56,14 @@ similaridade é possível calcular a similaridade entre os usuários e encontrar
 A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
 eles estão, mais similares eles são considerados.
 
-Foram realizados experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos: Recomendação
+Os autores realizaram experimentos com a base de dados WS-Dream comparando o algoritmo proposto com outros 6 algoritmos: Recomendação
 considerando todos os usuários (RBA), Filtragem Colaborativa Usuário-Usuário utilizando a Correlação de Pearson (UPCC),
 Filtragem Colaborativa Item-Item utilizando a Correlação de Pearson (IPCC), \textit{Context-Aware Service Recommender}
 (CASR), Método que considera a preferência do usuário de acordo com a sua localização (CASR-UP) e UPCC que considera o
 decaimento (ITRP-WS). A avaliação foi realizada utilizando uma estratégia \textit{offline} e as métricas utilizadas para
 a comparação foram MAE e RMSE.
 
-Primeiramente foi realizado um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
+Primeiramente os autores realizaram um experimento verificando a influência dos paramêtros dos algoritmos. Esses parâmetros são
 considerados para decidir quais são os itens considerados significantes, ou seja, depois de calculada nota prevista para
 os itens, decidir qual o limite mínimo para que um item seja recomendado. O segundo experimento avaliou a influência da
 proporção da base de treino e de teste no experimento. E por último, para os algoritmos que utilizavam a Filtragem
@@ -87,7 +88,7 @@ Palavras-chave), criador (nome, organização), audiência (tipo de educação, 
 \end{enumerate}
 
 O modelo de recomendação proposto pode ser dividido em dois passos: \textit{Logic-Based Resource Relevant Degree} e
-\textit{Situation-Based Recourse Relevant Degree}.
+\textit{Situation-Based Resource Relevant Degree}.
 
 Na etapa do \textit{Logic-based Resource Relevant Degree} é feita uma análise do histórico de recursos acessados pelo aluno e as
 suas preferências. Esse passo combina a abordagem baseada em conteúdo, filtragem colaborativa e os padrões sequenciais
@@ -170,7 +171,7 @@ As ações são modeladas através de um conjunto de regras. As regras são defi
 usuário e são representadas pelos antecedentes (em que situação a regra se aplica) e a consequência (a ação associada
 aquela situação). As regras também possuem um decaimento na convicção com o passar o tempo. Porém, nesse caso o
 decaimento não é constante, como acontece para o decaimento da convicção do contexto do usuário. Para as regras, o fator
-de decaimento é calculado para que a convicção não chegue a zero com muita ao acontecer um longo período sem observações.
+de decaimento é calculado para que a convicção não chegue a zero ao acontecer um longo período sem observações.
 
 Combinando as convicções nas regras criadas com as convicções no contexto do usuário, são encontradas as ações com
 maior probabilidade de serem adequadas. O modelo de recomendação considera não apenas a última observação, mas sim uma

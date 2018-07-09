@@ -71,21 +71,21 @@ O cálculo da Relevância para o item candidato é realizado utilizando a Equaç
 
   \algoritmoRecomendacaoDecay{$(Usuário)$}{
     \Input{Usuário que irá receber a recomendação.}
-    \Output{Lista com cinco itens recomendados para o usuário.}
+    \Output{Lista com a relevância dos itens candidatos a recomendação}
     \tcc{Inicialização}
     itens = buscarItensCandidatos()\;
     itensAcessados = buscarItensAcessados(Usuário)\;
     recênciaItensAcessados = calcularRecência(itensAcessados)\;
-    relevâncias = \{\}\;
+    relevância = \{\}\;
     \tcc{Computação das recomendações}
     \ForEach{$item \in itens$}{
       similaridade = calcularSimilaridade(itensAcessados, item)\;
       itensSimilares = buscarItensSimilares(itensAcessados, item)\;
       recência = calcularMaxRecência(itensSimilares, recênciaItensAcessados)\;
-      relevâncias[item] = similaridade * recência + itensAcessados.inclui?(item)\;
+      relevância[item] = similaridade * recência + itensAcessados.inclui?(item)\;
     }
 
-    \Return relevâncias.max(5)\;
+    \Return relevância\;
   }
 \end{algorithm}
 
@@ -109,14 +109,14 @@ melhore o seu tempo de processamento.
   \calcularRecencia{$(itensAcessados)$}{
     \Input{Lista de registros de acesso do usuário.}
     \Output{Vetor Associativo onde as chaves são os itens acessados pelo usuário e os valores são as recências calculadas para esses itens.}
-    recênciaItensAcessados = \{\}\;
-    quantidadeItensAcessados = itensAcessados.tamanho()\;
+    recência = \{\}\;
+    quantidadeItensAcessados = contar(itensAcessados)\;
 
     \ForEach{$itemAcessado \in itensAcessados$}{
-      recênciaItensAcessados[item] = itemAcessado.posição() / quantidadeItensAcessados\;
+      recência[itemAcessado] = itemAcessado.posição / quantidadeItensAcessados\;
     }
 
-    \Return recênciaItensAcessados\;
+    \Return recência\;
   }
 \end{algorithm}
 
@@ -131,9 +131,9 @@ melhore o seu tempo de processamento.
     \Input{Lista de itens similares ao item candidato a recomendação e vetor associativo com a recência calculada para cada item do perfil do usuário.}
     \Output{Valor máximo de recência entre itens similares.}
 
-    recênciaItensSimilares = recênciaItensAcessados.find(itensSimilares)\;
+    recênciaItensSimilares = recênciaItensAcessados.filtrar(itensSimilares)\;
 
-    \Return recênciaItensSimilares.max(1)\;
+    \Return max(recênciaItensSimilares)\;
   }
 \end{algorithm}
 
