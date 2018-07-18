@@ -11,9 +11,9 @@ O trabalho de \citeonline{fan2015modeling} realiza a recomendação de \textit{w
 através da medição do \textit{Quality of Service} (QoS). QoS considera características do serviço como tempo de resposta,
 disponibilidade, taxa de serviço, etc. Os autores consideram que a capacidade de prever a qualidade de um serviço diminui
 conforme o tempo que passou da última invocação desse serviço, devido a possíveis encerramentos do serviço, falhas na
-rede, etc. Por isso, a recomendação de serviços dos autores combina técnicas de similaridade com uma função de
-decaimento que considera que a QoS diminui com o passar do tempo. O modelo de decaimento proposto considera que as
-invocações mais recentes de dois usuários a um serviço devem ter um impacto maior no cálculo da similaridade entre os
+rede, etc. Por isso, a recomendação de serviços dos autores combina a similaridade entre os serviços invocados
+pelos usuários com uma função de decaimento que considera que a QoS diminui com o passar do tempo em um algoritmo de Filtragem
+Colaborativa. O modelo de decaimento proposto considera que as invocações mais recentes de dois usuários a um serviço devem ter um impacto maior no cálculo da similaridade entre os
 usuários. A função de decaimento de um item $k$ é definida na Equação \ref{eq:fan-funcao-decaimento}.
 
 \begin{equation}
@@ -41,7 +41,8 @@ A nota do serviço $k$ é considerada como a combinação do QoS com a função 
   r_{u_i, s_k, t} = r_{u_i, s_k} \cdot f(t_{i,k}, t_{j,k})
 \end{equation}
 
-Os autores utilizam a nota resultado da função apresentada anteriormente para calcular a similaridade dos itens utilizando
+Onde $r_{u_i, s_k}$ é o QoS do serviço $k$ na sua última invocação e $r_{u_i, s_k, t}$ representa o QoS considerando o decaimento
+desde a sua última invocação. Os autores utilizam a nota resultado da função apresentada anteriormente para calcular a similaridade dos itens utilizando
 o coeficiente de Pearson. A Equação \ref{eq:fan-similaridade} apresenta o coeficiente de Pearson utilizado pelos autores
 que considera a função de decaimento.
 
@@ -50,8 +51,10 @@ que considera a função de decaimento.
   sim(u_1, u_j, t) = \frac{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})(r_{u_j, s_k, t} - \overline{r_{u_j}})}}{\sum_{s_k \in w_{u_i, u_j}}{(r_{u_i, s_k, t} - \overline{r_{u_i}})}^2 \sum_{s_k \in w_{u_i, u_j}}{(r_{u_j, s_k, t} - \overline{r_{u_j}})}^2}
 \end{equation}
 
-Onde $w_{u_i, u_j}$ é um conjunto dos itens em comum invocados pelos usuários $u_i$ e $u_j$. Utilizando essa fórmula de
-similaridade é possível calcular a similaridade entre os usuários e encontrar os que são mais similares.
+Onde $\overline{r_{u_i}}$ representa a média do QoS dos serviços invocados pelo usuário $u_i$, $\overline{r_{u_j}}$
+representa a média do QoS dos serviços invocados pelo usuários $u_j$ e $w_{u_i, u_j}$ é o conjunto dos itens em comum
+invocados pelos usuários $u_i$ e $u_j$. Utilizando essa fórmula de similaridade é possível calcular a similaridade entre
+os usuários e encontrar os que são mais similares.
 
 A proposta dos autores considera também a localização desses usuários para calcular a similaridade. Quanto mais próximos
 eles estão, mais similares eles são considerados.
@@ -253,7 +256,7 @@ contextuais disponíveis em dispositivos móveis, como tempo, localização, tip
 recomendação é genérico, ou seja, sem um domínio de aplicação definido.
 
 O objetivo dos autores é combinar a Filtragem Colaborativa com o contexto do usuário, considerando a variação temporal
-nos interesses do usuário. Para tal, são encontrados os k usuários com os interesses similares ao usuário atual,
+nos seus interesses. Para tal, são encontrados os k usuários com os interesses similares ao usuário atual,
 considerando o contexto do usuário, através de técnicas de clusterização. Após encontrados os k vizinhos, utiliza-se
 uma fórmula para a predição das notas para itens ainda não acessados pelo usuário com a incorporação de uma função
 temporal, como apresentado na Equação \ref{eq:qiao-predicao}. Os itens com as notas previstas mais altas são
@@ -261,18 +264,18 @@ recomendados ao usuário.
 
 \begin{equation}
   \label{eq:qiao-predicao}
-  p_{u,i} = \overline{r_u} + \frac{\sum_{v \in U}{sim(u, v)(r_{u,i} - \overline{r_v})f(t_{ni})}}{\sum_{v \in U}{sim(u, v)f(t_{ni})}}
+  p_{u,i} = \overline{r_u} + \frac{\sum_{v \in U}{sim(u, v)(r_{v,i} - \overline{r_v})f(t_{v,i})}}{\sum_{v \in U}{sim(u, v)f(t_{v,i})}}
 \end{equation}
 
 Sendo $p_{u,i}$ a nota prevista do usuário $u$ para o item $i$, $\overline{r_u}$ a média das notas dadas pelos usuário
-$u$, $sim(u, v)$ a similaridade entre o usuário $u$ e o seu vizinho $v$, $r_{u,i}$ o grau de interesse do usuário $u$
-pelo item $i$, $t$ é o tempo passado desde que o usuário $u$ utilizou o item $i$. A função $f$ é a função
-exponencial de decaimento que representa a diminuição do interesse do usuário por um determinado item. A função de
-decaimento é definida na Equação \ref{eq:qiao-funcao-decaimento}.
+$u$, $sim(u, v)$ a similaridade entre o usuário $u$ e o seu vizinho $v$, $r_{v,i}$ o grau de interesse do usuário $u$
+pelo item $i$, $\overline{r_v}$ é a média das notas dadas pelo usuário $v$ e $t_{v,i}$ é o tempo passado desde que o
+usuário $v$ utilizou o item $i$. A função $f(t_{v,i})$ é uma função exponencial de decaimento que representa a diminuição do
+interesse do usuário por um determinado item. A função de decaimento é definida na Equação \ref{eq:qiao-funcao-decaimento}.
 
 \begin{equation}
   \label{eq:qiao-funcao-decaimento}
-  f(t_{ni}) = e^{-t_{ni}}
+  f(t_{v,i}) = e^{-t_{v,i}}
 \end{equation}
 
 A avaliação desse algoritmo foi realizada utilizando a base do MovieLens – 100 K, através da métrica MAE. Quando
