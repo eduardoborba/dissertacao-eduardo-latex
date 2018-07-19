@@ -13,7 +13,7 @@ as análises realizadas no uso do Sistema de Recomendação (SR) e no questioná
 
 Essa seção explica em mais detalhes o ambiente \adaptweb, o Minicurso de Algoritmos e Linguagem de Programação utilizado
 para o experimento, as mudanças propostas para o ambiente para a realização do experimento e os detalhes do experimento
-realizado, tais como as hipóteses do experimento e os critérios para divisão dos alunos nos dois grupos.
+realizado, tais como as hipóteses do experimento e os critérios para divisão dos alunos em dois grupos.
 
 \subsection{Descrição do Ambiente \adaptweb}
 
@@ -69,7 +69,9 @@ Fazendo uma relação da estrutura do \adaptwebspace com o algoritmo proposto no
 das categorias Conceito, Materiais Complementares e os próprios Links de Apoio são considerados para a composição do
 perfil do usuário. Todos os materiais acessados em cada uma das categorias é representado através das palavras-chave, e
 essas palavras-chave farão parte do perfil do aluno a partir do momento em que este acessar o material. Já para os itens
-recomendados, apenas os Links de Apoio são utilizados.
+recomendados, apenas os Links de Apoio são utilizados. Isto porque os itens das outras categorias são estruturados pelo professor para serem acessados em determinada
+ordem e estão fortemente relacionados à conceitos específicos, enquanto os Links de Apoio são conteúdos extras da disciplina
+e podem ser acessados a qualquer momento.
 
 Como no ambiente \adaptwebspace as palavras-chave para o itens podem ser cadastradas pelo professor da disciplina, não será
 utilizada nenhuma técnica para captura automática das palavras-chave. Para a representação dos materiais envolvidos no
@@ -190,8 +192,8 @@ fazer com que os alunos fiquem engajados no curso. As Intervenções são \texti
 que guiam os alunos no seu estudo e também propõem desafios para os estudantes. As Intervenções propostas por \citeonline{santos2017addie}
 consideram o Minicurso com uma duração de dois meses, por isso foi necessário uma adaptação dessas Intervenções para o período
 mais reduzido no qual foi realizado esse experimento. As Intervenções de \citeonline{santos2017addie}, com as adaptações
-necessárias como data de início do experimento, podem
-ser vistar no Anexo \ref{ane:intervencoes} e os Desafios postados no Fórum de Discussão estão presentes no Apêndice \ref{ane:desafios}.
+necessárias como data de início do experimento, podem ser vistas no Anexo \ref{ane:intervencoes} e os Desafios postados
+no Fórum de Discussão estão presentes no Anexo \ref{ane:desafios}.
 
 \subsection{Teste piloto}\label{section:planejamento-teste-piloto}
 
@@ -254,9 +256,9 @@ mais uma variável independente ao experimento. Como trabalho futuro é possíve
 similaridade pode afetar a qualidade percebida das recomendações.
 
 Ao final do Teste Piloto foi realizada uma pequena entrevista com os participantes onde eles afirmaram ter entendido
-a interface do SR. Quando revelado que cada participante existiam dois SRs e que duas pessoas estavam usando a abordagem
+a interface do SR. Quando revelado a existência de dois SRs e que duas pessoas estavam usando a abordagem
 Tradicional e os outros dois estavam usando a proposta do trabalho, os participantes associaram essa informação com os
-comentários que feitos sobre da Superespecialização, pelos alunos da abordagem Tradicional, e a novidade nas recomendações,
+comentários feitos sobre da Superespecialização, pelos alunos da abordagem Tradicional, e a novidade nas recomendações,
 pelos alunos da Proposta.
 
 \section{Execução}\label{section:execucao-experimento}
@@ -440,7 +442,7 @@ itens distintos que foram recomendados para o usuário durante todo o minicurso.
 0 e 1, onde um valor próximo de 0 indica que poucos dos itens recomendados foram acessados e um valor próximo de 1
 mostra que a maioria dos itens recomendados foram acessados, independente da quantidade de vezes que um item foi
 acessado e da quantidade de vezes que o item foi recomendado. A média da Precisão para o grupo AlgoritmoTradicional foi
-0,49679 e para o AlgoritmoProposta foi 0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distruibuição dos
+0,49679 e para o AlgoritmoProposta foi 0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distribuição dos
 dados da Precisão é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre as
 precisão calculada para cada algoritmo.
 
@@ -574,7 +576,7 @@ Baseada em Conteúdo tradicional e a proposta desse trabalho'' e a diferença si
 \subsection{Questão Discursiva sobre o SR}\label{subsection:questao-aberta}
 
 Juntamente com o questionário de satisfação, foi colocada um questão discursiva para alunos com a seguinte pergunta:
-``Você utilizou o Sistema de Recomendação? Se sim, cite os pontos positivos e negativos desse sistema.''. Dos 85 alunos
+``Você utilizou o Sistema de Recomendação? Se sim, cite os pontos positivos e negativos desse sistema.'' Dos 85 alunos
 que responderam à essa questão, 60 disseram não ter utilizado ou ter utilizado muito pouco o SR
 e não citaram nenhum ponto positivo ou negativo, sendo 36 do grupo AlgoritmoTradicional
 e 24 do grupo AlgoritmoProposta. Dois alunos do grupo AbordagemTradicional disseram
@@ -687,7 +689,7 @@ experimento, que poderia ter resultados mais conclusivos se mais alunos tivessem
 
 A qualidade dos Links de Apoio cadastrados no ambiente \adaptwebspace é uma ameaça à validade do experimento, pois podem
 influenciar a percepção dos alunos sobre o SR positiva ou negativamente. Além disso, os Links de Apoio foram encontrados
-por pessoas que não são professores da disciplina de Algoritmos e podem não serem totalmente adequados para alunos do Minicurso.
+por pessoas que não são professores da disciplina de Algoritmos e podem não ser totalmente adequados para alunos do Minicurso.
 A representação dos Links de Apoio e dos demais itens do Minicurso através do Dicionário de Palavras criado também
 podem ser uma ameaça à validade do resultado desse experimento, pois influenciaram diretamente nas recomendações geradas
 para os alunos.
@@ -731,7 +733,7 @@ sobre a sua experiência ao interagir com o SR, que foi adaptado do conjunto de 
 responderam ao questionário.
 
 Foram analisados os dados de acesso e avaliações das recomendações pelos alunos e da geração de recomendações pelos dois
-algroitmos. Na análise da Cobertura e do F-measure o AlgoritmoProposta teve resultado estatisticamente melhor que
+algoritmos. Na análise da Cobertura e do F-measure o AlgoritmoProposta teve resultado estatisticamente melhor que
 o AlgoritmoTradicional. Isso mostra que a proposta desse trabalho ajudou a diminuir o problema da Superespecialização
 presente na Abordagem Baseada em Conteúdo Tradicional, aumentando a Cobertura do método sem impactar negativamente na
 Precisão e na  Percepção do Usuário. Para as outras métricas, como quantidade de links acessados e precisão do

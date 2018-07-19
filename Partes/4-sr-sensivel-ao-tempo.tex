@@ -22,11 +22,13 @@ Onde: $F$ é a função que calcula a relevância de um item $i$ para um usuári
 o perfil do usuário $u$ (representado através de conjunto de palavras-chave dos itens acessados) e o item $i$
 (representado pelo conjunto de palavras-chave que o caracterizam); $R$ é o maior valor de recência dos itens do conjunto
 $I_{u,i}$ (itens acessados pelo usuário $u$ e com alguma similaridade com o item $i$); $A$ é uma função que retorna $1$
-se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado.  O valor da relevância
+se o item $i$ nunca foi acessado pelo usuário $u$ e $0$ se o item já foi acessado, porque o algoritmo considera que os
+itens não acessados pelo usuário tendem a ser mais relevantes para ele do que os itens já acessados. O valor da relevância
 varia entre zero (menor relevância) e dois (maior relevância), e os itens com maior valor de $F$ serão recomendados.
 
 A função $S$ de similaridade entre o usuário $u$ e o item $i$ pode ser calculada utilizando funções de similaridade como
-o Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). A função de recência $R$, responsável pelo Decaimento, está definida na Equação
+o Jaccard ou Cosseno (ver Seção \ref{subsection:baseada-em-conteudo}). No experimento realizado nesse trabalho, é utilizado
+o Cosseno. A função de recência $R$, responsável pelo Decaimento, está definida na Equação
 \ref{eq:recencia-proposta}.
 
 \begin{equation}
@@ -58,9 +60,10 @@ no ambiente ou um subconjunto de itens, de acordo com a necessidade da aplicaç�
 O cálculo da recência para cada item do perfil do usuário é feito também na fase de inicialização, pois esse cálculo só
 precisa ser realizado uma vez. Depois disso, para cada item candidato a ser recomendado para o usuário, é calculada a
 similaridade do perfil do usuário (composto pelas palavras-chave dos itens acessados por ele) com as palavras-chave do item
-candidato. Além disso, é buscada a lista de itens acessados pelo usuário que são similares ao item candidato. Nessa etapa, também é
+candidato. Além disso, é realizada a busca da lista de itens acessados pelo usuário que são similares ao item candidato. Nessa etapa, também é
 encontrado o Item Acessado pelo usuário mais recente que é similar ao item candidato, para utilizar o seu valor de recência no cálculo da Relevância.
-O cálculo da Relevância para o item candidato é realizado utilizando a Equação \ref{eq:relevancia-proposta}.
+Por fim, a função $nãoAcessado?$ retorna $0$ se o item já foi acessado e $1$ caso contrário e esses valores são utilizados para
+o cálculo da Relevância para o item candidato, que é realizado utilizando a Equação \ref{eq:relevancia-proposta}.
 
 \begin{algorithm}
   \caption{Pseudocódigo do Algoritmo de Recomendação Proposto. \label{alg:proposta-pseudocodigo}}
@@ -82,7 +85,7 @@ O cálculo da Relevância para o item candidato é realizado utilizando a Equaç
       similaridade = calcularSimilaridade(itensAcessados, item)\;
       itensSimilares = buscarItensSimilares(itensAcessados, item)\;
       recência = calcularMaxRecência(itensSimilares, recênciaItensAcessados)\;
-      relevância[item] = similaridade * recência + itensAcessados.inclui?(item)\;
+      relevância[item] = similaridade * recência + nãoAcessado?(item)\;
     }
 
     \Return relevância\;
@@ -180,7 +183,7 @@ recomendará itens relacionados ao primeiro conteúdo novamente.}
 
 Agora é apresentado em mais detalhe o comportamento do algoritmo proposto no cenário de uso apresentado.
 Ao estudar o primeiro assunto da disciplina, Pedro acessa conteúdos relacionados a Pilhas e no seu perfil
-o SR formará o seu perfil com vários itens representados pela palavras-chave ``Pilha''. O SR, ao gerar uma recomendação,
+o SR formará o seu perfil com vários itens representados pela palavra-chave ``Pilha''. O SR, ao gerar uma recomendação,
 irá encontrar um valor de similaridade alto entre o perfil do usuário e itens que também possuam
 a palavra-chave ``Pilha''. Como todos os itens do perfil do usuário nesse momento tem a palavra-chave ``Pilha'', a recência não
 terá um impacto importante nesse momento, pois todos os itens similares ao perfil do usuário terão a mesma recência. Na
@@ -261,7 +264,7 @@ relacionados a pilhas, para recapitular os conteúdos, o comportamento do algori
 \legend{Fonte: O autor.}
 \end{table}
 
-Como pode ser observado na Tabela \ref{tab:cenario-de-uso-3}, algoritmo percebe que o aluno voltou a um tópico já
+Como pode ser observado na Tabela \ref{tab:cenario-de-uso-3}, o algoritmo percebe que o aluno voltou a um tópico já
 estudado anteriormente e voltaria a recomendar itens relacionados a isso. Como o perfil do aluno é composto ainda por
 muitos itens relacionados ao tópico de Pilhas acessados primeiramente, ao voltar a acessar esses itens a relevância do item
 relacionado a pilhas voltará a ser maior que o restante.
@@ -294,15 +297,15 @@ educacional o passar do tempo não é tão relevante quanto em outros domínios,
 exemplo.
 
 Os alunos em um AVA podem ter ritmos de estudo diferentes e, por isso, é assumido nesse trabalho que faz
-mais sentido analisar quantos itens foram acessados desde do acesso de determinado material do que o tempo passado desde
+mais sentido analisar quantos itens foram acessados desde o acesso de determinado material do que o tempo passado desde
 a interação. Dessa forma, esse algoritmo não considera se o usuário acessou todos os itens do seu perfil em um
 único dia, ou se ele acessou metade do materiais na primeira semana do curso e a outra metade na última semana ou se ele
 acessou alguns materiais todos os dias durante o curso.
 
-Além disso, no algoritmo proposto nesse trabalho não é definido um fator de decaimento único para os todos os usuários como nos trabalhos
+Além disso, no algoritmo proposto nesse trabalho não é definido um fator de decaimento único para todos os usuários como nos trabalhos
 relacionados apresentados no Capítulo \ref{chapter:trabalhos-relacionados}. Isto porque é necessário considerar
 que cada aluno tem um estilo de aprendizagem diferente e o decaimento para um aluno poderia ser diferente do decaimento
-para outros alunos. Vale ressaltar que não foram encontrados nos trabalhos relacionados que mostrem para calcular o fator
+para outros alunos. Vale ressaltar que não foram encontrados nos trabalhos relacionados referências que mostrem como calcular o fator
 de decaimento de forma personalizada para cada usuário. Em geral, os autores utilizam o fator de decaimento escolhido de
 forma empírica e aplicam o mesmo fator para todos os usuários.
 

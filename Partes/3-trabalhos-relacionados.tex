@@ -351,7 +351,11 @@ comparação de similaridade entre dois itens, como pode ser visto a seguir na E
   s_{i,j}(t) = \frac{\sum_{u \in U_i^t \cap U_j^t}{(f_{ui}^\alpha(t) \cdot r_{ui})(f_{uj}^\alpha(t) \cdot r_{uj})}}{\sqrt{\sum_{u \in U_i^t}{(f_{ui}^\alpha(t) \cdot r_{ui})}^2 \sum_{u \in U_j^t}{(f_{uj}^\alpha(t) \cdot r_{uj})}^2}}
 \end{equation}
 
-Onde a função $f$ é definida pelos autores como relevância temporal do item e pode ser vista na Equação \ref{eq:wei-relevancia-temporal}
+Onde $s_{i,j}(t)$ é a similaridade entre os itens $i$ e $j$, $U_i^t$ é o conjunto de usuários que avaliaram o item $i$ no
+tempo $t$, $U_j^t$ é o conjunto de usuários que avaliaram o item $j$ no tempo $t$, a função $f_{ui}^\alpha$ é definida
+pelos autores como relevância temporal do item e pode ser vista na Equação \ref{eq:wei-relevancia-temporal} e $r_{ui}$ e
+$r_{uj}$ são as avaliações do usuário $u$ para os itens $i$ e $j$.
+
 
 \begin{equation}
   \label{eq:wei-relevancia-temporal}
@@ -414,7 +418,9 @@ Dos trabalhos relacionados, apenas um não considera uma Constante de decaimento
 é um valor entre $0$ e $1$ que define a velocidade com que o peso das interações do usuário diminui. Esse valor é definido
 pelos autores de forma empírica, não havendo um método para a definição dessa constante. No trabalho de \citeonline{qiao2015personalized},
 que não utiliza uma Constante de decaimento, é utilizada um função exponencial para o decaimento do interesse do usuário. Na
-proposta do presente trabalho também não utiliza uma Constante de decaimento e é utilizada um função de decaimento linear.
+proposta do presente trabalho também não utiliza uma Constante de decaimento, pois é um fator que ainda requer estudos para
+verificar qual o valor e ideal e esse não é o objetivo desse trabalho. Na proposta deste trabalho é utilizada uma função de decaimento linear,
+por ser a função mais simples que poderia ser utilizada.
 
 Também é possível observar que apenas um trabalho não utiliza o Tempo absoluto na função de decaimento. Isso significa que
 a maioria dos trabalhos relacionados considera o tempo passado (e.g., em segundos, minutos, horas, etc.) desde a interação
@@ -427,9 +433,9 @@ uma simulação para demonstrar o algoritmo de recomendação, que não se encai
 previstas por \citeonline{shani2011evaluating}. O trabalho de \citeonline{luo2010context}, que é da área educacional assim como a
 proposta desse trabalho, utiliza uma avaliação \textit{offline} com a base do Movielens\footnote{Base de dados com
 notas dadas por usuários a filmes. Disponível em: https://grouplens.org/datasets/movielens/.}.
-Essa avaliação, apesar de ser realizada de forma correta e apresentar bons resultados, não garante que o SR desenvolvido por \citeonline{luo2010context}
-teria um bom resultado em um ambiente real de uso. Por isso, no presente trabalho foi realizada uma avaliação com
-participação de usuários em um ambiente educacional durante uma situação real de uso.
+Com essa avaliação, apesar de ser realizada de forma correta e apresentar bons resultados, não é possível afirmar que o
+SR desenvolvido por \citeonline{luo2010context} teria um bom resultado em um ambiente educacional, porque os dados utilizados
+não são da área educacional. No presente trabalho foi realizada uma avaliação com participação de usuários em um ambiente educacional durante uma situação real de uso.
 
 Na avaliação realizada no presente trabalho, o objetivo é comparar o algoritmo proposto com a abordagem Baseada
 em Conteúdo tradicional. É possível observar pelos trabalhos relacionados que comparar a proposta com os algoritmos mais
