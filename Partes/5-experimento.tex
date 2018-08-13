@@ -81,11 +81,76 @@ palavras-chave presentes nos materiais que são similares também serão similar
 com palavras-chave sinônimas ou a variação de singular e plural, já que as palavras-chave que podem ser utilizadas para
 representar os materiais são restritas às presentes no dicionário.
 
-O Dicionário completo pode ser visto no Apêndice \ref{ape:dicionario-palavras-chave}. A criação do Dicionário foi realizada
+O Dicionário completo pode ser visto na Tabela \ref{tab:dicionario-palavras-chave}. A criação do Dicionário foi realizada
 em conjunto com um aluno do Mestrado em Ensino de Ciências, Matemática e Tecnologias que é professor da disciplina de
 Algoritmos no SENAC-SC. O professor teve acesso ao Minicurso de Algoritmos utilizado no experimento
 e teve o papel de avaliar a pertinência das palavras-chave identificadas na primeira versão do Dicionário e identificar
 mais palavras para agregar o conjunto de palavras-chave.
+
+\begin{table}[h]
+\footnotesize
+\caption[Dicionário de palavras-chave]{Dicionário de palavras-chave}
+\label{tab:dicionario-palavras-chave}
+\centering
+\begin{tabular}{|p{2cm}|p{4cm}|p{2cm}|p{4cm}|}
+\hline
+\textbf{\#} & \textbf{Palavras-chave}            & \textbf{\#} & \textbf{Palavras-chave}           \\
+\hline
+1  & Algoritmo                 & 27 & Narrativa                \\
+\hline
+2  & Aplicacao de algoritmo    & 28 & Operadores               \\
+\hline
+3  & Atribuicao                & 29 & Operadores aritmeticos   \\
+\hline
+4  & Blocos                    & 30 & Operadores logicos       \\
+\hline
+5  & Comentario                & 31 & Operadores relacionais   \\
+\hline
+6  & Compilador                & 32 & Para                     \\
+\hline
+7  & Constantes                & 33 & Portugol                 \\
+\hline
+8  & Decisao composta          & 34 & Precedencia de operadores\\
+\hline
+9  & Decisao encadeada         & 35 & Problema                 \\
+\hline
+10 & Decisao simples           & 36 & Processamento            \\
+\hline
+11 & Diagrama de Chapin        & 37 & Programa de computador   \\
+\hline
+12 & Enquanto                  & 38 & Pseudocodigo             \\
+\hline
+13 & Entrada                   & 39 & Repita                   \\
+\hline
+14 & Escolha                   & 40 & Saida                    \\
+\hline
+15 & Estrutura condicional     & 41 & Se                       \\
+\hline
+16 & Estrutura de repeticao    & 42 & Semantica                \\
+\hline
+17 & Estrutura sequencial      & 43 & Sintaxe                  \\
+\hline
+18 & Fluxograma                & 44 & Tipo caracter            \\
+\hline
+19 & Instrucao                 & 45 & Tipo inteiro             \\
+\hline
+20 & Interpretador             & 46 & Tipo logico              \\
+\hline
+21 & Linguagem C               & 47 & Tipo real                \\
+\hline
+22 & Linguagem de maquina      & 48 & Tipo texto               \\
+\hline
+23 & Linguagem de programacao  & 49 & Tipos de algoritmo       \\
+\hline
+24 & Linguagem natural         & 50 & Tipos de dados           \\
+\hline
+25 & Logica de programacao     & 51 & Variaveis                \\
+\hline
+26 & Matriz                    & 52 & Vetor                    \\
+\hline
+\end{tabular}
+\legend{Fonte: O autor.}
+\end{table}
 
 Depois de finalizado o processo de criação do Dicionário, foi realizada a associação de forma manual entre cada material dos Conceitos,
 Materiais Complementares e Links de Apoio com as palavras-chave do Dicionário. No total, 51 Conceitos, 28 Materiais
@@ -184,9 +249,25 @@ Ao final do minicurso, os alunos puderam acessar a avaliação do Minicurso, com
 sobre a percepção do usuário sobre o SR. As questões do questionário foram selecionadas de um
 conjunto de questões definidas por \citeonline{pu2011user} (presente no Anexo \ref{ane:questoes-framework}), considerando
 um dos objetivos desse experimento que é medir a percepção do usuário sobre as recomendações recebidas.
-As questões selecionadas foram traduzidas para o Português e estão presentes no Apêndice \ref{ape:questionario-de-satisfacao}.
-Além dessas questões, foi adicionada uma questão discursiva perguntando sobre os pontos positivos e negativos do SR utilizado.
+As questões selecionadas foram traduzidas para o Português e podem ser vistas a seguir:
 
+\begin{enumerate}
+\item Os itens recomendados corresponderam com os meus interesses;
+\item Os itens recomendados para mim são diversificados (o sistema se preocupa em trazer itens diferentes a cada recomendação);
+\item Os itens recomendados corresponderam aos  interesses e necessidades que eu tinha no momento;
+\item As recomendações são feitas no momento adequado;
+\item O sistema de recomendação explica porque os links são recomendados para mim;
+\item A informação apresentada na interface para os itens recomendados é suficiente para mim;
+\item O layout do sistema de recomendação é atrativo e adequado;
+\item Eu encontrei facilmente o local onde os itens são recomendados;
+\item Eu percebi que o sistema de recomendação aprendia sobre minhas necessidades/preferências conforme eu avançava na disciplina;
+\item É facil encontrar um item para estudar com a ajuda do sistema de recomendação;
+\item Eu me senti apoiado para encontrar itens do meu interesse com a ajuda do sistema de recomendação;
+\item Eu entendi porque os itens foram recomendados para mim;
+\item No geral, estou satisfeito com o sistema de recomendação.
+\end{enumerate}
+
+Além dessas questões, foi adicionada uma questão discursiva perguntando sobre os pontos positivos e negativos do SR utilizado.
 Durante o desenvolvimento do Minicurso foram utilizadas as Intervenções definidas por \citeonline{santos2017addie}, para
 fazer com que os alunos fiquem engajados no curso. As Intervenções são \textit{e-mails} combinados com postagens no Fórum de Discussão
 que guiam os alunos no seu estudo e também propõem desafios para os estudantes. As Intervenções propostas por \citeonline{santos2017addie}
