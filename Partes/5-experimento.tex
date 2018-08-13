@@ -494,48 +494,50 @@ relação a diversas métricas. As análises feitas foram da (1) Quantidade de r
 (2) Quantidade de avaliações positivas para as recomendações, (3) Quantidade de avaliações negativas para as recomendações,
 (4) Precisão do algoritmo de recomendação, (5) Cobertura do algoritmo de recomendação e (6) F-measure do algoritmo de
 recomendação, comparando os alunos que utilizaram a abordagem Baseada em Conteúdo Tradicional com os alunos
-que utilizaram a Proposta desse trabalho. Os resultados das análises realizadas nessa Seção estão presentes no Apêndice \ref{ape:analise-estatistica-do-uso}.
+que utilizaram a Proposta desse trabalho. Os resultados em detalhes das análises estatísticas realizadas nessa Seção estão presentes no Apêndice \ref{ape:analise-estatistica-do-uso}.
 
 Para a análise da quantidade de recomendações acessadas, foram considerados apenas os alunos que acessaram pelo
-menos uma recomendação no ambiente (i.e., 85 alunos). A média do grupo AlgoritmoTradicional foi de 4,935 itens
-acessados por aluno, enquanto no grupo AlgoritmoProposta foi de 6,5 itens. A análise utilizando o Teste de normalidade de
-Shapiro-Wilk mostrou que a distribuição dos dados não é normal e portanto o Teste não-paramétrico de Mann-Whitney U foi utilizado
-para comparar os dois fatores. Esse Teste mostrou que não existe diferença significativa entre as amostras e portanto
+menos uma recomendação no ambiente (i.e., 85 alunos). O grupo AlgoritmoTradicional teve média de 4,935 itens
+acessados por aluno e mediana de 4 itens, enquanto no grupo AlgoritmoProposta a média foi de 10,15 itens e a mediana de 5 itens.
+A análise utilizando o Teste de normalidade de Shapiro-Wilk mostrou que a distribuição dos dados não é normal (com $p-value < 2.2 \cdot 10^{-16}$)
+e portanto o Teste não-paramétrico de Mann-Whitney U foi utilizado
+para comparar os dois fatores. Esse Teste mostrou que não existe diferença significativa entre as amostras (com $p-value = 0.4957$) e portanto
 não podemos afirmar que existe diferença na quantidade de recomendações acessadas nos dois grupos analisados.
 
 A análise realizada sobre as avaliações positivas para as recomendações utilizou apenas os alunos que avaliaram positivamente
-alguma recomendação (i.e., 52 alunos). A média da quantidade de avaliações positivas para o grupo AlgoritmoTradicional
-foi de 4,7 avaliações por aluno, enquanto no grupo AlgoritmoProposta foi de 10,64 avaliações por aluno.
+alguma recomendação (i.e., 52 alunos). O grupo AlgoritmoTradicional teve média de 4,7 avaliações positivas por aluno e
+mediana de 4 avaliações, enquanto o grupo AlgoritmoProposta teve média de 10,64 avaliações por aluno e mediana de 2,5 avaliações.
 Essa análise teve um resultado similar ao anterior, onde o Teste de normalidade de Shapiro-Wilk também mostrou que a
-distribuição é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre
-as amostras dos dois grupos.
+distribuição é não-normal (com $p-value = 1.654 \cdot 10^{-13}$) e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre
+as amostras dos dois grupos (com $p-value = 0.8275$).
 
 A análise da quantidade de avaliações negativas para as recomendações utilizou apenas os alunos que avaliaram negativamente
-os itens (i.e., 7 alunos). A média de avaliações para o grupo AlgoritmoTradicional foi de 1 avaliação negativa
-por aluno, enquanto para o grupo AlgoritmoProposta foi de 2 avaliações negativas por aluno. Ao realizar
-a análise estatística, o Teste de normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal. O Teste
-não-paramétrico de Mann-Whitney U foi aplicado e mostrou que não existe diferença significativa para esse critério entre
-os dois grupos.
+os itens (i.e., 7 alunos). O grupo AlgoritmoTradicional teve média e mediana de 1 avaliação negativa
+por aluno, enquanto o grupo AlgoritmoProposta teve média e mediana de 2 avaliações negativas por aluno.
+Ao realizar a análise estatística, o Teste de normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal
+(com $p-value = 4.136 \cdot 10^{-06}$). O Teste não-paramétrico de Mann-Whitney U foi aplicado e mostrou que não existe
+diferença significativa para esse critério entre os dois grupos com ($p-value = 0.2059$).
 
 A Precisão dos algoritmos de recomendação foi calculada para cada aluno que acessou pelo menos uma recomendação dentro do
 ambiente (i.e., 85 alunos) dividindo a quantidade de recomendações distintas acessadas pelo usuário pela quantidade de
 itens distintos que foram recomendados para o usuário durante todo o minicurso. Essa métrica resulta em um valor entre
 0 e 1, onde um valor próximo de 0 indica que poucos dos itens recomendados foram acessados e um valor próximo de 1
 mostra que a maioria dos itens recomendados foram acessados, independente da quantidade de vezes que um item foi
-acessado e da quantidade de vezes que o item foi recomendado. A média da Precisão para o grupo AlgoritmoTradicional foi
-0,49679 e para o AlgoritmoProposta foi 0,39859. O Teste de normalidade de Shapiro-Wilk mostra que a distribuição dos
-dados da Precisão é não-normal e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre as
-precisão calculada para cada algoritmo.
+acessado e da quantidade de vezes que o item foi recomendado. O grupo AlgoritmoTradicional teve média de
+0,49679 e mediana de 0,42857, enquanto o AlgoritmoProposta teve média de 0,39859 e mediana de 0,31818.
+O Teste de normalidade de Shapiro-Wilk mostra que a distribuição dos
+dados da Precisão é não-normal (com $p-value = 4.234 \cdot 10^{-06}$) e o Teste de Mann-Whitney U mostrou que não existem diferença signifitiva entre a
+precisão calculada para cada algoritmo (com $p-value = 0.2603$).
 
 A Cobertura dos algoritmos da recomendação foi calculada considerando os alunos que acessaram pelo menos uma recomendação
 dentro do Minicurso (i.e., 85 alunos). Essa métrica foi calculada dividindo a quantidade de itens distintos recebidos
 como recomendação pelo usuário pela quantidade de itens disponíveis para recomendação na disciplina (i.e., 108 itens) e mostra
-a porcentagem dos itens disponíveis para recomendação que foram efetivamente recomendados. A média da Cobertura para o
-grupo AlgoritmoTradicional é de 0,10064 e para o AlgoritmoProposta é de 0,17450. Ao realizar o Teste de
-normalidade de Shapiro-Wilk o resultado mostrou que a distribuição dos dados é não-normal. Quando aplicado o Teste de Mann-Whitney
-U o resultado mostrou que existe diferença significativa entre os resultados dos dois grupos com relação à Cobertura e, nesse caso,
-podemos afirmar que o algoritmo Com Decaimento tem uma Cobertura melhor que a algoritmo Tradicional. Essa diferença significativa
-mostra que a Proposta desse trabalho ajuda a diminuir o problema da Superespecialização presente na abordagem Tradicional.
+a porcentagem dos itens disponíveis para recomendação que foram efetivamente recomendados. O grupo AlgoritmoTradicional
+teve média de 0,10064 e mediana de 0,09259, enquanto o AlgoritmoProposta teve média de 0,17450 e mediana de 0,14815 na cobertura.
+Ao realizar o Teste de normalidade de Shapiro-Wilk o resultado mostrou que a distribuição dos dados é não-normal (com $p-value = 1.421 \cdot 10^{-14}$).
+Quando aplicado o Teste de Mann-Whitney U o resultado mostrou que existe diferença significativa entre os resultados dos dois grupos com relação à Cobertura
+(com $p-value = 0.001031$) e, nesse caso, podemos afirmar que o algoritmo Com Decaimento tem uma Cobertura melhor que a
+algoritmo Tradicional. Essa diferença significativa mostra que a Proposta desse trabalho ajuda a diminuir o problema da Superespecialização presente na abordagem Tradicional.
 
 Como visto na Seção \ref{section:fundamentacao-avaliacao-sr}, o \textit{F-measure} é calculado como a média harmônica entre
 a Precisão e o \textit{Recall} do algoritmo. Essa métrica é interessante para garantir que o algoritmo não diminua o \textit{Recall}
@@ -543,13 +545,14 @@ para aumentar a Precisão, e vice-versa. Como no experimento realizado o \textit
 é possível saber todos os itens relevantes existentes para cada usuário (essa métrica é mais comum em experimentos
 \textit{offline}), nesse trabalho foi utilizado a Cobertura no cálculo do \textit{F-measure} ao invés do \textit{Recall}.
 Com isso podemos mostrar se o algoritmo Proposto teve uma melhor Cobertura que a abordagem Tradicional sem diminuir
-a sua Precisão. A análise foi realizada utilizando os 85 alunos que acessaram pelo menos uma recomendação e o valor médio
-dessa métrica proposta foi de 0,13852 para o grupo AlgoritmoTradicional e de 0,21719 o grupo AlgoritmoProposta.
-O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal e portanto o Teste de
-Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois grupos. Esse teste mostrou que
-existe diferença significativa entre os dois grupos e portanto podemos afirmar que F-measure, com a Cobertura ao invés
-do \textit{Recall}, teve um resultado melhor para o algoritmo proposto do que na abordagem tradicional. Isso mostra
-que o uso do Decaimento aumentou a Cobertura do algoritmo sem influenciar negativamente outros aspectos, como a Precisão.
+a sua Precisão. A análise foi realizada utilizando os 85 alunos que acessaram pelo menos uma recomendação. O grupo AlgoritmoTradicional
+teve média de 0,13852 nessa métrica e mediana de 0,12952, enquanto para o grupo AlgoritmoProposta a média foi de 0,21719
+e mediana de 0,16393. O Teste de Normalidade de Shapiro-Wilk mostrou que a distribuição dos dados é não-normal (com $p-value = 2.931 \cdot 10^{-13}$)
+e portanto o Teste de Mann-Whitney U foi utilizado para verificar a diferença significativa entre os dois grupos.
+Esse teste mostrou que existe diferença significativa entre os dois grupos (com $p-value = 0.02082$) e portanto podemos afirmar que o F-measure,
+calculado com a Cobertura ao invés do \textit{Recall}, teve um resultado melhor para o algoritmo proposto do que na abordagem
+tradicional. Isso mostra que o uso do Decaimento aumentou a Cobertura do algoritmo sem influenciar negativamente outros
+aspectos, como a Precisão.
 
 Como a Cobertura e F-measure deram diferença significativa, podemos aceitar a hipótese alternativa definida
 que diz que ``Há diferenças entre o desempenho da abordagem Baseada em Conteúdo Tradicional e a proposta desse trabalho''
@@ -557,10 +560,9 @@ e a diferença significativa nos dois casos foi favorável a proposta desse trab
 
 \subsection{Análise da Percepção do Usuário}\label{subsection:analise-questionario-satisfacao}
 
-A percepção dos usuários da qualidade das recomendações recebidas foi medida por meio do questionário presente no
-Apêndice \ref{ape:questionario-de-satisfacao}. O questionário possui 13 questões que foram selecionadas do questionário
-definido por \citeonline{pu2011user} (presente no Anexo \ref{ane:questoes-framework}) e traduzidas para o Português.
-Essas questões são afirmações nas quais os alunos devem se posicionar em uma escala de
+A percepção dos usuários da qualidade das recomendações recebidas foi medida por meio do questionário presente na Seção
+\ref{subsection:definicao-experimento}. O questionário possui 13 questões que foram selecionadas do questionário
+definido por \citeonline{pu2011user}. Essas questões são afirmações nas quais os alunos devem se posicionar em uma escala de
 Likert de cinco pontos, de ``Discordo Totalmente'' até ``Concordo Totalmente''. Também foi adicionada uma opção de
 ``Não utilizei'' para os alunos que não utilizaram o SR (ou usaram sem perceber). A Tabela
 \ref{tab:questionario-satisfacao-respostas} apresenta as respostas agrupadas dos alunos para cada uma das perguntas.
@@ -641,7 +643,7 @@ As respostas de ``Não utilizei'' não foram consideradas nessa análise. O resu
 \ref{ape:analise-estatistica-questionario}.
 
 A análise mostrou que a questão 12 (i.e., ``Eu entendi porque os itens foram recomendados para mim.'') apresentou
-diferença significativa entre as respostas dos dois grupos, e a diferença foi favorável ao grupo AlgoritmoProposta.
+diferença significativa entre as respostas dos dois grupos (com $p-value = 0.01513$), e a diferença foi favorável ao grupo AlgoritmoProposta.
 Para as outras questões não foi encontrada diferença significativa entre as respostas dos
 alunos dos dois grupos. A diferença existente na questão 12 mostra que os alunos do grupo AlgoritmoProposta perceberam
 melhor a relação entre os conteúdos que acessaram com os links que foram recomendados para eles
