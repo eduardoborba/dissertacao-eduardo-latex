@@ -279,6 +279,13 @@ específicas que não são cobertas por essas abordagens. Por exemplo, é muito 
 um estudante, que pode desmotivá-lo nos seus estudos, do que recomendar um produto ruim em um site de \textit{e-commerce}.
 De acordo com \citeonline{verbert2012context} esse domínio requer um nível maior de personalização.
 
+Na área educacional é possível considerar o perfil do usuário unicamente com base nas suas ações dentro da disciplina
+em questão ou então com base no seu perfil dentro de um determinado curso composto de diversas disciplinas. Além disso,
+é possível gerar recomendações para o usuário que sejam apenas de itens disponíveis no sistema que geralmente são
+cadastrados por um professor (conceito de mundo fechado) ou então buscar materiais em outros repositórios ou sites
+externos através do uso de robôs (conceito de mundo aberto). Dessa forma, a proposta de um SR para a área educacional
+envolve mais variáveis e acaba se tornando mais complexa.
+
 Aplicar algumas dimensões do contexto é uma alternativa para melhorar a personalização em ambientes educacionais,
 recomendando materiais adequados para a situação atual do usuário. Por exemplo, considerar o histórico de aprendizagem
 do aluno, as condições do ambiente e a acessibilidade dos recursos \cite{verbert2012context}.
@@ -401,6 +408,11 @@ importante considerar que os interesses mais atuais do usuário representam melh
 antigos. É importante notar que as interações antigas não são ignoradas pelo algoritmo de recomendação com Decaimento, é
 apenas dado um peso menor para essas interações.
 
+Nessa categoria a velocidade com que a importância de uma interação decai, também chamada de fator de decaimento,
+é uma variável do algoritmo que varia de acordo com o domínio de aplicação (de acordo com a necessidade de dar uma importância
+maior para os itens recentes para determinado sistema) ou até mesmo com o perfil do usuário (considerando que determinados
+usuários podem perder o interesse por itens antigos mais rapidamente que outros).
+
 \subsection{Time Rating}
 
 Na categoria \textit{Time Rating}, o tempo é considerado pelo SR para inferir as preferências do usuário. Nessa categoria, o SR
@@ -418,7 +430,8 @@ definida (por exemplo, duas semanas) e itens que sejam mais velhos que isso ser�
 (2) o SR não ignora itens antigos, porém os itens novos possuem um peso maior e, se dois itens similares estiverem para
 ser recomendados, o mais novo é o escolhido mesmo que o mais antigo esteja mais de acordo com o perfil do usuário.
 Essa categoria é mais comum em domínios onde novos itens tendem a ser mais relevantes que itens antigos, e.g., redes
-sociais, notícias, etc.
+sociais, notícias, etc. Na área educacional, essa categoria pode ser aplicada em disciplinas de áreas tecnológicas de evolução rápida,
+onde itens mais atuais tendem a ser mais adequados e/ou corretos que itens antigos.
 
 \subsection{Sequence}\label{subsection:sequence}
 
